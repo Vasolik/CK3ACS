@@ -1,0 +1,38 @@
+﻿                        #OR = {
+                        #    has_father = no
+                        #    and = {
+                        #        father = {
+                        #            is_alive = no
+                        #            OR = {
+                        #                has_father = no
+                        #                father = { is_alive = no }
+                        #            }
+                        #            OR = {
+                        #                has_mother = no
+                        #                mother = { is_alive = no }
+                        #            }
+                        #        }
+                        #        
+                        #    }
+                        #    
+                        #}
+                        #
+                        #OR = {
+                        #    has_mother = no
+                        #    and = {
+                        #        mother = {
+                        #            is_alive = no
+                        #            OR = {
+                        #                has_father = no
+                        #                father = { is_alive = no }
+                        #            }
+                        #            OR = {
+                        #                has_mother = no
+                        #                mother = { is_alive = no }
+                        #            }
+                        #        }
+                        #        
+                        #    }
+                        #    
+                        #}
+                        #holds_landed_title = no

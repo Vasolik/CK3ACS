@@ -1,0 +1,315 @@
+﻿create_searched_character_list = {
+    if = {
+        limit = {
+            NOT = { has_variable = is_acs_building_list }
+        }
+        set_variable = is_acs_building_list
+    
+        if = {
+            limit = {
+                NOT = { has_global_variable = acs_filter_sexuality }
+            }
+            acs_reset_filters_and_sorting = yes
+        }
+        clear_acs_list = yes
+        save_scope_as = acs_filter_diplomatic_range_root
+        save_scope_as = acs_filter_hooks_root
+        save_scope_as = acs_filter_religion_root
+        save_scope_as = acs_filter_culture_root
+        save_scope_as = acs_filter_dynasty_root
+        save_scope_as = acs_sort_root
+        if = {
+            limit = {
+                acs_filter = yes
+            }  
+            add_to_temporary_list = acs_to_sort
+        }
+        if = {
+            limit = { global_var:acs_filter_relation = 0 }
+            every_living_character = {
+                limit = {
+                    acs_filter = yes
+                }  
+                add_to_temporary_list = acs_to_sort
+            }
+        }
+        if = {
+            limit = { global_var:acs_filter_relation = 1 }
+            top_liege = {
+                every_vassal_or_below = {
+                    every_courtier_or_guest = {
+                        limit = {
+                            AND = {
+                                is_alive = yes
+                                acs_filter = yes
+                            }
+                        }
+                        add_to_temporary_list = acs_to_sort
+                    }
+                    if = {
+                        limit = {
+                            acs_filter = yes
+                        }  
+                        add_to_temporary_list = acs_to_sort
+                    }
+                }
+            }
+        }
+
+        if = {
+            limit = { global_var:acs_filter_relation = 2 }
+            every_vassal_or_below = {
+                every_courtier_or_guest = {
+                    limit = {
+                        AND = {
+                            is_alive = yes
+                            acs_filter = yes
+                        }
+                    }
+                    add_to_temporary_list = acs_to_sort
+                }
+                if = {
+                    limit = {
+                        acs_filter = yes
+                    }  
+                    add_to_temporary_list = acs_to_sort
+                }
+            }
+        }
+        
+        if = {
+            limit = { global_var:acs_filter_relation = 3 }
+            every_vassal = {
+                limit = {
+                    AND = {
+                        is_alive = yes
+                        acs_filter = yes
+                    }
+                }
+                add_to_temporary_list = acs_to_sort
+            }
+        }
+
+        if = {
+            limit = { global_var:acs_filter_relation = 4 }
+            every_courtier_or_guest = {
+                limit = {
+                    AND = {
+                        is_alive = yes
+                        acs_filter = yes
+                    }
+                }
+                add_to_temporary_list = acs_to_sort
+            }
+        }
+
+        ordered_in_list = {
+            list = acs_to_sort
+            order_by = acs_sort_value
+            max = 500
+            check_range_bounds = no
+            root = {
+                add_to_variable_list = {
+                    name = acs_list
+                    target = prev
+                }
+            }
+            set_claim_data = yes
+            set_index_data = yes
+            set_variable = {  name = sort value = this.magic_souce days = 1 } 
+            set_variable = {  name = age_sort value = this.age_sort_function days = 1 } 
+            set_variable = {  name = health_sort value = this.health_sort_function days = 1 } 
+                
+        }
+        remove_variable = is_acs_building_list
+    }  
+}
+
+acs_reset_filters_and_sorting = {
+    set_global_variable = { name = acs_sort_by value = 0  }
+    set_global_variable = { name = acs_sort_by_assending value = yes  }
+    set_global_variable = { name = acs_filter_relation value = 1 }
+    set_global_variable = { name = acs_filter_diplomatic_range value = 0 }
+    set_global_variable = { name = acs_filter_ruler value = 0 }
+    set_global_variable = { name = acs_filter_adult value = 0 }
+    set_global_variable = { name = acs_filter_gender value = 0 }
+    set_global_variable = { name = acs_filter_martial_status value = 0 }
+    set_global_variable = { name = acs_filter_imprisonment_status value = 0 }
+    set_global_variable = { name = acs_filter_hooks value = 0 }
+    set_global_variable = { name = acs_filter_religion value = 0 }
+    set_global_variable = { name = acs_filter_culture value = 0 }
+    set_global_variable = { name = acs_filter_dynasty value = 0 }
+    set_global_variable = { name = acs_filter_sexuality value = 0 }
+}
+
+clear_acs_list = {
+    every_in_list = {
+        list = acs_list
+        clear_claim_data = yes
+        clear_index_data = yes
+    }
+    clear_variable_list = acs_list
+}
+
+set_claim_data = {
+    if = {
+        limit = {
+            NOT = { has_variable = is_acs_building_claim_list }
+        }
+        
+        save_scope_as = target_character
+        set_variable = is_acs_building_claim_list
+        set_variable = {  name = acs_top_claim_value value = 0 days = 1  }
+        set_variable = {  name = acs_is_top_claim_explicit value = no days = 1  }
+        set_variable = {  name = acs_is_top_claim_pressed value = no days = 1  }
+        ordered_claim = {
+            explicit = no
+            order_by = claim_value_for_sort
+            max = 1
+            save_scope_as = acs_top_claim
+            prev = {
+                set_variable = {  name = acs_top_claim_value value = scope:acs_top_claim.claim_value_for_sort days = 1 } 
+            }
+        }
+        set_variable = { name = acs_top_unpressed_claim_value value = 0 days = 1 }
+        ordered_claim = {
+            explicit = yes
+            pressed = no
+            order_by = claim_value_for_sort
+            max = 1
+            save_scope_as = acs_top_unpressed_claim
+            prev = {
+                set_variable = {  name = acs_top_unpressed_claim_value value = scope:acs_top_unpressed_claim.claim_value_for_sort days = 1 } 
+            }
+        }
+        if = {
+            limit = {
+                OR = {
+                    var:acs_top_unpressed_claim_value > var:acs_top_claim_value
+                    var:acs_top_unpressed_claim_value = var:acs_top_claim_value
+                }
+                
+                var:acs_top_unpressed_claim_value > 0
+            }
+            scope:acs_top_unpressed_claim = {
+                save_scope_as = acs_top_claim
+            }
+            
+            set_variable = { name = acs_top_claim_value value = var:acs_top_unpressed_claim_value days = 1 } 
+            set_variable = {  name = acs_is_top_claim_explicit value = yes days = 1  }
+        }
+        set_variable = { name = acs_top_pressed_claim_value value = 0 days = 1 }
+        ordered_claim = {
+            explicit = yes
+            pressed = yes
+            order_by = claim_value_for_sort
+            max = 1
+            save_scope_as = acs_top_pressed_claim
+            prev = {
+                set_variable = { name = acs_top_pressed_claim_value value = scope:acs_top_pressed_claim.claim_value_for_sort days = 1  } 
+            }
+        }
+        if = {
+            limit = {
+                OR = {
+                    var:acs_top_pressed_claim_value > var:acs_top_claim_value
+                    var:acs_top_pressed_claim_value = var:acs_top_claim_value
+                }
+                
+                var:acs_top_pressed_claim_value > 0
+            }
+            scope:acs_top_pressed_claim = {
+                save_scope_as = acs_top_claim
+            }
+            
+            set_variable = {  name = acs_is_top_claim_explicit value = yes days = 1  }
+            set_variable = {  name = acs_is_top_claim_pressed value = yes days = 1  }
+        }
+        if = {
+            limit = { exists = scope:acs_top_claim }
+            set_variable = { name = acs_best_claim value = scope:acs_top_claim days = 1 } 
+        }
+
+        set_variable = { name = acs_total_claim_value value = total_claim_value days = 1 } 
+
+        remove_variable = acs_top_claim_value
+        remove_variable = acs_top_unpressed_claim_value
+        remove_variable = acs_top_pressed_claim_value
+
+        clear_variable_list = acs_implicit_claim_list
+        every_claim = {
+            explicit = no
+            save_scope_as = to_add
+            scope:target_character = {
+                add_to_variable_list = {
+                    name = acs_implicit_claim_list
+                    target = scope:to_add
+                }
+            }
+        }
+        clear_variable_list = acs_unpressed_claim_list
+        every_claim = {
+            explicit = yes
+            pressed = no
+            save_scope_as = to_add
+            scope:target_character = {
+                add_to_variable_list = {
+                    name = acs_unpressed_claim_list
+                    target = prev
+                }
+            }
+        }
+        clear_variable_list = acs_pressed_claim_list
+        every_claim = {
+            explicit = yes
+            pressed = yes
+            scope:target_character = {
+                add_to_variable_list = {
+                    name = acs_pressed_claim_list
+                    target = prev
+                }
+            }
+        }
+        remove_variable = is_acs_building_claim_list
+    } 
+}
+set_index_data = {
+    if = {
+        limit = { exists = global_var:acs_next_even }
+        set_variable = { name = acs_even value = yes days = 1 }
+        remove_global_variable = acs_next_even
+    }
+    else = {
+        set_global_variable = acs_next_even
+    }
+}
+clear_claim_data = {
+    remove_variable = acs_best_claim
+    remove_variable = acs_total_claim_value
+    clear_variable_list = acs_implicit_claim_list
+    clear_variable_list = acs_unpressed_claim_list
+    clear_variable_list = acs_pressed_claim_list
+    clear_variable_list = acs_is_top_claim_explicit
+    clear_variable_list = acs_is_top_claim_pressed
+}
+
+clear_index_data = {
+    if = {
+        limit = { exists = var:acs_even }
+        remove_variable = acs_even
+    }
+}
+
+acs_change_sort_order = {
+    if = {
+        limit = { global_var:acs_sort_by_assending = yes }
+        set_global_variable = {  name = acs_sort_by_assending value = no }
+    }
+    else = {
+        set_global_variable = {  name = acs_sort_by_assending value = yes }
+    }
+    
+    #for debug:
+    set_variable = {name = acs_sort_by value = global_var:acs_sort_by}
+    set_variable = {name = acs_sort_by_assending value = global_var:acs_sort_by_assending}
+}
