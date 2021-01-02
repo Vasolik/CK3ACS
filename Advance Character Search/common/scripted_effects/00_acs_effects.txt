@@ -7,7 +7,7 @@
     
         if = {
             limit = {
-                NOT = { has_global_variable = acs_filter_sexuality }
+                NOT = { has_global_variable = acs_auto_apply_sorting_and_filters }
             }
             acs_reset_filters_and_sorting = yes
         }
@@ -139,7 +139,9 @@ acs_reset_filters_and_sorting = {
     set_global_variable = { name = acs_filter_religion value = 0 }
     set_global_variable = { name = acs_filter_culture value = 0 }
     set_global_variable = { name = acs_filter_dynasty value = 0 }
-    set_global_variable = { name = acs_filter_sexuality value = 0 }
+	set_global_variable = { name = acs_filter_sexuality value = 0 }
+	set_global_variable = { name = acs_auto_apply_sorting_and_filters value = yes }
+	
 }
 
 clear_acs_list = {
