@@ -78,6 +78,7 @@ acs_sort_by_health = {
             set_global_variable = {  name = acs_sort_by value = 0 }
             set_global_variable = {  name = acs_sort_by_assending value = no }
         }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -97,6 +98,7 @@ acs_sort_by_title = {
             set_global_variable = {  name = acs_sort_by value = 1 }
             set_global_variable = {  name = acs_sort_by_assending value = no }
         }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -116,6 +118,7 @@ acs_sort_by_age = {
             set_global_variable = {  name = acs_sort_by value = 2 }
             set_global_variable = {  name = acs_sort_by_assending value = no }
         }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -135,6 +138,7 @@ acs_sort_by_opinion = {
             set_global_variable = {  name = acs_sort_by value = 3 }
             set_global_variable = {  name = acs_sort_by_assending value = no }
         }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -154,6 +158,7 @@ acs_sort_by_diplomacy = {
             set_global_variable = {  name = acs_sort_by value = 4 }
             set_global_variable = {  name = acs_sort_by_assending value = no }
         }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -173,7 +178,7 @@ acs_sort_by_martial = {
             set_global_variable = {  name = acs_sort_by value = 5 }
             set_global_variable = {  name = acs_sort_by_assending value = no }
         }
-        
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -193,6 +198,7 @@ acs_sort_by_stewardship = {
             set_global_variable = {  name = acs_sort_by value = 6 }
             set_global_variable = {  name = acs_sort_by_assending value = no }
         }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -212,6 +218,7 @@ acs_sort_by_intrigue = {
             set_global_variable = {  name = acs_sort_by value = 7 }
             set_global_variable = {  name = acs_sort_by_assending value = no }
         }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -231,6 +238,7 @@ acs_sort_by_learning = {
             set_global_variable = {  name = acs_sort_by value = 8 }
             set_global_variable = {  name = acs_sort_by_assending value = no }
         }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -250,6 +258,7 @@ acs_sort_by_prowess = {
             set_global_variable = {  name = acs_sort_by value = 9 }
             set_global_variable = {  name = acs_sort_by_assending value = no }
         }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -269,6 +278,7 @@ acs_sort_by_all_stats = {
             set_global_variable = {  name = acs_sort_by value = 10 }
             set_global_variable = {  name = acs_sort_by_assending value = no }
         }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -288,6 +298,149 @@ acs_sort_by_magic_sauce = {
             set_global_variable = {  name = acs_sort_by value = 11 }
             set_global_variable = {  name = acs_sort_by_assending value = no }
         }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_gold = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 12
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 12 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 12 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+
+acs_sort_by_prestige = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 13
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 13 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 13 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_piety = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 14
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 14 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 14 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_military_strength = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 15
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 15 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 15 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_dread = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 16
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 16 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 16 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+
+acs_sort_by_progeny = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 17
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 17 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 17 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_claim = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 18
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 18 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 18 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -300,6 +453,7 @@ acs_change_sort_order = {
         
     effect = {
         acs_change_sort_order = yes
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -312,6 +466,7 @@ acs_filter_relation_all = {
         
     effect = {
         set_global_variable = {  name = acs_filter_relation value = 0 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -324,6 +479,7 @@ acs_filter_relation_top_relm = {
         
     effect = {
         set_global_variable = {  name = acs_filter_relation value = 1 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -336,6 +492,7 @@ acs_filter_relation_relm = {
         
     effect = {
         set_global_variable = {  name = acs_filter_relation value = 2 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -348,6 +505,7 @@ acs_filter_relation_vassals = {
         
     effect = {
         set_global_variable = {  name = acs_filter_relation value = 3 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -360,6 +518,7 @@ acs_filter_relation_court = {
         
     effect = {
         set_global_variable = {  name = acs_filter_relation value = 4 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -372,6 +531,7 @@ acs_filter_diplomatic_range_all = {
         
     effect = {
         set_global_variable = {  name = acs_filter_diplomatic_range value = 0 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -384,6 +544,7 @@ acs_filter_diplomatic_range_inside = {
         
     effect = {
         set_global_variable = {  name = acs_filter_diplomatic_range value = 1 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -396,6 +557,7 @@ acs_filter_diplomatic_range_outside = {
         
     effect = {
         set_global_variable = {  name = acs_filter_diplomatic_range value = 2 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -408,6 +570,7 @@ acs_filter_ruler_all = {
         
     effect = {
         set_global_variable = {  name = acs_filter_ruler value = 0 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -420,6 +583,7 @@ acs_filter_ruler_ruler = {
         
     effect = {
         set_global_variable = {  name = acs_filter_ruler value = 1 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -432,6 +596,7 @@ acs_filter_ruler_landed = {
         
     effect = {
         set_global_variable = {  name = acs_filter_ruler value = 2 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -444,6 +609,7 @@ acs_filter_ruler_unlanded = {
         
     effect = {
         set_global_variable = {  name = acs_filter_ruler value = 3 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -456,6 +622,7 @@ acs_filter_ruler_not_ruler = {
         
     effect = {
         set_global_variable = {  name = acs_filter_ruler value = 4 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -468,6 +635,7 @@ acs_filter_ruler_not_ruler_and_not_heir = {
         
     effect = {
         set_global_variable = {  name = acs_filter_ruler value = 5 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -480,6 +648,7 @@ acs_filter_ruler_independent_ruler = {
         
     effect = {
         set_global_variable = {  name = acs_filter_ruler value = 6 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -492,6 +661,7 @@ acs_filter_adult_all = {
         
     effect = {
         set_global_variable = {  name = acs_filter_adult value = 0 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -504,6 +674,7 @@ acs_filter_adult_child = {
         
     effect = {
         set_global_variable = {  name = acs_filter_adult value = 1 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -516,6 +687,7 @@ acs_filter_adult_adult = {
         
     effect = {
         set_global_variable = {  name = acs_filter_adult value = 2 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -528,6 +700,7 @@ acs_filter_adult_younger_adult = {
         
     effect = {
         set_global_variable = {  name = acs_filter_adult value = 3 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -540,6 +713,7 @@ acs_filter_adult_older_adult = {
         
     effect = {
         set_global_variable = {  name = acs_filter_adult value = 4 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -552,6 +726,7 @@ acs_filter_gender_all = {
         
     effect = {
         set_global_variable = {  name = acs_filter_gender value = 0 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -564,6 +739,7 @@ acs_filter_gender_female = {
         
     effect = {
         set_global_variable = {  name = acs_filter_gender value = 1 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -576,6 +752,7 @@ acs_filter_gender_male = {
         
     effect = {
         set_global_variable = {  name = acs_filter_gender value = 2 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -588,6 +765,7 @@ acs_filter_martial_status_all = {
         
     effect = {
         set_global_variable = {  name = acs_filter_martial_status value = 0 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -600,6 +778,7 @@ acs_filter_martial_status_merried = {
         
     effect = {
         set_global_variable = {  name = acs_filter_martial_status value = 1 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -612,6 +791,7 @@ acs_filter_martial_status_unmerried = {
         
     effect = {
         set_global_variable = {  name = acs_filter_martial_status value = 2 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -624,6 +804,7 @@ acs_filter_martial_status_betrothed = {
         
     effect = {
         set_global_variable = {  name = acs_filter_martial_status value = 3 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -636,6 +817,7 @@ acs_filter_martial_status_not_betrothed = {
         
     effect = {
         set_global_variable = {  name = acs_filter_martial_status value = 4 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -648,6 +830,7 @@ acs_filter_imprisonment_status_all = {
         
     effect = {
         set_global_variable = {  name = acs_filter_imprisonment_status value = 0 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -660,6 +843,7 @@ acs_filter_imprisonment_status_imprisoned = {
         
     effect = {
         set_global_variable = {  name = acs_filter_imprisonment_status value = 1 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -672,6 +856,7 @@ acs_filter_imprisonment_status_free = {
         
     effect = {
         set_global_variable = {  name = acs_filter_imprisonment_status value = 2 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -684,6 +869,7 @@ acs_filter_hooks_all = {
         
     effect = {
         set_global_variable = {  name = acs_filter_hooks value = 0 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -696,6 +882,7 @@ acs_filter_hooks_have_hook = {
         
     effect = {
         set_global_variable = {  name = acs_filter_hooks value = 1 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -708,6 +895,7 @@ acs_filter_hooks_no_hooks = {
         
     effect = {
         set_global_variable = {  name = acs_filter_hooks value = 2 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -720,6 +908,7 @@ acs_filter_hooks_know_secret = {
         
     effect = {
         set_global_variable = {  name = acs_filter_hooks value = 3 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -732,6 +921,7 @@ acs_filter_hooks_know_no_secret_no_hook = {
         
     effect = {
         set_global_variable = {  name = acs_filter_hooks value = 4 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -744,6 +934,7 @@ acs_filter_sexuality_all = {
         
     effect = {
         set_global_variable = {  name = acs_filter_sexuality value = 0 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -756,6 +947,7 @@ acs_filter_sexuality_heterosexual = {
         
     effect = {
         set_global_variable = {  name = acs_filter_sexuality value = 1 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -768,6 +960,7 @@ acs_filter_sexuality_homosexual = {
         
     effect = {
         set_global_variable = {  name = acs_filter_sexuality value = 2 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -780,6 +973,7 @@ acs_filter_sexuality_bisexual = {
         
     effect = {
         set_global_variable = {  name = acs_filter_sexuality value = 3 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -792,6 +986,7 @@ acs_filter_sexuality_asexual = {
         
     effect = {
         set_global_variable = {  name = acs_filter_sexuality value = 4 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -804,6 +999,7 @@ acs_filter_religion_all = {
         
     effect = {
         set_global_variable = {  name = acs_filter_religion value = 0 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -816,6 +1012,7 @@ acs_filter_religion_same_faith = {
         
     effect = {
         set_global_variable = {  name = acs_filter_religion value = 1 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -828,6 +1025,7 @@ acs_filter_religion_same_religion = {
         
     effect = {
         set_global_variable = {  name = acs_filter_religion value = 2 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -840,6 +1038,7 @@ acs_filter_religion_diferent_faith = {
         
     effect = {
         set_global_variable = {  name = acs_filter_religion value = 3 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -852,6 +1051,7 @@ acs_filter_religion_diferent_religion = {
         
     effect = {
         set_global_variable = {  name = acs_filter_religion value = 4 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -864,6 +1064,7 @@ acs_filter_culture_all = {
         
     effect = {
         set_global_variable = {  name = acs_filter_culture value = 0 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -876,6 +1077,7 @@ acs_filter_culture_same_culture_group = {
         
     effect = {
         set_global_variable = {  name = acs_filter_culture value = 1 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -888,6 +1090,7 @@ acs_filter_culture_same_culture = {
         
     effect = {
         set_global_variable = {  name = acs_filter_culture value = 2 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -900,6 +1103,7 @@ acs_filter_culture_different_cultural_group = {
         
     effect = {
         set_global_variable = {  name = acs_filter_culture value = 3 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -912,6 +1116,7 @@ acs_filter_culture_different_culture = {
         
     effect = {
         set_global_variable = {  name = acs_filter_culture value = 4 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -924,6 +1129,7 @@ acs_filter_dynasty_all = {
         
     effect = {
         set_global_variable = {  name = acs_filter_dynasty value = 0 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -936,6 +1142,7 @@ acs_filter_dynasty_same_dynasty = {
         
     effect = {
         set_global_variable = {  name = acs_filter_dynasty value = 1 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -948,6 +1155,7 @@ acs_filter_dynasty_different_dynasty = {
         
     effect = {
         set_global_variable = {  name = acs_filter_dynasty value = 2 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -960,6 +1168,7 @@ acs_filter_dynasty_same_house = {
         
     effect = {
         set_global_variable = {  name = acs_filter_dynasty value = 3 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -972,6 +1181,7 @@ acs_filter_dynasty_different_house = {
         
     effect = {
         set_global_variable = {  name = acs_filter_dynasty value = 4 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -984,6 +1194,7 @@ acs_filter_dynasty_not_lowborn = {
         
     effect = {
         set_global_variable = {  name = acs_filter_dynasty value = 5 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -996,6 +1207,7 @@ acs_filter_dynasty_lowborn = {
         
     effect = {
         set_global_variable = {  name = acs_filter_dynasty value = 6 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
@@ -1008,11 +1220,31 @@ acs_filter_dynasty_not_lowborn_different_dynasty = {
         
     effect = {
         set_global_variable = {  name = acs_filter_dynasty value = 7 }
+        acs_auto_apply_sorting_and_filters = yes
     }
 }
 
 acs_reset_filters_and_sorting = {
-	effect = {
+    effect = {
         acs_reset_filters_and_sorting = yes
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_auto_apply_sorting_and_filters = {
+    scope = character
+         
+    is_shown = { 
+        global_var:acs_auto_apply_sorting_and_filters = yes
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_auto_apply_sorting_and_filters = yes }
+            set_global_variable = {  name = acs_auto_apply_sorting_and_filters value = no }
+        }
+        else = {
+            set_global_variable = {  name = acs_auto_apply_sorting_and_filters value = yes }
+        }
     }
 }

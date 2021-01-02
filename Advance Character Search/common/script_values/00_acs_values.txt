@@ -170,8 +170,7 @@ acs_sort_value = {
 			limit = { is_ruler = yes }
 			add = primary_title.tier
 		}
-		else
-		{
+		else =	{
 			if = {
 				limit = { is_lowborn = yes }
 				add = -1
@@ -229,6 +228,63 @@ acs_sort_value = {
 	if = {
 		limit = { global_var:acs_sort_by = 11 }
 		add = magic_souce
+	}
+	if = {
+		limit = { global_var:acs_sort_by = 12 }
+		add = gold
+	}
+	if = {
+		limit = { global_var:acs_sort_by = 13 }
+		add = prestige
+	}
+	if = {
+		limit = { global_var:acs_sort_by = 14 }
+		add = piety
+	}
+	if = {
+		limit = { global_var:acs_sort_by = 15 }
+		add = max_military_strength
+	}
+	if = {
+		limit = { global_var:acs_sort_by = 16 }
+		add = dread
+	}
+	if = {
+		limit = { global_var:acs_sort_by = 17 }
+		every_child = {
+			if = {
+				limit = {is_alive = yes }
+				add = 1
+			}
+			every_child = {
+				if = {
+					limit = {is_alive = yes }
+					add = 1
+				}
+				every_child = {
+					if = {
+						limit = {is_alive = yes }
+						add = 1
+					}
+					every_child = {
+						if = {
+							limit = {is_alive = yes }
+							add = 1
+						}
+						every_child = {
+							if = {
+								limit = {is_alive = yes }
+								add = 1
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { global_var:acs_sort_by = 18 }
+		add = total_claim_value_for_sort
 	}
 	if = {
 		limit = { global_var:acs_sort_by_assending = yes }

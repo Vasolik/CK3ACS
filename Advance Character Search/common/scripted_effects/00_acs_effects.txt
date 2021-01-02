@@ -313,3 +313,10 @@ acs_change_sort_order = {
     set_variable = {name = acs_sort_by value = global_var:acs_sort_by}
     set_variable = {name = acs_sort_by_assending value = global_var:acs_sort_by_assending}
 }
+
+acs_auto_apply_sorting_and_filters = {
+    if = {
+        limit = { global_var:acs_auto_apply_sorting_and_filters = yes }
+        create_searched_character_list = yes
+    }
+}
