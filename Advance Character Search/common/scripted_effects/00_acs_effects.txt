@@ -102,7 +102,16 @@
                 add_to_temporary_list = acs_to_sort
             }
         }
-
+		set_variable = {  
+			name = acs_selected_count 
+			value = {
+				value = 0
+				every_in_list = {
+					list = acs_to_sort
+					add = 1
+				}
+			}  
+		} 
         ordered_in_list = {
             list = acs_to_sort
             order_by = acs_sort_value
@@ -116,9 +125,9 @@
             }
             set_claim_data = yes
             set_index_data = yes
-            set_variable = {  name = sort value = this.magic_souce days = 1 } 
-            set_variable = {  name = age_sort value = this.age_sort_function days = 1 } 
-            set_variable = {  name = health_sort value = this.health_sort_function days = 1 } 
+            #set_variable = {  name = sort value = this.magic_souce days = 1 } 
+            #set_variable = {  name = age_sort value = this.age_sort_function days = 1 } 
+            #set_variable = {  name = health_sort value = this.health_sort_function days = 1 } 
                 
         }
         remove_variable = is_acs_building_list
@@ -126,6 +135,15 @@
 }
 
 acs_reset_filters_and_sorting = {
+	if = {
+		limit = {
+			NOR = {
+				NOT = { has_global_variable = acs_auto_apply_sorting_and_filters }
+				acs_current_slot_used = -2 
+			}
+		}
+		acs_save_undo_0_filters = yes
+	}
     set_global_variable = { name = acs_sort_by value = 0  }
     set_global_variable = { name = acs_sort_by_assending value = yes  }
     set_global_variable = { name = acs_filter_relation value = 1 }
@@ -140,9 +158,906 @@ acs_reset_filters_and_sorting = {
     set_global_variable = { name = acs_filter_culture value = 0 }
     set_global_variable = { name = acs_filter_dynasty value = 0 }
 	set_global_variable = { name = acs_filter_sexuality value = 0 }
-	set_global_variable = { name = acs_auto_apply_sorting_and_filters value = yes }
+	if = {
+		limit = {
+			NOT = { has_global_variable = acs_auto_apply_sorting_and_filters }
+		}
+		set_global_variable = { name = acs_auto_apply_sorting_and_filters value = yes }
+	}
+}
+
+acs_load_0_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_0_used
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 0 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_0 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_0 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_0 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_0 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_0 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_0 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_0 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_0 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_0 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_0 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_0 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_0 }
+	}
+}
+
+acs_load_1_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_1_used	
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 1 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_1 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_1 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_1 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_1 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_1 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_1 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_1 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_1 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_1 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_1 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_1 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_1 }
+	}
+}
+
+acs_load_2_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_2_used
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 2 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_2 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_2 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_2 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_2 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_2 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_2 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_2 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_2 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_2 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_2 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_2 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_2 }
+	}
+}
+
+acs_load_3_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_3_used
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 3 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_3 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_3 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_3 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_3 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_3 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_3 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_3 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_3 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_3 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_3 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_3 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_3 }
+	}
+}
+
+acs_load_4_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_4_used
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 4 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_4 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_4 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_4 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_4 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_4 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_4 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_4 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_4 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_4 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_4 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_4 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_4 }
+	}
+}
+
+acs_load_5_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_5_used
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 5 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_5 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_5 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_5 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_5 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_5 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_5 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_5 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_5 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_5 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_5 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_5 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_5 }
+	}
+}
+
+acs_load_6_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_6_used
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 6 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_6 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_6 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_6 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_6 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_6 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_6 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_6 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_6 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_6 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_6 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_6 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_6 }
+	}
+}
+
+acs_load_7_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_7_used
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 7 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_7 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_7 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_7 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_7 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_7 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_7 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_7 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_7 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_7 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_7 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_7 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_7 }
+	}
+}
+
+acs_load_8_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_8_used
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 8 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_8 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_8 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_8 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_8 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_8 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_8 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_8 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_8 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_8 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_8 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_8 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_8 }
+	}
+}
+
+acs_load_9_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_9_used
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 9 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_9 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_9 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_9 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_9 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_9 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_9 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_9 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_9 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_9 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_9 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_9 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_9 }
+	}
+}
+
+acs_load_10_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_10_used
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 10 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_10 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_10 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_10 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_10 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_10 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_10 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_10 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_10 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_10 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_10 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_10 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_10 }
+	}
+}
+
+acs_load_11_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_11_used
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 11 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_11 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_11 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_11 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_11 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_11 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_11 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_11 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_11 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_11 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_11 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_11 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_11 }
+	}
+}
+acs_load_12_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_12_used
+		}
+		if = {
+			limit = {
+				NOT = { acs_current_slot_used = 12 }
+			}
+			acs_save_undo_0_filters = yes
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_12 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_12 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_12 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_12 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_12 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_12 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_12 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_12 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_12 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_12 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_12 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_12 }
+	}
+}
+
+acs_save_0_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_0 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_0 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_0 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_0 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_0 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_0 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_0 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_0 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_0 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_0 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_0 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_0 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_0_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_0_used
+	}
+}
+
+acs_save_1_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_1 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_1 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_1 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_1 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_1 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_1 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_1 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_1 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_1 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_1 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_1 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_1 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_1_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_1_used
+	}
+}
+
+acs_save_2_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_2 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_2 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_2 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_2 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_2 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_2 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_2 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_2 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_2 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_2 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_2 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_2 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_2_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_2_used
+	}
+}
+
+acs_save_3_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_3 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_3 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_3 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_3 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_3 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_3 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_3 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_3 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_3 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_3 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_3 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_3 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_3_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_3_used
+	}
+}
+
+acs_save_4_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_4 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_4 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_4 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_4 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_4 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_4 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_4 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_4 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_4 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_4 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_4 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_4 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_4_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_4_used
+	}
+}
+
+acs_save_5_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_5 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_5 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_5 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_5 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_5 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_5 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_5 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_5 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_5 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_5 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_5 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_5 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_5_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_5_used
+	}
+}
+
+acs_save_6_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_6 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_6 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_6 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_6 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_6 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_6 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_6 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_6 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_6 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_6 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_6 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_6 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_6_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_6_used
+	}
+}
+
+acs_save_7_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_7 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_7 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_7 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_7 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_7 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_7 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_7 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_7 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_7 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_7 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_7 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_7 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_7_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_7_used
+	}
+}
+
+acs_save_8_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_8 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_8 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_8 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_8 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_8 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_8 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_8 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_8 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_8 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_8 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_8 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_8 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_8_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_8_used
+	}
+}
+
+acs_save_9_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_9 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_9 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_9 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_9 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_9 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_9 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_9 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_9 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_9 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_9 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_9 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_9 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_9_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_9_used
+	}
+}
+
+
+acs_save_10_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_10 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_10 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_10 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_10 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_10 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_10 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_10 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_10 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_10 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_10 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_10 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_10 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_10_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_10_used
+	}
+}
+
+acs_save_11_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_11 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_11 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_11 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_11 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_11 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_11 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_11 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_11 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_11 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_11 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_11 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_11 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_11_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_11_used
+	}
+}
+
+acs_save_12_filters = {
+	if = {
+		limit = {
+			NOT = { acs_current_slot_used = -2 }
+		}
+		set_global_variable = { name = acs_filter_relation_12 value = global_var:acs_filter_relation }
+		set_global_variable = { name = acs_filter_diplomatic_range_12 value = global_var:acs_filter_diplomatic_range }
+		set_global_variable = { name = acs_filter_ruler_12 value = global_var:acs_filter_ruler }
+		set_global_variable = { name = acs_filter_adult_12 value = global_var:acs_filter_adult }
+		set_global_variable = { name = acs_filter_gender_12 value = global_var:acs_filter_gender }
+		set_global_variable = { name = acs_filter_martial_status_12 value = global_var:acs_filter_martial_status }
+		set_global_variable = { name = acs_filter_imprisonment_status_12 value = global_var:acs_filter_imprisonment_status }
+		set_global_variable = { name = acs_filter_hooks_12 value = global_var:acs_filter_hooks }
+		set_global_variable = { name = acs_filter_religion_12 value = global_var:acs_filter_religion }
+		set_global_variable = { name = acs_filter_culture_12 value = global_var:acs_filter_culture }
+		set_global_variable = { name = acs_filter_dynasty_12 value = global_var:acs_filter_dynasty }
+		set_global_variable = { name = acs_filter_sexuality_12 value = global_var:acs_filter_sexuality }
+		set_global_variable = asc_save_slot_12_used
+	}
+	else = {
+		remove_global_variable = asc_save_slot_11_used
+	}
+}
+
+acs_load_undo_0_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_undo_0_used
+		}
+		set_global_variable = { name = acs_filter_relation value = global_var:acs_filter_relation_undo_0 }
+		set_global_variable = { name = acs_filter_diplomatic_range value = global_var:acs_filter_diplomatic_range_undo_0 }
+		set_global_variable = { name = acs_filter_ruler value = global_var:acs_filter_ruler_undo_0 }
+		set_global_variable = { name = acs_filter_adult value = global_var:acs_filter_adult_undo_0 }
+		set_global_variable = { name = acs_filter_gender value = global_var:acs_filter_gender_undo_0 }
+		set_global_variable = { name = acs_filter_martial_status value = global_var:acs_filter_martial_status_undo_0 }
+		set_global_variable = { name = acs_filter_imprisonment_status value = global_var:acs_filter_imprisonment_status_undo_0 }
+		set_global_variable = { name = acs_filter_hooks value = global_var:acs_filter_hooks_undo_0 }
+		set_global_variable = { name = acs_filter_religion value = global_var:acs_filter_religion_undo_0 }
+		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_undo_0 }
+		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_undo_0 }
+		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_undo_0 }
+		if = {
+			limit = {
+				NOT = { has_global_variable = asc_save_slot_undo_1_used }
+			}
+			remove_global_variable = asc_save_slot_undo_0_used
+		}
+		acs_load_undo_1_filters = yes
+	}
 	
 }
+
+acs_load_undo_1_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_undo_1_used
+			
+		}
+		set_global_variable = { name = acs_filter_relation_undo_0 value = global_var:acs_filter_relation_undo_1 }
+		set_global_variable = { name = acs_filter_diplomatic_range_undo_0 value = global_var:acs_filter_diplomatic_range_undo_1 }
+		set_global_variable = { name = acs_filter_ruler_undo_0 value = global_var:acs_filter_ruler_undo_1 }
+		set_global_variable = { name = acs_filter_adult_undo_0 value = global_var:acs_filter_adult_undo_1 }
+		set_global_variable = { name = acs_filter_gender_undo_0 value = global_var:acs_filter_gender_undo_1 }
+		set_global_variable = { name = acs_filter_martial_status_undo_0 value = global_var:acs_filter_martial_status_undo_1 }
+		set_global_variable = { name = acs_filter_imprisonment_status_undo_0 value = global_var:acs_filter_imprisonment_status_undo_1 }
+		set_global_variable = { name = acs_filter_hooks_undo_0 value = global_var:acs_filter_hooks_undo_1 }
+		set_global_variable = { name = acs_filter_religion_undo_0 value = global_var:acs_filter_religion_undo_1 }
+		set_global_variable = { name = acs_filter_culture_undo_0 value = global_var:acs_filter_culture_undo_1 }
+		set_global_variable = { name = acs_filter_dynasty_undo_0 value = global_var:acs_filter_dynasty_undo_1 }
+		set_global_variable = { name = acs_filter_sexuality_undo_0 value = global_var:acs_filter_sexuality_undo_1 }
+		if = {
+			limit = {
+				NOT = {has_global_variable = asc_save_slot_undo_2_used }
+			}
+			remove_global_variable = asc_save_slot_undo_1_used
+		}
+		acs_load_undo_2_filters = yes
+	}
+	
+}
+
+acs_load_undo_2_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_undo_2_used
+			
+		}
+		set_global_variable = { name = acs_filter_relation_undo_1 value = global_var:acs_filter_relation_undo_2 }
+		set_global_variable = { name = acs_filter_diplomatic_range_undo_1 value = global_var:acs_filter_diplomatic_range_undo_2 }
+		set_global_variable = { name = acs_filter_ruler_undo_1 value = global_var:acs_filter_ruler_undo_2 }
+		set_global_variable = { name = acs_filter_adult_undo_1 value = global_var:acs_filter_adult_undo_2 }
+		set_global_variable = { name = acs_filter_gender_undo_1 value = global_var:acs_filter_gender_undo_2 }
+		set_global_variable = { name = acs_filter_martial_status_undo_1 value = global_var:acs_filter_martial_status_undo_2 }
+		set_global_variable = { name = acs_filter_imprisonment_status_undo_1 value = global_var:acs_filter_imprisonment_status_undo_2 }
+		set_global_variable = { name = acs_filter_hooks_undo_1 value = global_var:acs_filter_hooks_undo_2 }
+		set_global_variable = { name = acs_filter_religion_undo_1 value = global_var:acs_filter_religion_undo_2 }
+		set_global_variable = { name = acs_filter_culture_undo_1 value = global_var:acs_filter_culture_undo_2 }
+		set_global_variable = { name = acs_filter_dynasty_undo_1 value = global_var:acs_filter_dynasty_undo_2 }
+		set_global_variable = { name = acs_filter_sexuality_undo_1 value = global_var:acs_filter_sexuality_undo_2 }
+		if = {
+			limit = {
+				NOT = {has_global_variable = asc_save_slot_undo_3_used }
+			}
+			remove_global_variable = asc_save_slot_undo_2_used
+		}
+		acs_load_undo_3_filters = yes
+	}
+	
+}
+
+acs_load_undo_3_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_undo_3_used
+			
+		}
+		set_global_variable = { name = acs_filter_relation_undo_2 value = global_var:acs_filter_relation_undo_3 }
+		set_global_variable = { name = acs_filter_diplomatic_range_undo_2 value = global_var:acs_filter_diplomatic_range_undo_3 }
+		set_global_variable = { name = acs_filter_ruler_undo_2 value = global_var:acs_filter_ruler_undo_3 }
+		set_global_variable = { name = acs_filter_adult_undo_2 value = global_var:acs_filter_adult_undo_3 }
+		set_global_variable = { name = acs_filter_gender_undo_2 value = global_var:acs_filter_gender_undo_2 }
+		set_global_variable = { name = acs_filter_martial_status_undo_2 value = global_var:acs_filter_martial_status_undo_3 }
+		set_global_variable = { name = acs_filter_imprisonment_status_undo_2 value = global_var:acs_filter_imprisonment_status_undo_3 }
+		set_global_variable = { name = acs_filter_hooks_undo_2 value = global_var:acs_filter_hooks_undo_3 }
+		set_global_variable = { name = acs_filter_religion_undo_2 value = global_var:acs_filter_religion_undo_3 }
+		set_global_variable = { name = acs_filter_culture_undo_2 value = global_var:acs_filter_culture_undo_3 }
+		set_global_variable = { name = acs_filter_dynasty_undo_2 value = global_var:acs_filter_dynasty_undo_3 }
+		set_global_variable = { name = acs_filter_sexuality_undo_2 value = global_var:acs_filter_sexuality_undo_3 }
+		if = {
+			limit = {
+				NOT = {has_global_variable = asc_save_slot_undo_4_used }
+			}
+			remove_global_variable = asc_save_slot_undo_3_used
+		}
+		acs_load_undo_4_filters = yes
+	}
+	
+}
+
+acs_load_undo_4_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_undo_4_used	
+		}
+		set_global_variable = { name = acs_filter_relation_undo_3 value = global_var:acs_filter_relation_undo_4 }
+		set_global_variable = { name = acs_filter_diplomatic_range_undo_3 value = global_var:acs_filter_diplomatic_range_undo_4 }
+		set_global_variable = { name = acs_filter_ruler_undo_3 value = global_var:acs_filter_ruler_undo_4 }
+		set_global_variable = { name = acs_filter_adult_undo_3 value = global_var:acs_filter_adult_undo_4 }
+		set_global_variable = { name = acs_filter_gender_undo_3 value = global_var:acs_filter_gender_undo_4 }
+		set_global_variable = { name = acs_filter_martial_status_undo_3 value = global_var:acs_filter_martial_status_undo_4 }
+		set_global_variable = { name = acs_filter_imprisonment_status_undo_2 value = global_var:acs_filter_imprisonment_status_undo_4 }
+		set_global_variable = { name = acs_filter_hooks_undo_3 value = global_var:acs_filter_hooks_undo_4 }
+		set_global_variable = { name = acs_filter_religion_undo_3 value = global_var:acs_filter_religion_undo_4 }
+		set_global_variable = { name = acs_filter_culture_undo_3 value = global_var:acs_filter_culture_undo_4 }
+		set_global_variable = { name = acs_filter_dynasty_undo_3 value = global_var:acs_filter_dynasty_undo_4 }
+		set_global_variable = { name = acs_filter_sexuality_undo_3 value = global_var:acs_filter_sexuality_undo_4 }
+		remove_global_variable = asc_save_slot_undo_4_used
+	}
+	
+}
+
+acs_save_undo_0_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_undo_0_used	
+		}
+		acs_save_undo_1_filters = yes
+	}
+	set_global_variable = { name = acs_filter_relation_undo_0 value = global_var:acs_filter_relation }
+	set_global_variable = { name = acs_filter_diplomatic_range_undo_0 value = global_var:acs_filter_diplomatic_range }
+	set_global_variable = { name = acs_filter_ruler_undo_0 value = global_var:acs_filter_ruler }
+	set_global_variable = { name = acs_filter_adult_undo_0 value = global_var:acs_filter_adult }
+	set_global_variable = { name = acs_filter_gender_undo_0 value = global_var:acs_filter_gender }
+	set_global_variable = { name = acs_filter_martial_status_undo_0 value = global_var:acs_filter_martial_status }
+	set_global_variable = { name = acs_filter_imprisonment_status_undo_0 value = global_var:acs_filter_imprisonment_status }
+	set_global_variable = { name = acs_filter_hooks_undo_0 value = global_var:acs_filter_hooks }
+	set_global_variable = { name = acs_filter_religion_undo_0 value = global_var:acs_filter_religion }
+	set_global_variable = { name = acs_filter_culture_undo_0 value = global_var:acs_filter_culture }
+	set_global_variable = { name = acs_filter_dynasty_undo_0 value = global_var:acs_filter_dynasty }
+	set_global_variable = { name = acs_filter_sexuality_undo_0 value = global_var:acs_filter_sexuality }
+	set_global_variable = asc_save_slot_undo_0_used
+}
+
+acs_save_undo_1_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_undo_1_used	
+		}
+		acs_save_undo_2_filters = yes
+	}
+	set_global_variable = { name = acs_filter_relation_undo_1 value = global_var:acs_filter_relation_undo_0 }
+	set_global_variable = { name = acs_filter_diplomatic_range_undo_1 value = global_var:acs_filter_diplomatic_range_undo_0 }
+	set_global_variable = { name = acs_filter_ruler_undo_1 value = global_var:acs_filter_ruler_undo_0 }
+	set_global_variable = { name = acs_filter_adult_undo_1 value = global_var:acs_filter_adult_undo_0 }
+	set_global_variable = { name = acs_filter_gender_undo_1 value = global_var:acs_filter_gender_undo_0 }
+	set_global_variable = { name = acs_filter_martial_status_undo_1 value = global_var:acs_filter_martial_status_undo_0 }
+	set_global_variable = { name = acs_filter_imprisonment_status_undo_1 value = global_var:acs_filter_imprisonment_status_undo_0 }
+	set_global_variable = { name = acs_filter_hooks_undo_1 value = global_var:acs_filter_hooks_undo_0 }
+	set_global_variable = { name = acs_filter_religion_undo_1 value = global_var:acs_filter_religion_undo_0 }
+	set_global_variable = { name = acs_filter_culture_undo_1 value = global_var:acs_filter_culture_undo_0 }
+	set_global_variable = { name = acs_filter_dynasty_undo_1 value = global_var:acs_filter_dynasty_undo_0 }
+	set_global_variable = { name = acs_filter_sexuality_undo_1 value = global_var:acs_filter_sexuality_undo_0 }
+	set_global_variable = asc_save_slot_undo_1_used
+}
+
+acs_save_undo_2_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_undo_2_used	
+		}
+		acs_save_undo_3_filters = yes
+	}
+	set_global_variable = { name = acs_filter_relation_undo_2 value = global_var:acs_filter_relation_undo_1 }
+	set_global_variable = { name = acs_filter_diplomatic_range_undo_2 value = global_var:acs_filter_diplomatic_range_undo_1 }
+	set_global_variable = { name = acs_filter_ruler_undo_2 value = global_var:acs_filter_ruler_undo_1 }
+	set_global_variable = { name = acs_filter_adult_undo_2 value = global_var:acs_filter_adult_undo_1 }
+	set_global_variable = { name = acs_filter_gender_undo_2 value = global_var:acs_filter_gender_undo_1 }
+	set_global_variable = { name = acs_filter_martial_status_undo_2 value = global_var:acs_filter_martial_status_undo_1 }
+	set_global_variable = { name = acs_filter_imprisonment_status_undo_2 value = global_var:acs_filter_imprisonment_status_undo_1 }
+	set_global_variable = { name = acs_filter_hooks_undo_2 value = global_var:acs_filter_hooks_undo_1 }
+	set_global_variable = { name = acs_filter_religion_undo_2 value = global_var:acs_filter_religion_undo_1 }
+	set_global_variable = { name = acs_filter_culture_undo_2 value = global_var:acs_filter_culture_undo_1 }
+	set_global_variable = { name = acs_filter_dynasty_undo_2 value = global_var:acs_filter_dynasty_undo_1 }
+	set_global_variable = { name = acs_filter_sexuality_undo_2 value = global_var:acs_filter_sexuality_undo_1 }
+	set_global_variable = asc_save_slot_undo_2_used
+}
+
+acs_save_undo_3_filters = {
+	if = {
+		limit = {
+			has_global_variable = asc_save_slot_undo_3_used	
+		}
+		acs_save_undo_4_filters = yes
+	}
+	set_global_variable = { name = acs_filter_relation_undo_3 value = global_var:acs_filter_relation_undo_2 }
+	set_global_variable = { name = acs_filter_diplomatic_range_undo_3 value = global_var:acs_filter_diplomatic_range_undo_2 }
+	set_global_variable = { name = acs_filter_ruler_undo_3 value = global_var:acs_filter_ruler_undo_2 }
+	set_global_variable = { name = acs_filter_adult_undo_3 value = global_var:acs_filter_adult_undo_2 }
+	set_global_variable = { name = acs_filter_gender_undo_3 value = global_var:acs_filter_gender_undo_2 }
+	set_global_variable = { name = acs_filter_martial_status_undo_3 value = global_var:acs_filter_martial_status_undo_2 }
+	set_global_variable = { name = acs_filter_imprisonment_status_undo_3 value = global_var:acs_filter_imprisonment_status_undo_2 }
+	set_global_variable = { name = acs_filter_hooks_undo_3 value = global_var:acs_filter_hooks_undo_2 }
+	set_global_variable = { name = acs_filter_religion_undo_3 value = global_var:acs_filter_religion_undo_2 }
+	set_global_variable = { name = acs_filter_culture_undo_3 value = global_var:acs_filter_culture_undo_2 }
+	set_global_variable = { name = acs_filter_dynasty_undo_3 value = global_var:acs_filter_dynasty_undo_2 }
+	set_global_variable = { name = acs_filter_sexuality_undo_3 value = global_var:acs_filter_sexuality_undo_2 }
+	set_global_variable = asc_save_slot_undo_3_used
+}
+
+acs_save_undo_4_filters = {
+	set_global_variable = { name = acs_filter_relation_undo_4 value = global_var:acs_filter_relation_undo_3 }
+	set_global_variable = { name = acs_filter_diplomatic_range_undo_4 value = global_var:acs_filter_diplomatic_range_undo_3 }
+	set_global_variable = { name = acs_filter_ruler_undo_4 value = global_var:acs_filter_ruler_undo_3 }
+	set_global_variable = { name = acs_filter_adult_undo_4 value = global_var:acs_filter_adult_undo_3 }
+	set_global_variable = { name = acs_filter_gender_undo_4 value = global_var:acs_filter_gender_undo_3 }
+	set_global_variable = { name = acs_filter_martial_status_undo_4 value = global_var:acs_filter_martial_status_undo_3 }
+	set_global_variable = { name = acs_filter_imprisonment_status_undo_4 value = global_var:acs_filter_imprisonment_status_undo_3 }
+	set_global_variable = { name = acs_filter_hooks_undo_4 value = global_var:acs_filter_hooks_undo_3 }
+	set_global_variable = { name = acs_filter_religion_undo_4 value = global_var:acs_filter_religion_undo_3 }
+	set_global_variable = { name = acs_filter_culture_undo_4 value = global_var:acs_filter_culture_undo_3 }
+	set_global_variable = { name = acs_filter_dynasty_undo_4 value = global_var:acs_filter_dynasty_undo_3 }
+	set_global_variable = { name = acs_filter_sexuality_undo_4 value = global_var:acs_filter_sexuality_undo_3 }
+	set_global_variable = asc_save_slot_undo_4_used
+}
+
+
 
 clear_acs_list = {
     every_in_list = {
