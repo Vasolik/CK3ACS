@@ -1,38 +1,256 @@
-﻿                        #OR = {
-                        #    has_father = no
-                        #    and = {
-                        #        father = {
-                        #            is_alive = no
-                        #            OR = {
-                        #                has_father = no
-                        #                father = { is_alive = no }
-                        #            }
-                        #            OR = {
-                        #                has_mother = no
-                        #                mother = { is_alive = no }
-                        #            }
-                        #        }
-                        #        
-                        #    }
-                        #    
-                        #}
-                        #
-                        #OR = {
-                        #    has_mother = no
-                        #    and = {
-                        #        mother = {
-                        #            is_alive = no
-                        #            OR = {
-                        #                has_father = no
-                        #                father = { is_alive = no }
-                        #            }
-                        #            OR = {
-                        #                has_mother = no
-                        #                mother = { is_alive = no }
-                        #            }
-                        #        }
-                        #        
-                        #    }
-                        #    
-                        #}
-                        #holds_landed_title = no
+﻿	type widget_character_list_item_finder = widget {
+		datacontext = "[CharacterListItem.GetCharacter]"
+		size = { 200 94 }
+
+		background = {
+			visible = "[CharacterListItem.HasEvenOrderIndex]"
+			using = Background_Area_Dark
+			margin_top = -4
+			margin_bottom = 2
+			alpha = 0.5
+		}
+
+		block "divider" {}
+
+		block "widget" {}
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+
+			vbox = {
+				layoutpolicy_vertical = expanding
+
+				portrait_head_small_cached = {}
+
+				expand = {}
+			}
+
+			block "button_content"
+			{
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					margin_top = 5
+
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+
+						# Name and age
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							margin = { 0 3 }
+							margin_left = 5
+							margin_right = 10
+
+							background = {
+								using = Background_Area_Characterlist
+							}
+
+							background = {
+								using = Background_Area_Dark
+
+								modify_texture = {
+									texture = "gfx/interface/component_masks/mask_fade_vertical_up.dds"
+									blend_mode = alphamultiply
+									alpha = 1
+									rotate_uv = -90
+								}
+							}
+
+							hbox = {
+								margin_left = 3
+								layoutpolicy_horizontal = expanding
+								maximumsize = { 338 -1 }
+
+								text_single = {
+									using = Font_Size_Medium
+									layoutpolicy_horizontal = expanding
+									align = nobaseline
+									text = "[Character.GetUINameNoTooltip]"
+									autoresize = no
+									fontsize_min = 14
+								}
+
+								block "character_relation"
+								{
+									hbox = {
+										visible = "[And(Character.HasRelationTo( GetPlayer ), Not(Character.IsPlayer))]"
+										text_single = {
+											text = "•"
+											align = nobaseline
+											margin = { 5 0 }
+										}
+
+										text_single = {
+											name = "character_relation"
+											text = "[Character.GetRelationToString( GetPlayer )]"
+											default_format = "#low"
+											align = nobaseline
+											fontsize_min = 14
+											max_width = 180
+										}
+									}
+								}
+
+								expand = {}
+							}
+
+							hbox = {
+								using = character_age_or_death_text
+							}
+
+							# Skills
+							hbox_skills_grid = {}
+						}
+
+						### BOTTOM ROW ###
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+
+							vbox = {
+								layoutpolicy_horizontal = expanding
+
+								block "additional_info_kill_list" {}
+
+								hbox = {
+									layoutpolicy_horizontal = expanding
+
+									# Dynasty
+									widget = {
+										size = { 45 40 }
+
+										coa_house_small = {
+											datacontext = "[Character.GetHouse]"
+											parentanchor = center
+											scale = 0.7
+										}
+									}
+
+									# Traits
+									hbox = {
+										layoutpolicy_vertical = expanding
+										margin = { 10 0 }
+										minimumsize = { 140 0 } #### needed for prison view
+
+										background = {
+											using = Background_Area_Dark
+											alpha = 0.5
+											margin = { 0 2 }
+										}
+
+										fixedgridbox = {
+											name = "traits_grid"
+											datamodel = "[CharacterListItem.GetTraits]"
+											datamodel_reuse_widgets = yes
+											flipdirection = yes
+											layoutpolicy_horizontal = expanding
+											layoutpolicy_vertical = expanding
+											addcolumn = 30
+											addrow = 28
+
+											block "gridbox_items"
+											{
+												datamodel_wrap = 4
+												maxverticalslots = 2
+											}
+
+											item = {
+												icon_trait = {
+													visible = "[Trait.IsValid]"
+
+													blockoverride "icon_size"
+													{
+														size = { 30 30 }
+													}
+
+													blockoverride "tooltip_placement"
+													{
+														using = tooltip_se
+													}
+
+													blockoverride "glow_radius"
+													{
+														glow_radius = 3
+													}
+												}
+											}
+										}
+									}
+
+									expand = {}
+								}
+
+							}
+
+							vbox = {
+								datacontext = "[CharacterListItem.GetCharacter]"
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = expanding
+
+								block "bottom_right_box"
+								{
+									hbox = {
+										layoutpolicy_horizontal = expanding
+										layoutpolicy_vertical = expanding
+
+										widget_list_claims = {}
+
+										# Religion and culture
+										hbox = {
+											layoutpolicy_horizontal = expanding
+											layoutpolicy_vertical = expanding
+											margin_left = 8
+											margin_right = 4
+											spacing = 5
+
+											background = {
+												using = Background_Area_Dark
+												alpha = 0.5
+												margin = { 0 2 }
+											}
+
+											icon = {
+												name = "faith_button"
+												size = { 38 38 }
+												datacontext = "[Character.GetFaith]"
+												tooltipwidget = { faith_tooltip = {} }
+												using = tooltip_se
+
+												texture = "[Faith.GetIcon]"
+											}
+
+											hbox = {
+												datacontext = "[Character.GetCulture]"
+												layoutpolicy_horizontal = expanding
+												spacing = 3
+
+												tooltipwidget = {
+													culture_tooltip = {}
+												}
+												using = tooltip_se
+
+												icon = {
+													name = "culture"
+													texture = "gfx/interface/icons/icon_culture.dds"
+													size = { 24 24 }
+												}
+
+												text_single = {
+													layoutpolicy_horizontal = expanding
+													text = "CULTURE_LISTS_WINDOW"
+													autoresize = no
+													align = nobaseline
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}

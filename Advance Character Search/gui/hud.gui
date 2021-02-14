@@ -1240,13 +1240,14 @@ icon = {
                 using = tooltip_ne
 				shortcut = "character_finder"
 				
+				onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
                 onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
                 
                 state = {
                     name = "remove_acs"
                     trigger_on_create = yes
-					on_start = "[ExecuteConsoleCommand('gui.clearwidgets acs_window')]"
-					on_start = "[ExecuteConsoleCommand('gui.createwidget gui/acs.gui acs_window')]"
+					#on_start = "[ExecuteConsoleCommand('gui.clearwidgets acs_window')]"
+					#on_start = "[ExecuteConsoleCommand('gui.createwidget gui/acs.gui acs_window')]"
 				}
 			
             }

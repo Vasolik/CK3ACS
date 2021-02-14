@@ -297,7 +297,7 @@ acs_current_slot_used = {
 	if = {
 		limit = {
 			global_var:acs_filter_relation = 1 
-			global_var:acs_filter_diplomatic_range = 0
+			global_var:acs_filter_diplomatic_range = 1
 			global_var:acs_filter_ruler = 0
 			global_var:acs_filter_adult = 0
 			global_var:acs_filter_gender = 0
@@ -554,4 +554,8 @@ acs_total_number_of_characters = {
 	every_living_character = {
 		add = 1
 	}
+}
+
+acs_select_count = {
+	value = global_var:acs_select_count
 }

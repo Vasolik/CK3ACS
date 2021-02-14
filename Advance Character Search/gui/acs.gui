@@ -187,22 +187,30 @@ types acs_character_list_types {
             blockoverride "scrollbox_content" {
 
                 block "container_implementation" {
-                    vbox = {                
-                        name = "characters_grid"
-                        datamodel = "[GetPlayer.MakeScope.GetList('acs_list')]"
+
+					fixedgridbox = {
+						addcolumn = 650
+						addrow = 92
+						name = "characters_grid"
+						datamodel = "[GetPlayer.MakeScope.GetList('acs_list')]"
                         visible = "[GetScriptedGui('acs_window').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
                         layoutpolicy_horizontal = expanding
-                         
-                        item = {
-                            acs_widget_character_list_item_finder = {
-                                datacontext = "[Scope.GetCharacter]"
-                                block "item_size" {
-                                    size = { 650 110 }
-                                    layoutpolicy_horizontal = expanding
-                                }
-                            }
-                        }
-                    }
+						item = {
+							acs_widget_character_list_item_finder = {
+								datacontext = "[Scope.GetCharacter]"
+								block "item_size" {
+									layoutpolicy_horizontal = expanding
+									size = { 650 94 }
+								}
+								blockoverride "gridbox_items"
+								{
+									min_width = 210
+									datamodel_wrap = 7
+									maxverticalslots = 2
+								}
+							}
+						}
+					}
                 }
             }
 
@@ -224,6 +232,7 @@ types acs_character_list_types {
                 margin = { 15 5 }
                 margin_bottom = 10
                 spacing = 5
+				allow_outside = yes
 
                 block "bottom_bar" {}
                 button_checkbox_label = {
@@ -241,7 +250,98 @@ types acs_character_list_types {
                         min_width = 130
                     }
                 }
-
+				acs_select_count_item = {
+					position = { 0 5 }
+					blockoverride "filter_name" {  
+						text = ""
+					}
+					blockoverride "acs_filter_selected_value" {   
+						acs_select_count_selected_value = {
+							blockoverride "visibility" {
+								visible = yes
+							}
+							blockoverride "text_button_drop" {
+								text = "[GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_select_count')|0]"
+							}
+						}
+					}
+	
+					blockoverride "acs_filter_other_value" { 
+						acs_select_count_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_10"
+								onclick = "[GetScriptedGui( 'acs_select_count_10' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_select_count_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_20"
+								onclick = "[GetScriptedGui( 'acs_select_count_20' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_select_count_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_50"
+								onclick = "[GetScriptedGui( 'acs_select_count_50' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_select_count_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_100"
+								onclick = "[GetScriptedGui( 'acs_select_count_100' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_select_count_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_200"
+								onclick = "[GetScriptedGui( 'acs_select_count_200' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_select_count_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_500"
+								onclick = "[GetScriptedGui( 'acs_select_count_500' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_select_count_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_1000"
+								onclick = "[GetScriptedGui( 'acs_select_count_1000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_select_count_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_2000"
+								onclick = "[GetScriptedGui( 'acs_select_count_2000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_select_count_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_5000"
+								onclick = "[GetScriptedGui( 'acs_select_count_5000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_select_count_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_10000"
+								onclick = "[GetScriptedGui( 'acs_select_count_10000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_select_count_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_20000"
+								onclick = "[GetScriptedGui( 'acs_select_count_20000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_select_count_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_100000"
+								onclick = "[GetScriptedGui( 'acs_select_count_100000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+					}
+	
+				}
                 expand = {}
 
 				text_single = {
@@ -1069,7 +1169,7 @@ types acs_character_list_types {
 
     type acs_widget_character_list_item_finder = widget {
         datacontext = "[Scope.GetCharacter]"
-        size = { 200 94 }
+		size = { 200 94 }
 
         background = {
             visible = "[GetScriptedGui( 'acs_even_index' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End ) ]"
@@ -1089,8 +1189,6 @@ types acs_character_list_types {
                 layoutpolicy_vertical = expanding
 
                 portrait_head_small_cached = {}
-
-                expand = {}
             }
 
             block "button_content"
@@ -1180,8 +1278,6 @@ types acs_character_list_types {
                             vbox = {
                                 layoutpolicy_horizontal = expanding
 
-                                block "additional_info_kill_list" {}
-
                                 hbox = {
                                     layoutpolicy_horizontal = expanding
 
@@ -1253,70 +1349,62 @@ types acs_character_list_types {
                                 }
                             }
 
-                            vbox = {
-                                datacontext = "[Scope.GetCharacter]"
+							hbox = {
+								datacontext = "[Scope.GetCharacter]"
                                 layoutpolicy_horizontal = expanding
                                 layoutpolicy_vertical = expanding
 
-                                block "bottom_right_box"
-                                {
-                                    hbox = {
-                                        layoutpolicy_horizontal = expanding
-                                        layoutpolicy_vertical = expanding
+								acs_widget_list_claims = {}
 
-                                        acs_widget_list_claims = {}
+								# Religion and culture
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+									margin_left = 8
+									margin_right = 4
+									spacing = 5
 
-                                        # Religion and culture
-                                        hbox = {
-                                            layoutpolicy_horizontal = expanding
-                                            layoutpolicy_vertical = expanding
-                                            margin_left = 8
-                                            margin_right = 4
-                                            spacing = 5
+									background = {
+										using = Background_Area_Dark
+										alpha = 0.5
+										margin = { 0 2 }
+									}
 
-                                            background = {
-                                                using = Background_Area_Dark
-                                                alpha = 0.5
-                                                margin = { 0 2 }
-                                            }
+									icon = {
+										name = "faith_button"
+										size = { 38 38 }
+										datacontext = "[Character.GetFaith]"
+										tooltipwidget = { faith_tooltip = {} }
+										using = tooltip_se
 
-                                            icon = {
-                                                name = "faith_button"
-                                                size = { 38 38 }
-                                                datacontext = "[Character.GetFaith]"
-                                                tooltipwidget = { faith_tooltip = {} }
-                                                using = tooltip_se
+										texture = "[Faith.GetIcon]"
+									}
 
-                                                texture = "[Faith.GetIcon]"
-                                            }
+									hbox = {
+										datacontext = "[Character.GetCulture]"
+										layoutpolicy_horizontal = expanding
+										spacing = 3
 
-                                            hbox = {
-                                                datacontext = "[Character.GetCulture]"
-                                                layoutpolicy_horizontal = expanding
-                                                spacing = 3
+										tooltipwidget = {
+											culture_tooltip = {}
+										}
+										using = tooltip_se
 
-                                                tooltipwidget = {
-                                                    culture_tooltip = {}
-                                                }
-                                                using = tooltip_se
+										icon = {
+											name = "culture"
+											texture = "gfx/interface/icons/icon_culture.dds"
+											size = { 24 24 }
+										}
 
-                                                icon = {
-                                                    name = "culture"
-                                                    texture = "gfx/interface/icons/icon_culture.dds"
-                                                    size = { 24 24 }
-                                                }
-
-                                                text_single = {
-                                                    layoutpolicy_horizontal = expanding
-                                                    text = "CULTURE_LISTS_WINDOW"
-                                                    autoresize = no
-                                                    align = nobaseline
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+										text_single = {
+											layoutpolicy_horizontal = expanding
+											text = "CULTURE_LISTS_WINDOW"
+											autoresize = no
+											align = nobaseline
+										}
+									}
+								}
+							}
                         }
                     }
                 }
@@ -1407,6 +1495,12 @@ types acs_character_list_types {
         }
     }
 
+	type acs_select_count_other_value = acs_filter_load_save_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_select_count' )]"
+        }
+    }
+
 	type acs_filter_load_save_selected_value = acs_dropdown_selected_value {
 		blockoverride "size_dropdown" {
             size = { 30 33 }
@@ -1425,7 +1519,14 @@ types acs_character_list_types {
         }
 	}
 
+	type acs_select_count_selected_value = acs_filter_load_save_selected_value {		
+		blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_select_count' )]"
+        }
+	}
+
 	type acs_filter_load_save_item = acs_filter_item {
+
 
 		blockoverride "acs_filter_item_size" {
 			size = { 170 43 }
@@ -1450,10 +1551,26 @@ types acs_character_list_types {
             visible = "[GetVariableSystem.Exists( 'acs_filter_load' )]"
         }
     }
+
+	type acs_select_count_item = acs_filter_item_dropdown {
+        blockoverride "drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_select_count' )]"
+        }
+		blockoverride "acs_filter_item_size" {
+			size = { 80 50 }
+		}
+		blockoverride "acs_filter_item_widget_size" { 
+			size = { 80 33 }
+		}
+
+		blockoverride "acs_filter_item_widget_maximumsize" { 
+			maximumsize = { 80 80 }
+		}
+    }
     
     type acs_window_character_filter = window {
         name = "character_filter_window"
-        visible = "[GetVariableSystem.Exists( 'acs_filter_toggle' )]"
+        visible = "[Not( GetVariableSystem.Exists( 'acs_filter_toggle' ) ) ]"
         parentanchor = top|right
         position = { -730 20 }
         size = { 510 850 }
@@ -1970,6 +2087,76 @@ types acs_character_list_types {
         }
     }
 
+	type acs_filter_item_dropdown = widget {
+		block "acs_filter_item_widget_size" { 
+			size = { 300 33 }
+		}
+		
+		allow_outside = yes
+		
+		block "acs_filter_selected_value" {   
+			acs_filter_dropdown_selected_value = {
+				blockoverride "visibility" {
+					visible = "[GetScriptedGui( 'acs_sort_by_health' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+				blockoverride "text_button_drop" {
+					text = "SORT_HEALTH"
+				}
+			}
+		}
+
+		scrollarea = {
+			#parentanchor = bottom|right
+			position = { 5 33 }
+
+			state = {
+				name = _show
+				using = Animation_FadeIn_Quick
+			}
+	
+			state = {
+				name = _hide
+				using = Animation_FadeOut_Quick
+			}
+
+
+			block "acs_filter_item_widget_maximumsize" { 
+				maximumsize = { 300 250 }
+			}
+		   
+			autoresizescrollarea = yes
+			scrollbarpolicy_horizontal = always_off
+
+			using = Background_DropDown
+			block "drop_down_visible" { 
+				visible = "[GetVariableSystem.Exists( 'acs_sort_list' )]"
+			}
+
+			scrollwidget = {
+				vbox = {
+					using = Background_DropDown
+					layoutpolicy_vertical = expanding
+					layoutpolicy_horizontal = expanding
+					ignoreinvisible = yes
+					block "acs_filter_other_value" { 
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "SORT_HEALTH"
+								onclick = "[GetScriptedGui( 'acs_sort_by_health' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+					}
+				}
+			}
+
+			scrollbar_vertical = {
+				using = Scrollbar_Vertical
+			}
+			
+		}
+		
+	}
+
     type acs_filter_item = widget {
 		block "acs_filter_item_size" { 
 			size = { 472 43 }
@@ -1997,75 +2184,7 @@ types acs_character_list_types {
 			}
             
     
-            widget = {
-				block "acs_filter_item_widget_size" { 
-					size = { 300 33 }
-				}
-                
-                allow_outside = yes
-                
-                block "acs_filter_selected_value" {   
-                    acs_filter_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[GetScriptedGui( 'acs_sort_by_health' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "SORT_HEALTH"
-                        }
-                    }
-                }
-    
-                scrollarea = {
-                    #parentanchor = bottom|right
-                    position = { 5 33 }
-        
-                    state = {
-                        name = _show
-                        using = Animation_FadeIn_Quick
-                    }
-            
-                    state = {
-                        name = _hide
-                        using = Animation_FadeOut_Quick
-                    }
-        
-		
-					block "acs_filter_item_widget_maximumsize" { 
-						maximumsize = { 300 250 }
-					}
-                   
-                    autoresizescrollarea = yes
-                    scrollbarpolicy_horizontal = always_off
-        
-                    using = Background_DropDown
-                    block "drop_down_visible" { 
-                        visible = "[GetVariableSystem.Exists( 'acs_sort_list' )]"
-                    }
-        
-                    scrollwidget = {
-                        vbox = {
-                            using = Background_DropDown
-                            layoutpolicy_vertical = expanding
-							layoutpolicy_horizontal = expanding
-							ignoreinvisible = yes
-                            block "acs_filter_other_value" { 
-                                acs_filter_dropdown_other_value = {
-                                    blockoverride "text_button_drop" {
-                                        text = "SORT_HEALTH"
-                                        onclick = "[GetScriptedGui( 'acs_sort_by_health' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                                    }
-                                }
-                            }
-                        }
-                    }
-        
-                    scrollbar_vertical = {
-                        using = Scrollbar_Vertical
-                    }
-                    
-                }
-                
-            }
+            acs_filter_item_dropdown = {}
         }
 
     }
@@ -2201,7 +2320,7 @@ window = {
     position = { -500 65 }
     allow_outside = yes
     layer = middle
-    visible = "[GetVariableSystem.Exists('acs_window_toggle')]"
+    visible = yes
 
     using = Window_Background
     using = Window_Decoration_Spike
@@ -2234,7 +2353,8 @@ window = {
              
             blockoverride "button_close"
             {
-                onclick =  "[GetVariableSystem.Clear( 'acs_window_toggle' )]"
+                onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
+                onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
             }
             
             blockoverride "button_reload"

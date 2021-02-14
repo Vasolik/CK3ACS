@@ -7,7 +7,7 @@
     
         if = {
             limit = {
-                NOT = { has_global_variable = acs_auto_apply_sorting_and_filters }
+                NOT = { has_global_variable = acs_select_count }
             }
             acs_reset_filters_and_sorting = yes
         }
@@ -112,10 +112,14 @@
 				}
 			}  
 		} 
+		set_variable = {
+			name = acs_total_number_of_characters
+			value = acs_total_number_of_characters
+		}
         ordered_in_list = {
             list = acs_to_sort
             order_by = acs_sort_value
-            max = 500
+            max = global_var:acs_select_count
             check_range_bounds = no
             root = {
                 add_to_variable_list = {
@@ -147,7 +151,7 @@ acs_reset_filters_and_sorting = {
     set_global_variable = { name = acs_sort_by value = 0  }
     set_global_variable = { name = acs_sort_by_assending value = yes  }
     set_global_variable = { name = acs_filter_relation value = 1 }
-    set_global_variable = { name = acs_filter_diplomatic_range value = 0 }
+    set_global_variable = { name = acs_filter_diplomatic_range value = 1 }
     set_global_variable = { name = acs_filter_ruler value = 0 }
     set_global_variable = { name = acs_filter_adult value = 0 }
     set_global_variable = { name = acs_filter_gender value = 0 }
@@ -163,6 +167,12 @@ acs_reset_filters_and_sorting = {
 			NOT = { has_global_variable = acs_auto_apply_sorting_and_filters }
 		}
 		set_global_variable = { name = acs_auto_apply_sorting_and_filters value = yes }
+	}
+	if = {
+		limit = {
+			NOT = { has_global_variable = acs_select_count }
+		}
+		set_global_variable = { name = acs_select_count value = 100 }
 	}
 }
 
@@ -189,6 +199,7 @@ acs_load_0_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_0 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_0 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_0 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 
@@ -215,6 +226,7 @@ acs_load_1_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_1 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_1 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_1 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 
@@ -241,6 +253,7 @@ acs_load_2_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_2 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_2 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_2 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 
@@ -267,6 +280,7 @@ acs_load_3_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_3 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_3 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_3 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 
@@ -293,6 +307,7 @@ acs_load_4_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_4 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_4 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_4 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 
@@ -319,6 +334,7 @@ acs_load_5_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_5 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_5 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_5 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 
@@ -345,6 +361,7 @@ acs_load_6_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_6 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_6 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_6 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 
@@ -371,6 +388,7 @@ acs_load_7_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_7 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_7 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_7 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 
@@ -397,6 +415,7 @@ acs_load_8_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_8 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_8 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_8 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 
@@ -423,6 +442,7 @@ acs_load_9_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_9 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_9 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_9 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 
@@ -449,6 +469,7 @@ acs_load_10_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_10 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_10 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_10 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 
@@ -475,6 +496,7 @@ acs_load_11_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_11 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_11 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_11 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 acs_load_12_filters = {
@@ -500,6 +522,7 @@ acs_load_12_filters = {
 		set_global_variable = { name = acs_filter_culture value = global_var:acs_filter_culture_12 }
 		set_global_variable = { name = acs_filter_dynasty value = global_var:acs_filter_dynasty_12 }
 		set_global_variable = { name = acs_filter_sexuality value = global_var:acs_filter_sexuality_12 }
+		acs_auto_apply_sorting_and_filters = yes
 	}
 }
 
@@ -840,8 +863,8 @@ acs_load_undo_0_filters = {
 			remove_global_variable = asc_save_slot_undo_0_used
 		}
 		acs_load_undo_1_filters = yes
+		acs_auto_apply_sorting_and_filters = yes
 	}
-	
 }
 
 acs_load_undo_1_filters = {
@@ -1076,19 +1099,19 @@ set_claim_data = {
         
         save_scope_as = target_character
         set_variable = is_acs_building_claim_list
-        set_variable = {  name = acs_top_claim_value value = 0 days = 1  }
-        set_variable = {  name = acs_is_top_claim_explicit value = no days = 1  }
-        set_variable = {  name = acs_is_top_claim_pressed value = no days = 1  }
+        set_variable = {  name = acs_top_claim_value value = 0  }
+        set_variable = {  name = acs_is_top_claim_explicit value = no }
+        set_variable = {  name = acs_is_top_claim_pressed value = no  }
         ordered_claim = {
             explicit = no
             order_by = claim_value_for_sort
             max = 1
             save_scope_as = acs_top_claim
             prev = {
-                set_variable = {  name = acs_top_claim_value value = scope:acs_top_claim.claim_value_for_sort days = 1 } 
+                set_variable = {  name = acs_top_claim_value value = scope:acs_top_claim.claim_value_for_sort } 
             }
         }
-        set_variable = { name = acs_top_unpressed_claim_value value = 0 days = 1 }
+        set_variable = { name = acs_top_unpressed_claim_value value = 0  }
         ordered_claim = {
             explicit = yes
             pressed = no
@@ -1096,7 +1119,7 @@ set_claim_data = {
             max = 1
             save_scope_as = acs_top_unpressed_claim
             prev = {
-                set_variable = {  name = acs_top_unpressed_claim_value value = scope:acs_top_unpressed_claim.claim_value_for_sort days = 1 } 
+                set_variable = {  name = acs_top_unpressed_claim_value value = scope:acs_top_unpressed_claim.claim_value_for_sort  } 
             }
         }
         if = {
@@ -1112,10 +1135,10 @@ set_claim_data = {
                 save_scope_as = acs_top_claim
             }
             
-            set_variable = { name = acs_top_claim_value value = var:acs_top_unpressed_claim_value days = 1 } 
-            set_variable = {  name = acs_is_top_claim_explicit value = yes days = 1  }
+            set_variable = { name = acs_top_claim_value value = var:acs_top_unpressed_claim_value  } 
+            set_variable = {  name = acs_is_top_claim_explicit value = yes   }
         }
-        set_variable = { name = acs_top_pressed_claim_value value = 0 days = 1 }
+        set_variable = { name = acs_top_pressed_claim_value value = 0  }
         ordered_claim = {
             explicit = yes
             pressed = yes
@@ -1123,7 +1146,7 @@ set_claim_data = {
             max = 1
             save_scope_as = acs_top_pressed_claim
             prev = {
-                set_variable = { name = acs_top_pressed_claim_value value = scope:acs_top_pressed_claim.claim_value_for_sort days = 1  } 
+                set_variable = { name = acs_top_pressed_claim_value value = scope:acs_top_pressed_claim.claim_value_for_sort   } 
             }
         }
         if = {
@@ -1139,15 +1162,15 @@ set_claim_data = {
                 save_scope_as = acs_top_claim
             }
             
-            set_variable = {  name = acs_is_top_claim_explicit value = yes days = 1  }
-            set_variable = {  name = acs_is_top_claim_pressed value = yes days = 1  }
+            set_variable = {  name = acs_is_top_claim_explicit value = yes   }
+            set_variable = {  name = acs_is_top_claim_pressed value = yes   }
         }
         if = {
             limit = { exists = scope:acs_top_claim }
-            set_variable = { name = acs_best_claim value = scope:acs_top_claim days = 1 } 
+            set_variable = { name = acs_best_claim value = scope:acs_top_claim  } 
         }
 
-        set_variable = { name = acs_total_claim_value value = total_claim_value days = 1 } 
+        set_variable = { name = acs_total_claim_value value = total_claim_value } 
 
         remove_variable = acs_top_claim_value
         remove_variable = acs_top_unpressed_claim_value
@@ -1193,7 +1216,7 @@ set_claim_data = {
 set_index_data = {
     if = {
         limit = { exists = global_var:acs_next_even }
-        set_variable = { name = acs_even value = yes days = 1 }
+        set_variable = { name = acs_even value = yes }
         remove_global_variable = acs_next_even
     }
     else = {
