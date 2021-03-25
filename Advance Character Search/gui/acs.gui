@@ -1070,7 +1070,7 @@ types acs_character_list_types {
                 using = acs_skill_grid_background
                 block "bg"
                 {
-                    frame = 0
+                    frame = 1
                 }
             }
         }
@@ -1089,7 +1089,7 @@ types acs_character_list_types {
                 using = acs_skill_grid_background
                 block "bg"
                 {
-                    frame = 1
+                    frame = 2
                 }
             }
         }
@@ -1109,7 +1109,7 @@ types acs_character_list_types {
                 using = acs_skill_grid_background
                 block "bg"
                 {
-                    frame = 2
+                    frame = 3
                 }
             }
         }
@@ -1129,7 +1129,7 @@ types acs_character_list_types {
                 using = acs_skill_grid_background
                 block "bg"
                 {
-                    frame = 3
+                    frame = 4
                 }
             }
         }
@@ -1149,7 +1149,7 @@ types acs_character_list_types {
                 using = acs_skill_grid_background
                 block "bg"
                 {
-                    frame = 4
+                    frame = 5
                 }
             }
         }
@@ -2467,7 +2467,7 @@ window = {
                                     visible = "[GetScriptedGui( 'acs_filter_dynasty_not_lowborn_different_dynasty' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
                                 }
                                 blockoverride "text_button_drop" {
-                                    text = "any_dynasty_not_lowborn_filter"
+                                    text = "acs_filter_dynasty_not_lowborn_different_dynasty"
                                 }
                             }
                         }
@@ -2524,7 +2524,7 @@ window = {
                             
                             acs_filter_dynasty_dropdown_other_value = {
                                 blockoverride "text_button_drop" {
-                                    text = "any_dynasty_not_lowborn_filter"
+                                    text = "acs_filter_dynasty_not_lowborn_different_dynasty"
                                     onclick = "[GetScriptedGui( 'acs_filter_dynasty_not_lowborn_different_dynasty' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
                                 }
                             }

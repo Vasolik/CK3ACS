@@ -53,6 +53,15 @@
                         add_to_temporary_list = acs_to_sort
                     }
                 }
+				every_courtier_or_guest = {
+					limit = {
+						AND = {
+							is_alive = yes
+							acs_filter = yes
+						}
+					}
+					add_to_temporary_list = acs_to_sort
+				}
             }
         }
 
@@ -68,13 +77,16 @@
                     }
                     add_to_temporary_list = acs_to_sort
                 }
-                if = {
-                    limit = {
-                        acs_filter = yes
-                    }  
-                    add_to_temporary_list = acs_to_sort
-                }
             }
+			every_courtier_or_guest = {
+				limit = {
+					AND = {
+						is_alive = yes
+						acs_filter = yes
+					}
+				}
+				add_to_temporary_list = acs_to_sort
+			}
         }
         
         if = {

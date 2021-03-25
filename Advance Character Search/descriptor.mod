@@ -1,8 +1,9 @@
-version="0.11"
+version="4.3"
 tags={
 	"Gameplay"
 	"Utilities"
+	"Fixes"
 }
 name="Advance Character Search"
-supported_version="1.2.*"
+supported_version="1.3.*"
 remote_file_id="2346680183"

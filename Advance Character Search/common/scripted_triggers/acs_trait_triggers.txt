@@ -1,0 +1,27 @@
+﻿acs_filter_any_trait = {
+	NOR = {
+		has_global_variable = acs_filter_trait_witch
+		has_global_variable = acs_filter_trait_education
+		has_global_variable = acs_filter_trait_lifestyle
+	}
+}
+acs_filter_trait = {
+    OR = {
+        acs_filter_any_trait = yes
+		AND = {
+			acs_filter_trait_education = yes
+			acs_filter_trait_lifestyle = yes
+			OR = {
+				NOT = { has_global_variable = acs_filter_trait_witch }
+				AND = {
+					global_var:acs_filter_trait_witch = yes
+					has_trait = witch
+				}
+				AND = {
+					global_var:acs_filter_trait_witch = no
+					NOT = { has_trait = witch }
+				}
+			}
+		}
+    }
+}

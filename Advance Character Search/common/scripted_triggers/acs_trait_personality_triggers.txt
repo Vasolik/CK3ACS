@@ -1,0 +1,666 @@
+﻿acs_filter_trait_personality_lust = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_lust }
+		AND = {
+			global_var:acs_filter_trait_personality_lust = 0
+			has_trait = lustful
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_lust = 1
+			has_trait = chaste
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_lust = 2
+			NOR = {
+				has_trait = chaste
+				has_trait = lustful
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_lust = 3
+			OR = {
+				has_trait = chaste
+				has_trait = lustful
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_food = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_food }
+		AND = {
+			global_var:acs_filter_trait_personality_food = 0
+			has_trait = gluttonous
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_food = 1
+			has_trait = temperate
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_food = 2
+			NOR = {
+				has_trait = temperate
+				has_trait = gluttonous
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_food = 3
+			OR = {
+				has_trait = temperate
+				has_trait = gluttonous
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_greed = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_greed }
+		AND = {
+			global_var:acs_filter_trait_personality_greed = 0
+			has_trait = greedy
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_greed = 1
+			has_trait = generous
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_greed = 2
+			NOR = {
+				has_trait = generous
+				has_trait = greedy
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_greed = 3
+			OR = {
+				has_trait = generous
+				has_trait = greedy
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_work = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_work }
+		AND = {
+			global_var:acs_filter_trait_personality_work = 0
+			has_trait = lazy
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_work = 1
+			has_trait = diligent
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_work = 2
+			NOR = {
+				has_trait = diligent
+				has_trait = lazy
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_work = 3
+			OR = {
+				has_trait = diligent
+				has_trait = lazy
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_calm = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_calm }
+		AND = {
+			global_var:acs_filter_trait_personality_calm = 0
+			has_trait = wrathful
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_calm = 1
+			has_trait = calm
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_calm = 2
+			NOR = {
+				has_trait = calm
+				has_trait = wrathful
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_calm = 3
+			OR = {
+				has_trait = calm
+				has_trait = wrathful
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_patience = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_patience }
+		AND = {
+			global_var:acs_filter_trait_personality_patience = 0
+			has_trait = impatient
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_patience = 1
+			has_trait = patient
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_patience = 2
+			NOR = {
+				has_trait = patient
+				has_trait = impatient
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_patience = 3
+			OR = {
+				has_trait = patient
+				has_trait = impatient
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_arrogance = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_arrogance }
+		AND = {
+			global_var:acs_filter_trait_personality_arrogance = 0
+			has_trait = arrogant
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_arrogance = 1
+			has_trait = humble
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_arrogance = 2
+			NOR = {
+				has_trait = humble
+				has_trait = arrogant
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_arrogance = 3
+			OR = {
+				has_trait = humble
+				has_trait = arrogant
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_lies = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_lies }
+		AND = {
+			global_var:acs_filter_trait_personality_lies = 0
+			has_trait = deceitful
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_lies = 1
+			has_trait = honest
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_lies = 2
+			NOR = {
+				has_trait = honest
+				has_trait = deceitful
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_lies = 3
+			OR = {
+				has_trait = honest
+				has_trait = deceitful
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_bravery = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_bravery }
+		AND = {
+			global_var:acs_filter_trait_personality_bravery = 0
+			has_trait = craven
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_bravery = 1
+			has_trait = brave
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_bravery = 2
+			NOR = {
+				has_trait = brave
+				has_trait = craven
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_bravery = 3
+			OR = {
+				has_trait = brave
+				has_trait = craven
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_shyness = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_shyness }
+		AND = {
+			global_var:acs_filter_trait_personality_shyness = 0
+			has_trait = shy
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_shyness = 1
+			has_trait = gregarious
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_shyness = 2
+			NOR = {
+				has_trait = gregarious
+				has_trait = shy
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_shyness = 3
+			OR = {
+				has_trait = gregarious
+				has_trait = shy
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_ambition = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_ambition }
+		AND = {
+			global_var:acs_filter_trait_personality_ambition = 0
+			has_trait = ambitious
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_ambition = 1
+			has_trait = content
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_ambition = 2
+			NOR = {
+				has_trait = content
+				has_trait = ambitious
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_ambition = 3
+			OR = {
+				has_trait = content
+				has_trait = ambitious
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_justice = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_justice }
+		AND = {
+			global_var:acs_filter_trait_personality_justice = 0
+			has_trait = arbitrary
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_justice = 1
+			has_trait = just
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_justice = 2
+			NOR = {
+				has_trait = just
+				has_trait = arbitrary
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_justice = 3
+			OR = {
+				has_trait = just
+				has_trait = arbitrary
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_faith = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_faith }
+		AND = {
+			global_var:acs_filter_trait_personality_faith = 0
+			has_trait = cynical
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_faith = 1
+			has_trait = zealous
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_faith = 2
+			NOR = {
+				has_trait = zealous
+				has_trait = cynical
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_faith = 3
+			OR = {
+				has_trait = zealous
+				has_trait = cynical
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_trust = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_trust }
+		AND = {
+			global_var:acs_filter_trait_personality_trust = 0
+			has_trait = paranoid
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_trust = 1
+			has_trait = trusting
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_trust = 2
+			NOR = {
+				has_trait = trusting
+				has_trait = paranoid
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_trust = 3
+			OR = {
+				has_trait = trusting
+				has_trait = paranoid
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_compassion = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_compassion }
+		AND = {
+			global_var:acs_filter_trait_personality_compassion = 0
+			has_trait = compassionate
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_compassion = 1
+			has_trait = callous
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_compassion = 2
+			has_trait = sadistic
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_compassion = 3
+			NOR = {
+				has_trait = compassionate
+				has_trait = callous
+				has_trait = sadistic
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_compassion = 4
+			OR = {
+				AND = {
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_personality_compassionate }
+						global_var:acs_filter_trait_personality_compassionate = no
+					}
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_personality_callous }
+						global_var:acs_filter_trait_personality_callous = no
+					}
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_personality_sadistic }
+						global_var:acs_filter_trait_personality_sadistic = no
+					}
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_personality_compassionate
+					global_var:acs_filter_trait_personality_compassionate = yes
+					has_trait = compassionate
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_personality_callous
+					global_var:acs_filter_trait_personality_callous = yes
+					has_trait = callous
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_personality_sadistic
+					global_var:acs_filter_trait_personality_sadistic = yes
+					has_trait = sadistic
+				}
+			}
+			NOR = {
+				AND = {
+					has_global_variable = acs_filter_trait_personality_compassionate
+					global_var:acs_filter_trait_personality_compassionate = no
+					has_trait = compassionate
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_personality_callous
+					global_var:acs_filter_trait_personality_callous = no 
+					has_trait = callous
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_personality_sadistic
+					global_var:acs_filter_trait_personality_sadistic = no
+					has_trait = sadistic
+				}
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_stubborness = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_stubborness }
+		AND = {
+			global_var:acs_filter_trait_personality_stubborness = 0
+			has_trait = stubborn
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_stubborness = 1
+			has_trait = fickle
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_stubborness = 2
+			NOR = {
+				has_trait = fickle
+				has_trait = stubborn
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_stubborness = 3
+			OR = {
+				has_trait = fickle
+				has_trait = stubborn
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality_vengefulness = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality_vengefulness }
+		AND = {
+			global_var:acs_filter_trait_personality_vengefulness = 0
+			has_trait = vengeful
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_vengefulness = 1
+			has_trait = forgiving
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_vengefulness = 2
+			NOR = {
+				has_trait = forgiving
+				has_trait = vengeful
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_personality_vengefulness = 3
+			OR = {
+				has_trait = forgiving
+				has_trait = vengeful
+			}
+		}	
+	}
+}
+
+acs_filter_trait_personality = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_personality }
+		AND = {
+			has_global_variable = acs_filter_trait_personality
+			acs_filter_trait_personality_lust = yes
+			acs_filter_trait_personality_food = yes
+			acs_filter_trait_personality_greed = yes
+			acs_filter_trait_personality_work = yes
+			acs_filter_trait_personality_calm = yes
+			acs_filter_trait_personality_patience = yes
+			acs_filter_trait_personality_arrogance = yes
+			acs_filter_trait_personality_lies = yes
+			acs_filter_trait_personality_bravery = yes
+			acs_filter_trait_personality_shyness = yes
+			acs_filter_trait_personality_ambition = yes
+			acs_filter_trait_personality_justice = yes
+			acs_filter_trait_personality_faith = yes
+			acs_filter_trait_personality_trust = yes
+			acs_filter_trait_personality_compassion = yes
+			acs_filter_trait_personality_stubborness = yes
+			acs_filter_trait_personality_vengefulness = yes
+		}
+	}
+}
+
+acs_filter_trait_child_personality = {
+	OR = {
+		is_adult = yes
+		NOT = { has_global_variable = acs_filter_trait_child_personality }
+		AND = {
+			global_var:acs_filter_trait_child_personality = 0
+			has_trait = rowdy
+		}
+		AND = {
+			global_var:acs_filter_trait_child_personality = 1
+			has_trait = charming
+		}
+		AND = {
+			global_var:acs_filter_trait_child_personality = 2
+			has_trait = curious
+		}
+		AND = {
+			global_var:acs_filter_trait_child_personality = 3
+			has_trait = pensive
+		}
+		AND = {
+			global_var:acs_filter_trait_child_personality = 4
+			has_trait = bossy
+		}
+		AND = {
+			global_var:acs_filter_trait_child_personality = 5
+			NOR = {
+				has_trait = rowdy
+				has_trait = charming
+				has_trait = curious
+				has_trait = pensive
+				has_trait = bossy
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_child_personality = 6
+			OR = {
+				AND = {
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_child_personality_rowdy }
+						global_var:acs_filter_trait_child_personality_rowdy = no
+					}
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_child_personality_ }
+						global_var:acs_filter_trait_child_personality_charming = no
+					}
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_child_personality_ }
+						global_var:acs_filter_trait_child_personality_curious = no
+					}
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_child_personality_ }
+						global_var:acs_filter_trait_child_personality_pensive = no
+					}
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_child_personality_ }
+						global_var:acs_filter_trait_child_personality_bossy = no
+					}
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_child_personality_rowdy
+					global_var:acs_filter_trait_child_personality_rowdy = yes
+					has_trait = compassionate
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_child_personality_
+					global_var:acs_filter_trait_child_personality_charming = yes
+					has_trait = callous
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_child_personality_
+					global_var:acs_filter_trait_child_personality_curious = yes
+					has_trait = sadistic
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_child_personality_
+					global_var:acs_filter_trait_child_personality_pensive = yes
+					has_trait = sadistic
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_child_personality_
+					global_var:acs_filter_trait_child_personality_bossy = yes
+					has_trait = sadistic
+				}
+			}
+			NOR = {
+				AND = {
+					has_global_variable = acs_filter_trait_child_personality_rowdy
+					global_var:acs_filter_trait_child_personality_rowdy = no
+					has_trait = compassionate
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_child_personality_
+					global_var:acs_filter_trait_child_personality_charming = no 
+					has_trait = callous
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_child_personality_
+					global_var:acs_filter_trait_child_personality_curious = no
+					has_trait = sadistic
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_child_personality_
+					global_var:acs_filter_trait_child_personality_pensive = no
+					has_trait = sadistic
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_child_personality_
+					global_var:acs_filter_trait_child_personality_bossy = no
+					has_trait = sadistic
+				}
+			}
+		}	
+	}
+}

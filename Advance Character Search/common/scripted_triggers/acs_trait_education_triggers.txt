@@ -1,0 +1,635 @@
+﻿acs_filter_trait_education = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_education }
+		AND = {
+			global_var:acs_filter_trait_education = 0
+			acs_filter_trait_max_education = yes
+		}
+		AND = {
+			global_var:acs_filter_trait_education = 1
+			NOR = {
+				acs_filter_trait_education_any_intrigue = yes
+				acs_filter_trait_education_any_diplomacy = yes
+				acs_filter_trait_education_any_stewardship = yes
+				acs_filter_trait_education_any_martial = yes
+				acs_filter_trait_education_any_learning = yes
+			}
+		}
+		AND = {
+			global_var:acs_filter_trait_education = 2
+			OR = {
+				AND = {
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_education_intrigue }
+						global_var:acs_filter_trait_education_intrigue = 1
+						AND = {
+							global_var:acs_filter_trait_education_intrigue = 2
+							AND = {
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_intrigue_1 }
+									global_var:acs_filter_trait_education_intrigue_1 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_intrigue_2 }
+									global_var:acs_filter_trait_education_intrigue_2 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_intrigue_3 }
+									global_var:acs_filter_trait_education_intrigue_3 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_intrigue_4 }
+									global_var:acs_filter_trait_education_intrigue_4 = no
+								}
+								
+							}
+						}
+						
+					}
+
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_education_diplomacy }
+						global_var:acs_filter_trait_education_diplomacy = 1
+						AND = {
+							global_var:acs_filter_trait_education_diplomacy = 2
+							AND = {
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_diplomacy_1 }
+									global_var:acs_filter_trait_education_diplomacy_1 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_diplomacy_2 }
+									global_var:acs_filter_trait_education_diplomacy_2 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_diplomacy_3 }
+									global_var:acs_filter_trait_education_diplomacy_3 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_diplomacy_4 }
+									global_var:acs_filter_trait_education_diplomacy_4 = no
+								}
+								
+							}
+						}
+						
+					}
+
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_education_stewardship }
+						global_var:acs_filter_trait_education_stewardship = 1
+						AND = {
+							global_var:acs_filter_trait_education_stewardship = 2
+							AND = {
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_stewardship_1 }
+									global_var:acs_filter_trait_education_stewardship_1 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_stewardship_2 }
+									global_var:acs_filter_trait_education_stewardship_2 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_stewardship_3 }
+									global_var:acs_filter_trait_education_stewardship_3 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_stewardship_4 }
+									global_var:acs_filter_trait_education_stewardship_4 = no
+								}
+								
+							}
+						}
+						
+					}
+
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_education_martial }
+						global_var:acs_filter_trait_education_martial = 1
+						AND = {
+							global_var:acs_filter_trait_education_martial = 2
+							AND = {
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_martial_1 }
+									global_var:acs_filter_trait_education_martial_1 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_martial_2 }
+									global_var:acs_filter_trait_education_martial_2 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_martial_3 }
+									global_var:acs_filter_trait_education_martial_3 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_martial_4 }
+									global_var:acs_filter_trait_education_martial_4 = no
+								}
+								
+							}
+						}
+						
+					}
+
+					OR = {
+						NOT = { has_global_variable = acs_filter_trait_education_learning }
+						global_var:acs_filter_trait_education_learning = 1
+						AND = {
+							global_var:acs_filter_trait_education_learning = 2
+							AND = {
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_learning_1 }
+									global_var:acs_filter_trait_education_learning_1 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_learning_2 }
+									global_var:acs_filter_trait_education_learning_2 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_learning_3 }
+									global_var:acs_filter_trait_education_learning_3 = no
+								}
+								OR = {
+									NOT = { has_global_variable = acs_filter_trait_education_learning_4 }
+									global_var:acs_filter_trait_education_learning_4 = no
+								}
+								
+							}
+						}
+						
+					}
+				}
+				acs_filter_trait_education_intrigue_positive_match = yes
+				acs_filter_trait_education_diplomacy_positive_match = yes
+				acs_filter_trait_education_stewardship_positive_match = yes
+				acs_filter_trait_education_martial_positive_match = yes
+				acs_filter_trait_education_learning_positive_match = yes
+			}
+			NOR = {
+				acs_filter_trait_education_intrigue_negative_match = yes
+				acs_filter_trait_education_diplomacy_negative_match = yes
+				acs_filter_trait_education_stewardship_negative_match = yes
+				acs_filter_trait_education_martial_negative_match = yes
+				acs_filter_trait_education_learning_negative_match = yes
+				
+			}
+		}
+	}
+}
+
+acs_filter_trait_education_intrigue_positive_match = {
+	OR = {
+		AND = {
+			global_var:acs_filter_trait_education_intrigue = 0
+			acs_filter_trait_education_any_intrigue = yes
+		}
+		AND = {
+			global_var:acs_filter_trait_education_intrigue = 2
+			OR = {
+				AND = {
+					has_global_variable = acs_filter_trait_education_intrigue_1
+					global_var:acs_filter_trait_education_intrigue_1 = yes
+					has_trait = education_intrigue_1
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_intrigue_2
+					global_var:acs_filter_trait_education_intrigue_2 = yes
+					has_trait = education_intrigue_2
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_intrigue_3
+					global_var:acs_filter_trait_education_intrigue_3 = yes
+					has_trait = education_intrigue_3
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_intrigue_4
+					global_var:acs_filter_trait_education_intrigue_4 = yes
+					has_trait = education_intrigue_4
+				}
+			}
+		}
+	}
+}
+acs_filter_trait_education_intrigue_negative_match = {
+	OR = {
+		AND = {
+			global_var:acs_filter_trait_education_intrigue = 1
+			acs_filter_trait_education_any_intrigue = yes
+		}
+		AND = {
+			global_var:acs_filter_trait_education_intrigue = 2
+			OR = {
+				AND = {
+					has_global_variable = acs_filter_trait_education_intrigue_1
+					global_var:acs_filter_trait_education_intrigue_1 = no
+					has_trait = education_intrigue_1
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_intrigue_2
+					global_var:acs_filter_trait_education_intrigue_2 = no
+					has_trait = education_intrigue_2
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_intrigue_3
+					global_var:acs_filter_trait_education_intrigue_3 = no
+					has_trait = education_intrigue_3
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_intrigue_4
+					global_var:acs_filter_trait_education_intrigue_4 = no
+					has_trait = education_intrigue_4
+				}
+			}
+		}
+		
+	}
+}
+
+acs_filter_trait_education_diplomacy_positive_match = {
+	OR = {
+		AND = {
+			global_var:acs_filter_trait_education_diplomacy = 0
+			acs_filter_trait_education_any_diplomacy = yes
+		}
+		AND = {
+			global_var:acs_filter_trait_education_diplomacy = 2
+			OR = {
+				AND = {
+					has_global_variable = acs_filter_trait_education_diplomacy_1
+					global_var:acs_filter_trait_education_diplomacy_1 = yes
+					has_trait = education_diplomacy_1
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_diplomacy_2
+					global_var:acs_filter_trait_education_diplomacy_2 = yes
+					has_trait = education_diplomacy_2
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_diplomacy_3
+					global_var:acs_filter_trait_education_diplomacy_3 = yes
+					has_trait = education_diplomacy_3
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_diplomacy_4
+					global_var:acs_filter_trait_education_diplomacy_4 = yes
+					has_trait = education_diplomacy_4
+				}
+			}
+		}
+	}
+}
+acs_filter_trait_education_diplomacy_negative_match = {
+	OR = {
+		AND = {
+			global_var:acs_filter_trait_education_diplomacy = 1
+			acs_filter_trait_education_any_diplomacy = yes
+		}
+		AND = {
+			global_var:acs_filter_trait_education_diplomacy = 2
+			OR = {
+				AND = {
+					has_global_variable = acs_filter_trait_education_diplomacy_1
+					global_var:acs_filter_trait_education_diplomacy_1 = no
+					has_trait = education_diplomacy_1
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_diplomacy_2
+					global_var:acs_filter_trait_education_diplomacy_2 = no
+					has_trait = education_diplomacy_2
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_diplomacy_3
+					global_var:acs_filter_trait_education_diplomacy_3 = no
+					has_trait = education_diplomacy_3
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_diplomacy_4
+					global_var:acs_filter_trait_education_diplomacy_4 = no
+					has_trait = education_diplomacy_4
+				}
+			}
+		}
+		
+	}
+}
+
+acs_filter_trait_education_stewardship_positive_match = {
+	OR = {
+		AND = {
+			global_var:acs_filter_trait_education_stewardship = 0
+			acs_filter_trait_education_any_stewardship = yes
+		}
+		AND = {
+			global_var:acs_filter_trait_education_stewardship = 2
+			OR = {
+				AND = {
+					has_global_variable = acs_filter_trait_education_stewardship_1
+					global_var:acs_filter_trait_education_stewardship_1 = yes
+					has_trait = education_stewardship_1
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_stewardship_2
+					global_var:acs_filter_trait_education_stewardship_2 = yes
+					has_trait = education_stewardship_2
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_stewardship_3
+					global_var:acs_filter_trait_education_stewardship_3 = yes
+					has_trait = education_stewardship_3
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_stewardship_4
+					global_var:acs_filter_trait_education_stewardship_4 = yes
+					has_trait = education_stewardship_4
+				}
+			}
+		}
+	}
+}
+acs_filter_trait_education_stewardship_negative_match = {
+	OR = {
+		AND = {
+			global_var:acs_filter_trait_education_stewardship = 1
+			acs_filter_trait_education_any_stewardship = yes
+		}
+		AND = {
+			global_var:acs_filter_trait_education_stewardship = 2
+			OR = {
+				AND = {
+					has_global_variable = acs_filter_trait_education_stewardship_1
+					global_var:acs_filter_trait_education_stewardship_1 = no
+					has_trait = education_stewardship_1
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_stewardship_2
+					global_var:acs_filter_trait_education_stewardship_2 = no
+					has_trait = education_stewardship_2
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_stewardship_3
+					global_var:acs_filter_trait_education_stewardship_3 = no
+					has_trait = education_stewardship_3
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_stewardship_4
+					global_var:acs_filter_trait_education_stewardship_4 = no
+					has_trait = education_stewardship_4
+				}
+			}
+		}
+		
+	}
+}
+
+acs_filter_trait_education_martial_positive_match = {
+	OR = {
+		AND = {
+			global_var:acs_filter_trait_education_martial = 0
+			acs_filter_trait_education_any_martial = yes
+		}
+		AND = {
+			global_var:acs_filter_trait_education_martial = 2
+			OR = {
+				AND = {
+					has_global_variable = acs_filter_trait_education_martial_1
+					global_var:acs_filter_trait_education_martial_1 = yes
+					has_trait = education_martial_1
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_martial_2
+					global_var:acs_filter_trait_education_martial_2 = yes
+					has_trait = education_martial_2
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_martial_3
+					global_var:acs_filter_trait_education_martial_3 = yes
+					has_trait = education_martial_3
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_martial_4
+					global_var:acs_filter_trait_education_martial_4 = yes
+					has_trait = education_martial_4
+				}
+			}
+		}
+	}
+}
+acs_filter_trait_education_martial_negative_match = {
+	OR = {
+		AND = {
+			global_var:acs_filter_trait_education_martial = 1
+			acs_filter_trait_education_any_martial = yes
+		}
+		AND = {
+			global_var:acs_filter_trait_education_martial = 2
+			OR = {
+				AND = {
+					has_global_variable = acs_filter_trait_education_martial_1
+					global_var:acs_filter_trait_education_martial_1 = no
+					has_trait = education_martial_1
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_martial_2
+					global_var:acs_filter_trait_education_martial_2 = no
+					has_trait = education_martial_2
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_martial_3
+					global_var:acs_filter_trait_education_martial_3 = no
+					has_trait = education_martial_3
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_martial_4
+					global_var:acs_filter_trait_education_martial_4 = no
+					has_trait = education_martial_4
+				}
+			}
+		}
+		
+	}
+}
+
+acs_filter_trait_education_learning_positive_match = {
+	OR = {
+		AND = {
+			global_var:acs_filter_trait_education_learning = 0
+			acs_filter_trait_education_any_learning = yes
+		}
+		AND = {
+			global_var:acs_filter_trait_education_learning = 2
+			OR = {
+				AND = {
+					has_global_variable = acs_filter_trait_education_learning_1
+					global_var:acs_filter_trait_education_learning_1 = yes
+					has_trait = education_learning_1
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_learning_2
+					global_var:acs_filter_trait_education_learning_2 = yes
+					has_trait = education_learning_2
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_learning_3
+					global_var:acs_filter_trait_education_learning_3 = yes
+					has_trait = education_learning_3
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_learning_4
+					global_var:acs_filter_trait_education_learning_4 = yes
+					has_trait = education_learning_4
+				}
+			}
+		}
+	}
+}
+acs_filter_trait_education_learning_negative_match = {
+	OR = {
+		AND = {
+			global_var:acs_filter_trait_education_learning = 1
+			acs_filter_trait_education_any_learning = yes
+		}
+		AND = {
+			global_var:acs_filter_trait_education_learning = 2
+			OR = {
+				AND = {
+					has_global_variable = acs_filter_trait_education_learning_1
+					global_var:acs_filter_trait_education_learning_1 = no
+					has_trait = education_learning_1
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_learning_2
+					global_var:acs_filter_trait_education_learning_2 = no
+					has_trait = education_learning_2
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_learning_3
+					global_var:acs_filter_trait_education_learning_3 = no
+					has_trait = education_learning_3
+				}
+				AND = {
+					has_global_variable = acs_filter_trait_education_learning_4
+					global_var:acs_filter_trait_education_learning_4 = no
+					has_trait = education_learning_4
+				}
+			}
+		}
+		
+	}
+}
+
+acs_filter_trait_learning_education = {
+	OR = {
+		NOT = { has_global_variable = acs_filter_trait_education_learning }
+		AND = {
+			global_var:acs_filter_trait_education_learning = 0
+			acs_filter_trait_education_learning = yes
+		}
+		AND = {
+			global_var:acs_filter_trait_education_learning = 1
+			acs_filter_trait_education_learning = no
+		}
+		AND = {
+			global_var:acs_filter_trait_education_learning = 2
+			OR = {
+				NOT = { has_global_variable = acs_filter_trait_education_learning_1 }
+				AND = {
+					global_var:acs_filter_trait_education_learning_1 = yes
+					has_trait = education_learning_1
+				}
+				AND = {
+					global_var:acs_filter_trait_education_learning_1 = no
+					NOT = { has_trait = education_learning_1 }
+				}
+			}
+			OR = {
+				NOT = { has_global_variable = acs_filter_trait_education_learning_2 }
+				AND = {
+					global_var:acs_filter_trait_education_learning_2 = yes
+					has_trait = education_learning_2
+				}
+				AND = {
+					global_var:acs_filter_trait_education_learning_2 = no
+					NOT = { has_trait = education_learning_2 }
+				}
+			}
+			OR = {
+				NOT = { has_global_variable = acs_filter_trait_education_learning_3 }
+				AND = {
+					global_var:acs_filter_trait_education_learning_3 = yes
+					has_trait = education_learning_3
+				}
+				AND = {
+					global_var:acs_filter_trait_education_learning_3 = no
+					NOT = { has_trait = education_learning_3 }
+				}
+			}
+			OR = {
+				NOT = { has_global_variable = acs_filter_trait_education_learning_4 }
+				AND = {
+					global_var:acs_filter_trait_education_learning_4 = yes
+					has_trait = education_learning_4
+				}
+				AND = {
+					global_var:acs_filter_trait_education_learning_4 = no
+					NOT = { has_trait = education_learning_4 }
+				}
+			}
+		}
+	}
+}
+
+
+acs_filter_trait_max_education = {
+	OR = {
+		has_trait = education_intrigue_4
+		has_trait = education_diplomacy_4
+		has_trait = education_stewardship_4
+		has_trait = education_martial_4
+		has_trait = education_learning_4
+	}
+}
+
+acs_filter_trait_education_any_intrigue = {
+	OR = {
+		has_trait = education_intrigue_1
+		has_trait = education_intrigue_2
+		has_trait = education_intrigue_3
+		has_trait = education_intrigue_4
+	}
+}
+
+acs_filter_trait_education_any_diplomacy = {
+	OR = {
+		has_trait = education_diplomacy_1
+		has_trait = education_diplomacy_2
+		has_trait = education_diplomacy_3
+		has_trait = education_diplomacy_4
+	}
+}
+
+acs_filter_trait_education_any_stewardship = {
+	OR = {
+		has_trait = education_stewardship_1
+		has_trait = education_stewardship_2
+		has_trait = education_stewardship_3
+		has_trait = education_stewardship_4
+	}
+}
+
+acs_filter_trait_education_any_martial = {
+	OR = {
+		has_trait = education_martial_1
+		has_trait = education_martial_2
+		has_trait = education_martial_3
+		has_trait = education_martial_4
+	}
+}
+
+acs_filter_trait_education_any_learning = {
+	OR = {
+		has_trait = education_learning_1
+		has_trait = education_learning_2
+		has_trait = education_learning_3
+		has_trait = education_learning_4
+	}
+}
