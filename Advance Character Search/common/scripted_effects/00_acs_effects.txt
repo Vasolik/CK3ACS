@@ -112,46 +112,6 @@ acs_add_to_sort_list = {
     }
 }
 
-
-acs_reset_filters_and_sorting = {
-	if = {
-		limit = {
-			NOR = {
-				NOT = { has_global_variable = acs_auto_apply_sorting_and_filters }
-				acs_current_slot_used = -2 
-			}
-		}
-		acs_save_undo_0_filters = yes
-	}
-    set_global_variable = { name = acs_sort_by value = 0  }
-    set_global_variable = { name = acs_sort_by_assending value = yes  }
-    set_global_variable = { name = acs_filter_relation value = 1 }
-    set_global_variable = { name = acs_filter_diplomatic_range value = 1 }
-    set_global_variable = { name = acs_filter_ruler value = 0 }
-    set_global_variable = { name = acs_filter_adult value = 0 }
-    set_global_variable = { name = acs_filter_gender value = 0 }
-    set_global_variable = { name = acs_filter_martial_status value = 0 }
-    set_global_variable = { name = acs_filter_imprisonment_status value = 0 }
-    set_global_variable = { name = acs_filter_hooks value = 0 }
-    set_global_variable = { name = acs_filter_religion value = 0 }
-    set_global_variable = { name = acs_filter_culture value = 0 }
-    set_global_variable = { name = acs_filter_dynasty value = 0 }
-	set_global_variable = { name = acs_filter_sexuality value = 0 }
-	if = {
-		limit = {
-			NOT = { has_global_variable = acs_auto_apply_sorting_and_filters }
-		}
-		set_global_variable = { name = acs_auto_apply_sorting_and_filters value = yes }
-	}
-	if = {
-		limit = {
-			NOT = { has_global_variable = acs_select_count }
-		}
-		set_global_variable = { name = acs_select_count value = 100 }
-	}
-}
-
-
 clear_acs_list = {
     every_in_list = {
         list = acs_list
@@ -312,16 +272,16 @@ clear_index_data = {
 
 acs_change_sort_order = {
     if = {
-        limit = { global_var:acs_sort_by_assending = yes }
-        set_global_variable = {  name = acs_sort_by_assending value = no }
+        limit = { global_var:acs_sort_by_ascending = yes }
+        set_global_variable = {  name = acs_sort_by_ascending value = no }
     }
     else = {
-        set_global_variable = {  name = acs_sort_by_assending value = yes }
+        set_global_variable = {  name = acs_sort_by_ascending value = yes }
     }
     
     #for debug:
     set_variable = {name = acs_sort_by value = global_var:acs_sort_by}
-    set_variable = {name = acs_sort_by_assending value = global_var:acs_sort_by_assending}
+    set_variable = {name = acs_sort_by_ascending value = global_var:acs_sort_by_ascending}
 }
 
 acs_auto_apply_sorting_and_filters = {

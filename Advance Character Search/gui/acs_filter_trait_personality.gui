@@ -7,11 +7,11 @@
 
 		blockoverride "acs_vbox_filter_group_toggle" {
 			onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_personality' )]"
-			frame = "[Select_int32( GetVariableSystem.Exists( 'acs_filter_trait_group_personality' ), '(int32)1', '(int32)2' )]"
+			frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_personality' ) ), '(int32)1', '(int32)2' )]"
 		}
 		blockoverride "filters" {
 			flowcontainer = {
-				visible = "[Not(GetVariableSystem.Exists( 'acs_filter_trait_group_personality' ))]"
+				visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_personality' )]"
 				position = { 0 26 }
 				direction = vertical
 				spacing = 5
