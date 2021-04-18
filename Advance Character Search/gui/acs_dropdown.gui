@@ -1,0 +1,124 @@
+types acs_dropdown_types {
+	type acs_button_dropdown = button_normal {
+        size = { 225 30 }
+        gfxtype = framedbuttongfx
+        effectname = "NoHighlight"
+        shaderfile = "gfx/FX/pdxgui_pushbutton.shader"
+        upframe = 1
+        overframe = 2
+        downframe = 3
+        disableframe = 1
+        texture = "gfx/interface/buttons/button_interaction_menu.dds"
+        framesize = { 317 30 }
+        clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_checkbox"
+
+        buttonText = {
+            text_single = {
+                size = { 100% 100% }
+                autoresize = no
+                margin_left = 10
+                align = left|nobaseline
+            }
+        }
+    }
+    
+    type acs_button_drop = button_normal {
+        size = { 100% 33 }
+        gfxtype = framedbuttongfx
+        effectname = "NoHighlight"
+        upframe = 1
+        overframe = 2
+        downframe = 3
+        disableframe = 4
+        texture = "gfx/interface/buttons/button_drop_down.dds"
+        framesize = { 225 33 }
+        spriteType = Corneredtiled
+        spriteborder = { 75 11 }
+        clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_checkbox"
+
+        buttonText = {
+            text_single = {
+                size = { 100% 100% }
+                autoresize = no
+                margin = { 15 0 }
+                margin_right = 25
+                align = left|nobaseline
+                default_format = "#clickable"
+            }
+        }
+    }
+
+    type acs_dropdown_selected_value = widget {
+		alwaystransparent = no
+		block "acs_dropdown_selected_value_size" {
+			size = { 100% 100% }
+		}
+
+        block "visibility" {
+            visible = "[GetScriptedGui( 'acs_sort_by_diplomacy' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            enabled = "[GetScriptedGui( 'acs_sort_by_diplomacy' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+        }
+
+        acs_button_drop = {
+            block "onclick_button_drop" {
+                onclick = "[GetVariableSystem.Toggle( 'acs_sort_list' )]"
+            }
+            
+            block "text_button_drop" {
+                text = "diplomacy"
+            }
+        }
+    }
+
+    type acs_dropdown_other_value = widget {
+        alwaystransparent = no
+        block "size_dropdown" {
+            size = { 215 33 }
+		}
+		
+		block "acs_dropdown_other_value_visible" {
+        }
+
+        button_normal = {
+            size = { 100% 30 }
+            gfxtype = framedbuttongfx
+            effectname = "NoHighlight"
+            shaderfile = "gfx/FX/pdxgui_pushbutton.shader"
+            upframe = 1
+            overframe = 2
+            downframe = 3
+            disableframe = 1
+            texture = "gfx/interface/buttons/button_interaction_menu.dds"
+            framesize = { 317 30 }
+            
+        }
+
+        acs_button_dropdown = {
+            block "size_dropdown" {
+                size = { 215 33 }
+            }
+            block "text_button_drop" {
+                text = "diplomacy"
+            }
+            
+            block "onclick_dropdown_close" {
+
+            }
+
+            default_format = "#clickable"
+        }
+    }
+
+    type acs_sort_dropdown_selected_value = acs_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_sort_list' )]"
+        }
+    }
+    
+    type acs_sort_dropdown_other_value = acs_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_sort_list' )]"
+        }
+        
+    }
+}

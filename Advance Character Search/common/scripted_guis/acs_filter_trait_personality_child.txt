@@ -1,0 +1,150 @@
+﻿acs_filter_trait_child_rowdy_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_child_rowdy = no
+    }
+}
+
+acs_filter_trait_child_rowdy = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_child_rowdy = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_child_rowdy } }
+            set_global_variable = {  name = acs_filter_trait_child_rowdy value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_child_rowdy = yes }
+                set_global_variable = {  name = acs_filter_trait_child_rowdy value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_child_rowdy
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_child_charming_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_child_charming = no
+    }
+}
+
+acs_filter_trait_child_charming = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_child_charming = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_child_charming } }
+            set_global_variable = {  name = acs_filter_trait_child_charming value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_child_charming = yes }
+                set_global_variable = {  name = acs_filter_trait_child_charming value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_child_charming
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_child_curious_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_child_curious = no
+    }
+}
+
+acs_filter_trait_child_curious = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_child_curious = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_child_curious } }
+            set_global_variable = {  name = acs_filter_trait_child_curious value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_child_curious = yes }
+                set_global_variable = {  name = acs_filter_trait_child_curious value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_child_curious
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_child_pensive_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_child_pensive = no
+    }
+}
+
+acs_filter_trait_child_pensive = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_child_pensive = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_child_pensive } }
+            set_global_variable = {  name = acs_filter_trait_child_pensive value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_child_pensive = yes }
+                set_global_variable = {  name = acs_filter_trait_child_pensive value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_child_pensive
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_child_bossy_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_child_bossy = no
+    }
+}
+
+acs_filter_trait_child_bossy = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_child_bossy = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_child_bossy } }
+            set_global_variable = {  name = acs_filter_trait_child_bossy value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_child_bossy = yes }
+                set_global_variable = {  name = acs_filter_trait_child_bossy value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_child_bossy
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}

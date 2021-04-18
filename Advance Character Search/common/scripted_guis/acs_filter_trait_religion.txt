@@ -1,0 +1,240 @@
+﻿acs_filter_trait_religius_celibate_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_religius_celibate = no
+    }
+}
+
+acs_filter_trait_religius_celibate = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_religius_celibate = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_celibate } }
+            set_global_variable = {  name = acs_filter_trait_religius_celibate value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_religius_celibate = yes }
+                set_global_variable = {  name = acs_filter_trait_religius_celibate value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_religius_celibate
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_religius_excommunicated_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_religius_excommunicated = no
+    }
+}
+
+acs_filter_trait_religius_excommunicated = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_religius_excommunicated = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_excommunicated } }
+            set_global_variable = {  name = acs_filter_trait_religius_excommunicated value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_religius_excommunicated = yes }
+                set_global_variable = {  name = acs_filter_trait_religius_excommunicated value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_religius_excommunicated
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_religius_devoted_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_religius_devoted = no
+    }
+}
+
+acs_filter_trait_religius_devoted = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_religius_devoted = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_devoted } }
+            set_global_variable = {  name = acs_filter_trait_religius_devoted value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_religius_devoted = yes }
+                set_global_variable = {  name = acs_filter_trait_religius_devoted value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_religius_devoted
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_religius_order_member_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_religius_order_member = no
+    }
+}
+
+acs_filter_trait_religius_order_member = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_religius_order_member = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_order_member } }
+            set_global_variable = {  name = acs_filter_trait_religius_order_member value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_religius_order_member = yes }
+                set_global_variable = {  name = acs_filter_trait_religius_order_member value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_religius_order_member
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_religius_pilgrim_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_religius_pilgrim = no
+    }
+}
+
+acs_filter_trait_religius_pilgrim = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_religius_pilgrim = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_pilgrim } }
+            set_global_variable = {  name = acs_filter_trait_religius_pilgrim value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_religius_pilgrim = yes }
+                set_global_variable = {  name = acs_filter_trait_religius_pilgrim value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_religius_pilgrim
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_religius_faith_warrior_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_religius_faith_warrior = no
+    }
+}
+
+acs_filter_trait_religius_faith_warrior = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_religius_faith_warrior = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_faith_warrior } }
+            set_global_variable = {  name = acs_filter_trait_religius_faith_warrior value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_religius_faith_warrior = yes }
+                set_global_variable = {  name = acs_filter_trait_religius_faith_warrior value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_religius_faith_warrior
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_religius_saint_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_religius_saint = no
+    }
+}
+
+acs_filter_trait_religius_saint = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_religius_saint = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_saint } }
+            set_global_variable = {  name = acs_filter_trait_religius_saint value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_religius_saint = yes }
+                set_global_variable = {  name = acs_filter_trait_religius_saint value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_religius_saint
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_religius_crusader_king_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_religius_crusader_king = no
+    }
+}
+
+acs_filter_trait_religius_crusader_king = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_religius_crusader_king = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_crusader_king } }
+            set_global_variable = {  name = acs_filter_trait_religius_crusader_king value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_religius_crusader_king = yes }
+                set_global_variable = {  name = acs_filter_trait_religius_crusader_king value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_religius_crusader_king
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}

@@ -1,0 +1,1647 @@
+types acs_filters_types {
+    type acs_window_character_filter = window {
+        name = "character_filter_window"
+        visible = "[Not( GetVariableSystem.Exists( 'acs_filter_toggle' ) ) ]"
+        parentanchor = top|right
+        position = { -730 20 }
+        size = { 600 850 }
+        movable = yes
+        focuspolicy = click
+        allow_outside = yes
+
+        using = Window_Background_Subwindow
+
+        state = {
+            name = _show
+            using = Animation_FadeIn_Quick
+        }
+
+        state = {
+            name = _hide
+            using = Animation_FadeOut_Quick
+		}
+		
+		
+
+        widget = { #reset undo
+            position = { 0 717 }
+            size = { 490 50 }
+            hbox = {
+                layoutpolicy_horizontal = growing
+                margin = { 15 15 }
+                button_standard = {
+                    name = "drop_filters"
+                    text = "CHARACTER_RESET_FILTERS"
+                    focuspolicy = click
+                    onclick = "[GetScriptedGui( 'acs_reset_filters_and_sorting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+				button_standard = {
+                    text = "acs_undo"
+					focuspolicy = click
+					enabled = "[GetScriptedGui( 'acs_undo_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    onclick = "[GetScriptedGui( 'acs_undo_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+            }
+        }
+        
+        widget = { # filters
+            size = { 600 717 }
+            position = { 0 4 }
+            allow_outside = yes
+            vbox = {
+                margin = { 0 4 }
+    
+                spacing = 10
+                allow_outside = yes
+                acs_header_pattern = {
+                    layoutpolicy_horizontal = expanding
+    
+                    blockoverride "header_text"
+                    {
+                        text = "CHARACTER_LIST_FILTERS"
+                    }
+                    blockoverride "button_close"
+                    {
+                        onclick = "[GetVariableSystem.Toggle( 'acs_filter_toggle' )]"
+                    }
+					blockoverride "reload_visible" {
+						visible = no
+					}
+                }
+
+				scrollbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					maximumsize = { 600 653 }
+					blockoverride "scrollbox_content" {
+						widget = {
+							size = { 580 5000 }
+							using = Scrollbox_Margins
+							
+							flowcontainer = {
+								state = {
+									name = "up"
+									
+									trigger_when = "[And( GetVariableSystem.Exists( 'acs_filter_group_personal' ), GetVariableSystem.Exists( 'acs_filter_group_membership' ))]"
+									position_y = 161
+								}
+						
+								state = {
+									name = "middle_1"
+									trigger_when = "[And( Not(GetVariableSystem.Exists( 'acs_filter_group_personal' )), GetVariableSystem.Exists( 'acs_filter_group_membership' ))]"
+									position_y = 518
+								}
+								state = {
+									name = "middle_2"
+									
+									trigger_when = "[And( GetVariableSystem.Exists( 'acs_filter_group_personal' ), Not( GetVariableSystem.Exists( 'acs_filter_group_membership' )))]"
+									position_y = 300
+								}
+								state = {
+									name = "down"
+									
+									trigger_when = "[And( Not( GetVariableSystem.Exists( 'acs_filter_group_personal' )), Not( GetVariableSystem.Exists( 'acs_filter_group_membership' )))]"
+									position_y = 660
+								}
+								position = { 0 488 } 
+								childanchor = top|left
+								direction = vertical
+								spacing = 5
+								acs_filter_trait_physical_group = { }
+								acs_filter_trait_personality_group = { }
+								acs_filter_trait_personality_child_group = { }
+								acs_filter_trait_education_group = { }
+								acs_filter_trait_commander_group = { }
+								acs_filter_trait_health_group = { }
+								acs_filter_trait_health_diseases_group = { }
+								acs_filter_trait_stress_group = { }
+								acs_filter_trait_religion_group = { }
+								acs_filter_trait_descentant_group = { }
+								acs_filter_trait_infamous_group = { }
+								acs_filter_trait_fame_other_group = { }
+								acs_filter_trait_lifestyle_group = { }
+							}
+							acs_vbox_filter_group = { # groups filters
+		
+								state = {
+									name = "up"
+									
+									trigger_when = "[GetVariableSystem.Exists( 'acs_filter_group_personal' )]"
+									position_y = 131
+								}
+						
+								state = {
+									name = "down"
+									trigger_when = "[Not(GetVariableSystem.Exists( 'acs_filter_group_personal' ))]"
+									position_y = 488
+								}
+								position = { 0 488 } 
+								blockoverride "acs_vbox_filter_group_name" {
+									text = "membership_filter_category"
+								}
+								
+								blockoverride "size" {
+									size = { 580 170 }
+								}
+								blockoverride "size_sub" {
+									size = { 580 144 }
+									visible = "[Not(GetVariableSystem.Exists( 'acs_filter_group_membership' ))]"
+								}
+								blockoverride "acs_vbox_filter_group_toggle" {
+									onclick = "[GetVariableSystem.Toggle( 'acs_filter_group_membership' )]"
+									frame = "[Select_int32( GetVariableSystem.Exists( 'acs_filter_group_membership' ), '(int32)1', '(int32)2' )]"
+								}
+								
+								blockoverride "filters" {
+									acs_filter_dynasty_item = {
+										position = { 0 101 } 
+										blockoverride "filter_name" {  
+											text = "dynasty_filter"
+										}
+										blockoverride "acs_filter_selected_value" {   
+											acs_filter_dynasty_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_dynasty_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_dynasty_same_dynasty' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "player_dynasty_filter"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_dynasty_different_dynasty' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "not_player_dynasty_filter"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_dynasty_same_house' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "player_house_filter"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_dynasty_different_house' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "not_player_house_filter"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_dynasty_not_lowborn' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "any_dynasty_filter"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_dynasty_lowborn' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "no_dynasty_filter"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_dynasty_not_lowborn_different_dynasty' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "acs_filter_dynasty_not_lowborn_different_dynasty"
+												}
+											}
+										}
+						
+										blockoverride "acs_filter_other_value" { 
+											acs_filter_dynasty_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_dynasty_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "player_dynasty_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_dynasty_same_dynasty' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "not_player_dynasty_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_dynasty_different_dynasty' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "player_house_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_dynasty_same_house' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "not_player_house_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_dynasty_different_house' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "any_dynasty_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_dynasty_not_lowborn' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "no_dynasty_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_dynasty_lowborn' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_dynasty_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "acs_filter_dynasty_not_lowborn_different_dynasty"
+													onclick = "[GetScriptedGui( 'acs_filter_dynasty_not_lowborn_different_dynasty' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+										}
+									}
+									acs_filter_culture_item = {
+										position = { 0 53 } 
+										blockoverride "filter_name" {  
+											text = "culture_filter"
+										}
+										blockoverride "acs_filter_selected_value" {   
+											acs_filter_culture_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_culture_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+												}
+											}
+						
+											acs_filter_culture_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_culture_same_culture_group' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "same_culture_group_filter_option"
+												}
+											}
+											
+											acs_filter_culture_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_culture_same_culture' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "same_culture_filter_option"
+												}
+											}
+				
+											acs_filter_culture_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_culture_different_cultural_group' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "not_same_culture_group_filter_option"
+												}
+											}
+				
+											acs_filter_culture_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_culture_different_culture' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "not_same_culture_filter_option"
+												}
+											}
+											
+										}
+						
+										blockoverride "acs_filter_other_value" { 
+											acs_filter_culture_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_culture_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_culture_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "same_culture_group_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_culture_same_culture_group' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_culture_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "same_culture_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_culture_same_culture' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+				
+											acs_filter_culture_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "not_same_culture_group_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_culture_different_cultural_group' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+				
+											acs_filter_culture_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "not_same_culture_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_culture_different_culture' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+										}
+									}
+									acs_filter_religion_item = {
+										position = { 0 5 } 
+										
+										blockoverride "filter_name" {  
+											text = "religion_filter"
+										}
+										blockoverride "acs_filter_selected_value" {   
+											acs_filter_religion_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_religion_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+												}
+											}
+											
+											acs_filter_religion_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_religion_same_faith' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "same_faith_filter_option"
+												}
+											}
+						
+											acs_filter_religion_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_religion_same_religion' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "same_religion_filter_option"
+												}
+											}
+											
+											acs_filter_religion_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_religion_diferent_faith' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "not_same_faith_filter_option"
+												}
+											}
+				
+											acs_filter_religion_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_religion_diferent_religion' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "not_same_religion_filter_option"
+												}
+											}
+				
+										}
+						
+										blockoverride "acs_filter_other_value" { 
+											acs_filter_religion_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_religion_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_religion_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "same_faith_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_religion_same_faith' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_religion_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "same_religion_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_religion_same_religion' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+				
+											acs_filter_religion_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "not_same_faith_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_religion_diferent_faith' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+				
+											acs_filter_religion_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "not_same_religion_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_religion_diferent_religion' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+										}
+									}
+								}
+							}
+				
+							acs_vbox_filter_group = { # personal filters
+				
+								position = { 0 101 } 
+								blockoverride "size_sub" {
+									size = { 482 361 }
+									visible = "[Not(GetVariableSystem.Exists( 'acs_filter_group_personal' ))]"
+								}
+								blockoverride "acs_vbox_filter_group_toggle" {
+									onclick = "[GetVariableSystem.Toggle( 'acs_filter_group_personal' )]"
+									frame = "[Select_int32( GetVariableSystem.Exists( 'acs_filter_group_personal' ), '(int32)1', '(int32)2' )]"
+								}
+		
+								blockoverride "filters" {
+									acs_filter_sexuality_item = {
+										position = { 0 313 } 
+										blockoverride "filter_name" {  
+											text = "filter_sexuality"
+										}
+										blockoverride "acs_filter_selected_value" {   
+											acs_filter_sexuality_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_sexuality_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+												}
+											}
+						
+											acs_filter_sexuality_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_sexuality_heterosexual' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "heterosexual_filter"
+												}
+											}
+											
+											acs_filter_sexuality_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_sexuality_homosexual' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "homosexual_filter"
+												}
+											}
+				
+											acs_filter_sexuality_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_sexuality_bisexual' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "bisexual_filter"
+												}
+											}
+				
+											acs_filter_sexuality_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_sexuality_asexual' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "asexual_filter"
+												}
+											}
+										}
+						
+										blockoverride "acs_filter_other_value" { 
+											acs_filter_sexuality_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_sexuality_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_sexuality_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "heterosexual_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_sexuality_heterosexual' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_sexuality_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "homosexual_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_sexuality_homosexual' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+				
+											acs_filter_sexuality_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "bisexual_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_sexuality_bisexual' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+				
+											acs_filter_sexuality_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "asexual_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_sexuality_asexual' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+										}
+									}
+									acs_filter_hooks_item = {
+										position = { 0 265 } 
+										blockoverride "filter_name" {  
+											text = "hook_filter"
+										}
+										blockoverride "acs_filter_selected_value" {   
+											acs_filter_hooks_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_hooks_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+												}
+											}
+						
+											acs_filter_hooks_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_hooks_have_hook' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "has_hook_filter"
+												}
+											}
+											
+											acs_filter_hooks_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_hooks_no_hooks' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "no_hook_filter"
+												}
+											}
+				
+											acs_filter_hooks_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_hooks_know_secret' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "know_secret_filter"
+												}
+											}
+				
+											acs_filter_hooks_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_hooks_know_no_secret_no_hook' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "no_hook_no_secret_filter"
+												}
+											}
+											
+										}
+						
+										blockoverride "acs_filter_other_value" { 
+											acs_filter_hooks_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_hooks_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_hooks_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "has_hook_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_hooks_have_hook' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_hooks_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "no_hook_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_hooks_no_hooks' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+				
+											acs_filter_hooks_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "know_secret_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_hooks_know_secret' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+				
+											acs_filter_hooks_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "no_hook_no_secret_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_hooks_know_no_secret_no_hook' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+										}
+									}
+				
+									acs_filter_imprisonment_status_item = {
+										position = { 0 217 } 
+										blockoverride "filter_name" {  
+											text = "imprisoned_filter"
+										}
+										blockoverride "acs_filter_selected_value" {   
+											acs_filter_imprisonment_status_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_imprisonment_status_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+												}
+											}
+						
+											acs_filter_imprisonment_status_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_imprisonment_status_imprisoned' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "is_imprisoned_filter"
+												}
+											}
+											
+											acs_filter_imprisonment_status_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_imprisonment_status_free' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "not_imprisoned_filter"
+												}
+											}
+											
+										}
+						
+										blockoverride "acs_filter_other_value" { 
+											acs_filter_imprisonment_status_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_imprisonment_status_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_imprisonment_status_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "is_imprisoned_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_imprisonment_status_imprisoned' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_imprisonment_status_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "not_imprisoned_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_imprisonment_status_free' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+										}
+									}
+				
+									acs_filter_martial_status_item = {
+										position = { 0 169 } 
+										blockoverride "filter_name" {  
+											text = "married_filter"
+										}
+										blockoverride "acs_filter_selected_value" {   
+											acs_filter_martial_status_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_martial_status_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+												}
+											}
+						
+											acs_filter_martial_status_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_martial_status_merried' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "is_married_filter"
+												}
+											}
+											
+											acs_filter_martial_status_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_martial_status_unmerried' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "not_married_filter"
+												}
+											}
+				
+											acs_filter_martial_status_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_martial_status_betrothed' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "is_betrothed_filter"
+												}
+											}
+											
+											acs_filter_martial_status_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_martial_status_not_betrothed' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "not_betrothed_filter"
+												}
+											}
+											
+										}
+										
+										blockoverride "acs_filter_other_value" { 
+											acs_filter_martial_status_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_martial_status_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_martial_status_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "is_married_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_martial_status_merried' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_martial_status_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "not_married_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_martial_status_unmerried' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_martial_status_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "is_betrothed_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_martial_status_betrothed' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_martial_status_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "not_betrothed_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_martial_status_not_betrothed' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+										}
+									}
+				
+									divider = {
+										position = { 0 158 }
+										size = { 482 4 }
+									}
+									
+									acs_filter_gender_item = {
+										position = { 0 101 } 
+										blockoverride "filter_name" {  
+											text = "gender_filter"
+										}
+										blockoverride "acs_filter_selected_value" {   
+											acs_filter_gender_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_gender_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+												}
+											}
+						
+											acs_filter_gender_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_gender_female' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "female_gender_filter"
+												}
+											}
+											
+											acs_filter_gender_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_gender_male' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "male_gender_filter"
+												}
+											}
+										}
+						
+										blockoverride "acs_filter_other_value" { 
+											acs_filter_gender_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_gender_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_gender_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "female_gender_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_gender_female' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_gender_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "male_gender_filter"
+													onclick = "[GetScriptedGui( 'acs_filter_gender_male' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+										}
+									}
+									
+									acs_filter_adult_item = {
+										position = { 0 53 } 
+				
+										blockoverride "filter_name" {  
+											text = "adult_filter"
+										}
+										blockoverride "acs_filter_selected_value" {   
+											acs_filter_adult_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_adult_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+												}
+											}
+						
+											acs_filter_adult_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_adult_child' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "child_filter_option"
+												}
+											}
+											
+											acs_filter_adult_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_adult_adult' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "adult_filter_option"
+												}
+											}
+				
+											acs_filter_adult_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_adult_younger_adult' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "younger_adult_filter_option"
+												}
+											}
+				
+											acs_filter_adult_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_adult_older_adult' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "older_adult_filter_option"
+												}
+											}
+										}
+						
+										blockoverride "acs_filter_other_value" { 
+											acs_filter_adult_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_adult_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_adult_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "child_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_adult_child' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_adult_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "adult_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_adult_adult' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+				
+											acs_filter_adult_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "younger_adult_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_adult_younger_adult' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_adult_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "older_adult_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_adult_older_adult' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+										}
+									}
+									
+									acs_filter_ruler_item = {
+										position = { 0 5 } 
+										blockoverride "filter_name" {  
+											text = "ruler_filter"
+										}
+										blockoverride "acs_filter_selected_value" {   
+											acs_filter_ruler_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_ruler_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+												}
+											}
+						
+											acs_filter_ruler_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_ruler_ruler' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "ruler_filter_option"
+												}
+											}
+											
+											acs_filter_ruler_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_ruler_landed' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "landed_ruler_filter_option"
+												}
+											}
+				
+											acs_filter_ruler_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_ruler_unlanded' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "landless_ruler_filter_option"
+												}
+											}
+				
+											acs_filter_ruler_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_ruler_not_ruler' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "not_ruler_filter_option"
+												}
+											}
+				
+											acs_filter_ruler_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_ruler_not_ruler_and_not_heir' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "not_ruler_and_not_heir_filter_option"
+												}
+											}
+											
+											acs_filter_ruler_dropdown_selected_value = {
+												blockoverride "visibility" {
+													visible = "[GetScriptedGui( 'acs_filter_ruler_independent_ruler' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+												blockoverride "text_button_drop" {
+													text = "independent_filter_option"
+												}
+											}
+										}
+										
+										blockoverride "acs_filter_other_value" { 
+											acs_filter_ruler_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "any_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_ruler_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_ruler_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "ruler_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_ruler_ruler' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_ruler_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "landed_ruler_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_ruler_landed' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+				
+											acs_filter_ruler_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "landless_ruler_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_ruler_unlanded' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_ruler_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "not_ruler_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_ruler_not_ruler' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_ruler_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "not_ruler_and_not_heir_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_ruler_not_ruler_and_not_heir' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+											
+											acs_filter_ruler_dropdown_other_value = {
+												blockoverride "text_button_drop" {
+													text = "independent_filter_option"
+													onclick = "[GetScriptedGui( 'acs_filter_ruler_independent_ruler' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												}
+											}
+										}
+									}
+								}
+								  
+							}
+							
+							acs_filter_diplomatic_range_item = {
+								position = { 0 53 }
+								blockoverride "filter_name" {  
+									text = "rule_diplomatic_range"
+								}
+								blockoverride "acs_filter_selected_value" {   
+									acs_filter_diplomatic_range_dropdown_selected_value = {
+										blockoverride "visibility" {
+											visible = "[GetScriptedGui( 'acs_filter_diplomatic_range_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+										blockoverride "text_button_drop" {
+											text = "any_filter_option"
+										}
+									}
+				
+									acs_filter_diplomatic_range_dropdown_selected_value = {
+										blockoverride "visibility" {
+											visible = "[GetScriptedGui( 'acs_filter_diplomatic_range_inside' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+										blockoverride "text_button_drop" {
+											text = "in_range_filter"
+										}
+									}
+									
+									acs_filter_diplomatic_range_dropdown_selected_value = {
+										blockoverride "visibility" {
+											visible = "[GetScriptedGui( 'acs_filter_diplomatic_range_outside' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+										blockoverride "text_button_drop" {
+											text = "not_in_range_filter"
+										}
+									}
+								}
+				
+								blockoverride "acs_filter_other_value" { 
+									acs_filter_diplomatic_range_dropdown_other_value = {
+										blockoverride "text_button_drop" {
+											text = "any_filter_option"
+											onclick = "[GetScriptedGui( 'acs_filter_diplomatic_range_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+									}
+									
+									acs_filter_diplomatic_range_dropdown_other_value = {
+										blockoverride "text_button_drop" {
+											text = "in_range_filter"
+											onclick = "[GetScriptedGui( 'acs_filter_diplomatic_range_inside' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+									}
+									
+									acs_filter_diplomatic_range_dropdown_other_value = {
+										blockoverride "text_button_drop" {
+											text = "not_in_range_filter"
+											onclick = "[GetScriptedGui( 'acs_filter_diplomatic_range_outside' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+									}
+								}
+							}
+							
+							acs_filter_relation_item = {
+								position = { 0 5 }
+								blockoverride "filter_name" {  
+									text = "relation_filter"
+								}
+								blockoverride "acs_filter_selected_value" {   
+									acs_filter_relation_dropdown_selected_value = {
+										blockoverride "visibility" {
+											visible = "[GetScriptedGui( 'acs_filter_relation_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+										blockoverride "text_button_drop" {
+											text = "any_filter_option"
+										}
+									}
+				
+									acs_filter_relation_dropdown_selected_value = {
+										blockoverride "visibility" {
+											visible = "[GetScriptedGui( 'acs_filter_relation_top_relm' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+										blockoverride "text_button_drop" {
+											text = "top_realm_relation_filter"
+										}
+									}
+									
+									acs_filter_relation_dropdown_selected_value = {
+										blockoverride "visibility" {
+											visible = "[GetScriptedGui( 'acs_filter_relation_relm' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+										blockoverride "text_button_drop" {
+											text = "realm_relation_filter"
+										}
+									}
+				
+									acs_filter_relation_dropdown_selected_value = {
+										blockoverride "visibility" {
+											visible = "[GetScriptedGui( 'acs_filter_relation_vassals' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+										blockoverride "text_button_drop" {
+											text = "vassal_relation_filter"
+										}
+									}
+									
+									acs_filter_relation_dropdown_selected_value = {
+										blockoverride "visibility" {
+											visible = "[GetScriptedGui( 'acs_filter_relation_court' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+										blockoverride "text_button_drop" {
+											text = "court_relation_filter"
+										}
+									}
+								}
+				
+								blockoverride "acs_filter_other_value" { 
+									acs_filter_relation_dropdown_other_value = {
+										blockoverride "text_button_drop" {
+											text = "any_filter_option"
+											onclick = "[GetScriptedGui( 'acs_filter_relation_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+									}
+									
+									acs_filter_relation_dropdown_other_value = {
+										blockoverride "text_button_drop" {
+											text = "top_realm_relation_filter"
+											onclick = "[GetScriptedGui( 'acs_filter_relation_top_relm' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+									}
+									
+									acs_filter_relation_dropdown_other_value = {
+										blockoverride "text_button_drop" {
+											text = "realm_relation_filter"
+											onclick = "[GetScriptedGui( 'acs_filter_relation_relm' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+									}
+									
+									acs_filter_relation_dropdown_other_value = {
+										blockoverride "text_button_drop" {
+											text = "vassal_relation_filter"
+											onclick = "[GetScriptedGui( 'acs_filter_relation_vassals' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+									}
+									
+									acs_filter_relation_dropdown_other_value = {
+										blockoverride "text_button_drop" {
+											text = "court_relation_filter"
+											onclick = "[GetScriptedGui( 'acs_filter_relation_court' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+										}
+									}
+								}
+				
+							}
+						}
+					}
+				}
+                
+  
+            }
+        }
+        
+		widget = { #load/save
+            position = { 0 767 }
+			size = { 490 50 }
+			allow_outside = yes
+            hbox = {
+                layoutpolicy_horizontal = growing
+                margin = { 15 15 }
+				allow_outside = yes
+				acs_filter_load_item = {
+					position = { 0 5 }
+					blockoverride "filter_name" {  
+						text = "acs_load"
+					}
+					blockoverride "acs_filter_selected_value" {   
+						acs_filter_load_selected_value = {
+							blockoverride "visibility" {
+								visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_none"
+							}
+						}
+	
+						acs_filter_load_selected_value = {
+							blockoverride "visibility" {
+								visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-2')]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_default"
+							}
+						}
+						
+						acs_filter_load_selected_value = {
+							blockoverride "visibility" {
+								visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+							}
+							blockoverride "text_button_drop" {
+								text = "[GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used')|0]"
+							}
+						}
+					}
+	
+					blockoverride "acs_filter_other_value" { 
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_0"
+								onclick = "[GetScriptedGui( 'acs_load_0_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_0_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_1"
+								onclick = "[GetScriptedGui( 'acs_load_1_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_1_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_2"
+								onclick = "[GetScriptedGui( 'acs_load_2_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_2_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_3"
+								onclick = "[GetScriptedGui( 'acs_load_3_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_3_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_4"
+								onclick = "[GetScriptedGui( 'acs_load_4_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_4_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_5"
+								onclick = "[GetScriptedGui( 'acs_load_5_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_5_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_6"
+								onclick = "[GetScriptedGui( 'acs_load_6_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_6_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_7"
+								onclick = "[GetScriptedGui( 'acs_load_7_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_7_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_8"
+								onclick = "[GetScriptedGui( 'acs_load_8_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_8_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_9"
+								onclick = "[GetScriptedGui( 'acs_load_9_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								visible = "[GetScriptedGui( 'acs_load_9_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_9_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_10"
+								onclick = "[GetScriptedGui( 'acs_load_10_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_10_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_11"
+								onclick = "[GetScriptedGui( 'acs_load_11_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_11_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_load_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_12"
+								onclick = "[GetScriptedGui( 'acs_load_12_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+							block "acs_dropdown_other_value_visible" {
+								visible = "[GetScriptedGui( 'acs_load_12_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+					}
+	
+				}
+
+				acs_filter_save_item = {
+					position = { 0 5 }
+					blockoverride "filter_name" {  
+						text = "acs_save"
+					}
+					blockoverride "acs_filter_selected_value" {   
+						acs_filter_save_selected_value = {
+							blockoverride "visibility" {
+								visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_none"
+							}
+						}
+	
+						acs_filter_save_selected_value = {
+							blockoverride "visibility" {
+								visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-2')]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_default"
+							}
+						}
+						
+						acs_filter_save_selected_value = {
+							blockoverride "visibility" {
+								visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+							}
+							blockoverride "text_button_drop" {
+								text = "[GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used')|0]"
+							}
+						}
+					}
+	
+					blockoverride "acs_filter_other_value" { 
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_0"
+								onclick = "[GetScriptedGui( 'acs_save_0_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_1"
+								onclick = "[GetScriptedGui( 'acs_save_1_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_2"
+								onclick = "[GetScriptedGui( 'acs_save_2_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_3"
+								onclick = "[GetScriptedGui( 'acs_save_3_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_4"
+								onclick = "[GetScriptedGui( 'acs_save_4_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_5"
+								onclick = "[GetScriptedGui( 'acs_save_5_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_6"
+								onclick = "[GetScriptedGui( 'acs_save_6_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_7"
+								onclick = "[GetScriptedGui( 'acs_save_7_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_8"
+								onclick = "[GetScriptedGui( 'acs_save_8_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_9"
+								onclick = "[GetScriptedGui( 'acs_save_9_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								enabled = "[GetScriptedGui( 'acs_save_9_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_10"
+								onclick = "[GetScriptedGui( 'acs_save_10_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_11"
+								onclick = "[GetScriptedGui( 'acs_save_11_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+						acs_filter_save_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_12"
+								onclick = "[GetScriptedGui( 'acs_save_12_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+					}
+	
+				}
+            }
+        }
+    }
+    
+    type acs_vbox_filter_group = widget {
+
+        block "size" {
+            size = { 482 387 }
+        }
+        allow_outside = yes
+        widget = {
+            size = { 580 26 }
+            hbox = {
+                position = { 0 0 }
+                button = {
+                    name = "show"
+                    alwaystransparent = no
+                    texture = "gfx/interface/buttons/button_tree_expand.dds"
+                    framesize = { 36 36 }
+                    size = { 18 18 }
+					block "acs_vbox_filter_group_toggle" {
+						onclick = "[GetVariableSystem.Toggle( 'acs_filter_group' )]"
+						frame = "[Select_int32( GetVariableSystem.Exists( 'acs_filter_group' ), '(int32)1', '(int32)2' )]"
+					}
+                    
+                    using = tooltip_ws
+                    tooltip = "EXPAND_FILTER"
+                    oversound = "event:/SFX/UI/Generic/sfx_ui_generic_icon_pointer_over"
+                    clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_icon_select"
+                }
+    
+                text_label_center = {
+                    layoutpolicy_horizontal = expanding
+                    margin_right = 36
+                    name = "label"
+					align = center
+					block "acs_vbox_filter_group_name" {
+						text = "personal_filter_category"
+					}
+                    
+                }
+    
+            }
+        }
+        
+        widget = {
+            allow_outside = yes
+            position = { 0 26 }
+            
+            block "size_sub" {
+                size = { 482 361 }
+				visible = "[Not(GetVariableSystem.Exists( 'acs_filter_group' ))]"
+            }
+
+            block "filters" {}	
+            
+        }
+    }
+
+	type acs_vbox_filter_group_trait = flowcontainer {
+		direction = vertical
+		ignoreinvisible = yes
+		spacing = 7
+        widget = {
+            size = { 580 26 }
+            hbox = {	
+                position = { 0 0 }
+                button = {
+                    name = "show"
+                    alwaystransparent = no
+                    texture = "gfx/interface/buttons/button_tree_expand.dds"
+                    framesize = { 36 36 }
+                    size = { 18 18 }
+					block "acs_vbox_filter_group_toggle" {
+						onclick = "[GetVariableSystem.Toggle( 'acs_filter_group' )]"
+						frame = "[Select_int32( GetVariableSystem.Exists( 'acs_filter_group' ), '(int32)1', '(int32)2' )]"
+					}
+                    
+                    using = tooltip_ws
+                    tooltip = "EXPAND_FILTER"
+                    oversound = "event:/SFX/UI/Generic/sfx_ui_generic_icon_pointer_over"
+                    clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_icon_select"
+                }
+    
+                text_label_center = {
+                    layoutpolicy_horizontal = expanding
+                    margin_right = 36
+                    name = "label"
+					align = center
+					block "acs_vbox_filter_group_name" {
+						text = "game_concept_personality_traits"
+					}
+                    
+                }
+    
+            }
+        }
+        block "filters" {
+			flowcontainer = {
+				position = { 0 26 }
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				
+				visible = "[Not(GetVariableSystem.Exists( 'acs_filter_group' ))]"
+			}	
+        
+        }
+    }
+}

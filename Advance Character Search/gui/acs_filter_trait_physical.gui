@@ -1,0 +1,440 @@
+﻿types acs_filter_trait_physical_group_types {
+	type acs_filter_trait_physical_group =  acs_vbox_filter_group_trait {
+		parentanchor = top|left
+		blockoverride "acs_vbox_filter_group_name" {
+			text = "acs_filter_trait_group_physical"
+		}
+
+		blockoverride "acs_vbox_filter_group_toggle" {
+			onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_physical' )]"
+			frame = "[Select_int32( GetVariableSystem.Exists( 'acs_filter_trait_group_physical' ), '(int32)1', '(int32)2' )]"
+		}
+		blockoverride "filters" {
+			flowcontainer = {
+				visible = "[Not(GetVariableSystem.Exists( 'acs_filter_trait_group_physical' ))]"
+				position = { 0 26 }
+				direction = vertical
+				spacing = 5
+				flowcontainer = {
+					widget = {
+						size = { 69 65 }
+						text_single = {
+							position = { 7 20 }
+							layoutpolicy_horizontal = expanding
+							block "acs_filter_name" {  
+								text = "acs_beauty"
+							}
+							default_format = "#medium"
+							
+							align = bottom|right
+						}
+					}
+					spacing = 5
+					flowcontainer = {
+						direction = vertical
+						spacing = 5
+						flowcontainer = {
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_beauty_bad_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'beauty_bad_3' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_beauty_bad_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_beauty_bad_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_beauty_bad_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'beauty_bad_2' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_beauty_bad_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_beauty_bad_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_beauty_bad_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'beauty_bad_1' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_beauty_bad_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_beauty_bad_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+						}
+						flowcontainer = {
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_beauty_good_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'beauty_good_1' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_beauty_good_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_beauty_good_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_beauty_good_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'beauty_good_2' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_beauty_good_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_beauty_good_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_beauty_good_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'beauty_good_3' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_beauty_good_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_beauty_good_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+						}
+					}
+				}
+				flowcontainer = {
+					widget = {
+						size = { 69 65 }
+						text_single = {
+							position = { 7 20 }
+							layoutpolicy_horizontal = expanding
+							block "acs_filter_name" {  
+								text = "acs_intellect"
+							}
+							default_format = "#medium"
+							
+							align = bottom|right
+						}
+					}
+					spacing = 5
+					flowcontainer = {
+						direction = vertical
+						spacing = 5
+						flowcontainer = {
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_intellect_bad_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'intellect_bad_3' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_intellect_bad_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_intellect_bad_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_intellect_bad_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'intellect_bad_2' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_intellect_bad_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_intellect_bad_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_intellect_bad_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'intellect_bad_1' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_intellect_bad_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_intellect_bad_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+						}
+						flowcontainer = {
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_intellect_good_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'intellect_good_1' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_intellect_good_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_intellect_good_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_intellect_good_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'intellect_good_2' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_intellect_good_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_intellect_good_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_intellect_good_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'intellect_good_3' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_intellect_good_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_intellect_good_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+						}
+					}
+				}
+				flowcontainer = {
+					widget = {
+						size = { 69 65 }
+						text_single = {
+							position = { 7 20 }
+							layoutpolicy_horizontal = expanding
+							block "acs_filter_name" {  
+								text = "acs_physique"
+							}
+							default_format = "#medium"
+							
+							align = bottom|right
+						}
+					}
+					spacing = 5
+					flowcontainer = {
+						direction = vertical
+						spacing = 5
+						flowcontainer = {
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_physique_bad_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'physique_bad_3' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_physique_bad_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_physique_bad_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_physique_bad_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'physique_bad_2' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_physique_bad_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_physique_bad_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_physique_bad_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'physique_bad_1' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_physique_bad_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_physique_bad_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+						}
+						flowcontainer = {
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_physique_good_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'physique_good_1' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_physique_good_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_physique_good_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_physique_good_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'physique_good_2' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_physique_good_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_physique_good_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+							acs_trait_item_right_small = { 
+							    blockoverride "acs_trait_item_action" {
+							        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_physique_good_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							        datacontext = "[GetTrait( 'physique_good_3' )]"
+							    }
+							    blockoverride "acs_checkbox_state" {
+							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_physique_good_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_physique_good_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+							    }
+							}
+						}
+					}
+				}
+				flowcontainer = { 
+					acs_trait_item_left = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_pure_blooded' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'pure_blooded' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_pure_blooded' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_pure_blooded_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_right = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_fecund' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'fecund' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_fecund' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_fecund_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					} 
+				}
+				flowcontainer = { 
+					acs_trait_item_left = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_strong' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'strong' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_strong' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_strong_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_right = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_shrewd' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'shrewd' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_shrewd' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_shrewd_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					} 
+				}
+				flowcontainer = {
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_clubfooted' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'clubfooted' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_clubfooted' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_clubfooted_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_hunchbacked' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'hunchbacked' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_hunchbacked' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_hunchbacked_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_right_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_lisping' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'lisping' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_lisping' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_lisping_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+				}
+				flowcontainer = {
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_stuttering' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'stuttering' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_stuttering' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_stuttering_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_dwarf' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'dwarf' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_dwarf' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_dwarf_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_right_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_giant' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'giant' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_giant' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_giant_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+				}
+				flowcontainer = {
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_inbred' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'inbred' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_inbred' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_inbred_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_weak' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'weak' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_weak' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_weak_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_right_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_dull' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'dull' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_dull' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_dull_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+				}
+				flowcontainer = {
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_impotent' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'impotent' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_impotent' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_impotent_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_spindly' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'spindly' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_spindly' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_spindly_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_right_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_scaly' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'scaly' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_scaly' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_scaly_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+				}
+				flowcontainer = {
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_albino' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'albino' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_albino' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_albino_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_wheezing' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'wheezing' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_wheezing' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_wheezing_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_right_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_physical_bleeder' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'bleeder' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_physical_bleeder' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_physical_bleeder_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+				}
+			}	
+		}
+	}
+}

@@ -1,0 +1,395 @@
+
+acs_sort_by_health = {
+    scope = character
+    
+    is_shown = { 
+        global_var:acs_sort_by = 0
+    }
+    
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 0 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 0 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_title = {
+    scope = character
+    
+    is_shown = { 
+        global_var:acs_sort_by = 1
+    }
+    
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 1 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 1 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_age = {
+    scope = character
+    
+    is_shown = { 
+        global_var:acs_sort_by = 2
+    }
+    
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 2 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 2 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_opinion = {
+    scope = character
+    
+    is_shown = { 
+        global_var:acs_sort_by = 3
+    }
+    
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 3 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 3 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_diplomacy = {
+    scope = character
+    
+    is_shown = { 
+        global_var:acs_sort_by = 4
+    }
+    
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 4 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 4 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_martial = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 5
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 5 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 5 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_stewardship = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 6
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 6 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 6 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_intrigue = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 7
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 7 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 7 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_learning = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 8
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 8 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 8 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_prowess = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 9
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 9 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 9 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_all_stats = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 10
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 10 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 10 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_magic_sauce = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 11
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 11 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 11 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_gold = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 12
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 12 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 12 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+
+acs_sort_by_prestige = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 13
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 13 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 13 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_piety = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 14
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 14 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 14 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_military_strength = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 15
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 15 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 15 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_dread = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 16
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 16 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 16 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+
+acs_sort_by_progeny = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 17
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 17 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 17 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sort_by_claim = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by = 18
+    }
+        
+    effect = {
+        if = {
+            limit = { global_var:acs_sort_by = 18 }
+            acs_change_sort_order = yes
+        }
+        else = {
+            set_global_variable = {  name = acs_sort_by value = 18 }
+            set_global_variable = {  name = acs_sort_by_assending value = no }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_change_sort_order = {
+    scope = character
+        
+    is_shown = { 
+        global_var:acs_sort_by_assending = yes
+    }
+        
+    effect = {
+        acs_change_sort_order = yes
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}

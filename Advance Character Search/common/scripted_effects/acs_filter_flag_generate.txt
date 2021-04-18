@@ -1,0 +1,1029 @@
+﻿acs_filter_flag_generate = {
+    clear_global_variable_list = acs_active_filter_list
+    set_global_variable = { name = acs_active_filters_count value = 0  } 
+    if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_education_intrigue_1
+				has_global_variable = acs_filter_trait_education_intrigue_2
+				has_global_variable = acs_filter_trait_education_intrigue_3
+				has_global_variable = acs_filter_trait_education_intrigue_4
+				has_global_variable = acs_filter_trait_education_diplomacy_1
+				has_global_variable = acs_filter_trait_education_diplomacy_2
+				has_global_variable = acs_filter_trait_education_diplomacy_3
+				has_global_variable = acs_filter_trait_education_diplomacy_4
+				has_global_variable = acs_filter_trait_education_stewardship_1
+				has_global_variable = acs_filter_trait_education_stewardship_2
+				has_global_variable = acs_filter_trait_education_stewardship_3
+				has_global_variable = acs_filter_trait_education_stewardship_4
+				has_global_variable = acs_filter_trait_education_martial_1
+				has_global_variable = acs_filter_trait_education_martial_2
+				has_global_variable = acs_filter_trait_education_martial_3
+				has_global_variable = acs_filter_trait_education_martial_4
+				has_global_variable = acs_filter_trait_education_learning_1
+				has_global_variable = acs_filter_trait_education_learning_2
+				has_global_variable = acs_filter_trait_education_learning_3
+				has_global_variable = acs_filter_trait_education_learning_4
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_education_martial_prowess_1
+				has_global_variable = acs_filter_trait_education_martial_prowess_2
+				has_global_variable = acs_filter_trait_education_martial_prowess_3
+				has_global_variable = acs_filter_trait_education_martial_prowess_4
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_martial }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_lustful
+				has_global_variable = acs_filter_trait_personality_chaste
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_lust }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_gluttonous
+				has_global_variable = acs_filter_trait_personality_temperate
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_food }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_greedy
+				has_global_variable = acs_filter_trait_personality_generous
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_greed }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_lazy
+				has_global_variable = acs_filter_trait_personality_diligent
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_work }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_wrathful
+				has_global_variable = acs_filter_trait_personality_calm
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_calmness }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_patient
+				has_global_variable = acs_filter_trait_personality_impatient
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_patience }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_arrogant
+				has_global_variable = acs_filter_trait_personality_humble
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_arrogance }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_deceitful
+				has_global_variable = acs_filter_trait_personality_honest
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_lies }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_craven
+				has_global_variable = acs_filter_trait_personality_brave
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_bravery }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_shy
+				has_global_variable = acs_filter_trait_personality_gregarious
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_shyness }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_ambitious
+				has_global_variable = acs_filter_trait_personality_content
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_ambition }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_arbitrary
+				has_global_variable = acs_filter_trait_personality_just
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_justice }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_cynical
+				has_global_variable = acs_filter_trait_personality_zealous
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_faith }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_paranoid
+				has_global_variable = acs_filter_trait_personality_trusting
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_trust }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_compassionate
+				has_global_variable = acs_filter_trait_personality_callous
+				has_global_variable = acs_filter_trait_personality_sadistic
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_compassion }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_stubborn
+				has_global_variable = acs_filter_trait_personality_fickle
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_stubborness }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_personality_vengeful
+				has_global_variable = acs_filter_trait_personality_forgiving
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_personality_vengefulness }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_fame_born_status_bastard
+				has_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
+				has_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
+				has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
+				has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
+				has_global_variable = acs_filter_trait_fame_born_status_wild_oat
+				has_global_variable = acs_filter_trait_fame_born_status_bastard_founder
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_fame_kinslayer_1
+				has_global_variable = acs_filter_trait_fame_kinslayer_2
+				has_global_variable = acs_filter_trait_fame_kinslayer_3
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_kinslayer }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_berserker }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:berserker }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_shieldmaiden }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:shieldmaiden }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_varangian }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:varangian }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_poet }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:poet }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_twin }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:twin }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_deviant }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:deviant }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_cannibal }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:cannibal }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_sodomite }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:sodomite }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_incestuous }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:incestuous }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_adulterer }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:adulterer }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_fornicator }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:fornicator }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_murderer }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:murderer }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_born_in_the_purple }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:born_in_the_purple }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_augustus }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:augustus }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_viking }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:viking }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_reincarnation }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:reincarnation }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_adventurer }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:adventurer }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_heresiarch }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:heresiarch }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_peasant_leader }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:peasant_leader }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_witch }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:witch }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_disinherited }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:disinherited }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_denounced }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:denounced }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_chakravarti }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:chakravarti }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_fame_greatest_of_khans }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:greatest_of_khans }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_logistician }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:logistician }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_military_engineer }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:military_engineer }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_aggressive_attacker }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:aggressive_attacker }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_unyielding_defender }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:unyielding_defender }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_forder }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:forder }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_flexible_leader }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:flexible_leader }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_desert_warrior }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:desert_warrior }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_jungle_stalker }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:jungle_stalker }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_reaver }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:reaver }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_reckless }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:reckless }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_holy_warrior }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:holy_warrior }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_open_terrain_expert }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:open_terrain_expert }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_rough_terrain_expert }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:rough_terrain_expert }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_forest_fighter }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:forest_fighter }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_cautious_leader }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:cautious_leader }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_organizer }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:organizer }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_commander_winter_soldier }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:winter_soldier }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_lifestyle_reveler_1
+				has_global_variable = acs_filter_trait_lifestyle_reveler_2
+				has_global_variable = acs_filter_trait_lifestyle_reveler_3
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_lifestyle_reveler }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_lifestyle_blademaster_1
+				has_global_variable = acs_filter_trait_lifestyle_blademaster_2
+				has_global_variable = acs_filter_trait_lifestyle_blademaster_3
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_lifestyle_blademaster }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_lifestyle_hunter_1
+				has_global_variable = acs_filter_trait_lifestyle_hunter_2
+				has_global_variable = acs_filter_trait_lifestyle_hunter_3
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_lifestyle_hunter }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_lifestyle_mystic_1
+				has_global_variable = acs_filter_trait_lifestyle_mystic_2
+				has_global_variable = acs_filter_trait_lifestyle_mystic_3
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_lifestyle_mystic }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_lifestyle_physician_1
+				has_global_variable = acs_filter_trait_lifestyle_physician_2
+				has_global_variable = acs_filter_trait_lifestyle_physician_3
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_lifestyle_physician }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_diplomat }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:diplomat }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_family_first }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:family_first }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_august }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:august }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_strategist }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:strategist }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_overseer }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:overseer }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_gallant }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:gallant }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_architect }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:architect }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_administrator }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:administrator }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_avaricious }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:avaricious }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_schemer }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:schemer }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_seducer }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:seducer }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_torturer }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:torturer }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_whole_of_body }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:whole_of_body }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_scholar }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:scholar }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_theologian }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:theologian }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_lifestyle_lifestyle_herbalist }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:lifestyle_herbalist }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_child_rowdy }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:rowdy }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_child_charming }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:charming }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_child_curious }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:curious }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_child_pensive }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:pensive }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_child_bossy }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:bossy }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_drunkard }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:drunkard }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_hashishiyah }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:hashishiyah }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_rakish }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:rakish }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_reclusive }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:reclusive }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_irritable }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:irritable }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_flagellant }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:flagellant }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_profligate }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:profligate }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_improvident }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:improvident }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_contrite }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:contrite }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_comfort_eater }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:comfort_eater }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_inappetetic }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:inappetetic }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_journaller }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:journaller }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_confider }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:confider }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_stress_athletic }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:athletic }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_health_wounded_1
+				has_global_variable = acs_filter_trait_health_wounded_2
+				has_global_variable = acs_filter_trait_health_wounded_3
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_health_wounded }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_depressed_1 }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:depressed_1 }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_lunatic_1 }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:lunatic_1 }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_possessed_1 }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:possessed_1 }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_ill }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:ill }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_pneumonic }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:pneumonic }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_great_pox }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:great_pox }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_lovers_pox }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:lovers_pox }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_leper }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:leper }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_maimed }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:maimed }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_one_eyed }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:one_eyed }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_one_legged }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:one_legged }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_disfigured }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:disfigured }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_infirm }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:infirm }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_incapable }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:incapable }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_gout_ridden }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:gout_ridden }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_consumption }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:consumption }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_cancer }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:cancer }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_typhus }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:typhus }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_bubonic_plague }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:bubonic_plague }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_smallpox }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:smallpox }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_sickly }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:sickly }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_scarred }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:scarred }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_eunuch }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:eunuch }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_health_blind }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:blind }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_physical_beauty_bad_1
+				has_global_variable = acs_filter_trait_physical_beauty_bad_2
+				has_global_variable = acs_filter_trait_physical_beauty_bad_3
+				has_global_variable = acs_filter_trait_physical_beauty_good_1
+				has_global_variable = acs_filter_trait_physical_beauty_good_2
+				has_global_variable = acs_filter_trait_physical_beauty_good_3
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_physical_intellect_bad_1
+				has_global_variable = acs_filter_trait_physical_intellect_bad_2
+				has_global_variable = acs_filter_trait_physical_intellect_bad_3
+				has_global_variable = acs_filter_trait_physical_intellect_good_1
+				has_global_variable = acs_filter_trait_physical_intellect_good_2
+				has_global_variable = acs_filter_trait_physical_intellect_good_3
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = {
+	        OR = {
+	            has_global_variable = acs_filter_trait_physical_physique_bad_1
+				has_global_variable = acs_filter_trait_physical_physique_bad_2
+				has_global_variable = acs_filter_trait_physical_physique_bad_3
+				has_global_variable = acs_filter_trait_physical_physique_good_1
+				has_global_variable = acs_filter_trait_physical_physique_good_2
+				has_global_variable = acs_filter_trait_physical_physique_good_3
+	        }
+	    }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_pure_blooded }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:pure_blooded }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_fecund }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:fecund }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_strong }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:strong }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_shrewd }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:shrewd }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_clubfooted }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:clubfooted }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_hunchbacked }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:hunchbacked }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_lisping }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:lisping }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_stuttering }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:stuttering }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_dwarf }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:dwarf }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_giant }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:giant }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_inbred }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:inbred }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_weak }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:weak }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_dull }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:dull }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_impotent }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:impotent }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_spindly }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:spindly }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_scaly }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:scaly }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_albino }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:albino }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_wheezing }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:wheezing }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_bleeder }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:bleeder }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_physical_pregnant }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:pregnant }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_celibate }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:celibate }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_pilgrim }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:pilgrim }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_excommunicated }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:excommunicated }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_devoted }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:devoted }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_sayyid }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:sayyid }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_saoshyant }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:saoshyant }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_saoshyant_descendant }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:saoshyant_descendant }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_savior }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:savior }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_divine_blood }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:divine_blood }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_blood_of_prophet }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:blood_of_prophet }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_faith_warrior }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:faith_warrior }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_saint }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:saint }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_order_member }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:order_member }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_paragon }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:paragon }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_consecrated_blood }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:consecrated_blood }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+	if = {
+	    limit = { has_global_variable = acs_filter_trait_religius_crusader_king }
+	    add_to_global_variable_list = { name = acs_active_filter_list target = flag:crusader_king }
+	    change_global_variable = { name = acs_active_filters_count add = 1 }  
+	}
+}

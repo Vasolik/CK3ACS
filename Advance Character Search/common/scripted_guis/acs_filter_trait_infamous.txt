@@ -1,0 +1,394 @@
+﻿acs_filter_trait_fame_kinslayer_1_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_kinslayer_1 = no
+    }
+}
+
+acs_filter_trait_fame_kinslayer_1 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_kinslayer_1 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_kinslayer_1 } }
+            set_global_variable = {  name = acs_filter_trait_fame_kinslayer_1 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_kinslayer_1 = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_kinslayer_1 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_kinslayer_1
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_kinslayer_2_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_kinslayer_2 = no
+    }
+}
+
+acs_filter_trait_fame_kinslayer_2 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_kinslayer_2 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_kinslayer_2 } }
+            set_global_variable = {  name = acs_filter_trait_fame_kinslayer_2 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_kinslayer_2 = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_kinslayer_2 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_kinslayer_2
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_kinslayer_3_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_kinslayer_3 = no
+    }
+}
+
+acs_filter_trait_fame_kinslayer_3 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_kinslayer_3 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_kinslayer_3 } }
+            set_global_variable = {  name = acs_filter_trait_fame_kinslayer_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_kinslayer_3 = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_kinslayer_3 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_kinslayer_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_kinslayer_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_fame_kinslayer_1 = no
+			global_var:acs_filter_trait_fame_kinslayer_2 = no
+			global_var:acs_filter_trait_fame_kinslayer_3 = no
+		}
+    }
+}
+acs_filter_trait_fame_kinslayer_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_fame_kinslayer_1
+			has_global_variable = acs_filter_trait_fame_kinslayer_2
+			has_global_variable = acs_filter_trait_fame_kinslayer_3
+		}
+    }
+}
+acs_filter_trait_fame_kinslayer = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_fame_kinslayer_1 = yes
+			global_var:acs_filter_trait_fame_kinslayer_2 = yes
+			global_var:acs_filter_trait_fame_kinslayer_3 = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_fame_kinslayer_1
+					has_global_variable = acs_filter_trait_fame_kinslayer_2
+					has_global_variable = acs_filter_trait_fame_kinslayer_3
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_fame_kinslayer_1 value = yes }
+			set_global_variable = {  name = acs_filter_trait_fame_kinslayer_2 value = yes }
+			set_global_variable = {  name = acs_filter_trait_fame_kinslayer_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_fame_kinslayer_1 = yes
+						global_var:acs_filter_trait_fame_kinslayer_2 = yes
+						global_var:acs_filter_trait_fame_kinslayer_3 = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_fame_kinslayer_1 value = no }
+				set_global_variable = {  name = acs_filter_trait_fame_kinslayer_2 value = no }
+				set_global_variable = {  name = acs_filter_trait_fame_kinslayer_3 value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_fame_kinslayer_1
+			remove_global_variable = acs_filter_trait_fame_kinslayer_2
+			remove_global_variable = acs_filter_trait_fame_kinslayer_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_murderer_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_murderer = no
+    }
+}
+
+acs_filter_trait_fame_murderer = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_murderer = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_murderer } }
+            set_global_variable = {  name = acs_filter_trait_fame_murderer value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_murderer = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_murderer value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_murderer
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_cannibal_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_cannibal = no
+    }
+}
+
+acs_filter_trait_fame_cannibal = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_cannibal = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_cannibal } }
+            set_global_variable = {  name = acs_filter_trait_fame_cannibal value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_cannibal = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_cannibal value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_cannibal
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_witch_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_witch = no
+    }
+}
+
+acs_filter_trait_fame_witch = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_witch = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_witch } }
+            set_global_variable = {  name = acs_filter_trait_fame_witch value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_witch = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_witch value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_witch
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_deviant_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_deviant = no
+    }
+}
+
+acs_filter_trait_fame_deviant = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_deviant = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_deviant } }
+            set_global_variable = {  name = acs_filter_trait_fame_deviant value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_deviant = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_deviant value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_deviant
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_sodomite_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_sodomite = no
+    }
+}
+
+acs_filter_trait_fame_sodomite = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_sodomite = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_sodomite } }
+            set_global_variable = {  name = acs_filter_trait_fame_sodomite value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_sodomite = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_sodomite value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_sodomite
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_incestuous_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_incestuous = no
+    }
+}
+
+acs_filter_trait_fame_incestuous = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_incestuous = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_incestuous } }
+            set_global_variable = {  name = acs_filter_trait_fame_incestuous value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_incestuous = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_incestuous value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_incestuous
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_adulterer_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_adulterer = no
+    }
+}
+
+acs_filter_trait_fame_adulterer = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_adulterer = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_adulterer } }
+            set_global_variable = {  name = acs_filter_trait_fame_adulterer value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_adulterer = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_adulterer value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_adulterer
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_fornicator_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_fornicator = no
+    }
+}
+
+acs_filter_trait_fame_fornicator = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_fornicator = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_fornicator } }
+            set_global_variable = {  name = acs_filter_trait_fame_fornicator value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_fornicator = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_fornicator value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_fornicator
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}

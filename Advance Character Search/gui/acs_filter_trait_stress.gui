@@ -1,0 +1,157 @@
+﻿types acs_filter_trait_stress_group_types {
+	type acs_filter_trait_stress_group =  acs_vbox_filter_group_trait {
+		parentanchor = top|left
+		blockoverride "acs_vbox_filter_group_name" {
+			text = "acs_filter_trait_group_stress"
+		}
+
+		blockoverride "acs_vbox_filter_group_toggle" {
+			onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_stress' )]"
+			frame = "[Select_int32( GetVariableSystem.Exists( 'acs_filter_trait_group_stress' ), '(int32)1', '(int32)2' )]"
+		}
+		blockoverride "filters" {
+			flowcontainer = {
+				visible = "[Not(GetVariableSystem.Exists( 'acs_filter_trait_group_stress' ))]"
+				position = { 0 26 }
+				direction = vertical
+				spacing = 5
+				flowcontainer = {
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_journaller' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'journaller' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_journaller' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_journaller_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_confider' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'confider' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_confider' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_confider_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_right_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_athletic' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'athletic' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_athletic' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_athletic_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+				}
+				flowcontainer = {
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_drunkard' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'drunkard' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_drunkard' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_drunkard_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_hashishiyah' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'hashishiyah' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_hashishiyah' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_hashishiyah_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_right_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_rakish' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'rakish' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_rakish' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_rakish_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+				}
+				flowcontainer = {
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_reclusive' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'reclusive' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_reclusive' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_reclusive_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_irritable' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'irritable' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_irritable' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_irritable_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_right_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_flagellant' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'flagellant' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_flagellant' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_flagellant_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+				}
+				flowcontainer = {
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_profligate' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'profligate' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_profligate' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_profligate_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_left_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_improvident' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'improvident' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_improvident' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_improvident_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_right_third = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_contrite' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'contrite' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_contrite' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_contrite_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+				}
+				flowcontainer = { 
+					acs_trait_item_left = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_comfort_eater' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'comfort_eater' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_comfort_eater' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_comfort_eater_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					}
+					acs_trait_item_right = { 
+					    blockoverride "acs_trait_item_action" {
+					        onclick = "[GetScriptedGui( 'acs_filter_trait_stress_inappetetic' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					        datacontext = "[GetTrait( 'inappetetic' )]"
+					    }
+					    blockoverride "acs_checkbox_state" {
+					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_stress_inappetetic' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_stress_inappetetic_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+					    }
+					} 
+				}
+			}	
+		}
+	}
+}

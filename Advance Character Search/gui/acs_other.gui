@@ -1,0 +1,1085 @@
+template acs_skill_grid_text
+{
+    parentanchor = center
+    margin_bottom = 4
+    align = center
+}
+
+template acs_skill_grid_background
+{
+    name = "skill_icon_bg"
+    texture = "gfx/interface/window_character/character_view_skills_bg.dds"
+    framesize = { 70 26 }
+    margin = { 5 0 }
+}
+### LIST TEMPLATE
+types acs_character_list_types {
+
+	type acs_dropdown_sort_characterlist = widget {
+        name = "sort_options"
+		size = { 225 33 }
+		
+        allow_outside = yes
+
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_health' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "SORT_HEALTH"
+            }
+        }
+
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_title' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "CHARACTER_SORT_TITLES"
+            }
+        }
+        
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_age' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "CHARACTER_SORT_AGE"
+            }
+        }
+
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_opinion' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "SORT_OPINION"
+            }
+        }
+
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_diplomacy' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "diplomacy"
+            }
+        }
+
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_martial' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "martial"
+            }
+        }
+
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_stewardship' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "stewardship"
+            }
+        }
+
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_intrigue' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "intrigue"
+            }
+        }
+
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_learning' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "learning"
+            }
+        }
+
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_prowess' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "prowess"
+            }
+        }
+
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_all_stats' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "CHARACTER_SORT_ALL_SKILLS"
+            }
+        }
+        
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_magic_sauce' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "acs_sort_by_magic_sauce"
+            }
+        }
+        
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_gold' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "game_concept_gold"
+            }
+        }
+            
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_prestige' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "game_concept_prestige"
+            }
+        }
+        
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_piety' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "game_concept_piety"
+            }
+        }
+        
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_military_strength' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "SORT_MILITARY_STRENGTH"
+            }
+        }
+        
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_dread' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "game_concept_dread"
+            }
+        }
+        
+                
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_military_strength' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "SORT_MILITARY_STRENGTH"
+            }
+        }
+        
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_dread' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "game_concept_dread"
+            }
+        }
+                
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_progeny' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "progeny"
+            }
+        }
+
+        acs_sort_dropdown_selected_value = {
+            blockoverride "visibility" {
+                visible = "[GetScriptedGui( 'acs_sort_by_claim' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            blockoverride "text_button_drop" {
+                text = "game_concept_claim"
+            }
+        }
+        
+        scrollarea = {
+            #parentanchor = bottom|right
+            position = { 5 33 }
+
+            state = {
+                name = _show
+                using = Animation_FadeIn_Quick
+            }
+    
+            state = {
+                name = _hide
+                using = Animation_FadeOut_Quick
+            }
+
+
+            maximumsize = { 215 250 }
+            autoresizescrollarea = yes
+            scrollbarpolicy_horizontal = always_off
+
+            using = Background_DropDown
+            
+            visible = "[GetVariableSystem.Exists( 'acs_sort_list' )]"
+
+            scrollwidget = {
+                vbox = {
+                    using = Background_DropDown
+                    layoutpolicy_vertical = expanding
+                    layoutpolicy_horizontal = expanding
+                    
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "SORT_HEALTH"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_health' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "CHARACTER_SORT_TITLES"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_title' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "CHARACTER_SORT_AGE"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_age' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "SORT_OPINION"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_opinion' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "diplomacy"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_diplomacy' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "martial"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_martial' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "stewardship"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_stewardship' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "intrigue"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_intrigue' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "learning"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_learning' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "prowess"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_prowess' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "CHARACTER_SORT_ALL_SKILLS"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_all_stats' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_sort_by_magic_sauce"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_magic_sauce' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    
+
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "game_concept_gold"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_gold' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "game_concept_prestige"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_prestige' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "game_concept_piety"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_piety' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "SORT_MILITARY_STRENGTH"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_military_strength' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                                        
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "game_concept_dread"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_dread' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "progeny"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_progeny' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                    
+                    acs_sort_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "game_concept_claim"
+                            onclick = "[GetScriptedGui( 'acs_sort_by_claim' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                    }
+                }
+            }
+
+            scrollbar_vertical = {
+                using = Scrollbar_Vertical
+            }
+            
+        }
+        
+    }
+
+	type acs_header_pattern = widget {
+        layoutpolicy_horizontal = expanding
+        name = "header"
+        size = { 100 56 }
+
+        background = {
+            name = "header"
+            texture = "gfx/interface/component_tiles/tile_title_big_top_01.dds"
+            spriteType = Corneredtiled
+            texture_density = 2
+
+            modify_texture = {
+                name = "mask"
+                texture = "gfx/interface/component_masks/mask_title_big_top.dds"
+                spriteType = Corneredtiled
+                spriteborder = { 160 0 }
+                blend_mode = alphamultiply
+                alpha = 0.5
+            }
+
+            modify_texture = {
+                name = "overlay"
+                texture = "gfx/interface/component_overlay/overlay_title_big_top.dds"
+                spriteType = Corneredstretched
+                spriteborder = { 0 0 }
+                blend_mode = overlay
+            }
+        }
+         
+        flowcontainer = {
+            parentanchor = top|right
+            ignoreinvisible = yes
+            margin = { 8 8 }
+    
+            button_icon = {
+                texture = "gfx/interface/icons/flat_icons/acs_reload.dds"
+                name = "button_reload"
+                tooltip = "acs_reload_tooltip"
+    
+                using = Animation_ShowHide_Standard
+                block "reload_visible" {
+                    visible = yes
+                }
+                
+                onclick =  "[GetScriptedGui( 'acs_window' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+    
+            button_close = {
+                name = "button_close"
+                shortcut = "close_window"
+                tooltip = "CLOSE_TOOLTIP"
+                clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_close"
+    
+                using = Animation_ShowHide_Standard
+    
+                onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
+                onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
+            }
+        }
+
+        text_single = {
+            name = "header_text"
+            parentanchor = top|hcenter
+            position = { 0 5 }
+
+            text = "CHARACTER_FINDER_TITLE"
+
+            maximumsize = { 400 -1 }
+
+            using = Font_Type_Flavor
+            using = Font_Size_Big
+        }
+    }
+       
+    type acs_hbox_list_sort_buttons = hbox {
+        name = "acs_sort_buttons"
+        margin_left = 10
+        margin_right = 20
+        margin_top = 5
+        spacing = 5
+        allow_outside = yes
+        ignoreinvisible = yes
+
+        button_standard = {
+            name = "filters"
+            size = { 25 25 }
+
+            down = "[CharacterSelectionList.FiltersShown]"
+            frame = "[BoolTo1And2(CharacterSelectionList.IsAllDefault)]"
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_toggle' )]"
+
+            tooltip = "TOGGLE_FILTERS"
+            using = tooltip_nw
+
+            button_search = {
+                alwaystransparent = yes
+                parentanchor = center
+                size = { 20 20 }
+            }
+
+            block "filters_visible" {}
+        }
+        
+        divider_light = {
+            size = { 3 20 }
+        }
+
+        text_single = {
+            text = "SORT_BY"
+            align = nobaseline
+        }
+        widget = {
+            size = { 225 33 }
+        }
+
+		button_standard = {
+			name = "sort_order"
+            size = { 25 25 }
+            onclick =  "[GetScriptedGui( 'acs_change_sort_order' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+
+			tooltip = "CHARACTER_SORT_BY"
+			using = tooltip_nw
+
+			button_icon = {
+				alwaystransparent = yes
+				parentanchor = center
+				size = { 25 25 }
+				texture = "gfx/interface/icons/flat_icons/sort_icon.dds"
+				framesize = { 66 66 }
+				frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+
+				blockoverride "button_frames"
+				{
+					effectname = "NoHighlight"
+				}
+			}
+		}
+
+        expand = {}
+
+        block "skill_sort_buttons"
+        {
+            hbox = {
+                button_standard_hover = {
+                    name = "skill_diplomacy"
+                    size = { 32 32 }
+                    
+                    icon = {
+                        texture = "gfx/interface/icons/icon_skills.dds"
+                        size = { 32 32 }
+                        framesize = { 60 60 }
+                        frame = 1	
+                    }
+                    onclick = "[GetScriptedGui( 'acs_sort_by_diplomacy' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    tooltip = "acs_sort_by_diplomacy"
+                    using = tooltip_below
+
+                    skillitem_sort_icon = {
+                        visible = "[GetScriptedGui( 'acs_sort_by_diplomacy' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                    }
+                }
+
+                button_standard_hover = {
+                    name = "skill_martial"
+                    size = { 32 32 }
+                    
+                    icon = {
+                        texture = "gfx/interface/icons/icon_skills.dds"
+                        size = { 32 32 }
+                        framesize = { 60 60 }
+                        frame = 2
+                    }
+                    onclick = "[GetScriptedGui( 'acs_sort_by_martial' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    tooltip = "acs_sort_by_martial"
+                    using = tooltip_below
+
+                    skillitem_sort_icon = {
+                        visible = "[GetScriptedGui( 'acs_sort_by_martial' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                    }
+                }
+
+                button_standard_hover = {
+                    name = "skill_stewardship"
+                    size = { 32 32 }
+                    
+                    icon = {
+                        texture = "gfx/interface/icons/icon_skills.dds"
+                        size = { 32 32 }
+                        framesize = { 60 60 }
+                        frame = 3			
+                    }
+
+                    onclick = "[GetScriptedGui( 'acs_sort_by_stewardship' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    tooltip = "acs_sort_by_stewardship"
+                    using = tooltip_below
+
+                    skillitem_sort_icon = {
+                        visible = "[GetScriptedGui( 'acs_sort_by_stewardship' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                    }
+                }
+
+                button_standard_hover = {
+                    name = "skill_intrigue"
+                    size = { 32 32 }
+                    
+                    icon = {
+                        texture = "gfx/interface/icons/icon_skills.dds"
+                        size = { 32 32 }
+                        framesize = { 60 60 }
+                        frame = 4
+                    }
+
+                    onclick = "[GetScriptedGui( 'acs_sort_by_intrigue' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    tooltip = "acs_sort_by_intrigue"
+                    using = tooltip_below
+
+                    skillitem_sort_icon = {
+                        visible = "[GetScriptedGui( 'acs_sort_by_intrigue' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                    }
+                }
+
+                button_standard_hover = {
+                    name = "skill_learning"
+                    size = { 32 32 }
+                    
+                    icon = {
+                        texture = "gfx/interface/icons/icon_skills.dds"
+                        size = { 32 32 }
+                        framesize = { 60 60 }
+                        frame = 5
+                    }
+
+                    onclick = "[GetScriptedGui( 'acs_sort_by_learning' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    tooltip = "acs_sort_by_learning"
+                    using = tooltip_below
+
+                    skillitem_sort_icon = {
+                        visible = "[GetScriptedGui( 'acs_sort_by_learning' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                    }
+                }
+                
+                button_standard_hover = {
+                    name = "skill_prowess"
+                    size = { 32 32 }
+                    
+                    icon = {
+                        texture = "gfx/interface/icons/icon_skills.dds"
+                        size = { 32 32 }
+                        framesize = { 60 60 }
+                        frame = 6
+                    }
+
+                    onclick = "[GetScriptedGui( 'acs_sort_by_prowess' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    tooltip = "acs_sort_by_prowess"
+                    using = tooltip_below
+
+                    skillitem_sort_icon = {
+                        visible = "[GetScriptedGui( 'acs_sort_by_prowess' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                    }
+                }
+            }
+        }
+        
+
+    }
+
+    type acs_hbox_skills_grid = hbox {
+        name = "acs_skills_grid"
+        minimumsize = { 160 0 }
+        widget = {
+            size = { 32 25 }
+
+            text_single = {
+                using = acs_skill_grid_text
+                text = "[Character.GetSkill( 'diplomacy' )]"
+                tooltip = "Diplomacy"
+            }
+
+            background = {
+
+                using = acs_skill_grid_background
+                block "bg"
+                {
+                    frame = 1
+                }
+            }
+        }
+
+        widget = {
+            size = { 32 25 }
+
+            text_single = {
+                using = acs_skill_grid_text
+                text = "[Character.GetSkill( 'martial' )]"
+                tooltip = "Martial"
+            }
+
+            background = {
+
+                using = acs_skill_grid_background
+                block "bg"
+                {
+                    frame = 2
+                }
+            }
+        }
+
+        widget = {
+            size = { 32 25 }
+
+            text_single = {
+                name = "value"
+                using = acs_skill_grid_text
+                text = "[Character.GetSkill( 'stewardship' )]"
+                tooltip = "Stewardship"
+            }
+
+            background = {
+
+                using = acs_skill_grid_background
+                block "bg"
+                {
+                    frame = 3
+                }
+            }
+        }
+        
+        widget = {
+            size = { 32 25 }
+
+            text_single = {
+                name = "value"
+                using = acs_skill_grid_text
+                text = "[Character.GetSkill( 'intrigue' )]"
+                tooltip = "Intrigue"
+            }
+
+            background = {
+
+                using = acs_skill_grid_background
+                block "bg"
+                {
+                    frame = 4
+                }
+            }
+        }
+
+        widget = {
+            size = { 32 25 }
+
+            text_single = {
+                name = "value"
+                using = acs_skill_grid_text
+                text = "[Character.GetSkill( 'learning' )]"
+                tooltip = "Learning"
+            }
+
+            background = {
+
+                using = acs_skill_grid_background
+                block "bg"
+                {
+                    frame = 5
+                }
+            }
+        }
+
+        widget = {
+            size = { 32 25 }
+
+            text_single = {
+                name = "value"
+                using = acs_skill_grid_text
+                text = "[Character.GetSkill( 'prowess' )]"
+                tooltip = "Prowess"
+            }
+        }
+        
+    }
+
+    type acs_widget_character_list_item_finder = widget {
+        datacontext = "[Scope.GetCharacter]"
+		size = { 200 94 }
+
+        background = {
+            visible = "[GetScriptedGui( 'acs_even_index' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End ) ]"
+            using = Background_Area_Dark
+            margin_top = -4
+            margin_bottom = 2
+            alpha = 0.5
+        }
+        block "divider" {}
+
+        block "widget" {}
+
+        hbox = {
+            layoutpolicy_horizontal = expanding
+
+            vbox = {
+                layoutpolicy_vertical = expanding
+
+                portrait_head_small_cached = {}
+            }
+
+            block "button_content"
+            {
+                hbox = {
+                    layoutpolicy_horizontal = expanding
+                    layoutpolicy_vertical = expanding
+                    margin_top = 5
+
+                    vbox = {
+                        layoutpolicy_horizontal = expanding
+                        layoutpolicy_vertical = expanding
+
+                        # Name and age
+                        hbox = {
+                            layoutpolicy_horizontal = expanding
+                            margin = { 0 3 }
+                            margin_left = 5
+                            margin_right = 10
+
+                            background = {
+                                using = Background_Area_Characterlist
+                            }
+
+                            background = {
+                                using = Background_Area_Dark
+
+                                modify_texture = {
+                                    texture = "gfx/interface/component_masks/mask_fade_vertical_up.dds"
+                                    blend_mode = alphamultiply
+                                    alpha = 1
+                                    rotate_uv = -90
+                                }
+                            }
+
+                            hbox = {
+                                margin_left = 3
+                                layoutpolicy_horizontal = expanding
+                                maximumsize = { 338 -1 }
+
+                                text_single = {
+                                    using = Font_Size_Medium
+                                    layoutpolicy_horizontal = expanding
+                                    align = nobaseline
+                                    text = "[Character.GetUINameNoTooltip]"
+                                    autoresize = no
+                                    fontsize_min = 14
+                                }
+
+                                block "character_relation"
+                                {
+                                    hbox = {
+                                        visible = "[And(Character.HasRelationTo( GetPlayer ), Not(Character.IsPlayer))]"
+                                        text_single = {
+                                            text = "•"
+                                            align = nobaseline
+                                            margin = { 5 0 }
+                                        }
+
+                                        text_single = {
+                                            name = "character_relation"
+                                            text = "[Character.GetRelationToString( GetPlayer )]"
+                                            default_format = "#low"
+                                            align = nobaseline
+                                            fontsize_min = 14
+                                            max_width = 180
+                                        }
+                                    }
+                                }
+
+                                expand = {}
+                            }
+
+                            hbox = {
+                                using = character_age_or_death_text
+                            }
+
+                            # Skills
+                            acs_hbox_skills_grid = {}
+                        }
+
+                        ### BOTTOM ROW ###
+                        hbox = {
+                            layoutpolicy_horizontal = expanding
+                            layoutpolicy_vertical = expanding
+                            
+                            vbox = {
+                                layoutpolicy_horizontal = expanding
+
+                                hbox = {
+                                    layoutpolicy_horizontal = expanding
+
+                                    # Dynasty
+                                    widget = {
+                                        size = { 45 40 }
+
+                                        coa_house_small = {
+                                            datacontext = "[Character.GetHouse]"
+                                            parentanchor = center
+                                            scale = 0.7
+                                        }
+                                    }
+
+                                    # Traits
+                                    hbox = {
+                                        layoutpolicy_vertical = expanding
+                                        margin = { 10 0 }
+                                        minimumsize = { 140 0 } #### needed for prison view
+
+                                        background = {
+                                            using = Background_Area_Dark
+                                            alpha = 0.5
+                                            margin = { 0 2 }
+                                        }
+
+                                        fixedgridbox = {
+                                            name = "traits_grid"
+                                            datamodel = "[Character.GetTraitIndices]"
+                                            datamodel_reuse_widgets = yes
+                                            flipdirection = yes
+                                            layoutpolicy_horizontal = expanding
+                                            layoutpolicy_vertical = expanding
+                                            addcolumn = 30
+                                            addrow = 28
+
+                                            block "gridbox_items"
+                                            {
+                                                min_width = 210
+                                                datamodel_wrap = 7
+                                                maxverticalslots = 2
+                                            }
+
+                                            item = {
+                                                icon_trait = {
+                                                    datacontext = "[GetTraitForIndex(uint16.GetUint)]"
+                                                    visible = "[Trait.IsValid]"
+
+                                                    blockoverride "icon_size"
+                                                    {
+                                                        size = { 30 30 }
+                                                    }
+
+                                                    blockoverride "tooltip_placement"
+                                                    {
+                                                        using = tooltip_se
+                                                    }
+
+                                                    blockoverride "glow_radius"
+                                                    {
+                                                        glow_radius = 3
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    expand = {}
+                                }
+                            }
+
+							hbox = {
+								datacontext = "[Scope.GetCharacter]"
+                                layoutpolicy_horizontal = expanding
+                                layoutpolicy_vertical = expanding
+
+								acs_widget_list_claims = {}
+
+								# Religion and culture
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+									margin_left = 8
+									margin_right = 4
+									spacing = 5
+
+									background = {
+										using = Background_Area_Dark
+										alpha = 0.5
+										margin = { 0 2 }
+									}
+
+									icon = {
+										name = "faith_button"
+										size = { 38 38 }
+										datacontext = "[Character.GetFaith]"
+										tooltipwidget = { faith_tooltip = {} }
+										using = tooltip_se
+
+										texture = "[Faith.GetIcon]"
+									}
+
+									hbox = {
+										datacontext = "[Character.GetCulture]"
+										layoutpolicy_horizontal = expanding
+										spacing = 3
+
+										tooltipwidget = {
+											culture_tooltip = {}
+										}
+										using = tooltip_se
+
+										icon = {
+											name = "culture"
+											texture = "gfx/interface/icons/icon_culture.dds"
+											size = { 24 24 }
+										}
+
+										text_single = {
+											layoutpolicy_horizontal = expanding
+											text = "CULTURE_LISTS_WINDOW"
+											autoresize = no
+											align = nobaseline
+										}
+									}
+								}
+							}
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    type acs_widget_list_claims = widget {
+        datacontext = "[Scope.GetCharacter]"
+        layoutpolicy_vertical = expanding
+        size = { 55 0 }
+
+        datacontext = "[GetScriptedGui('acs_claim')]"
+        
+        coa_title_tiny_crown = {
+            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+            parentanchor = center
+            position = { -10 0 }
+            scale = 0.8
+
+            tooltip = "CHARACTER_LIST_CLAIM_TOOLTIP"
+            using = tooltip_ne
+
+            blockoverride "coa_button" {
+                datacontext = "[Character.MakeScope.Var( 'acs_best_claim' ).Title]"
+                onclick = "[DefaultOnCoatOfArmsClick(Title.GetID)]"
+                onrightclick = "[DefaultOnCoatOfArmsRightClick(Title.GetID)]"
+                button_ignore = none
+            }
+
+            highlight_icon = {
+                name = "pressed_claim"
+                visible = "[GetScriptedGui( 'acs_top_claim_pressed' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+                texture = "gfx/interface/icons/title_status/icon_claim_pressed.dds"
+                size = { 24 24 }
+                parentanchor = bottom|right
+            }
+
+            highlight_icon = {
+                name = "unpressed_claim"
+                visible = "[GetScriptedGui( 'acs_top_claim_unpressed' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+                texture = "gfx/interface/icons/title_status/icon_claim_unpressed.dds"
+                size = { 24 24 }
+                parentanchor = bottom|right
+            }
+
+            highlight_icon = {
+                name = "implicit_claim"
+                visible = "[GetScriptedGui( 'acs_top_claim_implicit' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+                texture = "gfx/interface/icons/title_status/icon_claim_implicit.dds"
+                size = { 24 24 }
+                parentanchor = bottom|right
+            }
+        }
+
+        text_single = {
+            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+            parentanchor = center
+            position = { 18 0 }
+            text = "[Character.MakeScope.Var( 'acs_total_claim_value' ).GetValue|0]"
+            default_format = "#high"
+            using = Font_Size_Medium
+            align = center
+        }
+
+        tooltip = "acs_claim_tooltip"
+    }
+
+    type acs_button_character_search_small = button_icon {
+        name = "acs_button"
+        tooltip = "FIND_CHARACTER"
+        texture = "gfx/interface/icons/flat_icons/character_search.dds"					
+                     
+        using = tooltip_ne
+        shortcut = "character_finder"
+        
+        onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
+        onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
+    }
+}

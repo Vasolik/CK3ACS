@@ -1,0 +1,786 @@
+﻿acs_filter_trait_fame_born_status_bastard_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_born_status_bastard = no
+    }
+}
+
+acs_filter_trait_fame_born_status_bastard = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_born_status_bastard = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_bastard } }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_born_status_bastard = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_born_status_bastard
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_born_status_legitimized_bastard_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_born_status_legitimized_bastard = no
+    }
+}
+
+acs_filter_trait_fame_born_status_legitimized_bastard = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_born_status_legitimized_bastard = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard } }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_legitimized_bastard value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_born_status_legitimized_bastard = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_legitimized_bastard value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_born_status_disputed_heritage_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_born_status_disputed_heritage = no
+    }
+}
+
+acs_filter_trait_fame_born_status_disputed_heritage = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_born_status_disputed_heritage = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_disputed_heritage } }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_disputed_heritage value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_born_status_disputed_heritage = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_disputed_heritage value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_born_status_child_of_concubine_female_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = no
+    }
+}
+
+acs_filter_trait_fame_born_status_child_of_concubine_female = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female } }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_female value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_female value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_born_status_child_of_concubine_male_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = no
+    }
+}
+
+acs_filter_trait_fame_born_status_child_of_concubine_male = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male } }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_male value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_male value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_born_status_wild_oat_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_born_status_wild_oat = no
+    }
+}
+
+acs_filter_trait_fame_born_status_wild_oat = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_born_status_wild_oat = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_wild_oat } }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_wild_oat value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_born_status_wild_oat = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_wild_oat value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_born_status_wild_oat
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_born_status_bastard_founder_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_born_status_bastard_founder = no
+    }
+}
+
+acs_filter_trait_fame_born_status_bastard_founder = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_born_status_bastard_founder = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_bastard_founder } }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard_founder value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_born_status_bastard_founder = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard_founder value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_born_status_bastard_founder
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_born_status_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_fame_born_status_bastard = no
+			global_var:acs_filter_trait_fame_born_status_legitimized_bastard = no
+			global_var:acs_filter_trait_fame_born_status_disputed_heritage = no
+			global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = no
+			global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = no
+			global_var:acs_filter_trait_fame_born_status_wild_oat = no
+			global_var:acs_filter_trait_fame_born_status_bastard_founder = no
+		}
+    }
+}
+acs_filter_trait_fame_born_status_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_fame_born_status_bastard
+			has_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
+			has_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
+			has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
+			has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
+			has_global_variable = acs_filter_trait_fame_born_status_wild_oat
+			has_global_variable = acs_filter_trait_fame_born_status_bastard_founder
+		}
+    }
+}
+acs_filter_trait_fame_born_status = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_fame_born_status_bastard = yes
+			global_var:acs_filter_trait_fame_born_status_legitimized_bastard = yes
+			global_var:acs_filter_trait_fame_born_status_disputed_heritage = yes
+			global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = yes
+			global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = yes
+			global_var:acs_filter_trait_fame_born_status_wild_oat = yes
+			global_var:acs_filter_trait_fame_born_status_bastard_founder = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_fame_born_status_bastard
+					has_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
+					has_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
+					has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
+					has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
+					has_global_variable = acs_filter_trait_fame_born_status_wild_oat
+					has_global_variable = acs_filter_trait_fame_born_status_bastard_founder
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard value = yes }
+			set_global_variable = {  name = acs_filter_trait_fame_born_status_legitimized_bastard value = yes }
+			set_global_variable = {  name = acs_filter_trait_fame_born_status_disputed_heritage value = yes }
+			set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_female value = yes }
+			set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_male value = yes }
+			set_global_variable = {  name = acs_filter_trait_fame_born_status_wild_oat value = yes }
+			set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard_founder value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_fame_born_status_bastard = yes
+						global_var:acs_filter_trait_fame_born_status_legitimized_bastard = yes
+						global_var:acs_filter_trait_fame_born_status_disputed_heritage = yes
+						global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = yes
+						global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = yes
+						global_var:acs_filter_trait_fame_born_status_wild_oat = yes
+						global_var:acs_filter_trait_fame_born_status_bastard_founder = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard value = no }
+				set_global_variable = {  name = acs_filter_trait_fame_born_status_legitimized_bastard value = no }
+				set_global_variable = {  name = acs_filter_trait_fame_born_status_disputed_heritage value = no }
+				set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_female value = no }
+				set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_male value = no }
+				set_global_variable = {  name = acs_filter_trait_fame_born_status_wild_oat value = no }
+				set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard_founder value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_fame_born_status_bastard
+			remove_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
+			remove_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
+			remove_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
+			remove_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
+			remove_global_variable = acs_filter_trait_fame_born_status_wild_oat
+			remove_global_variable = acs_filter_trait_fame_born_status_bastard_founder
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_berserker_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_berserker = no
+    }
+}
+
+acs_filter_trait_fame_berserker = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_berserker = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_berserker } }
+            set_global_variable = {  name = acs_filter_trait_fame_berserker value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_berserker = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_berserker value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_berserker
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_shieldmaiden_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_shieldmaiden = no
+    }
+}
+
+acs_filter_trait_fame_shieldmaiden = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_shieldmaiden = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_shieldmaiden } }
+            set_global_variable = {  name = acs_filter_trait_fame_shieldmaiden value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_shieldmaiden = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_shieldmaiden value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_shieldmaiden
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_varangian_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_varangian = no
+    }
+}
+
+acs_filter_trait_fame_varangian = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_varangian = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_varangian } }
+            set_global_variable = {  name = acs_filter_trait_fame_varangian value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_varangian = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_varangian value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_varangian
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_poet_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_poet = no
+    }
+}
+
+acs_filter_trait_fame_poet = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_poet = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_poet } }
+            set_global_variable = {  name = acs_filter_trait_fame_poet value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_poet = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_poet value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_poet
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_twin_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_twin = no
+    }
+}
+
+acs_filter_trait_fame_twin = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_twin = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_twin } }
+            set_global_variable = {  name = acs_filter_trait_fame_twin value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_twin = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_twin value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_twin
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_born_in_the_purple_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_born_in_the_purple = no
+    }
+}
+
+acs_filter_trait_fame_born_in_the_purple = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_born_in_the_purple = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_in_the_purple } }
+            set_global_variable = {  name = acs_filter_trait_fame_born_in_the_purple value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_born_in_the_purple = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_born_in_the_purple value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_born_in_the_purple
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_augustus_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_augustus = no
+    }
+}
+
+acs_filter_trait_fame_augustus = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_augustus = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_augustus } }
+            set_global_variable = {  name = acs_filter_trait_fame_augustus value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_augustus = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_augustus value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_augustus
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_viking_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_viking = no
+    }
+}
+
+acs_filter_trait_fame_viking = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_viking = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_viking } }
+            set_global_variable = {  name = acs_filter_trait_fame_viking value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_viking = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_viking value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_viking
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_reincarnation_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_reincarnation = no
+    }
+}
+
+acs_filter_trait_fame_reincarnation = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_reincarnation = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_reincarnation } }
+            set_global_variable = {  name = acs_filter_trait_fame_reincarnation value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_reincarnation = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_reincarnation value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_reincarnation
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_adventurer_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_adventurer = no
+    }
+}
+
+acs_filter_trait_fame_adventurer = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_adventurer = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_adventurer } }
+            set_global_variable = {  name = acs_filter_trait_fame_adventurer value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_adventurer = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_adventurer value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_adventurer
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_heresiarch_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_heresiarch = no
+    }
+}
+
+acs_filter_trait_fame_heresiarch = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_heresiarch = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_heresiarch } }
+            set_global_variable = {  name = acs_filter_trait_fame_heresiarch value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_heresiarch = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_heresiarch value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_heresiarch
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_peasant_leader_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_peasant_leader = no
+    }
+}
+
+acs_filter_trait_fame_peasant_leader = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_peasant_leader = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_peasant_leader } }
+            set_global_variable = {  name = acs_filter_trait_fame_peasant_leader value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_peasant_leader = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_peasant_leader value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_peasant_leader
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_disinherited_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_disinherited = no
+    }
+}
+
+acs_filter_trait_fame_disinherited = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_disinherited = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_disinherited } }
+            set_global_variable = {  name = acs_filter_trait_fame_disinherited value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_disinherited = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_disinherited value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_disinherited
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_denounced_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_denounced = no
+    }
+}
+
+acs_filter_trait_fame_denounced = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_denounced = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_denounced } }
+            set_global_variable = {  name = acs_filter_trait_fame_denounced value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_denounced = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_denounced value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_denounced
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_chakravarti_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_chakravarti = no
+    }
+}
+
+acs_filter_trait_fame_chakravarti = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_chakravarti = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_chakravarti } }
+            set_global_variable = {  name = acs_filter_trait_fame_chakravarti value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_chakravarti = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_chakravarti value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_chakravarti
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_greatest_of_khans_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_fame_greatest_of_khans = no
+    }
+}
+
+acs_filter_trait_fame_greatest_of_khans = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_fame_greatest_of_khans = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_greatest_of_khans } }
+            set_global_variable = {  name = acs_filter_trait_fame_greatest_of_khans value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_fame_greatest_of_khans = yes }
+                set_global_variable = {  name = acs_filter_trait_fame_greatest_of_khans value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_fame_greatest_of_khans
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}

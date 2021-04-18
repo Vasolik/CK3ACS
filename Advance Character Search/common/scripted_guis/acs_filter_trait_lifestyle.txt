@@ -1,0 +1,1250 @@
+﻿acs_filter_trait_lifestyle_physician_1_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_physician_1 = no
+    }
+}
+
+acs_filter_trait_lifestyle_physician_1 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_physician_1 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_physician_1 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_physician_1 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_physician_1 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_physician_1 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_physician_1
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_physician_2_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_physician_2 = no
+    }
+}
+
+acs_filter_trait_lifestyle_physician_2 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_physician_2 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_physician_2 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_physician_2 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_physician_2 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_physician_2 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_physician_2
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_physician_3_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_physician_3 = no
+    }
+}
+
+acs_filter_trait_lifestyle_physician_3 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_physician_3 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_physician_3 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_physician_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_physician_3 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_physician_3 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_physician_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_physician_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_lifestyle_physician_1 = no
+			global_var:acs_filter_trait_lifestyle_physician_2 = no
+			global_var:acs_filter_trait_lifestyle_physician_3 = no
+		}
+    }
+}
+acs_filter_trait_lifestyle_physician_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_lifestyle_physician_1
+			has_global_variable = acs_filter_trait_lifestyle_physician_2
+			has_global_variable = acs_filter_trait_lifestyle_physician_3
+		}
+    }
+}
+acs_filter_trait_lifestyle_physician = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_lifestyle_physician_1 = yes
+			global_var:acs_filter_trait_lifestyle_physician_2 = yes
+			global_var:acs_filter_trait_lifestyle_physician_3 = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_lifestyle_physician_1
+					has_global_variable = acs_filter_trait_lifestyle_physician_2
+					has_global_variable = acs_filter_trait_lifestyle_physician_3
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_lifestyle_physician_1 value = yes }
+			set_global_variable = {  name = acs_filter_trait_lifestyle_physician_2 value = yes }
+			set_global_variable = {  name = acs_filter_trait_lifestyle_physician_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_lifestyle_physician_1 = yes
+						global_var:acs_filter_trait_lifestyle_physician_2 = yes
+						global_var:acs_filter_trait_lifestyle_physician_3 = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_lifestyle_physician_1 value = no }
+				set_global_variable = {  name = acs_filter_trait_lifestyle_physician_2 value = no }
+				set_global_variable = {  name = acs_filter_trait_lifestyle_physician_3 value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_lifestyle_physician_1
+			remove_global_variable = acs_filter_trait_lifestyle_physician_2
+			remove_global_variable = acs_filter_trait_lifestyle_physician_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_mystic_1_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_mystic_1 = no
+    }
+}
+
+acs_filter_trait_lifestyle_mystic_1 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_mystic_1 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_mystic_1 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_1 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_mystic_1 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_1 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_mystic_1
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_mystic_2_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_mystic_2 = no
+    }
+}
+
+acs_filter_trait_lifestyle_mystic_2 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_mystic_2 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_mystic_2 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_2 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_mystic_2 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_2 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_mystic_2
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_mystic_3_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_mystic_3 = no
+    }
+}
+
+acs_filter_trait_lifestyle_mystic_3 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_mystic_3 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_mystic_3 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_mystic_3 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_3 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_mystic_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_mystic_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_lifestyle_mystic_1 = no
+			global_var:acs_filter_trait_lifestyle_mystic_2 = no
+			global_var:acs_filter_trait_lifestyle_mystic_3 = no
+		}
+    }
+}
+acs_filter_trait_lifestyle_mystic_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_lifestyle_mystic_1
+			has_global_variable = acs_filter_trait_lifestyle_mystic_2
+			has_global_variable = acs_filter_trait_lifestyle_mystic_3
+		}
+    }
+}
+acs_filter_trait_lifestyle_mystic = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_lifestyle_mystic_1 = yes
+			global_var:acs_filter_trait_lifestyle_mystic_2 = yes
+			global_var:acs_filter_trait_lifestyle_mystic_3 = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_lifestyle_mystic_1
+					has_global_variable = acs_filter_trait_lifestyle_mystic_2
+					has_global_variable = acs_filter_trait_lifestyle_mystic_3
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_1 value = yes }
+			set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_2 value = yes }
+			set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_lifestyle_mystic_1 = yes
+						global_var:acs_filter_trait_lifestyle_mystic_2 = yes
+						global_var:acs_filter_trait_lifestyle_mystic_3 = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_1 value = no }
+				set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_2 value = no }
+				set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_3 value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_lifestyle_mystic_1
+			remove_global_variable = acs_filter_trait_lifestyle_mystic_2
+			remove_global_variable = acs_filter_trait_lifestyle_mystic_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_hunter_1_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_hunter_1 = no
+    }
+}
+
+acs_filter_trait_lifestyle_hunter_1 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_hunter_1 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_hunter_1 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_1 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_hunter_1 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_1 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_hunter_1
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_hunter_2_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_hunter_2 = no
+    }
+}
+
+acs_filter_trait_lifestyle_hunter_2 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_hunter_2 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_hunter_2 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_2 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_hunter_2 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_2 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_hunter_2
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_hunter_3_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_hunter_3 = no
+    }
+}
+
+acs_filter_trait_lifestyle_hunter_3 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_hunter_3 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_hunter_3 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_hunter_3 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_3 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_hunter_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_hunter_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_lifestyle_hunter_1 = no
+			global_var:acs_filter_trait_lifestyle_hunter_2 = no
+			global_var:acs_filter_trait_lifestyle_hunter_3 = no
+		}
+    }
+}
+acs_filter_trait_lifestyle_hunter_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_lifestyle_hunter_1
+			has_global_variable = acs_filter_trait_lifestyle_hunter_2
+			has_global_variable = acs_filter_trait_lifestyle_hunter_3
+		}
+    }
+}
+acs_filter_trait_lifestyle_hunter = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_lifestyle_hunter_1 = yes
+			global_var:acs_filter_trait_lifestyle_hunter_2 = yes
+			global_var:acs_filter_trait_lifestyle_hunter_3 = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_lifestyle_hunter_1
+					has_global_variable = acs_filter_trait_lifestyle_hunter_2
+					has_global_variable = acs_filter_trait_lifestyle_hunter_3
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_1 value = yes }
+			set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_2 value = yes }
+			set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_lifestyle_hunter_1 = yes
+						global_var:acs_filter_trait_lifestyle_hunter_2 = yes
+						global_var:acs_filter_trait_lifestyle_hunter_3 = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_1 value = no }
+				set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_2 value = no }
+				set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_3 value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_lifestyle_hunter_1
+			remove_global_variable = acs_filter_trait_lifestyle_hunter_2
+			remove_global_variable = acs_filter_trait_lifestyle_hunter_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_blademaster_1_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_blademaster_1 = no
+    }
+}
+
+acs_filter_trait_lifestyle_blademaster_1 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_blademaster_1 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_blademaster_1 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_1 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_blademaster_1 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_1 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_blademaster_1
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_blademaster_2_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_blademaster_2 = no
+    }
+}
+
+acs_filter_trait_lifestyle_blademaster_2 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_blademaster_2 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_blademaster_2 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_2 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_blademaster_2 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_2 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_blademaster_2
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_blademaster_3_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_blademaster_3 = no
+    }
+}
+
+acs_filter_trait_lifestyle_blademaster_3 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_blademaster_3 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_blademaster_3 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_blademaster_3 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_3 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_blademaster_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_blademaster_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_lifestyle_blademaster_1 = no
+			global_var:acs_filter_trait_lifestyle_blademaster_2 = no
+			global_var:acs_filter_trait_lifestyle_blademaster_3 = no
+		}
+    }
+}
+acs_filter_trait_lifestyle_blademaster_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_lifestyle_blademaster_1
+			has_global_variable = acs_filter_trait_lifestyle_blademaster_2
+			has_global_variable = acs_filter_trait_lifestyle_blademaster_3
+		}
+    }
+}
+acs_filter_trait_lifestyle_blademaster = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_lifestyle_blademaster_1 = yes
+			global_var:acs_filter_trait_lifestyle_blademaster_2 = yes
+			global_var:acs_filter_trait_lifestyle_blademaster_3 = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_lifestyle_blademaster_1
+					has_global_variable = acs_filter_trait_lifestyle_blademaster_2
+					has_global_variable = acs_filter_trait_lifestyle_blademaster_3
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_1 value = yes }
+			set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_2 value = yes }
+			set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_lifestyle_blademaster_1 = yes
+						global_var:acs_filter_trait_lifestyle_blademaster_2 = yes
+						global_var:acs_filter_trait_lifestyle_blademaster_3 = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_1 value = no }
+				set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_2 value = no }
+				set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_3 value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_lifestyle_blademaster_1
+			remove_global_variable = acs_filter_trait_lifestyle_blademaster_2
+			remove_global_variable = acs_filter_trait_lifestyle_blademaster_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_reveler_1_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_reveler_1 = no
+    }
+}
+
+acs_filter_trait_lifestyle_reveler_1 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_reveler_1 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_reveler_1 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_1 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_reveler_1 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_1 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_reveler_1
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_reveler_2_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_reveler_2 = no
+    }
+}
+
+acs_filter_trait_lifestyle_reveler_2 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_reveler_2 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_reveler_2 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_2 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_reveler_2 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_2 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_reveler_2
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_reveler_3_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_reveler_3 = no
+    }
+}
+
+acs_filter_trait_lifestyle_reveler_3 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_reveler_3 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_reveler_3 } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_reveler_3 = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_3 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_reveler_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_reveler_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_lifestyle_reveler_1 = no
+			global_var:acs_filter_trait_lifestyle_reveler_2 = no
+			global_var:acs_filter_trait_lifestyle_reveler_3 = no
+		}
+    }
+}
+acs_filter_trait_lifestyle_reveler_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_lifestyle_reveler_1
+			has_global_variable = acs_filter_trait_lifestyle_reveler_2
+			has_global_variable = acs_filter_trait_lifestyle_reveler_3
+		}
+    }
+}
+acs_filter_trait_lifestyle_reveler = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_lifestyle_reveler_1 = yes
+			global_var:acs_filter_trait_lifestyle_reveler_2 = yes
+			global_var:acs_filter_trait_lifestyle_reveler_3 = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_lifestyle_reveler_1
+					has_global_variable = acs_filter_trait_lifestyle_reveler_2
+					has_global_variable = acs_filter_trait_lifestyle_reveler_3
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_1 value = yes }
+			set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_2 value = yes }
+			set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_lifestyle_reveler_1 = yes
+						global_var:acs_filter_trait_lifestyle_reveler_2 = yes
+						global_var:acs_filter_trait_lifestyle_reveler_3 = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_1 value = no }
+				set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_2 value = no }
+				set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_3 value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_lifestyle_reveler_1
+			remove_global_variable = acs_filter_trait_lifestyle_reveler_2
+			remove_global_variable = acs_filter_trait_lifestyle_reveler_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_lifestyle_herbalist_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_lifestyle_herbalist = no
+    }
+}
+
+acs_filter_trait_lifestyle_lifestyle_herbalist = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_lifestyle_herbalist = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_lifestyle_herbalist } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_lifestyle_herbalist value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_lifestyle_herbalist = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_lifestyle_herbalist value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_lifestyle_herbalist
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_diplomat_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_diplomat = no
+    }
+}
+
+acs_filter_trait_lifestyle_diplomat = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_diplomat = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_diplomat } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_diplomat value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_diplomat = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_diplomat value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_diplomat
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_family_first_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_family_first = no
+    }
+}
+
+acs_filter_trait_lifestyle_family_first = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_family_first = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_family_first } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_family_first value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_family_first = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_family_first value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_family_first
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_august_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_august = no
+    }
+}
+
+acs_filter_trait_lifestyle_august = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_august = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_august } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_august value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_august = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_august value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_august
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_strategist_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_strategist = no
+    }
+}
+
+acs_filter_trait_lifestyle_strategist = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_strategist = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_strategist } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_strategist value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_strategist = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_strategist value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_strategist
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_overseer_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_overseer = no
+    }
+}
+
+acs_filter_trait_lifestyle_overseer = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_overseer = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_overseer } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_overseer value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_overseer = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_overseer value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_overseer
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_gallant_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_gallant = no
+    }
+}
+
+acs_filter_trait_lifestyle_gallant = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_gallant = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_gallant } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_gallant value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_gallant = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_gallant value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_gallant
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_architect_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_architect = no
+    }
+}
+
+acs_filter_trait_lifestyle_architect = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_architect = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_architect } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_architect value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_architect = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_architect value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_architect
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_administrator_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_administrator = no
+    }
+}
+
+acs_filter_trait_lifestyle_administrator = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_administrator = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_administrator } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_administrator value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_administrator = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_administrator value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_administrator
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_avaricious_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_avaricious = no
+    }
+}
+
+acs_filter_trait_lifestyle_avaricious = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_avaricious = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_avaricious } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_avaricious value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_avaricious = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_avaricious value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_avaricious
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_schemer_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_schemer = no
+    }
+}
+
+acs_filter_trait_lifestyle_schemer = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_schemer = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_schemer } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_schemer value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_schemer = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_schemer value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_schemer
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_seducer_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_seducer = no
+    }
+}
+
+acs_filter_trait_lifestyle_seducer = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_seducer = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_seducer } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_seducer value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_seducer = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_seducer value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_seducer
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_torturer_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_torturer = no
+    }
+}
+
+acs_filter_trait_lifestyle_torturer = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_torturer = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_torturer } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_torturer value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_torturer = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_torturer value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_torturer
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_whole_of_body_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_whole_of_body = no
+    }
+}
+
+acs_filter_trait_lifestyle_whole_of_body = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_whole_of_body = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_whole_of_body } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_whole_of_body value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_whole_of_body = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_whole_of_body value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_whole_of_body
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_scholar_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_scholar = no
+    }
+}
+
+acs_filter_trait_lifestyle_scholar = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_scholar = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_scholar } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_scholar value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_scholar = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_scholar value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_scholar
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_lifestyle_theologian_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_lifestyle_theologian = no
+    }
+}
+
+acs_filter_trait_lifestyle_theologian = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_lifestyle_theologian = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_lifestyle_theologian } }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_theologian value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_lifestyle_theologian = yes }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_theologian value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_lifestyle_theologian
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}

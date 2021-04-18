@@ -1,0 +1,323 @@
+types acs_load_save_types {
+	type acs_filter_load_save_other_value = acs_dropdown_other_value {
+		blockoverride "size_dropdown" {
+            size = { 100 33 }
+        }
+	}
+
+	type acs_filter_load_other_value = acs_filter_load_save_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_load' )]"
+        }
+	}
+	
+	type acs_filter_save_other_value = acs_filter_load_save_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_save' )]"
+        }
+    }
+
+	type acs_select_count_other_value = acs_filter_load_save_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_select_count' )]"
+        }
+    }
+
+	type acs_filter_load_save_selected_value = acs_dropdown_selected_value {
+		blockoverride "size_dropdown" {
+            size = { 30 33 }
+		}
+	}
+
+	type acs_filter_load_selected_value = acs_filter_load_save_selected_value {		
+		blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_load' )]"
+        }
+	}
+
+	type acs_filter_save_selected_value = acs_filter_load_save_selected_value {		
+		blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_save' )]"
+        }
+	}
+
+	type acs_select_count_selected_value = acs_filter_load_save_selected_value {		
+		blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_select_count' )]"
+        }
+	}
+
+	type acs_filter_load_save_item = acs_filter_item {
+
+
+		blockoverride "acs_filter_item_size" {
+			size = { 170 43 }
+		}
+		blockoverride "acs_filter_item_widget_size" { 
+			size = { 100 33 }
+		}
+
+		blockoverride "acs_filter_item_widget_maximumsize" { 
+			maximumsize = { 170 120 }
+		}
+	}
+	
+	type acs_filter_save_item = acs_filter_load_save_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_save' )]"
+        }
+	}
+	
+	type acs_filter_load_item = acs_filter_load_save_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_load' )]"
+        }
+    }
+
+	type acs_select_count_item = acs_filter_item_dropdown {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_select_count' )]"
+        }
+		blockoverride "acs_filter_item_size" {
+			size = { 80 50 }
+		}
+		blockoverride "acs_filter_item_widget_size" { 
+			size = { 80 33 }
+		}
+
+		blockoverride "acs_filter_item_widget_maximumsize" { 
+			maximumsize = { 80 80 }
+		}
+
+		blockoverride "filter_name" {  
+			text = ""
+		}
+		blockoverride "acs_filter_selected_value" {   
+			acs_select_count_selected_value = {
+				blockoverride "visibility" {
+					visible = yes
+				}
+				blockoverride "text_button_drop" {
+					text = "[GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_select_count')|0]"
+				}
+			}
+		}
+
+		blockoverride "acs_filter_other_value" { 
+			acs_select_count_other_value = {
+				blockoverride "text_button_drop" {
+					text = "acs_10"
+					onclick = "[GetScriptedGui( 'acs_select_count_10' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+			acs_select_count_other_value = {
+				blockoverride "text_button_drop" {
+					text = "acs_20"
+					onclick = "[GetScriptedGui( 'acs_select_count_20' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+			acs_select_count_other_value = {
+				blockoverride "text_button_drop" {
+					text = "acs_50"
+					onclick = "[GetScriptedGui( 'acs_select_count_50' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+			acs_select_count_other_value = {
+				blockoverride "text_button_drop" {
+					text = "acs_100"
+					onclick = "[GetScriptedGui( 'acs_select_count_100' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+			acs_select_count_other_value = {
+				blockoverride "text_button_drop" {
+					text = "acs_200"
+					onclick = "[GetScriptedGui( 'acs_select_count_200' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+			acs_select_count_other_value = {
+				blockoverride "text_button_drop" {
+					text = "acs_500"
+					onclick = "[GetScriptedGui( 'acs_select_count_500' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+			acs_select_count_other_value = {
+				blockoverride "text_button_drop" {
+					text = "acs_1000"
+					onclick = "[GetScriptedGui( 'acs_select_count_1000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+			acs_select_count_other_value = {
+				blockoverride "text_button_drop" {
+					text = "acs_2000"
+					onclick = "[GetScriptedGui( 'acs_select_count_2000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+			acs_select_count_other_value = {
+				blockoverride "text_button_drop" {
+					text = "acs_5000"
+					onclick = "[GetScriptedGui( 'acs_select_count_5000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+			acs_select_count_other_value = {
+				blockoverride "text_button_drop" {
+					text = "acs_10000"
+					onclick = "[GetScriptedGui( 'acs_select_count_10000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+			acs_select_count_other_value = {
+				blockoverride "text_button_drop" {
+					text = "acs_20000"
+					onclick = "[GetScriptedGui( 'acs_select_count_20000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+			acs_select_count_other_value = {
+				blockoverride "text_button_drop" {
+					text = "acs_100000"
+					onclick = "[GetScriptedGui( 'acs_select_count_100000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+		}
+
+    }
+
+	type acs_select_count_item1 = dropDown {
+
+        size = { 80 33 }
+		#datamodel = "[GetPlayer.MakeScope.GetList('acs_list')]"
+		#onselectionchanged = ""
+		#selectedindex = 0
+
+		active_item = {
+			acs_select_count_selected_value = {
+				blockoverride "visibility" {
+					visible = yes
+				}
+				blockoverride "text_button_drop" {
+					text = "[GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_select_count')|0]"
+				}
+			}
+		}
+
+		item = {
+			widget = {	}
+		}
+
+		list = {
+			scrollarea = {
+                #parentanchor = bottom|right
+                position = { 5 33 }
+    
+                state = {
+                    name = _show
+                    using = Animation_FadeIn_Quick
+                }
+        
+                state = {
+                    name = _hide
+                    using = Animation_FadeOut_Quick
+                }
+    
+    
+                block "acs_filter_item_widget_maximumsize" { 
+                    maximumsize = { 80 80 }
+                }
+               
+                autoresizescrollarea = yes
+                scrollbarpolicy_horizontal = always_off
+    
+                using = Background_DropDown
+                block "acs_drop_down_visible" { 
+                    visible = "[GetVariableSystem.Exists( 'acs_select_count' )]"
+                }
+    
+                scrollwidget = {
+                    vbox = {
+                        using = Background_DropDown
+                        layoutpolicy_vertical = expanding
+                        layoutpolicy_horizontal = expanding
+                        ignoreinvisible = yes
+                        block "acs_filter_other_value" { 
+							acs_select_count_other_value = {
+								blockoverride "text_button_drop" {
+									text = "acs_10"
+									onclick = "[GetScriptedGui( 'acs_select_count_10' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								}
+							}
+							acs_select_count_other_value = {
+								blockoverride "text_button_drop" {
+									text = "acs_20"
+									onclick = "[GetScriptedGui( 'acs_select_count_20' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								}
+							}
+							acs_select_count_other_value = {
+								blockoverride "text_button_drop" {
+									text = "acs_50"
+									onclick = "[GetScriptedGui( 'acs_select_count_50' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								}
+							}
+							acs_select_count_other_value = {
+								blockoverride "text_button_drop" {
+									text = "acs_100"
+									onclick = "[GetScriptedGui( 'acs_select_count_100' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								}
+							}
+							acs_select_count_other_value = {
+								blockoverride "text_button_drop" {
+									text = "acs_200"
+									onclick = "[GetScriptedGui( 'acs_select_count_200' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								}
+							}
+							acs_select_count_other_value = {
+								blockoverride "text_button_drop" {
+									text = "acs_500"
+									onclick = "[GetScriptedGui( 'acs_select_count_500' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								}
+							}
+							acs_select_count_other_value = {
+								blockoverride "text_button_drop" {
+									text = "acs_1000"
+									onclick = "[GetScriptedGui( 'acs_select_count_1000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								}
+							}
+							acs_select_count_other_value = {
+								blockoverride "text_button_drop" {
+									text = "acs_2000"
+									onclick = "[GetScriptedGui( 'acs_select_count_2000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								}
+							}
+							acs_select_count_other_value = {
+								blockoverride "text_button_drop" {
+									text = "acs_5000"
+									onclick = "[GetScriptedGui( 'acs_select_count_5000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								}
+							}
+							acs_select_count_other_value = {
+								blockoverride "text_button_drop" {
+									text = "acs_10000"
+									onclick = "[GetScriptedGui( 'acs_select_count_10000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								}
+							}
+							acs_select_count_other_value = {
+								blockoverride "text_button_drop" {
+									text = "acs_20000"
+									onclick = "[GetScriptedGui( 'acs_select_count_20000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								}
+							}
+							acs_select_count_other_value = {
+								blockoverride "text_button_drop" {
+									text = "acs_100000"
+									onclick = "[GetScriptedGui( 'acs_select_count_100000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								}
+							}
+                        }
+                    }
+                }
+    
+                scrollbar_vertical = {
+                    using = Scrollbar_Vertical
+                }	
+            }
+		}
+	}
+
+}

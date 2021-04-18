@@ -1,0 +1,398 @@
+types acs_filters_dropdown_types {
+    
+    type acs_filter_dropdown_selected_value = acs_dropdown_selected_value {
+
+    }
+    
+    type acs_filter_dropdown_other_value = acs_dropdown_other_value {
+        blockoverride "size_dropdown" {
+            size = { 300 33 }
+        }
+    }
+
+	type acs_filter_relation_dropdown_selected_value = acs_filter_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_relation' )]"
+        }
+    }
+    
+    type acs_filter_relation_dropdown_other_value = acs_filter_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_relation' )]"
+        }
+    }
+    
+    type acs_filter_diplomatic_range_dropdown_selected_value = acs_filter_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_diplomatic_range' )]"
+        }
+    }
+    
+    type acs_filter_diplomatic_range_dropdown_other_value = acs_filter_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_diplomatic_range' )]"
+        }
+    }
+    
+    type acs_filter_ruler_dropdown_selected_value = acs_filter_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_ruler' )]"
+        }
+    }
+    
+    type acs_filter_ruler_dropdown_other_value = acs_filter_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_ruler' )]"
+        }
+    }
+        
+    type acs_filter_adult_dropdown_selected_value = acs_filter_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_adult' )]"
+        }
+    }
+    
+    type acs_filter_adult_dropdown_other_value = acs_filter_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_adult' )]"
+        }
+    }
+            
+    type acs_filter_gender_dropdown_selected_value = acs_filter_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_gender' )]"
+        }
+    }
+    
+    type acs_filter_gender_dropdown_other_value = acs_filter_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_gender' )]"
+        }
+    }
+    
+    type acs_filter_martial_status_dropdown_selected_value = acs_filter_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_martial_status' )]"
+        }
+    }
+    
+    type acs_filter_martial_status_dropdown_other_value = acs_filter_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_martial_status' )]"
+        }
+    }
+        
+    type acs_filter_imprisonment_status_dropdown_selected_value = acs_filter_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_imprisonment_status' )]"
+        }
+    }
+    
+    type acs_filter_imprisonment_status_dropdown_other_value = acs_filter_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_imprisonment_status' )]"
+        }
+    }
+            
+    type acs_filter_hooks_dropdown_selected_value = acs_filter_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_hooks' )]"
+        }
+    }
+    
+    type acs_filter_hooks_dropdown_other_value = acs_filter_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_hooks' )]"
+        }
+    }
+    
+    type acs_filter_sexuality_dropdown_selected_value = acs_filter_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_sexuality' )]"
+        }
+    }
+    
+    type acs_filter_sexuality_dropdown_other_value = acs_filter_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_sexuality' )]"
+        }
+    }
+                
+    type acs_filter_religion_dropdown_selected_value = acs_filter_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_religion' )]"
+        }
+    }
+    
+    type acs_filter_religion_dropdown_other_value = acs_filter_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_religion' )]"
+        }
+    }
+                    
+    type acs_filter_culture_dropdown_selected_value = acs_filter_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_culture' )]"
+        }
+    }
+    
+    type acs_filter_culture_dropdown_other_value = acs_filter_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_culture' )]"
+        }
+    }
+    
+    type acs_filter_dynasty_dropdown_selected_value = acs_filter_dropdown_selected_value {
+        blockoverride "onclick_button_drop" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_dynasty' )]"
+        }
+    }
+    
+    type acs_filter_dynasty_dropdown_other_value = acs_filter_dropdown_other_value {
+        blockoverride "onclick_dropdown_close" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_dynasty' )]"
+        }
+    }
+}
+
+types acs_filters_items_types {
+
+    type acs_filter_item_dropdown = widget {
+		block "acs_filter_item_widget_size" { 
+			size = { 300 33 }
+		}
+		
+		allow_outside = yes
+		
+		block "acs_filter_selected_value" {   
+			acs_filter_dropdown_selected_value = {
+				blockoverride "visibility" {
+					visible = "[GetScriptedGui( 'acs_sort_by_health' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+				blockoverride "text_button_drop" {
+					text = "SORT_HEALTH"
+				}
+			}
+		}
+
+		scrollarea = {
+			#parentanchor = bottom|right
+			position = { 5 33 }
+
+			state = {
+				name = _show
+				using = Animation_FadeIn_Quick
+			}
+	
+			state = {
+				name = _hide
+				using = Animation_FadeOut_Quick
+			}
+
+
+			block "acs_filter_item_widget_maximumsize" { 
+				maximumsize = { 300 250 }
+			}
+		   
+			autoresizescrollarea = yes
+			scrollbarpolicy_horizontal = always_off
+
+			using = Background_DropDown
+			block "acs_drop_down_visible" { 
+				visible = "[GetVariableSystem.Exists( 'acs_sort_list' )]"
+			}
+
+			scrollwidget = {
+				vbox = {
+					using = Background_DropDown
+					layoutpolicy_vertical = expanding
+					layoutpolicy_horizontal = expanding
+					ignoreinvisible = yes
+					block "acs_filter_other_value" { 
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "SORT_HEALTH"
+								onclick = "[GetScriptedGui( 'acs_sort_by_health' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							}
+						}
+					}
+				}
+			}
+
+			scrollbar_vertical = {
+				using = Scrollbar_Vertical
+			}	
+		}
+		
+	}
+
+    type acs_filter_item_dropdown1 = dropDown {
+
+        block "acs_filter_item_widget_size" { 
+			size = { 300 33 }
+		}
+
+		active_item = {
+			block "acs_filter_selected_value" {   
+
+            }
+		}
+
+		item = {
+			widget = {	}
+		}
+
+		list = {
+			scrollarea = {
+                #parentanchor = bottom|right
+                position = { 5 33 }
+    
+                state = {
+                    name = _show
+                    using = Animation_FadeIn_Quick
+                }
+        
+                state = {
+                    name = _hide
+                    using = Animation_FadeOut_Quick
+                }
+    
+    
+                block "acs_filter_item_widget_maximumsize" { 
+                    maximumsize = { 300 250 }
+                }
+               
+                autoresizescrollarea = yes
+                scrollbarpolicy_horizontal = always_off
+    
+                using = Background_DropDown
+                block "acs_drop_down_visible" { 
+                    
+                }
+    
+                scrollwidget = {
+                    vbox = {
+                        using = Background_DropDown
+                        layoutpolicy_vertical = expanding
+                        layoutpolicy_horizontal = expanding
+                        ignoreinvisible = yes
+                        block "acs_filter_other_value" { 
+                           
+                        }
+                    }
+                }
+    
+                scrollbar_vertical = {
+                    using = Scrollbar_Vertical
+                }	
+            }
+		}
+	}
+
+
+
+	type acs_filter_item = widget {
+		block "acs_filter_item_size" { 
+			size = { 560 43 }
+		}
+        allow_outside = yes
+        hbox = {
+            layoutpolicy_horizontal = expanding
+            layoutpolicy_vertical = fixed
+            
+            spacing = 10
+            margin_bottom = 10
+            allow_outside = yes
+    
+            text_single = {
+                layoutpolicy_horizontal = expanding
+                block "filter_name" {  
+                    text = "relation_filter"
+                }
+                default_format = "#medium"
+                autoresize = no
+                align = nobaseline
+            }
+			block "acs_filter_item_expand" { 
+				expand = {}
+			}
+            
+    
+            acs_filter_item_dropdown = {}
+        }
+
+    }
+	
+	type acs_filter_relation_item = acs_filter_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_relation' )]"
+        }
+    }
+
+    type acs_filter_diplomatic_range_item = acs_filter_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_diplomatic_range' )]"
+        }
+    }
+
+    type acs_filter_ruler_item = acs_filter_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_ruler' )]"
+        }
+    }
+
+    type acs_filter_adult_item = acs_filter_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_adult' )]"
+        }
+    }
+
+    type acs_filter_gender_item = acs_filter_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_gender' )]"
+        }
+    }
+
+    type acs_filter_martial_status_item = acs_filter_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_martial_status' )]"
+        }
+    }
+
+    type acs_filter_imprisonment_status_item = acs_filter_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_imprisonment_status' )]"
+        }
+    }
+
+    type acs_filter_hooks_item = acs_filter_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_hooks' )]"
+        }
+    }
+
+    type acs_filter_sexuality_item = acs_filter_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_sexuality' )]"
+        }
+    }
+
+
+    type acs_filter_religion_item = acs_filter_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_religion' )]"
+        }
+    }
+
+    type acs_filter_culture_item = acs_filter_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_culture' )]"
+        }
+    }
+    
+    type acs_filter_dynasty_item = acs_filter_item {
+        blockoverride "acs_drop_down_visible" { 
+            visible = "[GetVariableSystem.Exists( 'acs_filter_dynasty' )]"
+        }
+    }
+}

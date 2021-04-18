@@ -1,0 +1,330 @@
+﻿acs_filter_trait_health_gout_ridden_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_health_gout_ridden = no
+    }
+}
+
+acs_filter_trait_health_gout_ridden = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_health_gout_ridden = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_health_gout_ridden } }
+            set_global_variable = {  name = acs_filter_trait_health_gout_ridden value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_health_gout_ridden = yes }
+                set_global_variable = {  name = acs_filter_trait_health_gout_ridden value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_health_gout_ridden
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_health_consumption_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_health_consumption = no
+    }
+}
+
+acs_filter_trait_health_consumption = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_health_consumption = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_health_consumption } }
+            set_global_variable = {  name = acs_filter_trait_health_consumption value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_health_consumption = yes }
+                set_global_variable = {  name = acs_filter_trait_health_consumption value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_health_consumption
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_health_cancer_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_health_cancer = no
+    }
+}
+
+acs_filter_trait_health_cancer = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_health_cancer = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_health_cancer } }
+            set_global_variable = {  name = acs_filter_trait_health_cancer value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_health_cancer = yes }
+                set_global_variable = {  name = acs_filter_trait_health_cancer value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_health_cancer
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_health_typhus_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_health_typhus = no
+    }
+}
+
+acs_filter_trait_health_typhus = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_health_typhus = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_health_typhus } }
+            set_global_variable = {  name = acs_filter_trait_health_typhus value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_health_typhus = yes }
+                set_global_variable = {  name = acs_filter_trait_health_typhus value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_health_typhus
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_health_bubonic_plague_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_health_bubonic_plague = no
+    }
+}
+
+acs_filter_trait_health_bubonic_plague = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_health_bubonic_plague = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_health_bubonic_plague } }
+            set_global_variable = {  name = acs_filter_trait_health_bubonic_plague value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_health_bubonic_plague = yes }
+                set_global_variable = {  name = acs_filter_trait_health_bubonic_plague value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_health_bubonic_plague
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_health_smallpox_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_health_smallpox = no
+    }
+}
+
+acs_filter_trait_health_smallpox = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_health_smallpox = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_health_smallpox } }
+            set_global_variable = {  name = acs_filter_trait_health_smallpox value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_health_smallpox = yes }
+                set_global_variable = {  name = acs_filter_trait_health_smallpox value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_health_smallpox
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_health_ill_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_health_ill = no
+    }
+}
+
+acs_filter_trait_health_ill = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_health_ill = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_health_ill } }
+            set_global_variable = {  name = acs_filter_trait_health_ill value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_health_ill = yes }
+                set_global_variable = {  name = acs_filter_trait_health_ill value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_health_ill
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_health_pneumonic_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_health_pneumonic = no
+    }
+}
+
+acs_filter_trait_health_pneumonic = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_health_pneumonic = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_health_pneumonic } }
+            set_global_variable = {  name = acs_filter_trait_health_pneumonic value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_health_pneumonic = yes }
+                set_global_variable = {  name = acs_filter_trait_health_pneumonic value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_health_pneumonic
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_health_great_pox_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_health_great_pox = no
+    }
+}
+
+acs_filter_trait_health_great_pox = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_health_great_pox = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_health_great_pox } }
+            set_global_variable = {  name = acs_filter_trait_health_great_pox value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_health_great_pox = yes }
+                set_global_variable = {  name = acs_filter_trait_health_great_pox value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_health_great_pox
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_health_lovers_pox_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_health_lovers_pox = no
+    }
+}
+
+acs_filter_trait_health_lovers_pox = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_health_lovers_pox = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_health_lovers_pox } }
+            set_global_variable = {  name = acs_filter_trait_health_lovers_pox value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_health_lovers_pox = yes }
+                set_global_variable = {  name = acs_filter_trait_health_lovers_pox value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_health_lovers_pox
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_health_leper_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_health_leper = no
+    }
+}
+
+acs_filter_trait_health_leper = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_health_leper = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_health_leper } }
+            set_global_variable = {  name = acs_filter_trait_health_leper value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_health_leper = yes }
+                set_global_variable = {  name = acs_filter_trait_health_leper value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_health_leper
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}

@@ -1,0 +1,1152 @@
+﻿acs_filter_trait_education_diplomacy_1_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_diplomacy_1 = no
+    }
+}
+
+acs_filter_trait_education_diplomacy_1 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_diplomacy_1 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_diplomacy_1 } }
+            set_global_variable = {  name = acs_filter_trait_education_diplomacy_1 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_diplomacy_1 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_diplomacy_1 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_diplomacy_1
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_diplomacy_2_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_diplomacy_2 = no
+    }
+}
+
+acs_filter_trait_education_diplomacy_2 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_diplomacy_2 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_diplomacy_2 } }
+            set_global_variable = {  name = acs_filter_trait_education_diplomacy_2 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_diplomacy_2 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_diplomacy_2 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_diplomacy_2
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_diplomacy_3_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_diplomacy_3 = no
+    }
+}
+
+acs_filter_trait_education_diplomacy_3 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_diplomacy_3 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_diplomacy_3 } }
+            set_global_variable = {  name = acs_filter_trait_education_diplomacy_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_diplomacy_3 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_diplomacy_3 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_diplomacy_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_diplomacy_4_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_diplomacy_4 = no
+    }
+}
+
+acs_filter_trait_education_diplomacy_4 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_diplomacy_4 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_diplomacy_4 } }
+            set_global_variable = {  name = acs_filter_trait_education_diplomacy_4 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_diplomacy_4 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_diplomacy_4 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_diplomacy_4
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_diplomacy_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_education_diplomacy_1 = no
+			global_var:acs_filter_trait_education_diplomacy_2 = no
+			global_var:acs_filter_trait_education_diplomacy_3 = no
+			global_var:acs_filter_trait_education_diplomacy_4 = no
+		}
+    }
+}
+acs_filter_trait_education_diplomacy_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_education_diplomacy_1
+			has_global_variable = acs_filter_trait_education_diplomacy_2
+			has_global_variable = acs_filter_trait_education_diplomacy_3
+			has_global_variable = acs_filter_trait_education_diplomacy_4
+		}
+    }
+}
+acs_filter_trait_education_diplomacy = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_education_diplomacy_1 = yes
+			global_var:acs_filter_trait_education_diplomacy_2 = yes
+			global_var:acs_filter_trait_education_diplomacy_3 = yes
+			global_var:acs_filter_trait_education_diplomacy_4 = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_education_diplomacy_1
+					has_global_variable = acs_filter_trait_education_diplomacy_2
+					has_global_variable = acs_filter_trait_education_diplomacy_3
+					has_global_variable = acs_filter_trait_education_diplomacy_4
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_education_diplomacy_1 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_diplomacy_2 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_diplomacy_3 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_diplomacy_4 value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_education_diplomacy_1 = yes
+						global_var:acs_filter_trait_education_diplomacy_2 = yes
+						global_var:acs_filter_trait_education_diplomacy_3 = yes
+						global_var:acs_filter_trait_education_diplomacy_4 = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_education_diplomacy_1 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_diplomacy_2 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_diplomacy_3 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_diplomacy_4 value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_education_diplomacy_1
+			remove_global_variable = acs_filter_trait_education_diplomacy_2
+			remove_global_variable = acs_filter_trait_education_diplomacy_3
+			remove_global_variable = acs_filter_trait_education_diplomacy_4
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_martial_1_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_martial_1 = no
+    }
+}
+
+acs_filter_trait_education_martial_1 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_martial_1 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_1 } }
+            set_global_variable = {  name = acs_filter_trait_education_martial_1 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_martial_1 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_martial_1 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_martial_1
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_martial_2_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_martial_2 = no
+    }
+}
+
+acs_filter_trait_education_martial_2 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_martial_2 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_2 } }
+            set_global_variable = {  name = acs_filter_trait_education_martial_2 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_martial_2 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_martial_2 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_martial_2
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_martial_3_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_martial_3 = no
+    }
+}
+
+acs_filter_trait_education_martial_3 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_martial_3 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_3 } }
+            set_global_variable = {  name = acs_filter_trait_education_martial_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_martial_3 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_martial_3 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_martial_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_martial_4_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_martial_4 = no
+    }
+}
+
+acs_filter_trait_education_martial_4 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_martial_4 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_4 } }
+            set_global_variable = {  name = acs_filter_trait_education_martial_4 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_martial_4 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_martial_4 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_martial_4
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_martial_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_education_martial_1 = no
+			global_var:acs_filter_trait_education_martial_2 = no
+			global_var:acs_filter_trait_education_martial_3 = no
+			global_var:acs_filter_trait_education_martial_4 = no
+		}
+    }
+}
+acs_filter_trait_education_martial_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_education_martial_1
+			has_global_variable = acs_filter_trait_education_martial_2
+			has_global_variable = acs_filter_trait_education_martial_3
+			has_global_variable = acs_filter_trait_education_martial_4
+		}
+    }
+}
+acs_filter_trait_education_martial = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_education_martial_1 = yes
+			global_var:acs_filter_trait_education_martial_2 = yes
+			global_var:acs_filter_trait_education_martial_3 = yes
+			global_var:acs_filter_trait_education_martial_4 = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_education_martial_1
+					has_global_variable = acs_filter_trait_education_martial_2
+					has_global_variable = acs_filter_trait_education_martial_3
+					has_global_variable = acs_filter_trait_education_martial_4
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_education_martial_1 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_martial_2 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_martial_3 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_martial_4 value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_education_martial_1 = yes
+						global_var:acs_filter_trait_education_martial_2 = yes
+						global_var:acs_filter_trait_education_martial_3 = yes
+						global_var:acs_filter_trait_education_martial_4 = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_education_martial_1 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_martial_2 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_martial_3 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_martial_4 value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_education_martial_1
+			remove_global_variable = acs_filter_trait_education_martial_2
+			remove_global_variable = acs_filter_trait_education_martial_3
+			remove_global_variable = acs_filter_trait_education_martial_4
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_stewardship_1_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_stewardship_1 = no
+    }
+}
+
+acs_filter_trait_education_stewardship_1 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_stewardship_1 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_stewardship_1 } }
+            set_global_variable = {  name = acs_filter_trait_education_stewardship_1 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_stewardship_1 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_stewardship_1 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_stewardship_1
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_stewardship_2_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_stewardship_2 = no
+    }
+}
+
+acs_filter_trait_education_stewardship_2 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_stewardship_2 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_stewardship_2 } }
+            set_global_variable = {  name = acs_filter_trait_education_stewardship_2 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_stewardship_2 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_stewardship_2 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_stewardship_2
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_stewardship_3_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_stewardship_3 = no
+    }
+}
+
+acs_filter_trait_education_stewardship_3 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_stewardship_3 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_stewardship_3 } }
+            set_global_variable = {  name = acs_filter_trait_education_stewardship_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_stewardship_3 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_stewardship_3 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_stewardship_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_stewardship_4_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_stewardship_4 = no
+    }
+}
+
+acs_filter_trait_education_stewardship_4 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_stewardship_4 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_stewardship_4 } }
+            set_global_variable = {  name = acs_filter_trait_education_stewardship_4 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_stewardship_4 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_stewardship_4 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_stewardship_4
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_stewardship_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_education_stewardship_1 = no
+			global_var:acs_filter_trait_education_stewardship_2 = no
+			global_var:acs_filter_trait_education_stewardship_3 = no
+			global_var:acs_filter_trait_education_stewardship_4 = no
+		}
+    }
+}
+acs_filter_trait_education_stewardship_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_education_stewardship_1
+			has_global_variable = acs_filter_trait_education_stewardship_2
+			has_global_variable = acs_filter_trait_education_stewardship_3
+			has_global_variable = acs_filter_trait_education_stewardship_4
+		}
+    }
+}
+acs_filter_trait_education_stewardship = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_education_stewardship_1 = yes
+			global_var:acs_filter_trait_education_stewardship_2 = yes
+			global_var:acs_filter_trait_education_stewardship_3 = yes
+			global_var:acs_filter_trait_education_stewardship_4 = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_education_stewardship_1
+					has_global_variable = acs_filter_trait_education_stewardship_2
+					has_global_variable = acs_filter_trait_education_stewardship_3
+					has_global_variable = acs_filter_trait_education_stewardship_4
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_education_stewardship_1 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_stewardship_2 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_stewardship_3 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_stewardship_4 value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_education_stewardship_1 = yes
+						global_var:acs_filter_trait_education_stewardship_2 = yes
+						global_var:acs_filter_trait_education_stewardship_3 = yes
+						global_var:acs_filter_trait_education_stewardship_4 = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_education_stewardship_1 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_stewardship_2 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_stewardship_3 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_stewardship_4 value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_education_stewardship_1
+			remove_global_variable = acs_filter_trait_education_stewardship_2
+			remove_global_variable = acs_filter_trait_education_stewardship_3
+			remove_global_variable = acs_filter_trait_education_stewardship_4
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_intrigue_1_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_intrigue_1 = no
+    }
+}
+
+acs_filter_trait_education_intrigue_1 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_intrigue_1 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_intrigue_1 } }
+            set_global_variable = {  name = acs_filter_trait_education_intrigue_1 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_intrigue_1 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_intrigue_1 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_intrigue_1
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_intrigue_2_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_intrigue_2 = no
+    }
+}
+
+acs_filter_trait_education_intrigue_2 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_intrigue_2 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_intrigue_2 } }
+            set_global_variable = {  name = acs_filter_trait_education_intrigue_2 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_intrigue_2 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_intrigue_2 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_intrigue_2
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_intrigue_3_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_intrigue_3 = no
+    }
+}
+
+acs_filter_trait_education_intrigue_3 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_intrigue_3 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_intrigue_3 } }
+            set_global_variable = {  name = acs_filter_trait_education_intrigue_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_intrigue_3 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_intrigue_3 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_intrigue_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_intrigue_4_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_intrigue_4 = no
+    }
+}
+
+acs_filter_trait_education_intrigue_4 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_intrigue_4 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_intrigue_4 } }
+            set_global_variable = {  name = acs_filter_trait_education_intrigue_4 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_intrigue_4 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_intrigue_4 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_intrigue_4
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_intrigue_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_education_intrigue_1 = no
+			global_var:acs_filter_trait_education_intrigue_2 = no
+			global_var:acs_filter_trait_education_intrigue_3 = no
+			global_var:acs_filter_trait_education_intrigue_4 = no
+		}
+    }
+}
+acs_filter_trait_education_intrigue_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_education_intrigue_1
+			has_global_variable = acs_filter_trait_education_intrigue_2
+			has_global_variable = acs_filter_trait_education_intrigue_3
+			has_global_variable = acs_filter_trait_education_intrigue_4
+		}
+    }
+}
+acs_filter_trait_education_intrigue = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_education_intrigue_1 = yes
+			global_var:acs_filter_trait_education_intrigue_2 = yes
+			global_var:acs_filter_trait_education_intrigue_3 = yes
+			global_var:acs_filter_trait_education_intrigue_4 = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_education_intrigue_1
+					has_global_variable = acs_filter_trait_education_intrigue_2
+					has_global_variable = acs_filter_trait_education_intrigue_3
+					has_global_variable = acs_filter_trait_education_intrigue_4
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_education_intrigue_1 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_intrigue_2 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_intrigue_3 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_intrigue_4 value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_education_intrigue_1 = yes
+						global_var:acs_filter_trait_education_intrigue_2 = yes
+						global_var:acs_filter_trait_education_intrigue_3 = yes
+						global_var:acs_filter_trait_education_intrigue_4 = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_education_intrigue_1 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_intrigue_2 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_intrigue_3 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_intrigue_4 value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_education_intrigue_1
+			remove_global_variable = acs_filter_trait_education_intrigue_2
+			remove_global_variable = acs_filter_trait_education_intrigue_3
+			remove_global_variable = acs_filter_trait_education_intrigue_4
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_learning_1_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_learning_1 = no
+    }
+}
+
+acs_filter_trait_education_learning_1 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_learning_1 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_learning_1 } }
+            set_global_variable = {  name = acs_filter_trait_education_learning_1 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_learning_1 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_learning_1 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_learning_1
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_learning_2_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_learning_2 = no
+    }
+}
+
+acs_filter_trait_education_learning_2 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_learning_2 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_learning_2 } }
+            set_global_variable = {  name = acs_filter_trait_education_learning_2 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_learning_2 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_learning_2 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_learning_2
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_learning_3_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_learning_3 = no
+    }
+}
+
+acs_filter_trait_education_learning_3 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_learning_3 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_learning_3 } }
+            set_global_variable = {  name = acs_filter_trait_education_learning_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_learning_3 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_learning_3 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_learning_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_learning_4_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_learning_4 = no
+    }
+}
+
+acs_filter_trait_education_learning_4 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_learning_4 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_learning_4 } }
+            set_global_variable = {  name = acs_filter_trait_education_learning_4 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_learning_4 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_learning_4 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_learning_4
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_learning_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_education_learning_1 = no
+			global_var:acs_filter_trait_education_learning_2 = no
+			global_var:acs_filter_trait_education_learning_3 = no
+			global_var:acs_filter_trait_education_learning_4 = no
+		}
+    }
+}
+acs_filter_trait_education_learning_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_education_learning_1
+			has_global_variable = acs_filter_trait_education_learning_2
+			has_global_variable = acs_filter_trait_education_learning_3
+			has_global_variable = acs_filter_trait_education_learning_4
+		}
+    }
+}
+acs_filter_trait_education_learning = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_education_learning_1 = yes
+			global_var:acs_filter_trait_education_learning_2 = yes
+			global_var:acs_filter_trait_education_learning_3 = yes
+			global_var:acs_filter_trait_education_learning_4 = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_education_learning_1
+					has_global_variable = acs_filter_trait_education_learning_2
+					has_global_variable = acs_filter_trait_education_learning_3
+					has_global_variable = acs_filter_trait_education_learning_4
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_education_learning_1 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_learning_2 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_learning_3 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_learning_4 value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_education_learning_1 = yes
+						global_var:acs_filter_trait_education_learning_2 = yes
+						global_var:acs_filter_trait_education_learning_3 = yes
+						global_var:acs_filter_trait_education_learning_4 = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_education_learning_1 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_learning_2 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_learning_3 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_learning_4 value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_education_learning_1
+			remove_global_variable = acs_filter_trait_education_learning_2
+			remove_global_variable = acs_filter_trait_education_learning_3
+			remove_global_variable = acs_filter_trait_education_learning_4
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_martial_prowess_1_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_martial_prowess_1 = no
+    }
+}
+
+acs_filter_trait_education_martial_prowess_1 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_martial_prowess_1 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_prowess_1 } }
+            set_global_variable = {  name = acs_filter_trait_education_martial_prowess_1 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_martial_prowess_1 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_martial_prowess_1 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_martial_prowess_1
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_martial_prowess_2_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_martial_prowess_2 = no
+    }
+}
+
+acs_filter_trait_education_martial_prowess_2 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_martial_prowess_2 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_prowess_2 } }
+            set_global_variable = {  name = acs_filter_trait_education_martial_prowess_2 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_martial_prowess_2 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_martial_prowess_2 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_martial_prowess_2
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_martial_prowess_3_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_martial_prowess_3 = no
+    }
+}
+
+acs_filter_trait_education_martial_prowess_3 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_martial_prowess_3 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_prowess_3 } }
+            set_global_variable = {  name = acs_filter_trait_education_martial_prowess_3 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_martial_prowess_3 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_martial_prowess_3 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_martial_prowess_3
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_martial_prowess_4_negative = {
+    is_shown = {
+        global_var:acs_filter_trait_education_martial_prowess_4 = no
+    }
+}
+
+acs_filter_trait_education_martial_prowess_4 = {
+ 
+    is_shown = { 
+        global_var:acs_filter_trait_education_martial_prowess_4 = yes
+    }  
+        
+    effect = {
+        if = {
+            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_prowess_4 } }
+            set_global_variable = {  name = acs_filter_trait_education_martial_prowess_4 value = yes }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_filter_trait_education_martial_prowess_4 = yes }
+                set_global_variable = {  name = acs_filter_trait_education_martial_prowess_4 value = no }
+            }
+            else = {
+                remove_global_variable = acs_filter_trait_education_martial_prowess_4
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_prowess_negative = {
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_education_martial_prowess_1 = no
+			global_var:acs_filter_trait_education_martial_prowess_2 = no
+			global_var:acs_filter_trait_education_martial_prowess_3 = no
+			global_var:acs_filter_trait_education_martial_prowess_4 = no
+		}
+    }
+}
+acs_filter_trait_education_prowess_none = {
+    is_shown = {
+		NOR = {
+			has_global_variable = acs_filter_trait_education_martial_prowess_1
+			has_global_variable = acs_filter_trait_education_martial_prowess_2
+			has_global_variable = acs_filter_trait_education_martial_prowess_3
+			has_global_variable = acs_filter_trait_education_martial_prowess_4
+		}
+    }
+}
+acs_filter_trait_education_prowess = {
+ 
+    is_shown = {
+		AND = {
+			global_var:acs_filter_trait_education_martial_prowess_1 = yes
+			global_var:acs_filter_trait_education_martial_prowess_2 = yes
+			global_var:acs_filter_trait_education_martial_prowess_3 = yes
+			global_var:acs_filter_trait_education_martial_prowess_4 = yes
+		} 
+    } 
+        
+    effect = {
+        if = {
+            limit = { 
+				NOR = {
+					has_global_variable = acs_filter_trait_education_martial_prowess_1
+					has_global_variable = acs_filter_trait_education_martial_prowess_2
+					has_global_variable = acs_filter_trait_education_martial_prowess_3
+					has_global_variable = acs_filter_trait_education_martial_prowess_4
+				}
+			}
+			set_global_variable = {  name = acs_filter_trait_education_martial_prowess_1 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_martial_prowess_2 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_martial_prowess_3 value = yes }
+			set_global_variable = {  name = acs_filter_trait_education_martial_prowess_4 value = yes }
+        }
+        else = {
+            if = {
+                limit = {
+					AND = {
+						global_var:acs_filter_trait_education_martial_prowess_1 = yes
+						global_var:acs_filter_trait_education_martial_prowess_2 = yes
+						global_var:acs_filter_trait_education_martial_prowess_3 = yes
+						global_var:acs_filter_trait_education_martial_prowess_4 = yes
+					}
+				}
+				set_global_variable = {  name = acs_filter_trait_education_martial_prowess_1 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_martial_prowess_2 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_martial_prowess_3 value = no }
+				set_global_variable = {  name = acs_filter_trait_education_martial_prowess_4 value = no }
+            }
+            else = {
+				remove_global_variable = acs_filter_trait_education_martial_prowess_1
+			remove_global_variable = acs_filter_trait_education_martial_prowess_2
+			remove_global_variable = acs_filter_trait_education_martial_prowess_3
+			remove_global_variable = acs_filter_trait_education_martial_prowess_4
+            }
+
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
