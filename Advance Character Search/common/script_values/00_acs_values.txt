@@ -183,13 +183,10 @@ acs_sort_value = {
 	}
 	if = {
 		limit = { global_var:acs_sort_by = 3 }
-		add = {
-				value = 0
-				opinion_modifier = {
-				target = scope:acs_sort_root
-				who = this
-				multiplier = 1
-			}
+
+		if = {
+			limit = {save_temporary_opinion_value_as  = {name = temp_op target = scope:acs_sort_root}}
+			add = scope:temp_op
 		}
 	}
 	if = {
@@ -558,4 +555,32 @@ acs_total_number_of_characters = {
 
 acs_select_count = {
 	value = global_var:acs_select_count
+}
+
+acs_num_of_bad_genetic_traits_modified = {
+	value = num_of_bad_genetic_traits
+	if = {
+		limit = {
+			has_trait = depressed_genetic
+		}
+		add = -1
+	}
+	if = {
+		limit = {
+			has_trait = lunatic_genetic
+		}
+		add = -1
+	}
+	if = {
+		limit = {
+			has_trait = possessed_genetic
+		}
+		add = -1
+	}
+	if = {
+		limit = {
+			has_trait = infertile
+		}
+		add = -1
+	}
 }

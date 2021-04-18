@@ -1220,17 +1220,7 @@ icon = {
 					}
 				}
 
-				acs_button_character_search_small = {
-					name = "acs_button"
-					tooltip = "FIND_CHARACTER"
-										
-								 
-					using = tooltip_ne
-					shortcut = "character_finder"
-					
-					onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
-					onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
-				}
+				acs_button_character_search_small = {}
 			}
 
 			hbox = {
