@@ -1,262 +1,262 @@
 ﻿types acs_filter_trait_fame_other_group_types {
-	type acs_filter_trait_fame_other_group =  acs_vbox_filter_group_trait {
-		parentanchor = top|left
-		blockoverride "acs_vbox_filter_group_name" {
-			text = "acs_filter_trait_group_fame_other"
-		}
+    type acs_filter_trait_fame_other_group =  acs_vbox_filter_group_trait {
+        parentanchor = top|left
+        blockoverride "acs_vbox_filter_group_name" {
+            text = "acs_filter_trait_group_fame_other"
+        }
 
-		blockoverride "acs_vbox_filter_group_toggle" {
-			onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_fame_other' )]"
-			frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_fame_other' ) ), '(int32)1', '(int32)2' )]"
-		}
-		blockoverride "filters" {
-			flowcontainer = {
-				visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_fame_other' )]"
-				position = { 0 26 }
-				direction = vertical
-				spacing = 5
-				flowcontainer = {
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						flowcontainer = { 
-							direction = vertical
-							spacing = 5
-						    acs_trait_item_custom_left = {	
-								blockoverride "acs_trait_item_action" {
-									onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								}
-								blockoverride "acs_checkbox_state" {
-									frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
-								}
-								blockoverride "acs_filter_name" {  
-									text = "acs_filter_trait_fame_born_status"
-								}
-								blockoverride "acs_custom_image" {  
-									texture = "gfx/interface/icons/traits/disputed_heritage.dds"
-								}
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_bastard' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'bastard' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_bastard' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_bastard_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_legitimized_bastard' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'legitimized_bastard' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_legitimized_bastard' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_legitimized_bastard_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_disputed_heritage' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'disputed_heritage' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_disputed_heritage' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_disputed_heritage_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_child_of_concubine_female' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'child_of_concubine_female' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_child_of_concubine_female' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_child_of_concubine_female_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_child_of_concubine_male' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'child_of_concubine_male' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_child_of_concubine_male' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_child_of_concubine_male_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_wild_oat' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'wild_oat' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_wild_oat' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_wild_oat_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_bastard_founder' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'bastard_founder' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_bastard_founder' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_bastard_founder_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-						}
-					}
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						acs_trait_item_right = { 
-						    blockoverride "acs_trait_item_action" {
-						        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						        datacontext = "[GetTrait( 'berserker' )]"
-						    }
-						    blockoverride "acs_checkbox_state" {
-						        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_berserker' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_berserker_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-						    }
-						}
-						acs_trait_item_right = { 
-						    blockoverride "acs_trait_item_action" {
-						        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_shieldmaiden' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						        datacontext = "[GetTrait( 'shieldmaiden' )]"
-						    }
-						    blockoverride "acs_checkbox_state" {
-						        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_shieldmaiden' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_shieldmaiden_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-						    }
-						}
-						acs_trait_item_right = { 
-						    blockoverride "acs_trait_item_action" {
-						        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_varangian' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						        datacontext = "[GetTrait( 'varangian' )]"
-						    }
-						    blockoverride "acs_checkbox_state" {
-						        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_varangian' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_varangian_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-						    }
-						}
-						acs_trait_item_right = { 
-						    blockoverride "acs_trait_item_action" {
-						        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_poet' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						        datacontext = "[GetTrait( 'poet' )]"
-						    }
-						    blockoverride "acs_checkbox_state" {
-						        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_poet' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_poet_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-						    }
-						}
-						acs_trait_item_right = { 
-						    blockoverride "acs_trait_item_action" {
-						        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_twin' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						        datacontext = "[GetTrait( 'twin' )]"
-						    }
-						    blockoverride "acs_checkbox_state" {
-						        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_twin' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_twin_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-						    }
-						}
-						acs_trait_item_right = { 
-						    blockoverride "acs_trait_item_action" {
-						        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_in_the_purple' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						        datacontext = "[GetTrait( 'born_in_the_purple' )]"
-						    }
-						    blockoverride "acs_checkbox_state" {
-						        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_in_the_purple' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_in_the_purple_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-						    }
-						}
-						acs_trait_item_right = { 
-						    blockoverride "acs_trait_item_action" {
-						        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_augustus' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						        datacontext = "[GetTrait( 'augustus' )]"
-						    }
-						    blockoverride "acs_checkbox_state" {
-						        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_augustus' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_augustus_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-						    }
-						}
-						acs_trait_item_right = { 
-						    blockoverride "acs_trait_item_action" {
-						        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_viking' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						        datacontext = "[GetTrait( 'viking' )]"
-						    }
-						    blockoverride "acs_checkbox_state" {
-						        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_viking' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_viking_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-						    }
-						}
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_reincarnation' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'reincarnation' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_reincarnation' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_reincarnation_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_adventurer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'adventurer' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_adventurer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_adventurer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_heresiarch' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'heresiarch' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_heresiarch' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_heresiarch_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_peasant_leader' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'peasant_leader' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_peasant_leader' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_peasant_leader_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_disinherited' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'disinherited' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_disinherited' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_disinherited_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_denounced' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'denounced' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_denounced' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_denounced_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = { 
-					acs_trait_item_left = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_chakravarti' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'chakravarti' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_chakravarti' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_chakravarti_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_fame_greatest_of_khans' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'greatest_of_khans' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_greatest_of_khans' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_greatest_of_khans_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					} 
-				}
-			}	
-		}
-	}
+        blockoverride "acs_vbox_filter_group_toggle" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_fame_other' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_fame_other' ) ), '(int32)1', '(int32)2' )]"
+        }
+        blockoverride "filters" {
+            flowcontainer = {
+                visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_fame_other' )]"
+                position = { 0 26 }
+                direction = vertical
+                spacing = 5
+                flowcontainer = {
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        flowcontainer = { 
+                            direction = vertical
+                            spacing = 5
+                            acs_trait_item_custom_left = {    
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
+                                }
+                                blockoverride "acs_filter_name" {  
+                                    text = "acs_filter_trait_fame_born_status"
+                                }
+                                blockoverride "acs_custom_image" {  
+                                    texture = "gfx/interface/icons/traits/disputed_heritage.dds"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_bastard' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'bastard' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_bastard' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_bastard_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_legitimized_bastard' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'legitimized_bastard' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_legitimized_bastard' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_legitimized_bastard_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_disputed_heritage' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'disputed_heritage' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_disputed_heritage' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_disputed_heritage_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_child_of_concubine_female' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'child_of_concubine_female' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_child_of_concubine_female' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_child_of_concubine_female_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_child_of_concubine_male' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'child_of_concubine_male' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_child_of_concubine_male' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_child_of_concubine_male_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_wild_oat' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'wild_oat' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_wild_oat' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_wild_oat_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_bastard_founder' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'bastard_founder' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_bastard_founder' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_status_bastard_founder_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                        }
+                    }
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        acs_trait_item_right = { 
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                datacontext = "[GetTrait( 'berserker' )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_berserker' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_berserker_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                            }
+                        }
+                        acs_trait_item_right = { 
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[GetScriptedGui( 'acs_filter_trait_fame_shieldmaiden' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                datacontext = "[GetTrait( 'shieldmaiden' )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_shieldmaiden' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_shieldmaiden_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                            }
+                        }
+                        acs_trait_item_right = { 
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[GetScriptedGui( 'acs_filter_trait_fame_varangian' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                datacontext = "[GetTrait( 'varangian' )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_varangian' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_varangian_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                            }
+                        }
+                        acs_trait_item_right = { 
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[GetScriptedGui( 'acs_filter_trait_fame_poet' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                datacontext = "[GetTrait( 'poet' )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_poet' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_poet_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                            }
+                        }
+                        acs_trait_item_right = { 
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[GetScriptedGui( 'acs_filter_trait_fame_twin' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                datacontext = "[GetTrait( 'twin' )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_twin' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_twin_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                            }
+                        }
+                        acs_trait_item_right = { 
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[GetScriptedGui( 'acs_filter_trait_fame_born_in_the_purple' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                datacontext = "[GetTrait( 'born_in_the_purple' )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_in_the_purple' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_born_in_the_purple_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                            }
+                        }
+                        acs_trait_item_right = { 
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[GetScriptedGui( 'acs_filter_trait_fame_augustus' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                datacontext = "[GetTrait( 'augustus' )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_augustus' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_augustus_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                            }
+                        }
+                        acs_trait_item_right = { 
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[GetScriptedGui( 'acs_filter_trait_fame_viking' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                datacontext = "[GetTrait( 'viking' )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_viking' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_viking_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                            }
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_fame_reincarnation' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'reincarnation' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_reincarnation' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_reincarnation_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_fame_adventurer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'adventurer' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_adventurer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_adventurer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_fame_heresiarch' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'heresiarch' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_heresiarch' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_heresiarch_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_fame_peasant_leader' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'peasant_leader' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_peasant_leader' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_peasant_leader_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_fame_disinherited' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'disinherited' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_disinherited' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_disinherited_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_fame_denounced' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'denounced' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_denounced' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_denounced_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = { 
+                    acs_trait_item_left = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_fame_chakravarti' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'chakravarti' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_chakravarti' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_chakravarti_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_fame_greatest_of_khans' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'greatest_of_khans' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_greatest_of_khans' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_greatest_of_khans_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    } 
+                }
+            }    
+        }
+    }
 }

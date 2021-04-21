@@ -1,70 +1,70 @@
 ﻿types acs_filter_trait_personality_child_group_types {
-	type acs_filter_trait_personality_child_group =  acs_vbox_filter_group_trait {
-		parentanchor = top|left
-		blockoverride "acs_vbox_filter_group_name" {
-			text = "acs_filter_trait_group_personality_child"
-		}
+    type acs_filter_trait_personality_child_group =  acs_vbox_filter_group_trait {
+        parentanchor = top|left
+        blockoverride "acs_vbox_filter_group_name" {
+            text = "acs_filter_trait_group_personality_child"
+        }
 
-		blockoverride "acs_vbox_filter_group_toggle" {
-			onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_personality_child' )]"
-			frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_personality_child' ) ), '(int32)1', '(int32)2' )]"
-		}
-		blockoverride "filters" {
-			flowcontainer = {
-				visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_personality_child' )]"
-				position = { 0 26 }
-				direction = vertical
-				spacing = 5
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_child_rowdy' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'rowdy' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_child_rowdy' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_child_rowdy_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_child_charming' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'charming' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_child_charming' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_child_charming_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_child_curious' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'curious' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_child_curious' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_child_curious_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = { 
-					acs_trait_item_left = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_child_pensive' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'pensive' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_child_pensive' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_child_pensive_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_child_bossy' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'bossy' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_child_bossy' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_child_bossy_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					} 
-				}
-			}	
-		}
-	}
+        blockoverride "acs_vbox_filter_group_toggle" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_personality_child' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_personality_child' ) ), '(int32)1', '(int32)2' )]"
+        }
+        blockoverride "filters" {
+            flowcontainer = {
+                visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_personality_child' )]"
+                position = { 0 26 }
+                direction = vertical
+                spacing = 5
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_child_rowdy' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'rowdy' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_child_rowdy' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_child_rowdy_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_child_charming' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'charming' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_child_charming' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_child_charming_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_child_curious' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'curious' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_child_curious' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_child_curious_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = { 
+                    acs_trait_item_left = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_child_pensive' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'pensive' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_child_pensive' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_child_pensive_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_child_bossy' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'bossy' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_child_bossy' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_child_bossy_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    } 
+                }
+            }    
+        }
+    }
 }

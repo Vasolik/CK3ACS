@@ -1,375 +1,375 @@
 ﻿types acs_filter_trait_education_group_types {
-	type acs_filter_trait_education_group =  acs_vbox_filter_group_trait {
-		parentanchor = top|left
-		blockoverride "acs_vbox_filter_group_name" {
-			text = "acs_filter_trait_group_education"
-		}
+    type acs_filter_trait_education_group =  acs_vbox_filter_group_trait {
+        parentanchor = top|left
+        blockoverride "acs_vbox_filter_group_name" {
+            text = "acs_filter_trait_group_education"
+        }
 
-		blockoverride "acs_vbox_filter_group_toggle" {
-			onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_education' )]"
-			frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_education' ) ), '(int32)1', '(int32)2' )]"
-		}
-		blockoverride "filters" {
-			flowcontainer = {
-				visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_education' )]"
-				position = { 0 26 }
-				direction = vertical
-				spacing = 5
-				flowcontainer = {
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						flowcontainer = { 
-							direction = vertical
-							spacing = 5
-						    acs_trait_item_skill_left = {	
-								blockoverride "acs_trait_item_action" {
-									onclick = "[GetScriptedGui( 'acs_filter_trait_education_diplomacy' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								}
-								blockoverride "acs_checkbox_state" {
-									frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
-								}
-								blockoverride "acs_filter_name" {  
-									text = "[diplomacy|E]"
-								}
-								blockoverride "acs_skill_frame" {  
-									frame = 1
-								}
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_diplomacy_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_diplomacy_1' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_diplomacy_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_diplomacy_2' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_diplomacy_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_diplomacy_3' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_diplomacy_4' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_diplomacy_4' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_4' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_4_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-						}
-					}
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						flowcontainer = { 
-							direction = vertical
-							spacing = 5
-						    acs_trait_item_skill_right = {	
-								blockoverride "acs_trait_item_action" {
-									onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								}
-								blockoverride "acs_checkbox_state" {
-									frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
-								}
-								blockoverride "acs_filter_name" {  
-									text = "[martial|E]"
-								}
-								blockoverride "acs_skill_frame" {  
-									frame = 2
-								}
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_martial_1' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_martial_2' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_martial_3' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_4' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_martial_4' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_4' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_4_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-						}
-					}
-				}
-				flowcontainer = {
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						flowcontainer = { 
-							direction = vertical
-							spacing = 5
-						    acs_trait_item_skill_left = {	
-								blockoverride "acs_trait_item_action" {
-									onclick = "[GetScriptedGui( 'acs_filter_trait_education_stewardship' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								}
-								blockoverride "acs_checkbox_state" {
-									frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
-								}
-								blockoverride "acs_filter_name" {  
-									text = "[stewardship|E]"
-								}
-								blockoverride "acs_skill_frame" {  
-									frame = 3
-								}
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_stewardship_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_stewardship_1' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_stewardship_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_stewardship_2' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_stewardship_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_stewardship_3' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_stewardship_4' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_stewardship_4' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_4' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_4_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-						}
-					}
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						flowcontainer = { 
-							direction = vertical
-							spacing = 5
-						    acs_trait_item_skill_right = {	
-								blockoverride "acs_trait_item_action" {
-									onclick = "[GetScriptedGui( 'acs_filter_trait_education_intrigue' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								}
-								blockoverride "acs_checkbox_state" {
-									frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
-								}
-								blockoverride "acs_filter_name" {  
-									text = "[intrigue|E]"
-								}
-								blockoverride "acs_skill_frame" {  
-									frame = 4
-								}
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_intrigue_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_intrigue_1' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_intrigue_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_intrigue_2' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_intrigue_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_intrigue_3' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_intrigue_4' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_intrigue_4' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_4' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_4_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-						}
-					}
-				}
-				flowcontainer = {
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						flowcontainer = { 
-							direction = vertical
-							spacing = 5
-						    acs_trait_item_skill_left = {	
-								blockoverride "acs_trait_item_action" {
-									onclick = "[GetScriptedGui( 'acs_filter_trait_education_learning' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								}
-								blockoverride "acs_checkbox_state" {
-									frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
-								}
-								blockoverride "acs_filter_name" {  
-									text = "[learning|E]"
-								}
-								blockoverride "acs_skill_frame" {  
-									frame = 5
-								}
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_learning_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_learning_1' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_learning_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_learning_2' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_learning_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_learning_3' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_learning_4' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_learning_4' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_4' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_4_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-						}
-					}
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						flowcontainer = { 
-							direction = vertical
-							spacing = 5
-						    acs_trait_item_skill_right = {	
-								blockoverride "acs_trait_item_action" {
-									onclick = "[GetScriptedGui( 'acs_filter_trait_education_prowess' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								}
-								blockoverride "acs_checkbox_state" {
-									frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_prowess' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_prowess_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_education_prowess_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
-								}
-								blockoverride "acs_filter_name" {  
-									text = "[prowess|E]"
-								}
-								blockoverride "acs_skill_frame" {  
-									frame = 6
-								}
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_prowess_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_martial_prowess_1' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_prowess_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_martial_prowess_2' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_prowess_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_martial_prowess_3' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_prowess_4' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'education_martial_prowess_4' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_4' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_4_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-						}
-					}
-				}
-			}	
-		}
-	}
+        blockoverride "acs_vbox_filter_group_toggle" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_education' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_education' ) ), '(int32)1', '(int32)2' )]"
+        }
+        blockoverride "filters" {
+            flowcontainer = {
+                visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_education' )]"
+                position = { 0 26 }
+                direction = vertical
+                spacing = 5
+                flowcontainer = {
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        flowcontainer = { 
+                            direction = vertical
+                            spacing = 5
+                            acs_trait_item_skill_left = {    
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_diplomacy' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
+                                }
+                                blockoverride "acs_filter_name" {  
+                                    text = "[diplomacy|E]"
+                                }
+                                blockoverride "acs_skill_frame" {  
+                                    frame = 1
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_diplomacy_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_diplomacy_1' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_diplomacy_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_diplomacy_2' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_diplomacy_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_diplomacy_3' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_diplomacy_4' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_diplomacy_4' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_4' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_diplomacy_4_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                        }
+                    }
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        flowcontainer = { 
+                            direction = vertical
+                            spacing = 5
+                            acs_trait_item_skill_right = {    
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
+                                }
+                                blockoverride "acs_filter_name" {  
+                                    text = "[martial|E]"
+                                }
+                                blockoverride "acs_skill_frame" {  
+                                    frame = 2
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_martial_1' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_martial_2' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_martial_3' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_4' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_martial_4' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_4' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_4_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                        }
+                    }
+                }
+                flowcontainer = {
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        flowcontainer = { 
+                            direction = vertical
+                            spacing = 5
+                            acs_trait_item_skill_left = {    
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_stewardship' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
+                                }
+                                blockoverride "acs_filter_name" {  
+                                    text = "[stewardship|E]"
+                                }
+                                blockoverride "acs_skill_frame" {  
+                                    frame = 3
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_stewardship_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_stewardship_1' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_stewardship_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_stewardship_2' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_stewardship_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_stewardship_3' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_stewardship_4' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_stewardship_4' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_4' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_stewardship_4_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                        }
+                    }
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        flowcontainer = { 
+                            direction = vertical
+                            spacing = 5
+                            acs_trait_item_skill_right = {    
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_intrigue' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
+                                }
+                                blockoverride "acs_filter_name" {  
+                                    text = "[intrigue|E]"
+                                }
+                                blockoverride "acs_skill_frame" {  
+                                    frame = 4
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_intrigue_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_intrigue_1' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_intrigue_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_intrigue_2' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_intrigue_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_intrigue_3' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_intrigue_4' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_intrigue_4' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_4' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_intrigue_4_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                        }
+                    }
+                }
+                flowcontainer = {
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        flowcontainer = { 
+                            direction = vertical
+                            spacing = 5
+                            acs_trait_item_skill_left = {    
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_learning' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
+                                }
+                                blockoverride "acs_filter_name" {  
+                                    text = "[learning|E]"
+                                }
+                                blockoverride "acs_skill_frame" {  
+                                    frame = 5
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_learning_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_learning_1' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_learning_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_learning_2' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_learning_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_learning_3' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_learning_4' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_learning_4' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_4' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_learning_4_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                        }
+                    }
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        flowcontainer = { 
+                            direction = vertical
+                            spacing = 5
+                            acs_trait_item_skill_right = {    
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_prowess' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_prowess' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_prowess_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_education_prowess_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
+                                }
+                                blockoverride "acs_filter_name" {  
+                                    text = "[prowess|E]"
+                                }
+                                blockoverride "acs_skill_frame" {  
+                                    frame = 6
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_prowess_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_martial_prowess_1' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_prowess_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_martial_prowess_2' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_prowess_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_martial_prowess_3' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_education_martial_prowess_4' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'education_martial_prowess_4' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_4' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_education_martial_prowess_4_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                        }
+                    }
+                }
+            }    
+        }
+    }
 }

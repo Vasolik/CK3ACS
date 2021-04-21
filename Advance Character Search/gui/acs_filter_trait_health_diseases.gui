@@ -1,128 +1,128 @@
 ﻿types acs_filter_trait_health_diseases_group_types {
-	type acs_filter_trait_health_diseases_group =  acs_vbox_filter_group_trait {
-		parentanchor = top|left
-		blockoverride "acs_vbox_filter_group_name" {
-			text = "acs_filter_trait_group_health_diseases"
-		}
+    type acs_filter_trait_health_diseases_group =  acs_vbox_filter_group_trait {
+        parentanchor = top|left
+        blockoverride "acs_vbox_filter_group_name" {
+            text = "acs_filter_trait_group_health_diseases"
+        }
 
-		blockoverride "acs_vbox_filter_group_toggle" {
-			onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_health_diseases' )]"
-			frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_health_diseases' ) ), '(int32)1', '(int32)2' )]"
-		}
-		blockoverride "filters" {
-			flowcontainer = {
-				visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_health_diseases' )]"
-				position = { 0 26 }
-				direction = vertical
-				spacing = 5
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_health_gout_ridden' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'gout_ridden' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_gout_ridden' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_gout_ridden_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_health_consumption' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'consumption' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_consumption' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_consumption_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_health_cancer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'cancer' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_cancer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_cancer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_health_typhus' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'typhus' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_typhus' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_typhus_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_health_bubonic_plague' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'bubonic_plague' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_bubonic_plague' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_bubonic_plague_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_health_smallpox' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'smallpox' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_smallpox' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_smallpox_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_health_ill' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'ill' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_ill' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_ill_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_health_pneumonic' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'pneumonic' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_pneumonic' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_pneumonic_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_health_great_pox' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'great_pox' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_great_pox' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_great_pox_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = { 
-					acs_trait_item_left = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_health_lovers_pox' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'lovers_pox' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_lovers_pox' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_lovers_pox_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_health_leper' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'leper' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_leper' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_leper_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					} 
-				}
-			}	
-		}
-	}
+        blockoverride "acs_vbox_filter_group_toggle" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_health_diseases' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_health_diseases' ) ), '(int32)1', '(int32)2' )]"
+        }
+        blockoverride "filters" {
+            flowcontainer = {
+                visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_health_diseases' )]"
+                position = { 0 26 }
+                direction = vertical
+                spacing = 5
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_health_gout_ridden' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'gout_ridden' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_gout_ridden' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_gout_ridden_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_health_consumption' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'consumption' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_consumption' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_consumption_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_health_cancer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'cancer' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_cancer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_cancer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_health_typhus' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'typhus' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_typhus' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_typhus_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_health_bubonic_plague' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'bubonic_plague' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_bubonic_plague' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_bubonic_plague_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_health_smallpox' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'smallpox' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_smallpox' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_smallpox_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_health_ill' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'ill' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_ill' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_ill_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_health_pneumonic' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'pneumonic' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_pneumonic' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_pneumonic_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_health_great_pox' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'great_pox' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_great_pox' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_great_pox_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = { 
+                    acs_trait_item_left = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_health_lovers_pox' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'lovers_pox' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_lovers_pox' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_lovers_pox_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_health_leper' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'leper' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_health_leper' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_health_leper_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    } 
+                }
+            }    
+        }
+    }
 }

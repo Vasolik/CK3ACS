@@ -1,186 +1,186 @@
 ﻿types acs_filter_trait_commander_group_types {
-	type acs_filter_trait_commander_group =  acs_vbox_filter_group_trait {
-		parentanchor = top|left
-		blockoverride "acs_vbox_filter_group_name" {
-			text = "acs_filter_trait_group_commander"
-		}
+    type acs_filter_trait_commander_group =  acs_vbox_filter_group_trait {
+        parentanchor = top|left
+        blockoverride "acs_vbox_filter_group_name" {
+            text = "acs_filter_trait_group_commander"
+        }
 
-		blockoverride "acs_vbox_filter_group_toggle" {
-			onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_commander' )]"
-			frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_commander' ) ), '(int32)1', '(int32)2' )]"
-		}
-		blockoverride "filters" {
-			flowcontainer = {
-				visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_commander' )]"
-				position = { 0 26 }
-				direction = vertical
-				spacing = 5
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_logistician' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'logistician' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_logistician' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_logistician_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_military_engineer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'military_engineer' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_military_engineer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_military_engineer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_reckless' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'reckless' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_reckless' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_reckless_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_jungle_stalker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'jungle_stalker' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_jungle_stalker' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_jungle_stalker_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_forder' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'forder' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_forder' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_forder_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_flexible_leader' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'flexible_leader' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_flexible_leader' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_flexible_leader_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_desert_warrior' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'desert_warrior' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_desert_warrior' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_desert_warrior_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_unyielding_defender' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'unyielding_defender' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_unyielding_defender' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_unyielding_defender_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_reaver' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'reaver' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_reaver' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_reaver_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_holy_warrior' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'holy_warrior' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_holy_warrior' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_holy_warrior_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_aggressive_attacker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'aggressive_attacker' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_aggressive_attacker' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_aggressive_attacker_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_organizer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'organizer' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_organizer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_organizer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_winter_soldier' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'winter_soldier' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_winter_soldier' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_winter_soldier_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_forest_fighter' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'forest_fighter' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_forest_fighter' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_forest_fighter_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_cautious_leader' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'cautious_leader' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_cautious_leader' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_cautious_leader_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = { 
-					acs_trait_item_left = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_open_terrain_expert' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'open_terrain_expert' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_open_terrain_expert' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_open_terrain_expert_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_commander_rough_terrain_expert' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'rough_terrain_expert' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_rough_terrain_expert' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_rough_terrain_expert_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					} 
-				}
-			}	
-		}
-	}
+        blockoverride "acs_vbox_filter_group_toggle" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_commander' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_commander' ) ), '(int32)1', '(int32)2' )]"
+        }
+        blockoverride "filters" {
+            flowcontainer = {
+                visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_commander' )]"
+                position = { 0 26 }
+                direction = vertical
+                spacing = 5
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_logistician' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'logistician' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_logistician' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_logistician_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_military_engineer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'military_engineer' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_military_engineer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_military_engineer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_reckless' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'reckless' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_reckless' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_reckless_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_jungle_stalker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'jungle_stalker' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_jungle_stalker' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_jungle_stalker_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_forder' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'forder' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_forder' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_forder_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_flexible_leader' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'flexible_leader' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_flexible_leader' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_flexible_leader_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_desert_warrior' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'desert_warrior' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_desert_warrior' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_desert_warrior_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_unyielding_defender' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'unyielding_defender' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_unyielding_defender' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_unyielding_defender_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_reaver' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'reaver' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_reaver' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_reaver_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_holy_warrior' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'holy_warrior' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_holy_warrior' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_holy_warrior_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_aggressive_attacker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'aggressive_attacker' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_aggressive_attacker' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_aggressive_attacker_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_organizer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'organizer' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_organizer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_organizer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_winter_soldier' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'winter_soldier' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_winter_soldier' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_winter_soldier_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_forest_fighter' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'forest_fighter' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_forest_fighter' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_forest_fighter_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_cautious_leader' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'cautious_leader' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_cautious_leader' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_cautious_leader_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = { 
+                    acs_trait_item_left = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_open_terrain_expert' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'open_terrain_expert' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_open_terrain_expert' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_open_terrain_expert_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_commander_rough_terrain_expert' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'rough_terrain_expert' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_commander_rough_terrain_expert' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_commander_rough_terrain_expert_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    } 
+                }
+            }    
+        }
+    }
 }

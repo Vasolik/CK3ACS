@@ -1,430 +1,430 @@
 ﻿types acs_filter_trait_lifestyle_group_types {
-	type acs_filter_trait_lifestyle_group =  acs_vbox_filter_group_trait {
-		parentanchor = top|left
-		blockoverride "acs_vbox_filter_group_name" {
-			text = "acs_filter_trait_group_lifestyle"
-		}
+    type acs_filter_trait_lifestyle_group =  acs_vbox_filter_group_trait {
+        parentanchor = top|left
+        blockoverride "acs_vbox_filter_group_name" {
+            text = "acs_filter_trait_group_lifestyle"
+        }
 
-		blockoverride "acs_vbox_filter_group_toggle" {
-			onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_lifestyle' )]"
-			frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_lifestyle' ) ), '(int32)1', '(int32)2' )]"
-		}
-		blockoverride "filters" {
-			flowcontainer = {
-				visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_lifestyle' )]"
-				position = { 0 26 }
-				direction = vertical
-				spacing = 5
-				flowcontainer = {
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						flowcontainer = { 
-							direction = vertical
-							spacing = 5
-						    acs_trait_item_custom_left = {	
-								blockoverride "acs_trait_item_action" {
-									onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_physician' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								}
-								blockoverride "acs_checkbox_state" {
-									frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
-								}
-								blockoverride "acs_filter_name" {  
-									text = "acs_filter_trait_lifestyle_physician"
-								}
-								blockoverride "acs_custom_image" {  
-									texture = "gfx/interface/icons/message_feed/court_physician.dds"
-								}
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_physician_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'physician_1' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_physician_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'physician_2' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_physician_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'physician_3' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-						}
-					}
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						flowcontainer = { 
-							direction = vertical
-							spacing = 5
-						    acs_trait_item_custom_right = {	
-								blockoverride "acs_trait_item_action" {
-									onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_mystic' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								}
-								blockoverride "acs_checkbox_state" {
-									frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
-								}
-								blockoverride "acs_filter_name" {  
-									text = "acs_filter_trait_lifestyle_mystic"
-								}
-								blockoverride "acs_custom_image" {  
-									texture = "gfx/interface/icons/traits/mystic.dds"
-								}
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'mystic_1' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'mystic_2' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'mystic_3' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-						}
-					}
-				}
-				flowcontainer = {
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						flowcontainer = { 
-							direction = vertical
-							spacing = 5
-						    acs_trait_item_custom_left = {	
-								blockoverride "acs_trait_item_action" {
-									onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_hunter' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								}
-								blockoverride "acs_checkbox_state" {
-									frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
-								}
-								blockoverride "acs_filter_name" {  
-									text = "acs_filter_trait_lifestyle_hunter"
-								}
-								blockoverride "acs_custom_image" {  
-									texture = "gfx/interface/icons/traits/hunter.dds"
-								}
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'hunter_1' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'hunter_2' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'hunter_3' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-						}
-					}
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						flowcontainer = { 
-							direction = vertical
-							spacing = 5
-						    acs_trait_item_custom_right = {	
-								blockoverride "acs_trait_item_action" {
-									onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								}
-								blockoverride "acs_checkbox_state" {
-									frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
-								}
-								blockoverride "acs_filter_name" {  
-									text = "acs_filter_trait_lifestyle_blademaster"
-								}
-								blockoverride "acs_custom_image" {  
-									texture = "gfx/interface/icons/traits/blademaster.dds"
-								}
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'blademaster_1' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'blademaster_2' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_right_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'blademaster_3' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-						}
-					}
-				}
-				flowcontainer = {
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						flowcontainer = { 
-							direction = vertical
-							spacing = 5
-						    acs_trait_item_custom_left = {	
-								blockoverride "acs_trait_item_action" {
-									onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_reveler' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								}
-								blockoverride "acs_checkbox_state" {
-									frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
-								}
-								blockoverride "acs_filter_name" {  
-									text = "acs_filter_trait_lifestyle_reveler"
-								}
-								blockoverride "acs_custom_image" {  
-									texture = "gfx/interface/icons/traits/reveler.dds"
-								}
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'reveler_1' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'reveler_2' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-							acs_trait_item_left_moved = { 
-							    blockoverride "acs_trait_item_action" {
-							        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							        datacontext = "[GetTrait( 'reveler_3' )]"
-							    }
-							    blockoverride "acs_checkbox_state" {
-							        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-							    }
-							}
-						}
-					}
-					flowcontainer = { 
-						direction = vertical
-						spacing = 5
-						acs_trait_item_right = { 
-						    blockoverride "acs_trait_item_action" {
-						        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_lifestyle_herbalist' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						        datacontext = "[GetTrait( 'lifestyle_herbalist' )]"
-						    }
-						    blockoverride "acs_checkbox_state" {
-						        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_lifestyle_herbalist' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_lifestyle_herbalist_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-						    }
-						}
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_diplomat' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'diplomat' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_diplomat' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_diplomat_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_family_first' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'family_first' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_family_first' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_family_first_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_august' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'august' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_august' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_august_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_strategist' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'strategist' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_strategist' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_strategist_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_overseer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'overseer' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_overseer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_overseer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_gallant' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'gallant' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_gallant' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_gallant_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_architect' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'architect' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_architect' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_architect_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_administrator' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'administrator' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_administrator' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_administrator_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_avaricious' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'avaricious' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_avaricious' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_avaricious_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_schemer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'schemer' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_schemer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_schemer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_seducer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'seducer' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_seducer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_seducer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_torturer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'torturer' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_torturer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_torturer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-				flowcontainer = {
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_whole_of_body' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'whole_of_body' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_whole_of_body' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_whole_of_body_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_left_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_scholar' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'scholar' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_scholar' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_scholar_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-					acs_trait_item_right_third = { 
-					    blockoverride "acs_trait_item_action" {
-					        onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_theologian' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					        datacontext = "[GetTrait( 'theologian' )]"
-					    }
-					    blockoverride "acs_checkbox_state" {
-					        frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_theologian' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_theologian_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-					    }
-					}
-				}
-			}	
-		}
-	}
+        blockoverride "acs_vbox_filter_group_toggle" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_lifestyle' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_lifestyle' ) ), '(int32)1', '(int32)2' )]"
+        }
+        blockoverride "filters" {
+            flowcontainer = {
+                visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_lifestyle' )]"
+                position = { 0 26 }
+                direction = vertical
+                spacing = 5
+                flowcontainer = {
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        flowcontainer = { 
+                            direction = vertical
+                            spacing = 5
+                            acs_trait_item_custom_left = {    
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_physician' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
+                                }
+                                blockoverride "acs_filter_name" {  
+                                    text = "acs_filter_trait_lifestyle_physician"
+                                }
+                                blockoverride "acs_custom_image" {  
+                                    texture = "gfx/interface/icons/message_feed/court_physician.dds"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_physician_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'physician_1' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_physician_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'physician_2' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_physician_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'physician_3' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_physician_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                        }
+                    }
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        flowcontainer = { 
+                            direction = vertical
+                            spacing = 5
+                            acs_trait_item_custom_right = {    
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_mystic' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
+                                }
+                                blockoverride "acs_filter_name" {  
+                                    text = "acs_filter_trait_lifestyle_mystic"
+                                }
+                                blockoverride "acs_custom_image" {  
+                                    texture = "gfx/interface/icons/traits/mystic.dds"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'mystic_1' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'mystic_2' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'mystic_3' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_mystic_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                        }
+                    }
+                }
+                flowcontainer = {
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        flowcontainer = { 
+                            direction = vertical
+                            spacing = 5
+                            acs_trait_item_custom_left = {    
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_hunter' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
+                                }
+                                blockoverride "acs_filter_name" {  
+                                    text = "acs_filter_trait_lifestyle_hunter"
+                                }
+                                blockoverride "acs_custom_image" {  
+                                    texture = "gfx/interface/icons/traits/hunter.dds"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'hunter_1' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'hunter_2' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'hunter_3' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_hunter_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                        }
+                    }
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        flowcontainer = { 
+                            direction = vertical
+                            spacing = 5
+                            acs_trait_item_custom_right = {    
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
+                                }
+                                blockoverride "acs_filter_name" {  
+                                    text = "acs_filter_trait_lifestyle_blademaster"
+                                }
+                                blockoverride "acs_custom_image" {  
+                                    texture = "gfx/interface/icons/traits/blademaster.dds"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'blademaster_1' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'blademaster_2' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_right_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'blademaster_3' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_blademaster_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                        }
+                    }
+                }
+                flowcontainer = {
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        flowcontainer = { 
+                            direction = vertical
+                            spacing = 5
+                            acs_trait_item_custom_left = {    
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_reveler' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_none' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)1', '(int32)4' ) ) )]"
+                                }
+                                blockoverride "acs_filter_name" {  
+                                    text = "acs_filter_trait_lifestyle_reveler"
+                                }
+                                blockoverride "acs_custom_image" {  
+                                    texture = "gfx/interface/icons/traits/reveler.dds"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_1' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'reveler_1' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_1' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_1_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_2' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'reveler_2' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_2' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_2_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                            acs_trait_item_left_moved = { 
+                                blockoverride "acs_trait_item_action" {
+                                    onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_3' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                    datacontext = "[GetTrait( 'reveler_3' )]"
+                                }
+                                blockoverride "acs_checkbox_state" {
+                                    frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_3' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_reveler_3_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                                }
+                            }
+                        }
+                    }
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        acs_trait_item_right = { 
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_lifestyle_herbalist' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                                datacontext = "[GetTrait( 'lifestyle_herbalist' )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_lifestyle_herbalist' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_lifestyle_herbalist_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                            }
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_diplomat' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'diplomat' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_diplomat' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_diplomat_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_family_first' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'family_first' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_family_first' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_family_first_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_august' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'august' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_august' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_august_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_strategist' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'strategist' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_strategist' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_strategist_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_overseer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'overseer' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_overseer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_overseer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_gallant' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'gallant' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_gallant' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_gallant_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_architect' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'architect' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_architect' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_architect_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_administrator' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'administrator' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_administrator' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_administrator_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_avaricious' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'avaricious' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_avaricious' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_avaricious_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_schemer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'schemer' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_schemer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_schemer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_seducer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'seducer' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_seducer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_seducer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_torturer' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'torturer' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_torturer' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_torturer_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+                flowcontainer = {
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_whole_of_body' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'whole_of_body' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_whole_of_body' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_whole_of_body_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_left_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_scholar' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'scholar' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_scholar' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_scholar_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                    acs_trait_item_right_third = { 
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_lifestyle_theologian' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            datacontext = "[GetTrait( 'theologian' )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_theologian' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_lifestyle_theologian_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                    }
+                }
+            }    
+        }
+    }
 }

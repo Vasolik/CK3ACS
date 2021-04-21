@@ -93,63 +93,63 @@ acs_filter_trait_lifestyle_physician_3 = {
 }
 acs_filter_trait_lifestyle_physician_negative = {
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_lifestyle_physician_1 = no
-			global_var:acs_filter_trait_lifestyle_physician_2 = no
-			global_var:acs_filter_trait_lifestyle_physician_3 = no
-		}
+        AND = {
+            global_var:acs_filter_trait_lifestyle_physician_1 = no
+            global_var:acs_filter_trait_lifestyle_physician_2 = no
+            global_var:acs_filter_trait_lifestyle_physician_3 = no
+        }
     }
 }
 acs_filter_trait_lifestyle_physician_none = {
     is_shown = {
-		NOR = {
-			has_global_variable = acs_filter_trait_lifestyle_physician_1
-			has_global_variable = acs_filter_trait_lifestyle_physician_2
-			has_global_variable = acs_filter_trait_lifestyle_physician_3
-		}
+        NOR = {
+            has_global_variable = acs_filter_trait_lifestyle_physician_1
+            has_global_variable = acs_filter_trait_lifestyle_physician_2
+            has_global_variable = acs_filter_trait_lifestyle_physician_3
+        }
     }
 }
 acs_filter_trait_lifestyle_physician = {
  
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_lifestyle_physician_1 = yes
-			global_var:acs_filter_trait_lifestyle_physician_2 = yes
-			global_var:acs_filter_trait_lifestyle_physician_3 = yes
-		} 
+        AND = {
+            global_var:acs_filter_trait_lifestyle_physician_1 = yes
+            global_var:acs_filter_trait_lifestyle_physician_2 = yes
+            global_var:acs_filter_trait_lifestyle_physician_3 = yes
+        } 
     } 
         
     effect = {
-		acs_save_undo_0_filters = yes
+        acs_save_undo_0_filters = yes
         if = {
             limit = { 
-				NOR = {
-					has_global_variable = acs_filter_trait_lifestyle_physician_1
-					has_global_variable = acs_filter_trait_lifestyle_physician_2
-					has_global_variable = acs_filter_trait_lifestyle_physician_3
-				}
-			}
-			set_global_variable = {  name = acs_filter_trait_lifestyle_physician_1 value = yes }
-			set_global_variable = {  name = acs_filter_trait_lifestyle_physician_2 value = yes }
-			set_global_variable = {  name = acs_filter_trait_lifestyle_physician_3 value = yes }
+                NOR = {
+                    has_global_variable = acs_filter_trait_lifestyle_physician_1
+                    has_global_variable = acs_filter_trait_lifestyle_physician_2
+                    has_global_variable = acs_filter_trait_lifestyle_physician_3
+                }
+            }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_physician_1 value = yes }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_physician_2 value = yes }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_physician_3 value = yes }
         }
         else = {
             if = {
                 limit = {
-					AND = {
-						global_var:acs_filter_trait_lifestyle_physician_1 = yes
-						global_var:acs_filter_trait_lifestyle_physician_2 = yes
-						global_var:acs_filter_trait_lifestyle_physician_3 = yes
-					}
-				}
-				set_global_variable = {  name = acs_filter_trait_lifestyle_physician_1 value = no }
-				set_global_variable = {  name = acs_filter_trait_lifestyle_physician_2 value = no }
-				set_global_variable = {  name = acs_filter_trait_lifestyle_physician_3 value = no }
+                    AND = {
+                        global_var:acs_filter_trait_lifestyle_physician_1 = yes
+                        global_var:acs_filter_trait_lifestyle_physician_2 = yes
+                        global_var:acs_filter_trait_lifestyle_physician_3 = yes
+                    }
+                }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_physician_1 value = no }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_physician_2 value = no }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_physician_3 value = no }
             }
             else = {
-				remove_global_variable = acs_filter_trait_lifestyle_physician_1
-			remove_global_variable = acs_filter_trait_lifestyle_physician_2
-			remove_global_variable = acs_filter_trait_lifestyle_physician_3
+                remove_global_variable = acs_filter_trait_lifestyle_physician_1
+            remove_global_variable = acs_filter_trait_lifestyle_physician_2
+            remove_global_variable = acs_filter_trait_lifestyle_physician_3
             }
 
         }
@@ -251,63 +251,63 @@ acs_filter_trait_lifestyle_mystic_3 = {
 }
 acs_filter_trait_lifestyle_mystic_negative = {
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_lifestyle_mystic_1 = no
-			global_var:acs_filter_trait_lifestyle_mystic_2 = no
-			global_var:acs_filter_trait_lifestyle_mystic_3 = no
-		}
+        AND = {
+            global_var:acs_filter_trait_lifestyle_mystic_1 = no
+            global_var:acs_filter_trait_lifestyle_mystic_2 = no
+            global_var:acs_filter_trait_lifestyle_mystic_3 = no
+        }
     }
 }
 acs_filter_trait_lifestyle_mystic_none = {
     is_shown = {
-		NOR = {
-			has_global_variable = acs_filter_trait_lifestyle_mystic_1
-			has_global_variable = acs_filter_trait_lifestyle_mystic_2
-			has_global_variable = acs_filter_trait_lifestyle_mystic_3
-		}
+        NOR = {
+            has_global_variable = acs_filter_trait_lifestyle_mystic_1
+            has_global_variable = acs_filter_trait_lifestyle_mystic_2
+            has_global_variable = acs_filter_trait_lifestyle_mystic_3
+        }
     }
 }
 acs_filter_trait_lifestyle_mystic = {
  
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_lifestyle_mystic_1 = yes
-			global_var:acs_filter_trait_lifestyle_mystic_2 = yes
-			global_var:acs_filter_trait_lifestyle_mystic_3 = yes
-		} 
+        AND = {
+            global_var:acs_filter_trait_lifestyle_mystic_1 = yes
+            global_var:acs_filter_trait_lifestyle_mystic_2 = yes
+            global_var:acs_filter_trait_lifestyle_mystic_3 = yes
+        } 
     } 
         
     effect = {
-		acs_save_undo_0_filters = yes
+        acs_save_undo_0_filters = yes
         if = {
             limit = { 
-				NOR = {
-					has_global_variable = acs_filter_trait_lifestyle_mystic_1
-					has_global_variable = acs_filter_trait_lifestyle_mystic_2
-					has_global_variable = acs_filter_trait_lifestyle_mystic_3
-				}
-			}
-			set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_1 value = yes }
-			set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_2 value = yes }
-			set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_3 value = yes }
+                NOR = {
+                    has_global_variable = acs_filter_trait_lifestyle_mystic_1
+                    has_global_variable = acs_filter_trait_lifestyle_mystic_2
+                    has_global_variable = acs_filter_trait_lifestyle_mystic_3
+                }
+            }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_1 value = yes }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_2 value = yes }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_3 value = yes }
         }
         else = {
             if = {
                 limit = {
-					AND = {
-						global_var:acs_filter_trait_lifestyle_mystic_1 = yes
-						global_var:acs_filter_trait_lifestyle_mystic_2 = yes
-						global_var:acs_filter_trait_lifestyle_mystic_3 = yes
-					}
-				}
-				set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_1 value = no }
-				set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_2 value = no }
-				set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_3 value = no }
+                    AND = {
+                        global_var:acs_filter_trait_lifestyle_mystic_1 = yes
+                        global_var:acs_filter_trait_lifestyle_mystic_2 = yes
+                        global_var:acs_filter_trait_lifestyle_mystic_3 = yes
+                    }
+                }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_1 value = no }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_2 value = no }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_mystic_3 value = no }
             }
             else = {
-				remove_global_variable = acs_filter_trait_lifestyle_mystic_1
-			remove_global_variable = acs_filter_trait_lifestyle_mystic_2
-			remove_global_variable = acs_filter_trait_lifestyle_mystic_3
+                remove_global_variable = acs_filter_trait_lifestyle_mystic_1
+            remove_global_variable = acs_filter_trait_lifestyle_mystic_2
+            remove_global_variable = acs_filter_trait_lifestyle_mystic_3
             }
 
         }
@@ -409,63 +409,63 @@ acs_filter_trait_lifestyle_hunter_3 = {
 }
 acs_filter_trait_lifestyle_hunter_negative = {
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_lifestyle_hunter_1 = no
-			global_var:acs_filter_trait_lifestyle_hunter_2 = no
-			global_var:acs_filter_trait_lifestyle_hunter_3 = no
-		}
+        AND = {
+            global_var:acs_filter_trait_lifestyle_hunter_1 = no
+            global_var:acs_filter_trait_lifestyle_hunter_2 = no
+            global_var:acs_filter_trait_lifestyle_hunter_3 = no
+        }
     }
 }
 acs_filter_trait_lifestyle_hunter_none = {
     is_shown = {
-		NOR = {
-			has_global_variable = acs_filter_trait_lifestyle_hunter_1
-			has_global_variable = acs_filter_trait_lifestyle_hunter_2
-			has_global_variable = acs_filter_trait_lifestyle_hunter_3
-		}
+        NOR = {
+            has_global_variable = acs_filter_trait_lifestyle_hunter_1
+            has_global_variable = acs_filter_trait_lifestyle_hunter_2
+            has_global_variable = acs_filter_trait_lifestyle_hunter_3
+        }
     }
 }
 acs_filter_trait_lifestyle_hunter = {
  
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_lifestyle_hunter_1 = yes
-			global_var:acs_filter_trait_lifestyle_hunter_2 = yes
-			global_var:acs_filter_trait_lifestyle_hunter_3 = yes
-		} 
+        AND = {
+            global_var:acs_filter_trait_lifestyle_hunter_1 = yes
+            global_var:acs_filter_trait_lifestyle_hunter_2 = yes
+            global_var:acs_filter_trait_lifestyle_hunter_3 = yes
+        } 
     } 
         
     effect = {
-		acs_save_undo_0_filters = yes
+        acs_save_undo_0_filters = yes
         if = {
             limit = { 
-				NOR = {
-					has_global_variable = acs_filter_trait_lifestyle_hunter_1
-					has_global_variable = acs_filter_trait_lifestyle_hunter_2
-					has_global_variable = acs_filter_trait_lifestyle_hunter_3
-				}
-			}
-			set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_1 value = yes }
-			set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_2 value = yes }
-			set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_3 value = yes }
+                NOR = {
+                    has_global_variable = acs_filter_trait_lifestyle_hunter_1
+                    has_global_variable = acs_filter_trait_lifestyle_hunter_2
+                    has_global_variable = acs_filter_trait_lifestyle_hunter_3
+                }
+            }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_1 value = yes }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_2 value = yes }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_3 value = yes }
         }
         else = {
             if = {
                 limit = {
-					AND = {
-						global_var:acs_filter_trait_lifestyle_hunter_1 = yes
-						global_var:acs_filter_trait_lifestyle_hunter_2 = yes
-						global_var:acs_filter_trait_lifestyle_hunter_3 = yes
-					}
-				}
-				set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_1 value = no }
-				set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_2 value = no }
-				set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_3 value = no }
+                    AND = {
+                        global_var:acs_filter_trait_lifestyle_hunter_1 = yes
+                        global_var:acs_filter_trait_lifestyle_hunter_2 = yes
+                        global_var:acs_filter_trait_lifestyle_hunter_3 = yes
+                    }
+                }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_1 value = no }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_2 value = no }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_hunter_3 value = no }
             }
             else = {
-				remove_global_variable = acs_filter_trait_lifestyle_hunter_1
-			remove_global_variable = acs_filter_trait_lifestyle_hunter_2
-			remove_global_variable = acs_filter_trait_lifestyle_hunter_3
+                remove_global_variable = acs_filter_trait_lifestyle_hunter_1
+            remove_global_variable = acs_filter_trait_lifestyle_hunter_2
+            remove_global_variable = acs_filter_trait_lifestyle_hunter_3
             }
 
         }
@@ -567,63 +567,63 @@ acs_filter_trait_lifestyle_blademaster_3 = {
 }
 acs_filter_trait_lifestyle_blademaster_negative = {
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_lifestyle_blademaster_1 = no
-			global_var:acs_filter_trait_lifestyle_blademaster_2 = no
-			global_var:acs_filter_trait_lifestyle_blademaster_3 = no
-		}
+        AND = {
+            global_var:acs_filter_trait_lifestyle_blademaster_1 = no
+            global_var:acs_filter_trait_lifestyle_blademaster_2 = no
+            global_var:acs_filter_trait_lifestyle_blademaster_3 = no
+        }
     }
 }
 acs_filter_trait_lifestyle_blademaster_none = {
     is_shown = {
-		NOR = {
-			has_global_variable = acs_filter_trait_lifestyle_blademaster_1
-			has_global_variable = acs_filter_trait_lifestyle_blademaster_2
-			has_global_variable = acs_filter_trait_lifestyle_blademaster_3
-		}
+        NOR = {
+            has_global_variable = acs_filter_trait_lifestyle_blademaster_1
+            has_global_variable = acs_filter_trait_lifestyle_blademaster_2
+            has_global_variable = acs_filter_trait_lifestyle_blademaster_3
+        }
     }
 }
 acs_filter_trait_lifestyle_blademaster = {
  
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_lifestyle_blademaster_1 = yes
-			global_var:acs_filter_trait_lifestyle_blademaster_2 = yes
-			global_var:acs_filter_trait_lifestyle_blademaster_3 = yes
-		} 
+        AND = {
+            global_var:acs_filter_trait_lifestyle_blademaster_1 = yes
+            global_var:acs_filter_trait_lifestyle_blademaster_2 = yes
+            global_var:acs_filter_trait_lifestyle_blademaster_3 = yes
+        } 
     } 
         
     effect = {
-		acs_save_undo_0_filters = yes
+        acs_save_undo_0_filters = yes
         if = {
             limit = { 
-				NOR = {
-					has_global_variable = acs_filter_trait_lifestyle_blademaster_1
-					has_global_variable = acs_filter_trait_lifestyle_blademaster_2
-					has_global_variable = acs_filter_trait_lifestyle_blademaster_3
-				}
-			}
-			set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_1 value = yes }
-			set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_2 value = yes }
-			set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_3 value = yes }
+                NOR = {
+                    has_global_variable = acs_filter_trait_lifestyle_blademaster_1
+                    has_global_variable = acs_filter_trait_lifestyle_blademaster_2
+                    has_global_variable = acs_filter_trait_lifestyle_blademaster_3
+                }
+            }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_1 value = yes }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_2 value = yes }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_3 value = yes }
         }
         else = {
             if = {
                 limit = {
-					AND = {
-						global_var:acs_filter_trait_lifestyle_blademaster_1 = yes
-						global_var:acs_filter_trait_lifestyle_blademaster_2 = yes
-						global_var:acs_filter_trait_lifestyle_blademaster_3 = yes
-					}
-				}
-				set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_1 value = no }
-				set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_2 value = no }
-				set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_3 value = no }
+                    AND = {
+                        global_var:acs_filter_trait_lifestyle_blademaster_1 = yes
+                        global_var:acs_filter_trait_lifestyle_blademaster_2 = yes
+                        global_var:acs_filter_trait_lifestyle_blademaster_3 = yes
+                    }
+                }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_1 value = no }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_2 value = no }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_blademaster_3 value = no }
             }
             else = {
-				remove_global_variable = acs_filter_trait_lifestyle_blademaster_1
-			remove_global_variable = acs_filter_trait_lifestyle_blademaster_2
-			remove_global_variable = acs_filter_trait_lifestyle_blademaster_3
+                remove_global_variable = acs_filter_trait_lifestyle_blademaster_1
+            remove_global_variable = acs_filter_trait_lifestyle_blademaster_2
+            remove_global_variable = acs_filter_trait_lifestyle_blademaster_3
             }
 
         }
@@ -725,63 +725,63 @@ acs_filter_trait_lifestyle_reveler_3 = {
 }
 acs_filter_trait_lifestyle_reveler_negative = {
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_lifestyle_reveler_1 = no
-			global_var:acs_filter_trait_lifestyle_reveler_2 = no
-			global_var:acs_filter_trait_lifestyle_reveler_3 = no
-		}
+        AND = {
+            global_var:acs_filter_trait_lifestyle_reveler_1 = no
+            global_var:acs_filter_trait_lifestyle_reveler_2 = no
+            global_var:acs_filter_trait_lifestyle_reveler_3 = no
+        }
     }
 }
 acs_filter_trait_lifestyle_reveler_none = {
     is_shown = {
-		NOR = {
-			has_global_variable = acs_filter_trait_lifestyle_reveler_1
-			has_global_variable = acs_filter_trait_lifestyle_reveler_2
-			has_global_variable = acs_filter_trait_lifestyle_reveler_3
-		}
+        NOR = {
+            has_global_variable = acs_filter_trait_lifestyle_reveler_1
+            has_global_variable = acs_filter_trait_lifestyle_reveler_2
+            has_global_variable = acs_filter_trait_lifestyle_reveler_3
+        }
     }
 }
 acs_filter_trait_lifestyle_reveler = {
  
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_lifestyle_reveler_1 = yes
-			global_var:acs_filter_trait_lifestyle_reveler_2 = yes
-			global_var:acs_filter_trait_lifestyle_reveler_3 = yes
-		} 
+        AND = {
+            global_var:acs_filter_trait_lifestyle_reveler_1 = yes
+            global_var:acs_filter_trait_lifestyle_reveler_2 = yes
+            global_var:acs_filter_trait_lifestyle_reveler_3 = yes
+        } 
     } 
         
     effect = {
-		acs_save_undo_0_filters = yes
+        acs_save_undo_0_filters = yes
         if = {
             limit = { 
-				NOR = {
-					has_global_variable = acs_filter_trait_lifestyle_reveler_1
-					has_global_variable = acs_filter_trait_lifestyle_reveler_2
-					has_global_variable = acs_filter_trait_lifestyle_reveler_3
-				}
-			}
-			set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_1 value = yes }
-			set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_2 value = yes }
-			set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_3 value = yes }
+                NOR = {
+                    has_global_variable = acs_filter_trait_lifestyle_reveler_1
+                    has_global_variable = acs_filter_trait_lifestyle_reveler_2
+                    has_global_variable = acs_filter_trait_lifestyle_reveler_3
+                }
+            }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_1 value = yes }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_2 value = yes }
+            set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_3 value = yes }
         }
         else = {
             if = {
                 limit = {
-					AND = {
-						global_var:acs_filter_trait_lifestyle_reveler_1 = yes
-						global_var:acs_filter_trait_lifestyle_reveler_2 = yes
-						global_var:acs_filter_trait_lifestyle_reveler_3 = yes
-					}
-				}
-				set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_1 value = no }
-				set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_2 value = no }
-				set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_3 value = no }
+                    AND = {
+                        global_var:acs_filter_trait_lifestyle_reveler_1 = yes
+                        global_var:acs_filter_trait_lifestyle_reveler_2 = yes
+                        global_var:acs_filter_trait_lifestyle_reveler_3 = yes
+                    }
+                }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_1 value = no }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_2 value = no }
+                set_global_variable = {  name = acs_filter_trait_lifestyle_reveler_3 value = no }
             }
             else = {
-				remove_global_variable = acs_filter_trait_lifestyle_reveler_1
-			remove_global_variable = acs_filter_trait_lifestyle_reveler_2
-			remove_global_variable = acs_filter_trait_lifestyle_reveler_3
+                remove_global_variable = acs_filter_trait_lifestyle_reveler_1
+            remove_global_variable = acs_filter_trait_lifestyle_reveler_2
+            remove_global_variable = acs_filter_trait_lifestyle_reveler_3
             }
 
         }

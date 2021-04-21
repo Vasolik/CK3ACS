@@ -217,95 +217,95 @@ acs_filter_trait_fame_born_status_bastard_founder = {
 }
 acs_filter_trait_fame_born_status_negative = {
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_fame_born_status_bastard = no
-			global_var:acs_filter_trait_fame_born_status_legitimized_bastard = no
-			global_var:acs_filter_trait_fame_born_status_disputed_heritage = no
-			global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = no
-			global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = no
-			global_var:acs_filter_trait_fame_born_status_wild_oat = no
-			global_var:acs_filter_trait_fame_born_status_bastard_founder = no
-		}
+        AND = {
+            global_var:acs_filter_trait_fame_born_status_bastard = no
+            global_var:acs_filter_trait_fame_born_status_legitimized_bastard = no
+            global_var:acs_filter_trait_fame_born_status_disputed_heritage = no
+            global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = no
+            global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = no
+            global_var:acs_filter_trait_fame_born_status_wild_oat = no
+            global_var:acs_filter_trait_fame_born_status_bastard_founder = no
+        }
     }
 }
 acs_filter_trait_fame_born_status_none = {
     is_shown = {
-		NOR = {
-			has_global_variable = acs_filter_trait_fame_born_status_bastard
-			has_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
-			has_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
-			has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
-			has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
-			has_global_variable = acs_filter_trait_fame_born_status_wild_oat
-			has_global_variable = acs_filter_trait_fame_born_status_bastard_founder
-		}
+        NOR = {
+            has_global_variable = acs_filter_trait_fame_born_status_bastard
+            has_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
+            has_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
+            has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
+            has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
+            has_global_variable = acs_filter_trait_fame_born_status_wild_oat
+            has_global_variable = acs_filter_trait_fame_born_status_bastard_founder
+        }
     }
 }
 acs_filter_trait_fame_born_status = {
  
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_fame_born_status_bastard = yes
-			global_var:acs_filter_trait_fame_born_status_legitimized_bastard = yes
-			global_var:acs_filter_trait_fame_born_status_disputed_heritage = yes
-			global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = yes
-			global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = yes
-			global_var:acs_filter_trait_fame_born_status_wild_oat = yes
-			global_var:acs_filter_trait_fame_born_status_bastard_founder = yes
-		} 
+        AND = {
+            global_var:acs_filter_trait_fame_born_status_bastard = yes
+            global_var:acs_filter_trait_fame_born_status_legitimized_bastard = yes
+            global_var:acs_filter_trait_fame_born_status_disputed_heritage = yes
+            global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = yes
+            global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = yes
+            global_var:acs_filter_trait_fame_born_status_wild_oat = yes
+            global_var:acs_filter_trait_fame_born_status_bastard_founder = yes
+        } 
     } 
         
     effect = {
-		acs_save_undo_0_filters = yes
+        acs_save_undo_0_filters = yes
         if = {
             limit = { 
-				NOR = {
-					has_global_variable = acs_filter_trait_fame_born_status_bastard
-					has_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
-					has_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
-					has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
-					has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
-					has_global_variable = acs_filter_trait_fame_born_status_wild_oat
-					has_global_variable = acs_filter_trait_fame_born_status_bastard_founder
-				}
-			}
-			set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard value = yes }
-			set_global_variable = {  name = acs_filter_trait_fame_born_status_legitimized_bastard value = yes }
-			set_global_variable = {  name = acs_filter_trait_fame_born_status_disputed_heritage value = yes }
-			set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_female value = yes }
-			set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_male value = yes }
-			set_global_variable = {  name = acs_filter_trait_fame_born_status_wild_oat value = yes }
-			set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard_founder value = yes }
+                NOR = {
+                    has_global_variable = acs_filter_trait_fame_born_status_bastard
+                    has_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
+                    has_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
+                    has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
+                    has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
+                    has_global_variable = acs_filter_trait_fame_born_status_wild_oat
+                    has_global_variable = acs_filter_trait_fame_born_status_bastard_founder
+                }
+            }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard value = yes }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_legitimized_bastard value = yes }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_disputed_heritage value = yes }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_female value = yes }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_male value = yes }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_wild_oat value = yes }
+            set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard_founder value = yes }
         }
         else = {
             if = {
                 limit = {
-					AND = {
-						global_var:acs_filter_trait_fame_born_status_bastard = yes
-						global_var:acs_filter_trait_fame_born_status_legitimized_bastard = yes
-						global_var:acs_filter_trait_fame_born_status_disputed_heritage = yes
-						global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = yes
-						global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = yes
-						global_var:acs_filter_trait_fame_born_status_wild_oat = yes
-						global_var:acs_filter_trait_fame_born_status_bastard_founder = yes
-					}
-				}
-				set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard value = no }
-				set_global_variable = {  name = acs_filter_trait_fame_born_status_legitimized_bastard value = no }
-				set_global_variable = {  name = acs_filter_trait_fame_born_status_disputed_heritage value = no }
-				set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_female value = no }
-				set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_male value = no }
-				set_global_variable = {  name = acs_filter_trait_fame_born_status_wild_oat value = no }
-				set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard_founder value = no }
+                    AND = {
+                        global_var:acs_filter_trait_fame_born_status_bastard = yes
+                        global_var:acs_filter_trait_fame_born_status_legitimized_bastard = yes
+                        global_var:acs_filter_trait_fame_born_status_disputed_heritage = yes
+                        global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = yes
+                        global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = yes
+                        global_var:acs_filter_trait_fame_born_status_wild_oat = yes
+                        global_var:acs_filter_trait_fame_born_status_bastard_founder = yes
+                    }
+                }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard value = no }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_legitimized_bastard value = no }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_disputed_heritage value = no }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_female value = no }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_male value = no }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_wild_oat value = no }
+                set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard_founder value = no }
             }
             else = {
-				remove_global_variable = acs_filter_trait_fame_born_status_bastard
-			remove_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
-			remove_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
-			remove_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
-			remove_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
-			remove_global_variable = acs_filter_trait_fame_born_status_wild_oat
-			remove_global_variable = acs_filter_trait_fame_born_status_bastard_founder
+                remove_global_variable = acs_filter_trait_fame_born_status_bastard
+            remove_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
+            remove_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
+            remove_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
+            remove_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
+            remove_global_variable = acs_filter_trait_fame_born_status_wild_oat
+            remove_global_variable = acs_filter_trait_fame_born_status_bastard_founder
             }
 
         }

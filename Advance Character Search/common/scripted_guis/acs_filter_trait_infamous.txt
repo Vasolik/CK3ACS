@@ -93,63 +93,63 @@ acs_filter_trait_fame_kinslayer_3 = {
 }
 acs_filter_trait_fame_kinslayer_negative = {
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_fame_kinslayer_1 = no
-			global_var:acs_filter_trait_fame_kinslayer_2 = no
-			global_var:acs_filter_trait_fame_kinslayer_3 = no
-		}
+        AND = {
+            global_var:acs_filter_trait_fame_kinslayer_1 = no
+            global_var:acs_filter_trait_fame_kinslayer_2 = no
+            global_var:acs_filter_trait_fame_kinslayer_3 = no
+        }
     }
 }
 acs_filter_trait_fame_kinslayer_none = {
     is_shown = {
-		NOR = {
-			has_global_variable = acs_filter_trait_fame_kinslayer_1
-			has_global_variable = acs_filter_trait_fame_kinslayer_2
-			has_global_variable = acs_filter_trait_fame_kinslayer_3
-		}
+        NOR = {
+            has_global_variable = acs_filter_trait_fame_kinslayer_1
+            has_global_variable = acs_filter_trait_fame_kinslayer_2
+            has_global_variable = acs_filter_trait_fame_kinslayer_3
+        }
     }
 }
 acs_filter_trait_fame_kinslayer = {
  
     is_shown = {
-		AND = {
-			global_var:acs_filter_trait_fame_kinslayer_1 = yes
-			global_var:acs_filter_trait_fame_kinslayer_2 = yes
-			global_var:acs_filter_trait_fame_kinslayer_3 = yes
-		} 
+        AND = {
+            global_var:acs_filter_trait_fame_kinslayer_1 = yes
+            global_var:acs_filter_trait_fame_kinslayer_2 = yes
+            global_var:acs_filter_trait_fame_kinslayer_3 = yes
+        } 
     } 
         
     effect = {
-		acs_save_undo_0_filters = yes
+        acs_save_undo_0_filters = yes
         if = {
             limit = { 
-				NOR = {
-					has_global_variable = acs_filter_trait_fame_kinslayer_1
-					has_global_variable = acs_filter_trait_fame_kinslayer_2
-					has_global_variable = acs_filter_trait_fame_kinslayer_3
-				}
-			}
-			set_global_variable = {  name = acs_filter_trait_fame_kinslayer_1 value = yes }
-			set_global_variable = {  name = acs_filter_trait_fame_kinslayer_2 value = yes }
-			set_global_variable = {  name = acs_filter_trait_fame_kinslayer_3 value = yes }
+                NOR = {
+                    has_global_variable = acs_filter_trait_fame_kinslayer_1
+                    has_global_variable = acs_filter_trait_fame_kinslayer_2
+                    has_global_variable = acs_filter_trait_fame_kinslayer_3
+                }
+            }
+            set_global_variable = {  name = acs_filter_trait_fame_kinslayer_1 value = yes }
+            set_global_variable = {  name = acs_filter_trait_fame_kinslayer_2 value = yes }
+            set_global_variable = {  name = acs_filter_trait_fame_kinslayer_3 value = yes }
         }
         else = {
             if = {
                 limit = {
-					AND = {
-						global_var:acs_filter_trait_fame_kinslayer_1 = yes
-						global_var:acs_filter_trait_fame_kinslayer_2 = yes
-						global_var:acs_filter_trait_fame_kinslayer_3 = yes
-					}
-				}
-				set_global_variable = {  name = acs_filter_trait_fame_kinslayer_1 value = no }
-				set_global_variable = {  name = acs_filter_trait_fame_kinslayer_2 value = no }
-				set_global_variable = {  name = acs_filter_trait_fame_kinslayer_3 value = no }
+                    AND = {
+                        global_var:acs_filter_trait_fame_kinslayer_1 = yes
+                        global_var:acs_filter_trait_fame_kinslayer_2 = yes
+                        global_var:acs_filter_trait_fame_kinslayer_3 = yes
+                    }
+                }
+                set_global_variable = {  name = acs_filter_trait_fame_kinslayer_1 value = no }
+                set_global_variable = {  name = acs_filter_trait_fame_kinslayer_2 value = no }
+                set_global_variable = {  name = acs_filter_trait_fame_kinslayer_3 value = no }
             }
             else = {
-				remove_global_variable = acs_filter_trait_fame_kinslayer_1
-			remove_global_variable = acs_filter_trait_fame_kinslayer_2
-			remove_global_variable = acs_filter_trait_fame_kinslayer_3
+                remove_global_variable = acs_filter_trait_fame_kinslayer_1
+            remove_global_variable = acs_filter_trait_fame_kinslayer_2
+            remove_global_variable = acs_filter_trait_fame_kinslayer_3
             }
 
         }
