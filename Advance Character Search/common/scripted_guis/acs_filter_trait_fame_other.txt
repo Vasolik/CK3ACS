@@ -1,810 +1,1505 @@
 ﻿acs_filter_trait_fame_born_status_bastard_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_born_status_bastard = no
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:bastard_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_born_status_bastard = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_born_status_bastard = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:bastard = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_bastard } }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        OR = {
+                            flag:bastard = this
+                            flag:bastard_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:bastard }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_born_status_bastard = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        flag:bastard = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:bastard }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_born_status_bastard
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_born_status_legitimized_bastard_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_born_status_legitimized_bastard = no
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:legitimized_bastard_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_born_status_legitimized_bastard = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_born_status_legitimized_bastard = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:legitimized_bastard = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard } }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_legitimized_bastard value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        OR = {
+                            flag:legitimized_bastard = this
+                            flag:legitimized_bastard_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:legitimized_bastard }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_born_status_legitimized_bastard = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_legitimized_bastard value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        flag:legitimized_bastard = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:legitimized_bastard }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:legitimized_bastard_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:legitimized_bastard_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_born_status_disputed_heritage_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_born_status_disputed_heritage = no
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:disputed_heritage_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_born_status_disputed_heritage = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_born_status_disputed_heritage = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:disputed_heritage = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_disputed_heritage } }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_disputed_heritage value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        OR = {
+                            flag:disputed_heritage = this
+                            flag:disputed_heritage_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:disputed_heritage }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_born_status_disputed_heritage = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_disputed_heritage value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        flag:disputed_heritage = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:disputed_heritage }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:disputed_heritage_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:disputed_heritage_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_born_status_child_of_concubine_female_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = no
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:child_of_concubine_female_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_born_status_child_of_concubine_female = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:child_of_concubine_female = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female } }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_female value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        OR = {
+                            flag:child_of_concubine_female = this
+                            flag:child_of_concubine_female_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_female }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_female value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        flag:child_of_concubine_female = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_female }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_female_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_female_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_born_status_child_of_concubine_male_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = no
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:child_of_concubine_male_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_born_status_child_of_concubine_male = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:child_of_concubine_male = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male } }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_male value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        OR = {
+                            flag:child_of_concubine_male = this
+                            flag:child_of_concubine_male_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_male }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_male value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        flag:child_of_concubine_male = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_male }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_male_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_male_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_born_status_wild_oat_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_born_status_wild_oat = no
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:wild_oat_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_born_status_wild_oat = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_born_status_wild_oat = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:wild_oat = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_wild_oat } }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_wild_oat value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        OR = {
+                            flag:wild_oat = this
+                            flag:wild_oat_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:wild_oat }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_born_status_wild_oat = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_wild_oat value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        flag:wild_oat = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:wild_oat }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:wild_oat_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_born_status_wild_oat
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:wild_oat_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_born_status_bastard_founder_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_born_status_bastard_founder = no
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:bastard_founder_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_born_status_bastard_founder = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_born_status_bastard_founder = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            flag:bastard_founder = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_status_bastard_founder } }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard_founder value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        OR = {
+                            flag:bastard_founder = this
+                            flag:bastard_founder_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_founder }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_born_status_bastard_founder = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard_founder value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        flag:bastard_founder = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_founder }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_founder_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_born_status_bastard_founder
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_founder_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_born_status_negative = {
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_fame_born_status_bastard = no
-            global_var:acs_filter_trait_fame_born_status_legitimized_bastard = no
-            global_var:acs_filter_trait_fame_born_status_disputed_heritage = no
-            global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = no
-            global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = no
-            global_var:acs_filter_trait_fame_born_status_wild_oat = no
-            global_var:acs_filter_trait_fame_born_status_bastard_founder = no
-        }
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            OR = {
+                flag:bastard_negative = this
+            flag:legitimized_bastard_negative = this
+            flag:disputed_heritage_negative = this
+            flag:child_of_concubine_female_negative = this
+            flag:child_of_concubine_male_negative = this
+            flag:wild_oat_negative = this
+            flag:bastard_founder_negative = this
+            }
+            count = 7
+        } 
     }
 }
 acs_filter_trait_fame_born_status_none = {
     is_shown = {
-        NOR = {
-            has_global_variable = acs_filter_trait_fame_born_status_bastard
-            has_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
-            has_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
-            has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
-            has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
-            has_global_variable = acs_filter_trait_fame_born_status_wild_oat
-            has_global_variable = acs_filter_trait_fame_born_status_bastard_founder
+        NOT = {
+            any_in_global_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                always = yes
+            }           
         }
     }
 }
 acs_filter_trait_fame_born_status = {
  
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_fame_born_status_bastard = yes
-            global_var:acs_filter_trait_fame_born_status_legitimized_bastard = yes
-            global_var:acs_filter_trait_fame_born_status_disputed_heritage = yes
-            global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = yes
-            global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = yes
-            global_var:acs_filter_trait_fame_born_status_wild_oat = yes
-            global_var:acs_filter_trait_fame_born_status_bastard_founder = yes
-        } 
+        any_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            OR = {
+                flag:bastard = this
+                flag:legitimized_bastard = this
+                flag:disputed_heritage = this
+                flag:child_of_concubine_female = this
+                flag:child_of_concubine_male = this
+                flag:wild_oat = this
+                flag:bastard_founder = this
+            }
+            count = 7
+        }  
     } 
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
             limit = { 
-                NOR = {
-                    has_global_variable = acs_filter_trait_fame_born_status_bastard
-                    has_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
-                    has_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
-                    has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
-                    has_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
-                    has_global_variable = acs_filter_trait_fame_born_status_wild_oat
-                    has_global_variable = acs_filter_trait_fame_born_status_bastard_founder
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        always = yes
+                    }           
                 }
             }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard value = yes }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_legitimized_bastard value = yes }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_disputed_heritage value = yes }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_female value = yes }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_male value = yes }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_wild_oat value = yes }
-            set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard_founder value = yes }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:bastard }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:legitimized_bastard }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:disputed_heritage }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_female }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_male }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:wild_oat }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_founder }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
         }
         else = {
             if = {
                 limit = {
-                    AND = {
-                        global_var:acs_filter_trait_fame_born_status_bastard = yes
-                        global_var:acs_filter_trait_fame_born_status_legitimized_bastard = yes
-                        global_var:acs_filter_trait_fame_born_status_disputed_heritage = yes
-                        global_var:acs_filter_trait_fame_born_status_child_of_concubine_female = yes
-                        global_var:acs_filter_trait_fame_born_status_child_of_concubine_male = yes
-                        global_var:acs_filter_trait_fame_born_status_wild_oat = yes
-                        global_var:acs_filter_trait_fame_born_status_bastard_founder = yes
+                    any_in_global_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        OR = {
+                            flag:bastard = this
+                            flag:legitimized_bastard = this
+                            flag:disputed_heritage = this
+                            flag:child_of_concubine_female = this
+                            flag:child_of_concubine_male = this
+                            flag:wild_oat = this
+                            flag:bastard_founder = this
+                        }
+                        count = 7
                     }
                 }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard value = no }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_legitimized_bastard value = no }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_disputed_heritage value = no }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_female value = no }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_child_of_concubine_male value = no }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_wild_oat value = no }
-                set_global_variable = {  name = acs_filter_trait_fame_born_status_bastard_founder value = no }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:bastard }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:legitimized_bastard }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:disputed_heritage }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_female }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_male }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:wild_oat }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_founder }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:legitimized_bastard_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:disputed_heritage_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_female_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_male_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:wild_oat_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_founder_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_born_status_bastard
-            remove_global_variable = acs_filter_trait_fame_born_status_legitimized_bastard
-            remove_global_variable = acs_filter_trait_fame_born_status_disputed_heritage
-            remove_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_female
-            remove_global_variable = acs_filter_trait_fame_born_status_child_of_concubine_male
-            remove_global_variable = acs_filter_trait_fame_born_status_wild_oat
-            remove_global_variable = acs_filter_trait_fame_born_status_bastard_founder
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:bastard }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:legitimized_bastard }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:disputed_heritage }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_female }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_male }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:wild_oat }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_founder }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_negative }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:legitimized_bastard_negative }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:disputed_heritage_negative }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_female_negative }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:child_of_concubine_male_negative }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:wild_oat_negative }
+                remove_list_global_variable = { name = acs_filter_trait_fame_born_status_list target = flag:bastard_founder_negative }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_fame_born_status }
             }
-
         }
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_berserker_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_berserker = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:berserker_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_berserker = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_berserker = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:berserker = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_berserker } }
-            set_global_variable = {  name = acs_filter_trait_fame_berserker value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:berserker = this
+                            flag:berserker_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:berserker }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_berserker = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_berserker value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:berserker = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:berserker }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:berserker_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_berserker
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:berserker_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_shieldmaiden_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_shieldmaiden = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:shieldmaiden_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_shieldmaiden = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_shieldmaiden = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:shieldmaiden = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_shieldmaiden } }
-            set_global_variable = {  name = acs_filter_trait_fame_shieldmaiden value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:shieldmaiden = this
+                            flag:shieldmaiden_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:shieldmaiden }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_shieldmaiden = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_shieldmaiden value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:shieldmaiden = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:shieldmaiden }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:shieldmaiden_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_shieldmaiden
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:shieldmaiden_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_varangian_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_varangian = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:varangian_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_varangian = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_varangian = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:varangian = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_varangian } }
-            set_global_variable = {  name = acs_filter_trait_fame_varangian value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:varangian = this
+                            flag:varangian_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:varangian }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_varangian = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_varangian value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:varangian = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:varangian }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:varangian_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_varangian
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:varangian_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_poet_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_poet = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:poet_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_poet = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_poet = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:poet = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_poet } }
-            set_global_variable = {  name = acs_filter_trait_fame_poet value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:poet = this
+                            flag:poet_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:poet }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_poet = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_poet value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:poet = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:poet }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:poet_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_poet
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:poet_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_twin_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_twin = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:twin_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_twin = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_twin = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:twin = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_twin } }
-            set_global_variable = {  name = acs_filter_trait_fame_twin value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:twin = this
+                            flag:twin_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:twin }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_twin = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_twin value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:twin = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:twin }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:twin_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_twin
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:twin_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_born_in_the_purple_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_born_in_the_purple = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:born_in_the_purple_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_born_in_the_purple = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_born_in_the_purple = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:born_in_the_purple = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_born_in_the_purple } }
-            set_global_variable = {  name = acs_filter_trait_fame_born_in_the_purple value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:born_in_the_purple = this
+                            flag:born_in_the_purple_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:born_in_the_purple }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_born_in_the_purple = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_born_in_the_purple value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:born_in_the_purple = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:born_in_the_purple }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:born_in_the_purple_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_born_in_the_purple
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:born_in_the_purple_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_augustus_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_augustus = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:augustus_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_augustus = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_augustus = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:augustus = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_augustus } }
-            set_global_variable = {  name = acs_filter_trait_fame_augustus value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:augustus = this
+                            flag:augustus_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:augustus }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_augustus = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_augustus value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:augustus = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:augustus }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:augustus_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_augustus
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:augustus_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_viking_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_viking = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:viking_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_viking = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_viking = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:viking = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_viking } }
-            set_global_variable = {  name = acs_filter_trait_fame_viking value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:viking = this
+                            flag:viking_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:viking }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_viking = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_viking value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:viking = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:viking }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:viking_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_viking
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:viking_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_reincarnation_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_reincarnation = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:reincarnation_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_reincarnation = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_reincarnation = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:reincarnation = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_reincarnation } }
-            set_global_variable = {  name = acs_filter_trait_fame_reincarnation value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:reincarnation = this
+                            flag:reincarnation_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:reincarnation }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_reincarnation = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_reincarnation value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:reincarnation = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:reincarnation }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:reincarnation_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_reincarnation
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:reincarnation_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_adventurer_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_adventurer = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:adventurer_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_adventurer = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_adventurer = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:adventurer = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_adventurer } }
-            set_global_variable = {  name = acs_filter_trait_fame_adventurer value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:adventurer = this
+                            flag:adventurer_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:adventurer }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_adventurer = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_adventurer value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:adventurer = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:adventurer }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:adventurer_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_adventurer
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:adventurer_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_heresiarch_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_heresiarch = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:heresiarch_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_heresiarch = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_heresiarch = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:heresiarch = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_heresiarch } }
-            set_global_variable = {  name = acs_filter_trait_fame_heresiarch value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:heresiarch = this
+                            flag:heresiarch_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:heresiarch }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_heresiarch = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_heresiarch value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:heresiarch = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:heresiarch }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:heresiarch_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_heresiarch
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:heresiarch_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_peasant_leader_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_peasant_leader = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:peasant_leader_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_peasant_leader = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_peasant_leader = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:peasant_leader = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_peasant_leader } }
-            set_global_variable = {  name = acs_filter_trait_fame_peasant_leader value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:peasant_leader = this
+                            flag:peasant_leader_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:peasant_leader }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_peasant_leader = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_peasant_leader value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:peasant_leader = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:peasant_leader }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:peasant_leader_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_peasant_leader
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:peasant_leader_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_disinherited_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_disinherited = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:disinherited_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_disinherited = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_disinherited = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:disinherited = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_disinherited } }
-            set_global_variable = {  name = acs_filter_trait_fame_disinherited value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:disinherited = this
+                            flag:disinherited_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:disinherited }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_disinherited = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_disinherited value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:disinherited = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:disinherited }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:disinherited_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_disinherited
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:disinherited_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_denounced_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_denounced = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:denounced_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_denounced = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_denounced = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:denounced = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_denounced } }
-            set_global_variable = {  name = acs_filter_trait_fame_denounced value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:denounced = this
+                            flag:denounced_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:denounced }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_denounced = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_denounced value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:denounced = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:denounced }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:denounced_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_denounced
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:denounced_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_chakravarti_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_chakravarti = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:chakravarti_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_chakravarti = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_chakravarti = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:chakravarti = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_chakravarti } }
-            set_global_variable = {  name = acs_filter_trait_fame_chakravarti value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:chakravarti = this
+                            flag:chakravarti_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:chakravarti }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_chakravarti = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_chakravarti value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:chakravarti = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:chakravarti }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:chakravarti_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_chakravarti
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:chakravarti_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_fame_greatest_of_khans_negative = {
     is_shown = {
-        global_var:acs_filter_trait_fame_greatest_of_khans = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:greatest_of_khans_negative = this
+        }
     }
 }
 
 acs_filter_trait_fame_greatest_of_khans = {
  
     is_shown = { 
-        global_var:acs_filter_trait_fame_greatest_of_khans = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:greatest_of_khans = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_fame_greatest_of_khans } }
-            set_global_variable = {  name = acs_filter_trait_fame_greatest_of_khans value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:greatest_of_khans = this
+                            flag:greatest_of_khans_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:greatest_of_khans }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_fame_greatest_of_khans = yes }
-                set_global_variable = {  name = acs_filter_trait_fame_greatest_of_khans value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:greatest_of_khans = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:greatest_of_khans }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:greatest_of_khans_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_fame_greatest_of_khans
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:greatest_of_khans_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }

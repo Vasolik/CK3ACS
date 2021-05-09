@@ -1,0 +1,334 @@
+﻿acs_make_reduced_and_count = {
+    clear_global_variable_list = acs_filter_trait_education_general_list_reduced
+    set_global_variable = { name = acs_filter_trait_education_general_count value = 0  } 
+    every_in_global_list = {
+        variable = acs_filter_trait_education_general_list
+        save_temporary_scope_as = temp
+        if = {
+            limit = {
+                OR = {
+                    flag:education_intrigue_1 = scope:temp
+                    flag:education_intrigue_2 = scope:temp
+                    flag:education_intrigue_3 = scope:temp
+                    flag:education_intrigue_4 = scope:temp
+                    flag:education_diplomacy_1 = scope:temp
+                    flag:education_diplomacy_2 = scope:temp
+                    flag:education_diplomacy_3 = scope:temp
+                    flag:education_diplomacy_4 = scope:temp
+                    flag:education_stewardship_1 = scope:temp
+                    flag:education_stewardship_2 = scope:temp
+                    flag:education_stewardship_3 = scope:temp
+                    flag:education_stewardship_4 = scope:temp
+                    flag:education_martial_1 = scope:temp
+                    flag:education_martial_2 = scope:temp
+                    flag:education_martial_3 = scope:temp
+                    flag:education_martial_4 = scope:temp
+                    flag:education_learning_1 = scope:temp
+                    flag:education_learning_2 = scope:temp
+                    flag:education_learning_3 = scope:temp
+                    flag:education_learning_4 = scope:temp
+                }
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_reduced target = scope:temp }
+            change_global_variable = { name = acs_filter_trait_education_general_count add = 1 } 
+        }
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_education_general_count > 0
+        }
+        set_global_variable = { name = acs_filter_trait_education_general_count value = 1 } 
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_education_general_count = 0
+        }
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = temp
+            if = {
+                limit = {
+                    OR = {
+                        flag:education_intrigue_1_negative = scope:temp
+                        flag:education_intrigue_2_negative = scope:temp
+                        flag:education_intrigue_3_negative = scope:temp
+                        flag:education_intrigue_4_negative = scope:temp
+                        flag:education_diplomacy_1_negative = scope:temp
+                        flag:education_diplomacy_2_negative = scope:temp
+                        flag:education_diplomacy_3_negative = scope:temp
+                        flag:education_diplomacy_4_negative = scope:temp
+                        flag:education_stewardship_1_negative = scope:temp
+                        flag:education_stewardship_2_negative = scope:temp
+                        flag:education_stewardship_3_negative = scope:temp
+                        flag:education_stewardship_4_negative = scope:temp
+                        flag:education_martial_1_negative = scope:temp
+                        flag:education_martial_2_negative = scope:temp
+                        flag:education_martial_3_negative = scope:temp
+                        flag:education_martial_4_negative = scope:temp
+                        flag:education_learning_1_negative = scope:temp
+                        flag:education_learning_2_negative = scope:temp
+                        flag:education_learning_3_negative = scope:temp
+                        flag:education_learning_4_negative = scope:temp
+                    }
+                }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list_reduced target = scope:temp }
+                change_global_variable = { name = acs_filter_trait_education_general_count add = 1 } 
+            }
+        }
+    }
+    set_variable = { name = acs_filter_trait_education_general_count value = global_var:acs_filter_trait_education_general_count  }
+    clear_global_variable_list = acs_filter_trait_education_martial_list_reduced
+    set_global_variable = { name = acs_filter_trait_education_martial_count value = 0  } 
+    every_in_global_list = {
+        variable = acs_filter_trait_education_martial_list
+        save_temporary_scope_as = temp
+        if = {
+            limit = {
+                OR = {
+                    flag:education_martial_prowess_1 = scope:temp
+                    flag:education_martial_prowess_2 = scope:temp
+                    flag:education_martial_prowess_3 = scope:temp
+                    flag:education_martial_prowess_4 = scope:temp
+                }
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_reduced target = scope:temp }
+            change_global_variable = { name = acs_filter_trait_education_martial_count add = 1 } 
+        }
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_education_martial_count > 0
+        }
+        set_global_variable = { name = acs_filter_trait_education_martial_count value = 1 } 
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_education_martial_count = 0
+        }
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = temp
+            if = {
+                limit = {
+                    OR = {
+                        flag:education_martial_prowess_1_negative = scope:temp
+                        flag:education_martial_prowess_2_negative = scope:temp
+                        flag:education_martial_prowess_3_negative = scope:temp
+                        flag:education_martial_prowess_4_negative = scope:temp
+                    }
+                }
+                add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_reduced target = scope:temp }
+                change_global_variable = { name = acs_filter_trait_education_martial_count add = 1 } 
+            }
+        }
+    }
+    set_variable = { name = acs_filter_trait_education_martial_count value = global_var:acs_filter_trait_education_martial_count  }
+    clear_global_variable_list = acs_filter_trait_fame_born_status_list_reduced
+    set_global_variable = { name = acs_filter_trait_fame_born_status_count value = 0  } 
+    every_in_global_list = {
+        variable = acs_filter_trait_fame_born_status_list
+        save_temporary_scope_as = temp
+        if = {
+            limit = {
+                OR = {
+                    flag:bastard = scope:temp
+                    flag:legitimized_bastard = scope:temp
+                    flag:disputed_heritage = scope:temp
+                    flag:child_of_concubine_female = scope:temp
+                    flag:child_of_concubine_male = scope:temp
+                    flag:wild_oat = scope:temp
+                    flag:bastard_founder = scope:temp
+                }
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_reduced target = scope:temp }
+            change_global_variable = { name = acs_filter_trait_fame_born_status_count add = 1 } 
+        }
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_fame_born_status_count > 0
+        }
+        set_global_variable = { name = acs_filter_trait_fame_born_status_count value = 1 } 
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_fame_born_status_count = 0
+        }
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = temp
+            if = {
+                limit = {
+                    OR = {
+                        flag:bastard_negative = scope:temp
+                        flag:legitimized_bastard_negative = scope:temp
+                        flag:disputed_heritage_negative = scope:temp
+                        flag:child_of_concubine_female_negative = scope:temp
+                        flag:child_of_concubine_male_negative = scope:temp
+                        flag:wild_oat_negative = scope:temp
+                        flag:bastard_founder_negative = scope:temp
+                    }
+                }
+                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_reduced target = scope:temp }
+                change_global_variable = { name = acs_filter_trait_fame_born_status_count add = 1 } 
+            }
+        }
+    }
+    set_variable = { name = acs_filter_trait_fame_born_status_count value = global_var:acs_filter_trait_fame_born_status_count  }
+    clear_global_variable_list = acs_filter_trait_physical_beauty_list_reduced
+    set_global_variable = { name = acs_filter_trait_physical_beauty_count value = 0  } 
+    every_in_global_list = {
+        variable = acs_filter_trait_physical_beauty_list
+        save_temporary_scope_as = temp
+        if = {
+            limit = {
+                OR = {
+                    flag:beauty_bad_1 = scope:temp
+                    flag:beauty_bad_2 = scope:temp
+                    flag:beauty_bad_3 = scope:temp
+                    flag:beauty_good_1 = scope:temp
+                    flag:beauty_good_2 = scope:temp
+                    flag:beauty_good_3 = scope:temp
+                }
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_reduced target = scope:temp }
+            change_global_variable = { name = acs_filter_trait_physical_beauty_count add = 1 } 
+        }
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_physical_beauty_count > 0
+        }
+        set_global_variable = { name = acs_filter_trait_physical_beauty_count value = 1 } 
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_physical_beauty_count = 0
+        }
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = temp
+            if = {
+                limit = {
+                    OR = {
+                        flag:beauty_bad_1_negative = scope:temp
+                        flag:beauty_bad_2_negative = scope:temp
+                        flag:beauty_bad_3_negative = scope:temp
+                        flag:beauty_good_1_negative = scope:temp
+                        flag:beauty_good_2_negative = scope:temp
+                        flag:beauty_good_3_negative = scope:temp
+                    }
+                }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_reduced target = scope:temp }
+                change_global_variable = { name = acs_filter_trait_physical_beauty_count add = 1 } 
+            }
+        }
+    }
+    set_variable = { name = acs_filter_trait_physical_beauty_count value = global_var:acs_filter_trait_physical_beauty_count  }
+    clear_global_variable_list = acs_filter_trait_physical_intellect_list_reduced
+    set_global_variable = { name = acs_filter_trait_physical_intellect_count value = 0  } 
+    every_in_global_list = {
+        variable = acs_filter_trait_physical_intellect_list
+        save_temporary_scope_as = temp
+        if = {
+            limit = {
+                OR = {
+                    flag:intellect_bad_1 = scope:temp
+                    flag:intellect_bad_2 = scope:temp
+                    flag:intellect_bad_3 = scope:temp
+                    flag:intellect_good_1 = scope:temp
+                    flag:intellect_good_2 = scope:temp
+                    flag:intellect_good_3 = scope:temp
+                }
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_reduced target = scope:temp }
+            change_global_variable = { name = acs_filter_trait_physical_intellect_count add = 1 } 
+        }
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_physical_intellect_count > 0
+        }
+        set_global_variable = { name = acs_filter_trait_physical_intellect_count value = 1 } 
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_physical_intellect_count = 0
+        }
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = temp
+            if = {
+                limit = {
+                    OR = {
+                        flag:intellect_bad_1_negative = scope:temp
+                        flag:intellect_bad_2_negative = scope:temp
+                        flag:intellect_bad_3_negative = scope:temp
+                        flag:intellect_good_1_negative = scope:temp
+                        flag:intellect_good_2_negative = scope:temp
+                        flag:intellect_good_3_negative = scope:temp
+                    }
+                }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_reduced target = scope:temp }
+                change_global_variable = { name = acs_filter_trait_physical_intellect_count add = 1 } 
+            }
+        }
+    }
+    set_variable = { name = acs_filter_trait_physical_intellect_count value = global_var:acs_filter_trait_physical_intellect_count  }
+    clear_global_variable_list = acs_filter_trait_physical_physique_list_reduced
+    set_global_variable = { name = acs_filter_trait_physical_physique_count value = 0  } 
+    every_in_global_list = {
+        variable = acs_filter_trait_physical_physique_list
+        save_temporary_scope_as = temp
+        if = {
+            limit = {
+                OR = {
+                    flag:physique_bad_1 = scope:temp
+                    flag:physique_bad_2 = scope:temp
+                    flag:physique_bad_3 = scope:temp
+                    flag:physique_good_1 = scope:temp
+                    flag:physique_good_2 = scope:temp
+                    flag:physique_good_3 = scope:temp
+                }
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_reduced target = scope:temp }
+            change_global_variable = { name = acs_filter_trait_physical_physique_count add = 1 } 
+        }
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_physical_physique_count > 0
+        }
+        set_global_variable = { name = acs_filter_trait_physical_physique_count value = 1 } 
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_physical_physique_count = 0
+        }
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = temp
+            if = {
+                limit = {
+                    OR = {
+                        flag:physique_bad_1_negative = scope:temp
+                        flag:physique_bad_2_negative = scope:temp
+                        flag:physique_bad_3_negative = scope:temp
+                        flag:physique_good_1_negative = scope:temp
+                        flag:physique_good_2_negative = scope:temp
+                        flag:physique_good_3_negative = scope:temp
+                    }
+                }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_reduced target = scope:temp }
+                change_global_variable = { name = acs_filter_trait_physical_physique_count add = 1 } 
+            }
+        }
+    }
+    set_variable = { name = acs_filter_trait_physical_physique_count value = global_var:acs_filter_trait_physical_physique_count  }
+    set_global_variable = { name = acs_active_filter_count value = 0  } 
+    every_in_global_list = {
+        variable = acs_active_filter_list
+        change_global_variable = { name = acs_active_filter_count add = 1 } 
+    }
+    set_variable = { name = acs_active_filter_count value = global_var:acs_active_filter_count  }
+}

@@ -1,527 +1,901 @@
 ﻿acs_filter_trait_commander_logistician_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_logistician = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:logistician_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_logistician = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_logistician = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:logistician = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_logistician } }
-            set_global_variable = {  name = acs_filter_trait_commander_logistician value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:logistician = this
+                            flag:logistician_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:logistician }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_logistician = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_logistician value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:logistician = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:logistician }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:logistician_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_logistician
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:logistician_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_military_engineer_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_military_engineer = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:military_engineer_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_military_engineer = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_military_engineer = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:military_engineer = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_military_engineer } }
-            set_global_variable = {  name = acs_filter_trait_commander_military_engineer value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:military_engineer = this
+                            flag:military_engineer_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:military_engineer }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_military_engineer = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_military_engineer value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:military_engineer = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:military_engineer }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:military_engineer_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_military_engineer
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:military_engineer_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_reckless_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_reckless = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:reckless_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_reckless = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_reckless = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:reckless = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_reckless } }
-            set_global_variable = {  name = acs_filter_trait_commander_reckless value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:reckless = this
+                            flag:reckless_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:reckless }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_reckless = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_reckless value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:reckless = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:reckless }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:reckless_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_reckless
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:reckless_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_jungle_stalker_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_jungle_stalker = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:jungle_stalker_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_jungle_stalker = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_jungle_stalker = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:jungle_stalker = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_jungle_stalker } }
-            set_global_variable = {  name = acs_filter_trait_commander_jungle_stalker value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:jungle_stalker = this
+                            flag:jungle_stalker_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:jungle_stalker }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_jungle_stalker = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_jungle_stalker value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:jungle_stalker = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:jungle_stalker }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:jungle_stalker_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_jungle_stalker
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:jungle_stalker_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_forder_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_forder = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:forder_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_forder = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_forder = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:forder = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_forder } }
-            set_global_variable = {  name = acs_filter_trait_commander_forder value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:forder = this
+                            flag:forder_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:forder }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_forder = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_forder value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:forder = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:forder }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:forder_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_forder
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:forder_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_flexible_leader_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_flexible_leader = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:flexible_leader_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_flexible_leader = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_flexible_leader = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:flexible_leader = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_flexible_leader } }
-            set_global_variable = {  name = acs_filter_trait_commander_flexible_leader value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:flexible_leader = this
+                            flag:flexible_leader_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:flexible_leader }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_flexible_leader = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_flexible_leader value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:flexible_leader = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:flexible_leader }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:flexible_leader_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_flexible_leader
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:flexible_leader_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_desert_warrior_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_desert_warrior = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:desert_warrior_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_desert_warrior = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_desert_warrior = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:desert_warrior = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_desert_warrior } }
-            set_global_variable = {  name = acs_filter_trait_commander_desert_warrior value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:desert_warrior = this
+                            flag:desert_warrior_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:desert_warrior }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_desert_warrior = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_desert_warrior value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:desert_warrior = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:desert_warrior }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:desert_warrior_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_desert_warrior
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:desert_warrior_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_unyielding_defender_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_unyielding_defender = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:unyielding_defender_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_unyielding_defender = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_unyielding_defender = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:unyielding_defender = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_unyielding_defender } }
-            set_global_variable = {  name = acs_filter_trait_commander_unyielding_defender value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:unyielding_defender = this
+                            flag:unyielding_defender_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:unyielding_defender }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_unyielding_defender = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_unyielding_defender value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:unyielding_defender = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:unyielding_defender }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:unyielding_defender_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_unyielding_defender
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:unyielding_defender_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_reaver_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_reaver = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:reaver_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_reaver = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_reaver = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:reaver = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_reaver } }
-            set_global_variable = {  name = acs_filter_trait_commander_reaver value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:reaver = this
+                            flag:reaver_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:reaver }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_reaver = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_reaver value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:reaver = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:reaver }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:reaver_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_reaver
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:reaver_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_holy_warrior_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_holy_warrior = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:holy_warrior_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_holy_warrior = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_holy_warrior = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:holy_warrior = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_holy_warrior } }
-            set_global_variable = {  name = acs_filter_trait_commander_holy_warrior value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:holy_warrior = this
+                            flag:holy_warrior_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:holy_warrior }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_holy_warrior = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_holy_warrior value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:holy_warrior = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:holy_warrior }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:holy_warrior_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_holy_warrior
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:holy_warrior_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_aggressive_attacker_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_aggressive_attacker = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:aggressive_attacker_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_aggressive_attacker = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_aggressive_attacker = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:aggressive_attacker = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_aggressive_attacker } }
-            set_global_variable = {  name = acs_filter_trait_commander_aggressive_attacker value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:aggressive_attacker = this
+                            flag:aggressive_attacker_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:aggressive_attacker }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_aggressive_attacker = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_aggressive_attacker value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:aggressive_attacker = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:aggressive_attacker }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:aggressive_attacker_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_aggressive_attacker
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:aggressive_attacker_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_organizer_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_organizer = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:organizer_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_organizer = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_organizer = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:organizer = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_organizer } }
-            set_global_variable = {  name = acs_filter_trait_commander_organizer value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:organizer = this
+                            flag:organizer_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:organizer }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_organizer = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_organizer value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:organizer = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:organizer }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:organizer_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_organizer
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:organizer_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_winter_soldier_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_winter_soldier = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:winter_soldier_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_winter_soldier = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_winter_soldier = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:winter_soldier = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_winter_soldier } }
-            set_global_variable = {  name = acs_filter_trait_commander_winter_soldier value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:winter_soldier = this
+                            flag:winter_soldier_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:winter_soldier }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_winter_soldier = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_winter_soldier value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:winter_soldier = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:winter_soldier }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:winter_soldier_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_winter_soldier
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:winter_soldier_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_forest_fighter_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_forest_fighter = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:forest_fighter_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_forest_fighter = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_forest_fighter = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:forest_fighter = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_forest_fighter } }
-            set_global_variable = {  name = acs_filter_trait_commander_forest_fighter value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:forest_fighter = this
+                            flag:forest_fighter_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:forest_fighter }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_forest_fighter = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_forest_fighter value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:forest_fighter = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:forest_fighter }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:forest_fighter_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_forest_fighter
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:forest_fighter_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_cautious_leader_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_cautious_leader = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:cautious_leader_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_cautious_leader = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_cautious_leader = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:cautious_leader = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_cautious_leader } }
-            set_global_variable = {  name = acs_filter_trait_commander_cautious_leader value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:cautious_leader = this
+                            flag:cautious_leader_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:cautious_leader }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_cautious_leader = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_cautious_leader value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:cautious_leader = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:cautious_leader }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:cautious_leader_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_cautious_leader
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:cautious_leader_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_open_terrain_expert_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_open_terrain_expert = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:open_terrain_expert_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_open_terrain_expert = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_open_terrain_expert = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:open_terrain_expert = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_open_terrain_expert } }
-            set_global_variable = {  name = acs_filter_trait_commander_open_terrain_expert value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:open_terrain_expert = this
+                            flag:open_terrain_expert_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:open_terrain_expert }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_open_terrain_expert = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_open_terrain_expert value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:open_terrain_expert = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:open_terrain_expert }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:open_terrain_expert_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_open_terrain_expert
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:open_terrain_expert_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_commander_rough_terrain_expert_negative = {
     is_shown = {
-        global_var:acs_filter_trait_commander_rough_terrain_expert = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:rough_terrain_expert_negative = this
+        }
     }
 }
 
 acs_filter_trait_commander_rough_terrain_expert = {
  
     is_shown = { 
-        global_var:acs_filter_trait_commander_rough_terrain_expert = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:rough_terrain_expert = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_commander_rough_terrain_expert } }
-            set_global_variable = {  name = acs_filter_trait_commander_rough_terrain_expert value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:rough_terrain_expert = this
+                            flag:rough_terrain_expert_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:rough_terrain_expert }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_commander_rough_terrain_expert = yes }
-                set_global_variable = {  name = acs_filter_trait_commander_rough_terrain_expert value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:rough_terrain_expert = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:rough_terrain_expert }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:rough_terrain_expert_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_commander_rough_terrain_expert
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:rough_terrain_expert_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }

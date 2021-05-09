@@ -50,7 +50,9 @@ types acs_filter_trait_types {
 	
 
 	type acs_trait_item_custom_left = widget {
-		size = { 275 30 }
+		block "acs_trait_item_size" {  
+			size = { 275 30 }
+		}
 		button_group = {
 
 			block "acs_trait_item_action" {
@@ -86,9 +88,13 @@ types acs_filter_trait_types {
 	}
 
 	type acs_trait_item_custom_right = widget {
-		size = { 275 30 }
-		button_group = {
+		block "acs_trait_item_size" {  
 			size = { 275 30 }
+		}
+		button_group = {
+			block "acs_trait_item_size2" {  
+				size = { 275 30 }
+			}
 			block "acs_trait_item_action" {
 				onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 			}
@@ -120,6 +126,21 @@ types acs_filter_trait_types {
 		}
 	}
 
+	type acs_trait_item_custom_left_third = acs_trait_item_custom_left {
+		blockoverride "acs_trait_item_size" {
+			size = { 183 30 }
+		}
+	}
+
+	type acs_trait_item_custom_right_third = acs_trait_item_custom_right {
+		blockoverride "acs_trait_item_size" {
+			size = { 183 30 }
+		}
+		blockoverride "acs_trait_item_size2" {
+			size = { 183 30 }
+		}
+	}
+
 	type acs_trait_item_skill_left = acs_trait_item_custom_left	{
 		blockoverride "acs_custom_image" {
 			texture = "gfx/interface/icons/icon_skills.dds"
@@ -143,7 +164,9 @@ types acs_filter_trait_types {
 
 	
 	type acs_trait_item_left = widget {
-		size = { 275 30 }
+		block "acs_trait_item_size" {  
+			size = { 275 30 }
+		}
 		button_group = {
 			datacontext = "[GetPlayer]"
 
@@ -156,6 +179,9 @@ types acs_filter_trait_types {
 				spacing = 5
 				parentanchor = top|left
 				widgetanchor = top|left
+				block "acs_trait_item_moved" {  
+					
+				}
 				acs_four_state_checkbox = {}
 
 				acs_trait_icon = {}
@@ -174,10 +200,14 @@ types acs_filter_trait_types {
 	}
 
 	type acs_trait_item_right = widget {
-		size = { 275 30 }
-		button_group = {
-			datacontext = "[GetPlayer]"
+		block "acs_trait_item_size" {  
 			size = { 275 30 }
+		}
+		button_group = {
+			block "acs_trait_item_size2" {  
+				size = { 275 30 }
+			}
+			datacontext = "[GetPlayer]"
 			block "acs_trait_item_action" {
 				onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				datacontext = "[GetTrait( 'berserker' )]"
@@ -202,175 +232,51 @@ types acs_filter_trait_types {
 				}
 				acs_trait_icon = {}
 				acs_four_state_checkbox = {}
-			}
-		}
-	}
-
-	type acs_trait_item_left_moved = widget {
-		size = { 275 30 }
-		button_group = {
-			datacontext = "[GetPlayer]"
-
-			block "acs_trait_item_action" {
-				onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				datacontext = "[GetTrait( 'berserker' )]"
-			}
-			
-			flowcontainer = {
-				spacing = 5
-				parentanchor = top|left
-				widgetanchor = top|left
-				widget = {
-					size = { 30 30 }
-				}
-				acs_four_state_checkbox = {}
-				
-				acs_trait_icon = {}
-	
-				text_single = {
-					layoutpolicy_horizontal = expanding
-					block "acs_filter_name" {  
-						text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
-					}
-					default_format = "#medium"
-
-					align = bottom|left
+				block "acs_trait_item_moved" {  
+					
 				}
 			}
 		}
 	}
 
-	type acs_trait_item_right_moved = widget { 
-		size = { 275 30 }
-		button_group = {
-			datacontext = "[GetPlayer]"
-			size = { 275 30 }
-			block "acs_trait_item_action" {
-				onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				datacontext = "[GetTrait( 'berserker' )]"
-			}
-			
-			hbox = {
-				spacing = 5
-				parentanchor = top|left
-				widgetanchor = top|left
-				layoutpolicy_horizontal = expanding
-				expand = {}
-				
-	
-				text_single = {
-					layoutpolicy_horizontal = expanding
-					block "acs_filter_name" {  
-						text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
-					}
-					default_format = "#medium"
-
-					align = top|right
-				}
-				acs_trait_icon = {}
-				acs_four_state_checkbox = {}
-				widget = {
-					size = { 30 30 }
-				}
+	type acs_trait_item_left_moved = acs_trait_item_left {
+		blockoverride "acs_trait_item_moved" {
+			widget = {
+				size = { 30 30 }
 			}
 		}
 	}
 
-	type acs_trait_item_right_small = widget {
-		size = { 159 30 }
-		button_group = {
-			datacontext = "[GetPlayer]"
+	type acs_trait_item_right_moved = acs_trait_item_right { 
+		blockoverride "acs_trait_item_moved" {
+			widget = {
+				size = { 30 30 }
+			}
+		}
+	}
+
+	type acs_trait_item_right_small = acs_trait_item_right {
+		blockoverride "acs_trait_item_size" {
 			size = { 159 30 }
-			block "acs_trait_item_action" {
-				onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				datacontext = "[GetTrait( 'berserker' )]"
-			}
-			
-			hbox = {
-				spacing = 5
-				parentanchor = top|left
-				widgetanchor = top|left
-				layoutpolicy_horizontal = expanding
-				expand = {}
-				
-	
-				text_single = {
-					layoutpolicy_horizontal = expanding
-					block "acs_filter_name" {  
-						text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
-					}
-					default_format = "#medium"
-
-					align = top|right
-				}
-				acs_trait_icon = {}
-				acs_four_state_checkbox = {}
-			}
+		}
+		blockoverride "acs_trait_item_size2" {
+			size = { 159 30 }
 		}
 	}
 
 	
-	type acs_trait_item_left_third = widget {
-		size = { 183 30 }
-		button_group = {
-			datacontext = "[GetPlayer]"
+	type acs_trait_item_left_third = acs_trait_item_left {
+		blockoverride "acs_trait_item_size" {
 			size = { 183 30 }
-			block "acs_trait_item_action" {
-				onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				datacontext = "[GetTrait( 'berserker' )]"
-			}
-			
-			flowcontainer = {
-				spacing = 5
-				parentanchor = top|left
-				widgetanchor = top|left
-				acs_four_state_checkbox = {}
-
-				acs_trait_icon = {}
-	
-				text_single = {
-					layoutpolicy_horizontal = expanding
-					block "acs_filter_name" {  
-						text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
-					}
-					default_format = "#medium"
-
-					align = bottom|left
-				}
-			}
 		}
 	}
 
-	type acs_trait_item_right_third = widget {
-		size = { 183 30 }
-		button_group = {
-			datacontext = "[GetPlayer]"
+	type acs_trait_item_right_third = acs_trait_item_right {
+		blockoverride "acs_trait_item_size" {
 			size = { 183 30 }
-			block "acs_trait_item_action" {
-				onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				datacontext = "[GetTrait( 'berserker' )]"
-			}
-			
-			hbox = {
-				spacing = 5
-				parentanchor = top|left
-				widgetanchor = top|left
-				layoutpolicy_horizontal = expanding
-				expand = {}
-				
-	
-				text_single = {
-					layoutpolicy_horizontal = expanding
-					block "acs_filter_name" {  
-						text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
-					}
-					default_format = "#medium"
-
-					align = top|right
-				}
-				acs_trait_icon = {}
-				acs_four_state_checkbox = {}
-			}
+		}
+		blockoverride "acs_trait_item_size2" {
+			size = { 183 30 }
 		}
 	}
 

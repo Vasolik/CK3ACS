@@ -1,1147 +1,2393 @@
 ﻿acs_filter_trait_physical_beauty_bad_3_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_beauty_bad_3 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            flag:beauty_bad_3_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_beauty_bad_3 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_beauty_bad_3 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            flag:beauty_bad_3 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_beauty_bad_3 } }
-            set_global_variable = {  name = acs_filter_trait_physical_beauty_bad_3 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        OR = {
+                            flag:beauty_bad_3 = this
+                            flag:beauty_bad_3_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_bad_3 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_beauty_bad_3 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_beauty_bad_3 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        flag:beauty_bad_3 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_bad_3 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_bad_3_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_beauty_bad_3
+                remove_list_global_variable = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_bad_3_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_beauty_bad_2_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_beauty_bad_2 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            flag:beauty_bad_2_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_beauty_bad_2 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_beauty_bad_2 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            flag:beauty_bad_2 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_beauty_bad_2 } }
-            set_global_variable = {  name = acs_filter_trait_physical_beauty_bad_2 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        OR = {
+                            flag:beauty_bad_2 = this
+                            flag:beauty_bad_2_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_bad_2 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_beauty_bad_2 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_beauty_bad_2 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        flag:beauty_bad_2 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_bad_2 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_bad_2_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_beauty_bad_2
+                remove_list_global_variable = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_bad_2_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_beauty_bad_1_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_beauty_bad_1 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            flag:beauty_bad_1_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_beauty_bad_1 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_beauty_bad_1 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            flag:beauty_bad_1 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_beauty_bad_1 } }
-            set_global_variable = {  name = acs_filter_trait_physical_beauty_bad_1 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        OR = {
+                            flag:beauty_bad_1 = this
+                            flag:beauty_bad_1_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_bad_1 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_beauty_bad_1 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_beauty_bad_1 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        flag:beauty_bad_1 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_bad_1 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_bad_1_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_beauty_bad_1
+                remove_list_global_variable = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_bad_1_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_beauty_good_1_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_beauty_good_1 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            flag:beauty_good_1_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_beauty_good_1 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_beauty_good_1 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            flag:beauty_good_1 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_beauty_good_1 } }
-            set_global_variable = {  name = acs_filter_trait_physical_beauty_good_1 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        OR = {
+                            flag:beauty_good_1 = this
+                            flag:beauty_good_1_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_good_1 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_beauty_good_1 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_beauty_good_1 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        flag:beauty_good_1 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_good_1 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_good_1_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_beauty_good_1
+                remove_list_global_variable = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_good_1_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_beauty_good_2_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_beauty_good_2 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            flag:beauty_good_2_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_beauty_good_2 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_beauty_good_2 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            flag:beauty_good_2 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_beauty_good_2 } }
-            set_global_variable = {  name = acs_filter_trait_physical_beauty_good_2 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        OR = {
+                            flag:beauty_good_2 = this
+                            flag:beauty_good_2_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_good_2 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_beauty_good_2 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_beauty_good_2 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        flag:beauty_good_2 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_good_2 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_good_2_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_beauty_good_2
+                remove_list_global_variable = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_good_2_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_beauty_good_3_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_beauty_good_3 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            flag:beauty_good_3_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_beauty_good_3 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_beauty_good_3 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            flag:beauty_good_3 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_beauty_good_3 } }
-            set_global_variable = {  name = acs_filter_trait_physical_beauty_good_3 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        OR = {
+                            flag:beauty_good_3 = this
+                            flag:beauty_good_3_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_good_3 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_beauty_good_3 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_beauty_good_3 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        flag:beauty_good_3 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_good_3 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_good_3_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_beauty_good_3
+                remove_list_global_variable = { name = acs_filter_trait_physical_beauty_list target = flag:beauty_good_3_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_beauty }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_intellect_bad_3_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_intellect_bad_3 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            flag:intellect_bad_3_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_intellect_bad_3 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_intellect_bad_3 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            flag:intellect_bad_3 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_intellect_bad_3 } }
-            set_global_variable = {  name = acs_filter_trait_physical_intellect_bad_3 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        OR = {
+                            flag:intellect_bad_3 = this
+                            flag:intellect_bad_3_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_bad_3 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_intellect_bad_3 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_intellect_bad_3 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        flag:intellect_bad_3 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_bad_3 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_bad_3_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_intellect_bad_3
+                remove_list_global_variable = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_bad_3_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_intellect_bad_2_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_intellect_bad_2 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            flag:intellect_bad_2_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_intellect_bad_2 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_intellect_bad_2 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            flag:intellect_bad_2 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_intellect_bad_2 } }
-            set_global_variable = {  name = acs_filter_trait_physical_intellect_bad_2 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        OR = {
+                            flag:intellect_bad_2 = this
+                            flag:intellect_bad_2_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_bad_2 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_intellect_bad_2 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_intellect_bad_2 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        flag:intellect_bad_2 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_bad_2 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_bad_2_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_intellect_bad_2
+                remove_list_global_variable = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_bad_2_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_intellect_bad_1_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_intellect_bad_1 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            flag:intellect_bad_1_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_intellect_bad_1 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_intellect_bad_1 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            flag:intellect_bad_1 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_intellect_bad_1 } }
-            set_global_variable = {  name = acs_filter_trait_physical_intellect_bad_1 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        OR = {
+                            flag:intellect_bad_1 = this
+                            flag:intellect_bad_1_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_bad_1 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_intellect_bad_1 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_intellect_bad_1 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        flag:intellect_bad_1 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_bad_1 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_bad_1_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_intellect_bad_1
+                remove_list_global_variable = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_bad_1_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_intellect_good_1_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_intellect_good_1 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            flag:intellect_good_1_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_intellect_good_1 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_intellect_good_1 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            flag:intellect_good_1 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_intellect_good_1 } }
-            set_global_variable = {  name = acs_filter_trait_physical_intellect_good_1 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        OR = {
+                            flag:intellect_good_1 = this
+                            flag:intellect_good_1_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_good_1 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_intellect_good_1 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_intellect_good_1 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        flag:intellect_good_1 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_good_1 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_good_1_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_intellect_good_1
+                remove_list_global_variable = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_good_1_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_intellect_good_2_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_intellect_good_2 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            flag:intellect_good_2_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_intellect_good_2 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_intellect_good_2 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            flag:intellect_good_2 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_intellect_good_2 } }
-            set_global_variable = {  name = acs_filter_trait_physical_intellect_good_2 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        OR = {
+                            flag:intellect_good_2 = this
+                            flag:intellect_good_2_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_good_2 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_intellect_good_2 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_intellect_good_2 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        flag:intellect_good_2 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_good_2 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_good_2_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_intellect_good_2
+                remove_list_global_variable = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_good_2_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_intellect_good_3_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_intellect_good_3 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            flag:intellect_good_3_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_intellect_good_3 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_intellect_good_3 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            flag:intellect_good_3 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_intellect_good_3 } }
-            set_global_variable = {  name = acs_filter_trait_physical_intellect_good_3 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        OR = {
+                            flag:intellect_good_3 = this
+                            flag:intellect_good_3_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_good_3 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_intellect_good_3 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_intellect_good_3 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        flag:intellect_good_3 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_good_3 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_good_3_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_intellect_good_3
+                remove_list_global_variable = { name = acs_filter_trait_physical_intellect_list target = flag:intellect_good_3_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_intellect }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_physique_bad_3_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_physique_bad_3 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            flag:physique_bad_3_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_physique_bad_3 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_physique_bad_3 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            flag:physique_bad_3 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_physique_bad_3 } }
-            set_global_variable = {  name = acs_filter_trait_physical_physique_bad_3 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        OR = {
+                            flag:physique_bad_3 = this
+                            flag:physique_bad_3_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = flag:physique_bad_3 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_physique_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_physique_bad_3 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_physique_bad_3 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        flag:physique_bad_3 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_physique_list target = flag:physique_bad_3 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = flag:physique_bad_3_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_physique_bad_3
+                remove_list_global_variable = { name = acs_filter_trait_physical_physique_list target = flag:physique_bad_3_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_physique_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_physique_bad_2_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_physique_bad_2 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            flag:physique_bad_2_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_physique_bad_2 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_physique_bad_2 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            flag:physique_bad_2 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_physique_bad_2 } }
-            set_global_variable = {  name = acs_filter_trait_physical_physique_bad_2 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        OR = {
+                            flag:physique_bad_2 = this
+                            flag:physique_bad_2_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = flag:physique_bad_2 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_physique_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_physique_bad_2 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_physique_bad_2 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        flag:physique_bad_2 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_physique_list target = flag:physique_bad_2 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = flag:physique_bad_2_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_physique_bad_2
+                remove_list_global_variable = { name = acs_filter_trait_physical_physique_list target = flag:physique_bad_2_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_physique_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_physique_bad_1_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_physique_bad_1 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            flag:physique_bad_1_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_physique_bad_1 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_physique_bad_1 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            flag:physique_bad_1 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_physique_bad_1 } }
-            set_global_variable = {  name = acs_filter_trait_physical_physique_bad_1 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        OR = {
+                            flag:physique_bad_1 = this
+                            flag:physique_bad_1_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = flag:physique_bad_1 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_physique_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_physique_bad_1 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_physique_bad_1 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        flag:physique_bad_1 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_physique_list target = flag:physique_bad_1 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = flag:physique_bad_1_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_physique_bad_1
+                remove_list_global_variable = { name = acs_filter_trait_physical_physique_list target = flag:physique_bad_1_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_physique_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_physique_good_1_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_physique_good_1 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            flag:physique_good_1_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_physique_good_1 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_physique_good_1 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            flag:physique_good_1 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_physique_good_1 } }
-            set_global_variable = {  name = acs_filter_trait_physical_physique_good_1 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        OR = {
+                            flag:physique_good_1 = this
+                            flag:physique_good_1_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = flag:physique_good_1 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_physique_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_physique_good_1 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_physique_good_1 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        flag:physique_good_1 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_physique_list target = flag:physique_good_1 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = flag:physique_good_1_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_physique_good_1
+                remove_list_global_variable = { name = acs_filter_trait_physical_physique_list target = flag:physique_good_1_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_physique_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_physique_good_2_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_physique_good_2 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            flag:physique_good_2_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_physique_good_2 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_physique_good_2 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            flag:physique_good_2 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_physique_good_2 } }
-            set_global_variable = {  name = acs_filter_trait_physical_physique_good_2 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        OR = {
+                            flag:physique_good_2 = this
+                            flag:physique_good_2_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = flag:physique_good_2 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_physique_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_physique_good_2 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_physique_good_2 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        flag:physique_good_2 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_physique_list target = flag:physique_good_2 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = flag:physique_good_2_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_physique_good_2
+                remove_list_global_variable = { name = acs_filter_trait_physical_physique_list target = flag:physique_good_2_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_physique_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_physique_good_3_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_physique_good_3 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            flag:physique_good_3_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_physique_good_3 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_physique_good_3 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            flag:physique_good_3 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_physique_good_3 } }
-            set_global_variable = {  name = acs_filter_trait_physical_physique_good_3 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        OR = {
+                            flag:physique_good_3 = this
+                            flag:physique_good_3_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = flag:physique_good_3 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_physique_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_physique_good_3 = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_physique_good_3 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        flag:physique_good_3 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_physical_physique_list target = flag:physique_good_3 }
+                add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = flag:physique_good_3_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_physique_good_3
+                remove_list_global_variable = { name = acs_filter_trait_physical_physique_list target = flag:physique_good_3_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_physical_physique_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_physical_physique }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_pure_blooded_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_pure_blooded = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:pure_blooded_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_pure_blooded = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_pure_blooded = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:pure_blooded = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_pure_blooded } }
-            set_global_variable = {  name = acs_filter_trait_physical_pure_blooded value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:pure_blooded = this
+                            flag:pure_blooded_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:pure_blooded }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_pure_blooded = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_pure_blooded value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:pure_blooded = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:pure_blooded }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:pure_blooded_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_pure_blooded
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:pure_blooded_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_fecund_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_fecund = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:fecund_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_fecund = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_fecund = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:fecund = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_fecund } }
-            set_global_variable = {  name = acs_filter_trait_physical_fecund value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:fecund = this
+                            flag:fecund_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:fecund }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_fecund = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_fecund value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:fecund = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:fecund }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:fecund_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_fecund
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:fecund_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_strong_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_strong = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:strong_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_strong = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_strong = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:strong = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_strong } }
-            set_global_variable = {  name = acs_filter_trait_physical_strong value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:strong = this
+                            flag:strong_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:strong }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_strong = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_strong value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:strong = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:strong }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:strong_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_strong
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:strong_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_shrewd_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_shrewd = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:shrewd_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_shrewd = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_shrewd = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:shrewd = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_shrewd } }
-            set_global_variable = {  name = acs_filter_trait_physical_shrewd value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:shrewd = this
+                            flag:shrewd_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:shrewd }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_shrewd = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_shrewd value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:shrewd = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:shrewd }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:shrewd_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_shrewd
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:shrewd_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_clubfooted_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_clubfooted = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:clubfooted_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_clubfooted = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_clubfooted = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:clubfooted = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_clubfooted } }
-            set_global_variable = {  name = acs_filter_trait_physical_clubfooted value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:clubfooted = this
+                            flag:clubfooted_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:clubfooted }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_clubfooted = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_clubfooted value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:clubfooted = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:clubfooted }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:clubfooted_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_clubfooted
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:clubfooted_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_hunchbacked_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_hunchbacked = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:hunchbacked_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_hunchbacked = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_hunchbacked = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:hunchbacked = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_hunchbacked } }
-            set_global_variable = {  name = acs_filter_trait_physical_hunchbacked value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:hunchbacked = this
+                            flag:hunchbacked_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:hunchbacked }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_hunchbacked = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_hunchbacked value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:hunchbacked = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:hunchbacked }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:hunchbacked_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_hunchbacked
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:hunchbacked_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_lisping_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_lisping = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:lisping_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_lisping = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_lisping = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:lisping = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_lisping } }
-            set_global_variable = {  name = acs_filter_trait_physical_lisping value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:lisping = this
+                            flag:lisping_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:lisping }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_lisping = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_lisping value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:lisping = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:lisping }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:lisping_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_lisping
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:lisping_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_stuttering_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_stuttering = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:stuttering_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_stuttering = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_stuttering = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:stuttering = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_stuttering } }
-            set_global_variable = {  name = acs_filter_trait_physical_stuttering value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:stuttering = this
+                            flag:stuttering_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:stuttering }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_stuttering = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_stuttering value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:stuttering = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:stuttering }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:stuttering_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_stuttering
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:stuttering_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_dwarf_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_dwarf = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:dwarf_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_dwarf = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_dwarf = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:dwarf = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_dwarf } }
-            set_global_variable = {  name = acs_filter_trait_physical_dwarf value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:dwarf = this
+                            flag:dwarf_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:dwarf }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_dwarf = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_dwarf value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:dwarf = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:dwarf }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:dwarf_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_dwarf
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:dwarf_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_giant_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_giant = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:giant_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_giant = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_giant = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:giant = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_giant } }
-            set_global_variable = {  name = acs_filter_trait_physical_giant value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:giant = this
+                            flag:giant_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:giant }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_giant = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_giant value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:giant = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:giant }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:giant_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_giant
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:giant_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_inbred_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_inbred = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:inbred_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_inbred = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_inbred = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:inbred = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_inbred } }
-            set_global_variable = {  name = acs_filter_trait_physical_inbred value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:inbred = this
+                            flag:inbred_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:inbred }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_inbred = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_inbred value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:inbred = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:inbred }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:inbred_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_inbred
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:inbred_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_weak_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_weak = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:weak_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_weak = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_weak = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:weak = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_weak } }
-            set_global_variable = {  name = acs_filter_trait_physical_weak value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:weak = this
+                            flag:weak_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:weak }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_weak = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_weak value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:weak = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:weak }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:weak_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_weak
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:weak_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_dull_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_dull = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:dull_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_dull = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_dull = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:dull = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_dull } }
-            set_global_variable = {  name = acs_filter_trait_physical_dull value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:dull = this
+                            flag:dull_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:dull }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_dull = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_dull value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:dull = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:dull }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:dull_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_dull
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:dull_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_impotent_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_impotent = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:impotent_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_impotent = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_impotent = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:impotent = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_impotent } }
-            set_global_variable = {  name = acs_filter_trait_physical_impotent value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:impotent = this
+                            flag:impotent_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:impotent }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_impotent = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_impotent value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:impotent = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:impotent }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:impotent_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_impotent
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:impotent_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_spindly_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_spindly = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:spindly_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_spindly = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_spindly = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:spindly = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_spindly } }
-            set_global_variable = {  name = acs_filter_trait_physical_spindly value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:spindly = this
+                            flag:spindly_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:spindly }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_spindly = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_spindly value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:spindly = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:spindly }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:spindly_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_spindly
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:spindly_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_scaly_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_scaly = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:scaly_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_scaly = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_scaly = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:scaly = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_scaly } }
-            set_global_variable = {  name = acs_filter_trait_physical_scaly value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:scaly = this
+                            flag:scaly_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:scaly }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_scaly = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_scaly value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:scaly = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:scaly }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:scaly_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_scaly
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:scaly_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_albino_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_albino = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:albino_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_albino = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_albino = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:albino = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_albino } }
-            set_global_variable = {  name = acs_filter_trait_physical_albino value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:albino = this
+                            flag:albino_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:albino }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_albino = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_albino value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:albino = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:albino }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:albino_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_albino
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:albino_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_wheezing_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_wheezing = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:wheezing_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_wheezing = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_wheezing = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:wheezing = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_wheezing } }
-            set_global_variable = {  name = acs_filter_trait_physical_wheezing value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:wheezing = this
+                            flag:wheezing_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:wheezing }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_wheezing = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_wheezing value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:wheezing = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:wheezing }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:wheezing_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_wheezing
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:wheezing_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_physical_bleeder_negative = {
     is_shown = {
-        global_var:acs_filter_trait_physical_bleeder = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:bleeder_negative = this
+        }
     }
 }
 
 acs_filter_trait_physical_bleeder = {
  
     is_shown = { 
-        global_var:acs_filter_trait_physical_bleeder = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:bleeder = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_physical_bleeder } }
-            set_global_variable = {  name = acs_filter_trait_physical_bleeder value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:bleeder = this
+                            flag:bleeder_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:bleeder }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_physical_bleeder = yes }
-                set_global_variable = {  name = acs_filter_trait_physical_bleeder value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:bleeder = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:bleeder }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:bleeder_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_physical_bleeder
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:bleeder_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }

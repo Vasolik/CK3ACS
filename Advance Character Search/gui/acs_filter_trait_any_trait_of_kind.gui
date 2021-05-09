@@ -1,0 +1,171 @@
+﻿types acs_filter_trait_any_trait_of_kind_group_types {
+    type acs_filter_trait_any_trait_of_kind_group =  acs_vbox_filter_group_trait {
+        parentanchor = top|left
+        blockoverride "acs_vbox_filter_group_name" {
+            text = "acs_filter_trait_group_any_trait_of_kind"
+        }
+
+        blockoverride "acs_vbox_filter_group_toggle" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_any_trait_of_kind' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_any_trait_of_kind' ) ), '(int32)1', '(int32)2' )]"
+        }
+        blockoverride "filters" {
+            flowcontainer = {
+                visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_any_trait_of_kind' )]"
+                position = { 0 26 }
+                direction = vertical
+                spacing = 5
+                flowcontainer = { 
+                    acs_trait_item_custom_left = {    
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_any_sinful' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_any_sinful' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_any_sinful_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                        blockoverride "acs_filter_name" {  
+                            text = "acs_filter_trait_any_sinful"
+                        }
+                        blockoverride "acs_custom_image" {  
+                            texture = "gfx/interface/icons/acs_any_sinful.dds"
+                        }
+                    }
+                    acs_trait_item_custom_right = {    
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_any_virtuous' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_any_virtuous' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_any_virtuous_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                        blockoverride "acs_filter_name" {  
+                            text = "acs_filter_trait_any_virtuous"
+                        }
+                        blockoverride "acs_custom_image" {  
+                            texture = "gfx/interface/icons/acs_any_virtuous.dds"
+                        }
+                    } 
+                }
+                flowcontainer = { 
+                    acs_trait_item_custom_left = {    
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_any_sinful_by_their_standard' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_any_sinful_by_their_standard' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_any_sinful_by_their_standard_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                        blockoverride "acs_filter_name" {  
+                            text = "acs_filter_trait_any_sinful_by_their_standard"
+                        }
+                        blockoverride "acs_custom_image" {  
+                            texture = "gfx/interface/icons/acs_any_sinful.dds"
+                        }
+                    }
+                    acs_trait_item_custom_right = {    
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_any_virtuous_by_their_standard' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_any_virtuous_by_their_standard' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_any_virtuous_by_their_standard_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                        blockoverride "acs_filter_name" {  
+                            text = "acs_filter_trait_any_virtuous_by_their_standard"
+                        }
+                        blockoverride "acs_custom_image" {  
+                            texture = "gfx/interface/icons/acs_any_virtuous.dds"
+                        }
+                    } 
+                }
+                flowcontainer = { 
+                    acs_trait_item_custom_left = {    
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_any_bad_genetic' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_any_bad_genetic' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_any_bad_genetic_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                        blockoverride "acs_filter_name" {  
+                            text = "acs_filter_trait_any_bad_genetic"
+                        }
+                        blockoverride "acs_custom_image" {  
+                            texture = "gfx/interface/icons/acs_any_bad_genetic.dds"
+                        }
+                    }
+                    acs_trait_item_custom_right = {    
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_any_good_genetic' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_any_good_genetic' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_any_good_genetic_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                        blockoverride "acs_filter_name" {  
+                            text = "acs_filter_trait_any_good_genetic"
+                        }
+                        blockoverride "acs_custom_image" {  
+                            texture = "gfx/interface/icons/acs_any_good_genetic.dds"
+                        }
+                    } 
+                }
+                flowcontainer = { 
+                    acs_trait_item_custom_left = {    
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_any_commander' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_any_commander' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_any_commander_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                        blockoverride "acs_filter_name" {  
+                            text = "acs_filter_trait_any_commander"
+                        }
+                        blockoverride "acs_custom_image" {  
+                            texture = "gfx/interface/icons/acs_any_commander.dds"
+                        }
+                    }
+                    acs_trait_item_custom_right = {    
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_any_lifestyle' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_any_lifestyle' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_any_lifestyle_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                        blockoverride "acs_filter_name" {  
+                            text = "acs_filter_trait_any_lifestyle"
+                        }
+                        blockoverride "acs_custom_image" {  
+                            texture = "gfx/interface/icons/acs_any_lifestyle.dds"
+                        }
+                    } 
+                }
+                flowcontainer = { 
+                    acs_trait_item_custom_left = {    
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_any_infamous' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_any_infamous' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_any_infamous_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                        blockoverride "acs_filter_name" {  
+                            text = "acs_filter_trait_any_infamous"
+                        }
+                        blockoverride "acs_custom_image" {  
+                            texture = "gfx/interface/icons/acs_any_crime.dds"
+                        }
+                    }
+                    acs_trait_item_custom_right = {    
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[GetScriptedGui( 'acs_filter_trait_any_diseases' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_any_diseases' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_any_diseases_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+                        }
+                        blockoverride "acs_filter_name" {  
+                            text = "acs_filter_trait_any_diseases"
+                        }
+                        blockoverride "acs_custom_image" {  
+                            texture = "gfx/interface/icons/acs_any_crime.dds"
+                        }
+                    } 
+                }
+            }    
+        }
+    }
+}

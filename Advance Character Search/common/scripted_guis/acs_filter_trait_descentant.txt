@@ -1,248 +1,424 @@
 ﻿acs_filter_trait_religius_saoshyant_negative = {
     is_shown = {
-        global_var:acs_filter_trait_religius_saoshyant = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:saoshyant_negative = this
+        }
     }
 }
 
 acs_filter_trait_religius_saoshyant = {
  
     is_shown = { 
-        global_var:acs_filter_trait_religius_saoshyant = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:saoshyant = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_saoshyant } }
-            set_global_variable = {  name = acs_filter_trait_religius_saoshyant value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:saoshyant = this
+                            flag:saoshyant_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:saoshyant }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_religius_saoshyant = yes }
-                set_global_variable = {  name = acs_filter_trait_religius_saoshyant value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:saoshyant = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:saoshyant }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:saoshyant_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_religius_saoshyant
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:saoshyant_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_religius_saoshyant_descendant_negative = {
     is_shown = {
-        global_var:acs_filter_trait_religius_saoshyant_descendant = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:saoshyant_descendant_negative = this
+        }
     }
 }
 
 acs_filter_trait_religius_saoshyant_descendant = {
  
     is_shown = { 
-        global_var:acs_filter_trait_religius_saoshyant_descendant = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:saoshyant_descendant = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_saoshyant_descendant } }
-            set_global_variable = {  name = acs_filter_trait_religius_saoshyant_descendant value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:saoshyant_descendant = this
+                            flag:saoshyant_descendant_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:saoshyant_descendant }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_religius_saoshyant_descendant = yes }
-                set_global_variable = {  name = acs_filter_trait_religius_saoshyant_descendant value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:saoshyant_descendant = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:saoshyant_descendant }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:saoshyant_descendant_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_religius_saoshyant_descendant
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:saoshyant_descendant_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_religius_savior_negative = {
     is_shown = {
-        global_var:acs_filter_trait_religius_savior = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:savior_negative = this
+        }
     }
 }
 
 acs_filter_trait_religius_savior = {
  
     is_shown = { 
-        global_var:acs_filter_trait_religius_savior = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:savior = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_savior } }
-            set_global_variable = {  name = acs_filter_trait_religius_savior value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:savior = this
+                            flag:savior_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:savior }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_religius_savior = yes }
-                set_global_variable = {  name = acs_filter_trait_religius_savior value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:savior = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:savior }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:savior_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_religius_savior
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:savior_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_religius_divine_blood_negative = {
     is_shown = {
-        global_var:acs_filter_trait_religius_divine_blood = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:divine_blood_negative = this
+        }
     }
 }
 
 acs_filter_trait_religius_divine_blood = {
  
     is_shown = { 
-        global_var:acs_filter_trait_religius_divine_blood = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:divine_blood = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_divine_blood } }
-            set_global_variable = {  name = acs_filter_trait_religius_divine_blood value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:divine_blood = this
+                            flag:divine_blood_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:divine_blood }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_religius_divine_blood = yes }
-                set_global_variable = {  name = acs_filter_trait_religius_divine_blood value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:divine_blood = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:divine_blood }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:divine_blood_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_religius_divine_blood
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:divine_blood_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_religius_paragon_negative = {
     is_shown = {
-        global_var:acs_filter_trait_religius_paragon = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:paragon_negative = this
+        }
     }
 }
 
 acs_filter_trait_religius_paragon = {
  
     is_shown = { 
-        global_var:acs_filter_trait_religius_paragon = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:paragon = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_paragon } }
-            set_global_variable = {  name = acs_filter_trait_religius_paragon value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:paragon = this
+                            flag:paragon_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:paragon }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_religius_paragon = yes }
-                set_global_variable = {  name = acs_filter_trait_religius_paragon value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:paragon = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:paragon }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:paragon_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_religius_paragon
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:paragon_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_religius_consecrated_blood_negative = {
     is_shown = {
-        global_var:acs_filter_trait_religius_consecrated_blood = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:consecrated_blood_negative = this
+        }
     }
 }
 
 acs_filter_trait_religius_consecrated_blood = {
  
     is_shown = { 
-        global_var:acs_filter_trait_religius_consecrated_blood = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:consecrated_blood = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_consecrated_blood } }
-            set_global_variable = {  name = acs_filter_trait_religius_consecrated_blood value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:consecrated_blood = this
+                            flag:consecrated_blood_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:consecrated_blood }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_religius_consecrated_blood = yes }
-                set_global_variable = {  name = acs_filter_trait_religius_consecrated_blood value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:consecrated_blood = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:consecrated_blood }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:consecrated_blood_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_religius_consecrated_blood
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:consecrated_blood_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_religius_sayyid_negative = {
     is_shown = {
-        global_var:acs_filter_trait_religius_sayyid = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:sayyid_negative = this
+        }
     }
 }
 
 acs_filter_trait_religius_sayyid = {
  
     is_shown = { 
-        global_var:acs_filter_trait_religius_sayyid = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:sayyid = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_sayyid } }
-            set_global_variable = {  name = acs_filter_trait_religius_sayyid value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:sayyid = this
+                            flag:sayyid_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:sayyid }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_religius_sayyid = yes }
-                set_global_variable = {  name = acs_filter_trait_religius_sayyid value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:sayyid = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:sayyid }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:sayyid_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_religius_sayyid
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:sayyid_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_religius_blood_of_prophet_negative = {
     is_shown = {
-        global_var:acs_filter_trait_religius_blood_of_prophet = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:blood_of_prophet_negative = this
+        }
     }
 }
 
 acs_filter_trait_religius_blood_of_prophet = {
  
     is_shown = { 
-        global_var:acs_filter_trait_religius_blood_of_prophet = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:blood_of_prophet = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_religius_blood_of_prophet } }
-            set_global_variable = {  name = acs_filter_trait_religius_blood_of_prophet value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:blood_of_prophet = this
+                            flag:blood_of_prophet_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:blood_of_prophet }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_religius_blood_of_prophet = yes }
-                set_global_variable = {  name = acs_filter_trait_religius_blood_of_prophet value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:blood_of_prophet = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:blood_of_prophet }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:blood_of_prophet_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_religius_blood_of_prophet
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:blood_of_prophet_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }

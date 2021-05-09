@@ -189,19 +189,19 @@ acs_filter_religion = {
         global_var:acs_filter_religion = 0
         AND = {
             global_var:acs_filter_religion = 1
-            faith = scope:acs_filter_religion_root.faith
+            faith = scope:acs_filter_faith
         }
         AND = {
             global_var:acs_filter_religion = 2
-            religion = scope:acs_filter_religion_root.religion
+            religion = scope:acs_filter_religion
         }
         AND = {
             global_var:acs_filter_religion = 3
-            NOT = { faith = scope:acs_filter_religion_root.faith }
+            NOT = { faith = scope:acs_filter_faith }
         }
         AND = {
             global_var:acs_filter_religion = 4
-            NOT = { religion = scope:acs_filter_religion_root.religion }
+            NOT = { religion = scope:acs_filter_religion }
         }
     }
 }

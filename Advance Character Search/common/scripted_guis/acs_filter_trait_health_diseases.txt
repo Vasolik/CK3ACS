@@ -1,341 +1,583 @@
 ﻿acs_filter_trait_health_gout_ridden_negative = {
     is_shown = {
-        global_var:acs_filter_trait_health_gout_ridden = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:gout_ridden_negative = this
+        }
     }
 }
 
 acs_filter_trait_health_gout_ridden = {
  
     is_shown = { 
-        global_var:acs_filter_trait_health_gout_ridden = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:gout_ridden = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_health_gout_ridden } }
-            set_global_variable = {  name = acs_filter_trait_health_gout_ridden value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:gout_ridden = this
+                            flag:gout_ridden_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:gout_ridden }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_health_gout_ridden = yes }
-                set_global_variable = {  name = acs_filter_trait_health_gout_ridden value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:gout_ridden = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:gout_ridden }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:gout_ridden_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_health_gout_ridden
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:gout_ridden_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_health_consumption_negative = {
     is_shown = {
-        global_var:acs_filter_trait_health_consumption = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:consumption_negative = this
+        }
     }
 }
 
 acs_filter_trait_health_consumption = {
  
     is_shown = { 
-        global_var:acs_filter_trait_health_consumption = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:consumption = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_health_consumption } }
-            set_global_variable = {  name = acs_filter_trait_health_consumption value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:consumption = this
+                            flag:consumption_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:consumption }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_health_consumption = yes }
-                set_global_variable = {  name = acs_filter_trait_health_consumption value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:consumption = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:consumption }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:consumption_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_health_consumption
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:consumption_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_health_cancer_negative = {
     is_shown = {
-        global_var:acs_filter_trait_health_cancer = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:cancer_negative = this
+        }
     }
 }
 
 acs_filter_trait_health_cancer = {
  
     is_shown = { 
-        global_var:acs_filter_trait_health_cancer = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:cancer = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_health_cancer } }
-            set_global_variable = {  name = acs_filter_trait_health_cancer value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:cancer = this
+                            flag:cancer_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:cancer }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_health_cancer = yes }
-                set_global_variable = {  name = acs_filter_trait_health_cancer value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:cancer = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:cancer }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:cancer_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_health_cancer
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:cancer_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_health_typhus_negative = {
     is_shown = {
-        global_var:acs_filter_trait_health_typhus = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:typhus_negative = this
+        }
     }
 }
 
 acs_filter_trait_health_typhus = {
  
     is_shown = { 
-        global_var:acs_filter_trait_health_typhus = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:typhus = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_health_typhus } }
-            set_global_variable = {  name = acs_filter_trait_health_typhus value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:typhus = this
+                            flag:typhus_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:typhus }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_health_typhus = yes }
-                set_global_variable = {  name = acs_filter_trait_health_typhus value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:typhus = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:typhus }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:typhus_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_health_typhus
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:typhus_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_health_bubonic_plague_negative = {
     is_shown = {
-        global_var:acs_filter_trait_health_bubonic_plague = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:bubonic_plague_negative = this
+        }
     }
 }
 
 acs_filter_trait_health_bubonic_plague = {
  
     is_shown = { 
-        global_var:acs_filter_trait_health_bubonic_plague = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:bubonic_plague = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_health_bubonic_plague } }
-            set_global_variable = {  name = acs_filter_trait_health_bubonic_plague value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:bubonic_plague = this
+                            flag:bubonic_plague_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:bubonic_plague }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_health_bubonic_plague = yes }
-                set_global_variable = {  name = acs_filter_trait_health_bubonic_plague value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:bubonic_plague = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:bubonic_plague }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:bubonic_plague_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_health_bubonic_plague
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:bubonic_plague_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_health_smallpox_negative = {
     is_shown = {
-        global_var:acs_filter_trait_health_smallpox = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:smallpox_negative = this
+        }
     }
 }
 
 acs_filter_trait_health_smallpox = {
  
     is_shown = { 
-        global_var:acs_filter_trait_health_smallpox = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:smallpox = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_health_smallpox } }
-            set_global_variable = {  name = acs_filter_trait_health_smallpox value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:smallpox = this
+                            flag:smallpox_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:smallpox }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_health_smallpox = yes }
-                set_global_variable = {  name = acs_filter_trait_health_smallpox value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:smallpox = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:smallpox }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:smallpox_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_health_smallpox
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:smallpox_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_health_ill_negative = {
     is_shown = {
-        global_var:acs_filter_trait_health_ill = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:ill_negative = this
+        }
     }
 }
 
 acs_filter_trait_health_ill = {
  
     is_shown = { 
-        global_var:acs_filter_trait_health_ill = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:ill = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_health_ill } }
-            set_global_variable = {  name = acs_filter_trait_health_ill value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:ill = this
+                            flag:ill_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:ill }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_health_ill = yes }
-                set_global_variable = {  name = acs_filter_trait_health_ill value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:ill = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:ill }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:ill_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_health_ill
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:ill_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_health_pneumonic_negative = {
     is_shown = {
-        global_var:acs_filter_trait_health_pneumonic = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:pneumonic_negative = this
+        }
     }
 }
 
 acs_filter_trait_health_pneumonic = {
  
     is_shown = { 
-        global_var:acs_filter_trait_health_pneumonic = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:pneumonic = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_health_pneumonic } }
-            set_global_variable = {  name = acs_filter_trait_health_pneumonic value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:pneumonic = this
+                            flag:pneumonic_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:pneumonic }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_health_pneumonic = yes }
-                set_global_variable = {  name = acs_filter_trait_health_pneumonic value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:pneumonic = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:pneumonic }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:pneumonic_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_health_pneumonic
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:pneumonic_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_health_great_pox_negative = {
     is_shown = {
-        global_var:acs_filter_trait_health_great_pox = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:great_pox_negative = this
+        }
     }
 }
 
 acs_filter_trait_health_great_pox = {
  
     is_shown = { 
-        global_var:acs_filter_trait_health_great_pox = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:great_pox = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_health_great_pox } }
-            set_global_variable = {  name = acs_filter_trait_health_great_pox value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:great_pox = this
+                            flag:great_pox_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:great_pox }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_health_great_pox = yes }
-                set_global_variable = {  name = acs_filter_trait_health_great_pox value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:great_pox = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:great_pox }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:great_pox_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_health_great_pox
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:great_pox_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_health_lovers_pox_negative = {
     is_shown = {
-        global_var:acs_filter_trait_health_lovers_pox = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:lovers_pox_negative = this
+        }
     }
 }
 
 acs_filter_trait_health_lovers_pox = {
  
     is_shown = { 
-        global_var:acs_filter_trait_health_lovers_pox = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:lovers_pox = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_health_lovers_pox } }
-            set_global_variable = {  name = acs_filter_trait_health_lovers_pox value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:lovers_pox = this
+                            flag:lovers_pox_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:lovers_pox }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_health_lovers_pox = yes }
-                set_global_variable = {  name = acs_filter_trait_health_lovers_pox value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:lovers_pox = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:lovers_pox }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:lovers_pox_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_health_lovers_pox
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:lovers_pox_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_health_leper_negative = {
     is_shown = {
-        global_var:acs_filter_trait_health_leper = no
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:leper_negative = this
+        }
     }
 }
 
 acs_filter_trait_health_leper = {
  
     is_shown = { 
-        global_var:acs_filter_trait_health_leper = yes
+        any_in_global_list = {
+            variable = acs_active_filter_list
+            flag:leper = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_health_leper } }
-            set_global_variable = {  name = acs_filter_trait_health_leper value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        OR = {
+                            flag:leper = this
+                            flag:leper_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:leper }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_health_leper = yes }
-                set_global_variable = {  name = acs_filter_trait_health_leper value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        flag:leper = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:leper }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:leper_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_health_leper
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:leper_negative }
             }
-
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }

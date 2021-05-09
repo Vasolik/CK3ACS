@@ -1,1181 +1,2551 @@
 ﻿acs_filter_trait_education_diplomacy_1_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_diplomacy_1 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_diplomacy_1_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_diplomacy_1 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_diplomacy_1 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_diplomacy_1 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_diplomacy_1 } }
-            set_global_variable = {  name = acs_filter_trait_education_diplomacy_1 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_diplomacy_1 = this
+                            flag:education_diplomacy_1_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_1 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_diplomacy_1 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_diplomacy_1 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_diplomacy_1 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_1 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_1_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_diplomacy_1
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_1_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_diplomacy_2_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_diplomacy_2 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_diplomacy_2_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_diplomacy_2 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_diplomacy_2 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_diplomacy_2 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_diplomacy_2 } }
-            set_global_variable = {  name = acs_filter_trait_education_diplomacy_2 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_diplomacy_2 = this
+                            flag:education_diplomacy_2_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_2 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_diplomacy_2 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_diplomacy_2 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_diplomacy_2 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_2 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_2_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_diplomacy_2
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_2_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_diplomacy_3_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_diplomacy_3 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_diplomacy_3_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_diplomacy_3 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_diplomacy_3 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_diplomacy_3 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_diplomacy_3 } }
-            set_global_variable = {  name = acs_filter_trait_education_diplomacy_3 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_diplomacy_3 = this
+                            flag:education_diplomacy_3_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_3 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_diplomacy_3 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_diplomacy_3 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_diplomacy_3 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_3 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_3_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_diplomacy_3
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_3_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_diplomacy_4_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_diplomacy_4 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_diplomacy_4_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_diplomacy_4 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_diplomacy_4 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_diplomacy_4 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_diplomacy_4 } }
-            set_global_variable = {  name = acs_filter_trait_education_diplomacy_4 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_diplomacy_4 = this
+                            flag:education_diplomacy_4_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_4 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_diplomacy_4 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_diplomacy_4 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_diplomacy_4 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_4 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_4_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_diplomacy_4
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_4_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_diplomacy_negative = {
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_education_diplomacy_1 = no
-            global_var:acs_filter_trait_education_diplomacy_2 = no
-            global_var:acs_filter_trait_education_diplomacy_3 = no
-            global_var:acs_filter_trait_education_diplomacy_4 = no
-        }
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            OR = {
+                flag:education_diplomacy_1_negative = this
+            flag:education_diplomacy_2_negative = this
+            flag:education_diplomacy_3_negative = this
+            flag:education_diplomacy_4_negative = this
+            }
+            count = 4
+        } 
     }
 }
 acs_filter_trait_education_diplomacy_none = {
     is_shown = {
-        NOR = {
-            has_global_variable = acs_filter_trait_education_diplomacy_1
-            has_global_variable = acs_filter_trait_education_diplomacy_2
-            has_global_variable = acs_filter_trait_education_diplomacy_3
-            has_global_variable = acs_filter_trait_education_diplomacy_4
+        NOT = {
+            any_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                OR = {
+                    flag:education_diplomacy_1_negative = this
+                flag:education_diplomacy_2_negative = this
+                flag:education_diplomacy_3_negative = this
+                flag:education_diplomacy_4_negative = this
+                    flag:education_diplomacy_1 = this
+                flag:education_diplomacy_2 = this
+                flag:education_diplomacy_3 = this
+                flag:education_diplomacy_4 = this
+                }
+            }
         }
     }
 }
 acs_filter_trait_education_diplomacy = {
  
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_education_diplomacy_1 = yes
-            global_var:acs_filter_trait_education_diplomacy_2 = yes
-            global_var:acs_filter_trait_education_diplomacy_3 = yes
-            global_var:acs_filter_trait_education_diplomacy_4 = yes
-        } 
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            OR = {
+                flag:education_diplomacy_1 = this
+                flag:education_diplomacy_2 = this
+                flag:education_diplomacy_3 = this
+                flag:education_diplomacy_4 = this
+            }
+            count = 4
+        }  
     } 
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
             limit = { 
-                NOR = {
-                    has_global_variable = acs_filter_trait_education_diplomacy_1
-                    has_global_variable = acs_filter_trait_education_diplomacy_2
-                    has_global_variable = acs_filter_trait_education_diplomacy_3
-                    has_global_variable = acs_filter_trait_education_diplomacy_4
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_diplomacy_1_negative = this
+                        flag:education_diplomacy_2_negative = this
+                        flag:education_diplomacy_3_negative = this
+                        flag:education_diplomacy_4_negative = this
+                            flag:education_diplomacy_1 = this
+                        flag:education_diplomacy_2 = this
+                        flag:education_diplomacy_3 = this
+                        flag:education_diplomacy_4 = this
+                        }
+                    }
                 }
             }
-            set_global_variable = {  name = acs_filter_trait_education_diplomacy_1 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_diplomacy_2 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_diplomacy_3 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_diplomacy_4 value = yes }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_1 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_2 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_3 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_4 }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
         }
         else = {
             if = {
                 limit = {
-                    AND = {
-                        global_var:acs_filter_trait_education_diplomacy_1 = yes
-                        global_var:acs_filter_trait_education_diplomacy_2 = yes
-                        global_var:acs_filter_trait_education_diplomacy_3 = yes
-                        global_var:acs_filter_trait_education_diplomacy_4 = yes
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_diplomacy_1 = this
+                            flag:education_diplomacy_2 = this
+                            flag:education_diplomacy_3 = this
+                            flag:education_diplomacy_4 = this
+                        }
+                        count = 4
                     }
                 }
-                set_global_variable = {  name = acs_filter_trait_education_diplomacy_1 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_diplomacy_2 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_diplomacy_3 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_diplomacy_4 value = no }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_1 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_2 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_3 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_4 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_1_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_2_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_3_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_4_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_diplomacy_1
-            remove_global_variable = acs_filter_trait_education_diplomacy_2
-            remove_global_variable = acs_filter_trait_education_diplomacy_3
-            remove_global_variable = acs_filter_trait_education_diplomacy_4
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_1 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_2 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_3 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_4 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_1_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_2_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_3_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_diplomacy_4_negative }
+                if = {
+                    limit = {
+                        NOT = {
+                            any_in_global_list = {
+                                variable = acs_filter_trait_education_general_list
+                                always = yes
+                            }
+                        }
+                    }
+                    remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+                }
             }
-
         }
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_martial_1_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_martial_1 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_martial_1_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_martial_1 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_martial_1 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_martial_1 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_1 } }
-            set_global_variable = {  name = acs_filter_trait_education_martial_1 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_martial_1 = this
+                            flag:education_martial_1_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_1 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_martial_1 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_martial_1 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_martial_1 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_1 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_1_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_martial_1
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_1_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_martial_2_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_martial_2 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_martial_2_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_martial_2 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_martial_2 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_martial_2 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_2 } }
-            set_global_variable = {  name = acs_filter_trait_education_martial_2 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_martial_2 = this
+                            flag:education_martial_2_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_2 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_martial_2 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_martial_2 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_martial_2 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_2 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_2_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_martial_2
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_2_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_martial_3_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_martial_3 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_martial_3_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_martial_3 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_martial_3 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_martial_3 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_3 } }
-            set_global_variable = {  name = acs_filter_trait_education_martial_3 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_martial_3 = this
+                            flag:education_martial_3_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_3 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_martial_3 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_martial_3 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_martial_3 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_3 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_3_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_martial_3
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_3_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_martial_4_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_martial_4 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_martial_4_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_martial_4 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_martial_4 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_martial_4 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_4 } }
-            set_global_variable = {  name = acs_filter_trait_education_martial_4 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_martial_4 = this
+                            flag:education_martial_4_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_4 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_martial_4 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_martial_4 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_martial_4 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_4 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_4_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_martial_4
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_4_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_martial_negative = {
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_education_martial_1 = no
-            global_var:acs_filter_trait_education_martial_2 = no
-            global_var:acs_filter_trait_education_martial_3 = no
-            global_var:acs_filter_trait_education_martial_4 = no
-        }
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            OR = {
+                flag:education_martial_1_negative = this
+            flag:education_martial_2_negative = this
+            flag:education_martial_3_negative = this
+            flag:education_martial_4_negative = this
+            }
+            count = 4
+        } 
     }
 }
 acs_filter_trait_education_martial_none = {
     is_shown = {
-        NOR = {
-            has_global_variable = acs_filter_trait_education_martial_1
-            has_global_variable = acs_filter_trait_education_martial_2
-            has_global_variable = acs_filter_trait_education_martial_3
-            has_global_variable = acs_filter_trait_education_martial_4
+        NOT = {
+            any_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                OR = {
+                    flag:education_martial_1_negative = this
+                flag:education_martial_2_negative = this
+                flag:education_martial_3_negative = this
+                flag:education_martial_4_negative = this
+                    flag:education_martial_1 = this
+                flag:education_martial_2 = this
+                flag:education_martial_3 = this
+                flag:education_martial_4 = this
+                }
+            }
         }
     }
 }
 acs_filter_trait_education_martial = {
  
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_education_martial_1 = yes
-            global_var:acs_filter_trait_education_martial_2 = yes
-            global_var:acs_filter_trait_education_martial_3 = yes
-            global_var:acs_filter_trait_education_martial_4 = yes
-        } 
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            OR = {
+                flag:education_martial_1 = this
+                flag:education_martial_2 = this
+                flag:education_martial_3 = this
+                flag:education_martial_4 = this
+            }
+            count = 4
+        }  
     } 
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
             limit = { 
-                NOR = {
-                    has_global_variable = acs_filter_trait_education_martial_1
-                    has_global_variable = acs_filter_trait_education_martial_2
-                    has_global_variable = acs_filter_trait_education_martial_3
-                    has_global_variable = acs_filter_trait_education_martial_4
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_martial_1_negative = this
+                        flag:education_martial_2_negative = this
+                        flag:education_martial_3_negative = this
+                        flag:education_martial_4_negative = this
+                            flag:education_martial_1 = this
+                        flag:education_martial_2 = this
+                        flag:education_martial_3 = this
+                        flag:education_martial_4 = this
+                        }
+                    }
                 }
             }
-            set_global_variable = {  name = acs_filter_trait_education_martial_1 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_martial_2 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_martial_3 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_martial_4 value = yes }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_1 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_2 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_3 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_4 }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
         }
         else = {
             if = {
                 limit = {
-                    AND = {
-                        global_var:acs_filter_trait_education_martial_1 = yes
-                        global_var:acs_filter_trait_education_martial_2 = yes
-                        global_var:acs_filter_trait_education_martial_3 = yes
-                        global_var:acs_filter_trait_education_martial_4 = yes
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_martial_1 = this
+                            flag:education_martial_2 = this
+                            flag:education_martial_3 = this
+                            flag:education_martial_4 = this
+                        }
+                        count = 4
                     }
                 }
-                set_global_variable = {  name = acs_filter_trait_education_martial_1 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_martial_2 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_martial_3 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_martial_4 value = no }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_1 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_2 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_3 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_4 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_1_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_2_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_3_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_martial_4_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_martial_1
-            remove_global_variable = acs_filter_trait_education_martial_2
-            remove_global_variable = acs_filter_trait_education_martial_3
-            remove_global_variable = acs_filter_trait_education_martial_4
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_1 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_2 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_3 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_4 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_1_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_2_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_3_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_martial_4_negative }
+                if = {
+                    limit = {
+                        NOT = {
+                            any_in_global_list = {
+                                variable = acs_filter_trait_education_general_list
+                                always = yes
+                            }
+                        }
+                    }
+                    remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+                }
             }
-
         }
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_stewardship_1_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_stewardship_1 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_stewardship_1_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_stewardship_1 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_stewardship_1 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_stewardship_1 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_stewardship_1 } }
-            set_global_variable = {  name = acs_filter_trait_education_stewardship_1 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_stewardship_1 = this
+                            flag:education_stewardship_1_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_1 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_stewardship_1 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_stewardship_1 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_stewardship_1 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_1 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_1_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_stewardship_1
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_1_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_stewardship_2_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_stewardship_2 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_stewardship_2_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_stewardship_2 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_stewardship_2 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_stewardship_2 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_stewardship_2 } }
-            set_global_variable = {  name = acs_filter_trait_education_stewardship_2 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_stewardship_2 = this
+                            flag:education_stewardship_2_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_2 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_stewardship_2 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_stewardship_2 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_stewardship_2 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_2 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_2_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_stewardship_2
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_2_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_stewardship_3_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_stewardship_3 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_stewardship_3_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_stewardship_3 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_stewardship_3 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_stewardship_3 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_stewardship_3 } }
-            set_global_variable = {  name = acs_filter_trait_education_stewardship_3 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_stewardship_3 = this
+                            flag:education_stewardship_3_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_3 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_stewardship_3 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_stewardship_3 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_stewardship_3 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_3 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_3_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_stewardship_3
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_3_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_stewardship_4_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_stewardship_4 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_stewardship_4_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_stewardship_4 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_stewardship_4 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_stewardship_4 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_stewardship_4 } }
-            set_global_variable = {  name = acs_filter_trait_education_stewardship_4 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_stewardship_4 = this
+                            flag:education_stewardship_4_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_4 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_stewardship_4 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_stewardship_4 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_stewardship_4 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_4 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_4_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_stewardship_4
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_4_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_stewardship_negative = {
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_education_stewardship_1 = no
-            global_var:acs_filter_trait_education_stewardship_2 = no
-            global_var:acs_filter_trait_education_stewardship_3 = no
-            global_var:acs_filter_trait_education_stewardship_4 = no
-        }
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            OR = {
+                flag:education_stewardship_1_negative = this
+            flag:education_stewardship_2_negative = this
+            flag:education_stewardship_3_negative = this
+            flag:education_stewardship_4_negative = this
+            }
+            count = 4
+        } 
     }
 }
 acs_filter_trait_education_stewardship_none = {
     is_shown = {
-        NOR = {
-            has_global_variable = acs_filter_trait_education_stewardship_1
-            has_global_variable = acs_filter_trait_education_stewardship_2
-            has_global_variable = acs_filter_trait_education_stewardship_3
-            has_global_variable = acs_filter_trait_education_stewardship_4
+        NOT = {
+            any_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                OR = {
+                    flag:education_stewardship_1_negative = this
+                flag:education_stewardship_2_negative = this
+                flag:education_stewardship_3_negative = this
+                flag:education_stewardship_4_negative = this
+                    flag:education_stewardship_1 = this
+                flag:education_stewardship_2 = this
+                flag:education_stewardship_3 = this
+                flag:education_stewardship_4 = this
+                }
+            }
         }
     }
 }
 acs_filter_trait_education_stewardship = {
  
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_education_stewardship_1 = yes
-            global_var:acs_filter_trait_education_stewardship_2 = yes
-            global_var:acs_filter_trait_education_stewardship_3 = yes
-            global_var:acs_filter_trait_education_stewardship_4 = yes
-        } 
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            OR = {
+                flag:education_stewardship_1 = this
+                flag:education_stewardship_2 = this
+                flag:education_stewardship_3 = this
+                flag:education_stewardship_4 = this
+            }
+            count = 4
+        }  
     } 
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
             limit = { 
-                NOR = {
-                    has_global_variable = acs_filter_trait_education_stewardship_1
-                    has_global_variable = acs_filter_trait_education_stewardship_2
-                    has_global_variable = acs_filter_trait_education_stewardship_3
-                    has_global_variable = acs_filter_trait_education_stewardship_4
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_stewardship_1_negative = this
+                        flag:education_stewardship_2_negative = this
+                        flag:education_stewardship_3_negative = this
+                        flag:education_stewardship_4_negative = this
+                            flag:education_stewardship_1 = this
+                        flag:education_stewardship_2 = this
+                        flag:education_stewardship_3 = this
+                        flag:education_stewardship_4 = this
+                        }
+                    }
                 }
             }
-            set_global_variable = {  name = acs_filter_trait_education_stewardship_1 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_stewardship_2 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_stewardship_3 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_stewardship_4 value = yes }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_1 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_2 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_3 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_4 }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
         }
         else = {
             if = {
                 limit = {
-                    AND = {
-                        global_var:acs_filter_trait_education_stewardship_1 = yes
-                        global_var:acs_filter_trait_education_stewardship_2 = yes
-                        global_var:acs_filter_trait_education_stewardship_3 = yes
-                        global_var:acs_filter_trait_education_stewardship_4 = yes
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_stewardship_1 = this
+                            flag:education_stewardship_2 = this
+                            flag:education_stewardship_3 = this
+                            flag:education_stewardship_4 = this
+                        }
+                        count = 4
                     }
                 }
-                set_global_variable = {  name = acs_filter_trait_education_stewardship_1 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_stewardship_2 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_stewardship_3 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_stewardship_4 value = no }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_1 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_2 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_3 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_4 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_1_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_2_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_3_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_4_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_stewardship_1
-            remove_global_variable = acs_filter_trait_education_stewardship_2
-            remove_global_variable = acs_filter_trait_education_stewardship_3
-            remove_global_variable = acs_filter_trait_education_stewardship_4
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_1 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_2 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_3 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_4 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_1_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_2_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_3_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_stewardship_4_negative }
+                if = {
+                    limit = {
+                        NOT = {
+                            any_in_global_list = {
+                                variable = acs_filter_trait_education_general_list
+                                always = yes
+                            }
+                        }
+                    }
+                    remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+                }
             }
-
         }
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_intrigue_1_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_intrigue_1 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_intrigue_1_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_intrigue_1 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_intrigue_1 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_intrigue_1 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_intrigue_1 } }
-            set_global_variable = {  name = acs_filter_trait_education_intrigue_1 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_intrigue_1 = this
+                            flag:education_intrigue_1_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_1 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_intrigue_1 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_intrigue_1 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_intrigue_1 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_1 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_1_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_intrigue_1
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_1_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_intrigue_2_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_intrigue_2 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_intrigue_2_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_intrigue_2 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_intrigue_2 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_intrigue_2 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_intrigue_2 } }
-            set_global_variable = {  name = acs_filter_trait_education_intrigue_2 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_intrigue_2 = this
+                            flag:education_intrigue_2_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_2 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_intrigue_2 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_intrigue_2 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_intrigue_2 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_2 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_2_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_intrigue_2
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_2_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_intrigue_3_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_intrigue_3 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_intrigue_3_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_intrigue_3 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_intrigue_3 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_intrigue_3 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_intrigue_3 } }
-            set_global_variable = {  name = acs_filter_trait_education_intrigue_3 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_intrigue_3 = this
+                            flag:education_intrigue_3_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_3 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_intrigue_3 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_intrigue_3 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_intrigue_3 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_3 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_3_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_intrigue_3
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_3_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_intrigue_4_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_intrigue_4 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_intrigue_4_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_intrigue_4 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_intrigue_4 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_intrigue_4 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_intrigue_4 } }
-            set_global_variable = {  name = acs_filter_trait_education_intrigue_4 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_intrigue_4 = this
+                            flag:education_intrigue_4_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_4 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_intrigue_4 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_intrigue_4 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_intrigue_4 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_4 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_4_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_intrigue_4
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_4_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_intrigue_negative = {
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_education_intrigue_1 = no
-            global_var:acs_filter_trait_education_intrigue_2 = no
-            global_var:acs_filter_trait_education_intrigue_3 = no
-            global_var:acs_filter_trait_education_intrigue_4 = no
-        }
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            OR = {
+                flag:education_intrigue_1_negative = this
+            flag:education_intrigue_2_negative = this
+            flag:education_intrigue_3_negative = this
+            flag:education_intrigue_4_negative = this
+            }
+            count = 4
+        } 
     }
 }
 acs_filter_trait_education_intrigue_none = {
     is_shown = {
-        NOR = {
-            has_global_variable = acs_filter_trait_education_intrigue_1
-            has_global_variable = acs_filter_trait_education_intrigue_2
-            has_global_variable = acs_filter_trait_education_intrigue_3
-            has_global_variable = acs_filter_trait_education_intrigue_4
+        NOT = {
+            any_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                OR = {
+                    flag:education_intrigue_1_negative = this
+                flag:education_intrigue_2_negative = this
+                flag:education_intrigue_3_negative = this
+                flag:education_intrigue_4_negative = this
+                    flag:education_intrigue_1 = this
+                flag:education_intrigue_2 = this
+                flag:education_intrigue_3 = this
+                flag:education_intrigue_4 = this
+                }
+            }
         }
     }
 }
 acs_filter_trait_education_intrigue = {
  
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_education_intrigue_1 = yes
-            global_var:acs_filter_trait_education_intrigue_2 = yes
-            global_var:acs_filter_trait_education_intrigue_3 = yes
-            global_var:acs_filter_trait_education_intrigue_4 = yes
-        } 
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            OR = {
+                flag:education_intrigue_1 = this
+                flag:education_intrigue_2 = this
+                flag:education_intrigue_3 = this
+                flag:education_intrigue_4 = this
+            }
+            count = 4
+        }  
     } 
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
             limit = { 
-                NOR = {
-                    has_global_variable = acs_filter_trait_education_intrigue_1
-                    has_global_variable = acs_filter_trait_education_intrigue_2
-                    has_global_variable = acs_filter_trait_education_intrigue_3
-                    has_global_variable = acs_filter_trait_education_intrigue_4
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_intrigue_1_negative = this
+                        flag:education_intrigue_2_negative = this
+                        flag:education_intrigue_3_negative = this
+                        flag:education_intrigue_4_negative = this
+                            flag:education_intrigue_1 = this
+                        flag:education_intrigue_2 = this
+                        flag:education_intrigue_3 = this
+                        flag:education_intrigue_4 = this
+                        }
+                    }
                 }
             }
-            set_global_variable = {  name = acs_filter_trait_education_intrigue_1 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_intrigue_2 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_intrigue_3 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_intrigue_4 value = yes }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_1 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_2 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_3 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_4 }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
         }
         else = {
             if = {
                 limit = {
-                    AND = {
-                        global_var:acs_filter_trait_education_intrigue_1 = yes
-                        global_var:acs_filter_trait_education_intrigue_2 = yes
-                        global_var:acs_filter_trait_education_intrigue_3 = yes
-                        global_var:acs_filter_trait_education_intrigue_4 = yes
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_intrigue_1 = this
+                            flag:education_intrigue_2 = this
+                            flag:education_intrigue_3 = this
+                            flag:education_intrigue_4 = this
+                        }
+                        count = 4
                     }
                 }
-                set_global_variable = {  name = acs_filter_trait_education_intrigue_1 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_intrigue_2 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_intrigue_3 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_intrigue_4 value = no }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_1 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_2 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_3 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_4 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_1_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_2_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_3_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_4_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_intrigue_1
-            remove_global_variable = acs_filter_trait_education_intrigue_2
-            remove_global_variable = acs_filter_trait_education_intrigue_3
-            remove_global_variable = acs_filter_trait_education_intrigue_4
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_1 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_2 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_3 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_4 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_1_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_2_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_3_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_intrigue_4_negative }
+                if = {
+                    limit = {
+                        NOT = {
+                            any_in_global_list = {
+                                variable = acs_filter_trait_education_general_list
+                                always = yes
+                            }
+                        }
+                    }
+                    remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+                }
             }
-
         }
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_learning_1_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_learning_1 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_learning_1_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_learning_1 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_learning_1 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_learning_1 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_learning_1 } }
-            set_global_variable = {  name = acs_filter_trait_education_learning_1 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_learning_1 = this
+                            flag:education_learning_1_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_1 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_learning_1 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_learning_1 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_learning_1 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_1 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_1_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_learning_1
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_1_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_learning_2_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_learning_2 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_learning_2_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_learning_2 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_learning_2 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_learning_2 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_learning_2 } }
-            set_global_variable = {  name = acs_filter_trait_education_learning_2 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_learning_2 = this
+                            flag:education_learning_2_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_2 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_learning_2 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_learning_2 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_learning_2 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_2 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_2_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_learning_2
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_2_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_learning_3_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_learning_3 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_learning_3_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_learning_3 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_learning_3 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_learning_3 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_learning_3 } }
-            set_global_variable = {  name = acs_filter_trait_education_learning_3 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_learning_3 = this
+                            flag:education_learning_3_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_3 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_learning_3 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_learning_3 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_learning_3 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_3 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_3_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_learning_3
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_3_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_learning_4_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_learning_4 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_learning_4_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_learning_4 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_learning_4 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            flag:education_learning_4 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_learning_4 } }
-            set_global_variable = {  name = acs_filter_trait_education_learning_4 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_learning_4 = this
+                            flag:education_learning_4_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_4 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_learning_4 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_learning_4 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        flag:education_learning_4 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_4 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_4_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_learning_4
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_4_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_learning_negative = {
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_education_learning_1 = no
-            global_var:acs_filter_trait_education_learning_2 = no
-            global_var:acs_filter_trait_education_learning_3 = no
-            global_var:acs_filter_trait_education_learning_4 = no
-        }
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            OR = {
+                flag:education_learning_1_negative = this
+            flag:education_learning_2_negative = this
+            flag:education_learning_3_negative = this
+            flag:education_learning_4_negative = this
+            }
+            count = 4
+        } 
     }
 }
 acs_filter_trait_education_learning_none = {
     is_shown = {
-        NOR = {
-            has_global_variable = acs_filter_trait_education_learning_1
-            has_global_variable = acs_filter_trait_education_learning_2
-            has_global_variable = acs_filter_trait_education_learning_3
-            has_global_variable = acs_filter_trait_education_learning_4
+        NOT = {
+            any_in_global_list = {
+                variable = acs_filter_trait_education_general_list
+                OR = {
+                    flag:education_learning_1_negative = this
+                flag:education_learning_2_negative = this
+                flag:education_learning_3_negative = this
+                flag:education_learning_4_negative = this
+                    flag:education_learning_1 = this
+                flag:education_learning_2 = this
+                flag:education_learning_3 = this
+                flag:education_learning_4 = this
+                }
+            }
         }
     }
 }
 acs_filter_trait_education_learning = {
  
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_education_learning_1 = yes
-            global_var:acs_filter_trait_education_learning_2 = yes
-            global_var:acs_filter_trait_education_learning_3 = yes
-            global_var:acs_filter_trait_education_learning_4 = yes
-        } 
+        any_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            OR = {
+                flag:education_learning_1 = this
+                flag:education_learning_2 = this
+                flag:education_learning_3 = this
+                flag:education_learning_4 = this
+            }
+            count = 4
+        }  
     } 
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
             limit = { 
-                NOR = {
-                    has_global_variable = acs_filter_trait_education_learning_1
-                    has_global_variable = acs_filter_trait_education_learning_2
-                    has_global_variable = acs_filter_trait_education_learning_3
-                    has_global_variable = acs_filter_trait_education_learning_4
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_learning_1_negative = this
+                        flag:education_learning_2_negative = this
+                        flag:education_learning_3_negative = this
+                        flag:education_learning_4_negative = this
+                            flag:education_learning_1 = this
+                        flag:education_learning_2 = this
+                        flag:education_learning_3 = this
+                        flag:education_learning_4 = this
+                        }
+                    }
                 }
             }
-            set_global_variable = {  name = acs_filter_trait_education_learning_1 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_learning_2 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_learning_3 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_learning_4 value = yes }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_1 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_2 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_3 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_4 }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
         }
         else = {
             if = {
                 limit = {
-                    AND = {
-                        global_var:acs_filter_trait_education_learning_1 = yes
-                        global_var:acs_filter_trait_education_learning_2 = yes
-                        global_var:acs_filter_trait_education_learning_3 = yes
-                        global_var:acs_filter_trait_education_learning_4 = yes
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_general_list
+                        OR = {
+                            flag:education_learning_1 = this
+                            flag:education_learning_2 = this
+                            flag:education_learning_3 = this
+                            flag:education_learning_4 = this
+                        }
+                        count = 4
                     }
                 }
-                set_global_variable = {  name = acs_filter_trait_education_learning_1 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_learning_2 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_learning_3 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_learning_4 value = no }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_1 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_2 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_3 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_4 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_1_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_2_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_3_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = flag:education_learning_4_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_learning_1
-            remove_global_variable = acs_filter_trait_education_learning_2
-            remove_global_variable = acs_filter_trait_education_learning_3
-            remove_global_variable = acs_filter_trait_education_learning_4
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_1 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_2 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_3 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_4 }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_1_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_2_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_3_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_general_list target = flag:education_learning_4_negative }
+                if = {
+                    limit = {
+                        NOT = {
+                            any_in_global_list = {
+                                variable = acs_filter_trait_education_general_list
+                                always = yes
+                            }
+                        }
+                    }
+                    remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_general }
+                }
             }
-
         }
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_martial_prowess_1_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_martial_prowess_1 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            flag:education_martial_prowess_1_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_martial_prowess_1 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_martial_prowess_1 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            flag:education_martial_prowess_1 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_prowess_1 } }
-            set_global_variable = {  name = acs_filter_trait_education_martial_prowess_1 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_martial_list
+                        OR = {
+                            flag:education_martial_prowess_1 = this
+                            flag:education_martial_prowess_1_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_1 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_martial_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_martial }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_martial_prowess_1 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_martial_prowess_1 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_martial_list
+                        flag:education_martial_prowess_1 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_1 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_1_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_martial_prowess_1
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_1_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_martial_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_martial }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_martial_prowess_2_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_martial_prowess_2 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            flag:education_martial_prowess_2_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_martial_prowess_2 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_martial_prowess_2 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            flag:education_martial_prowess_2 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_prowess_2 } }
-            set_global_variable = {  name = acs_filter_trait_education_martial_prowess_2 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_martial_list
+                        OR = {
+                            flag:education_martial_prowess_2 = this
+                            flag:education_martial_prowess_2_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_2 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_martial_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_martial }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_martial_prowess_2 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_martial_prowess_2 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_martial_list
+                        flag:education_martial_prowess_2 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_2 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_2_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_martial_prowess_2
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_2_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_martial_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_martial }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_martial_prowess_3_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_martial_prowess_3 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            flag:education_martial_prowess_3_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_martial_prowess_3 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_martial_prowess_3 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            flag:education_martial_prowess_3 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_prowess_3 } }
-            set_global_variable = {  name = acs_filter_trait_education_martial_prowess_3 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_martial_list
+                        OR = {
+                            flag:education_martial_prowess_3 = this
+                            flag:education_martial_prowess_3_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_3 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_martial_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_martial }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_martial_prowess_3 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_martial_prowess_3 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_martial_list
+                        flag:education_martial_prowess_3 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_3 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_3_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_martial_prowess_3
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_3_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_martial_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_martial }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_martial_prowess_4_negative = {
     is_shown = {
-        global_var:acs_filter_trait_education_martial_prowess_4 = no
+        any_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            flag:education_martial_prowess_4_negative = this
+        }
     }
 }
 
 acs_filter_trait_education_martial_prowess_4 = {
  
     is_shown = { 
-        global_var:acs_filter_trait_education_martial_prowess_4 = yes
+        any_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            flag:education_martial_prowess_4 = this
+        }
     }  
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
-            limit = { NOT = {  has_global_variable = acs_filter_trait_education_martial_prowess_4 } }
-            set_global_variable = {  name = acs_filter_trait_education_martial_prowess_4 value = yes }
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_martial_list
+                        OR = {
+                            flag:education_martial_prowess_4 = this
+                            flag:education_martial_prowess_4_negative = this
+                        }
+                    } 
+                } 
+            }
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_4 }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_martial_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
+            }
+            if = {
+                limit = {
+                    local_var:acs_temp = 1
+                }
+                add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_martial }
+            }
         }
         else = {
             if = {
-                limit = { global_var:acs_filter_trait_education_martial_prowess_4 = yes }
-                set_global_variable = {  name = acs_filter_trait_education_martial_prowess_4 value = no }
+                limit = { 
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_martial_list
+                        flag:education_martial_prowess_4 = this
+                    }
+                }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_4 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_4_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_martial_prowess_4
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_4_negative }
+            
+            set_local_variable = { name = acs_temp value = 0 }
+            every_in_global_list = {
+                variable = acs_filter_trait_education_martial_list
+                prev = { change_local_variable = { name = acs_temp add = 1 } }
             }
-
+            if = {
+                limit = {
+                    local_var:acs_temp = 0
+                }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_martial }
+            }
+            }
         }
+       
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 acs_filter_trait_education_prowess_negative = {
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_education_martial_prowess_1 = no
-            global_var:acs_filter_trait_education_martial_prowess_2 = no
-            global_var:acs_filter_trait_education_martial_prowess_3 = no
-            global_var:acs_filter_trait_education_martial_prowess_4 = no
-        }
+        any_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            OR = {
+                flag:education_martial_prowess_1_negative = this
+            flag:education_martial_prowess_2_negative = this
+            flag:education_martial_prowess_3_negative = this
+            flag:education_martial_prowess_4_negative = this
+            }
+            count = 4
+        } 
     }
 }
 acs_filter_trait_education_prowess_none = {
     is_shown = {
-        NOR = {
-            has_global_variable = acs_filter_trait_education_martial_prowess_1
-            has_global_variable = acs_filter_trait_education_martial_prowess_2
-            has_global_variable = acs_filter_trait_education_martial_prowess_3
-            has_global_variable = acs_filter_trait_education_martial_prowess_4
+        NOT = {
+            any_in_global_list = {
+                variable = acs_filter_trait_education_martial_list
+                always = yes
+            }           
         }
     }
 }
 acs_filter_trait_education_prowess = {
  
     is_shown = {
-        AND = {
-            global_var:acs_filter_trait_education_martial_prowess_1 = yes
-            global_var:acs_filter_trait_education_martial_prowess_2 = yes
-            global_var:acs_filter_trait_education_martial_prowess_3 = yes
-            global_var:acs_filter_trait_education_martial_prowess_4 = yes
-        } 
+        any_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            OR = {
+                flag:education_martial_prowess_1 = this
+                flag:education_martial_prowess_2 = this
+                flag:education_martial_prowess_3 = this
+                flag:education_martial_prowess_4 = this
+            }
+            count = 4
+        }  
     } 
         
     effect = {
         acs_save_undo_0_filters = yes
         if = {
             limit = { 
-                NOR = {
-                    has_global_variable = acs_filter_trait_education_martial_prowess_1
-                    has_global_variable = acs_filter_trait_education_martial_prowess_2
-                    has_global_variable = acs_filter_trait_education_martial_prowess_3
-                    has_global_variable = acs_filter_trait_education_martial_prowess_4
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_martial_list
+                        always = yes
+                    }           
                 }
             }
-            set_global_variable = {  name = acs_filter_trait_education_martial_prowess_1 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_martial_prowess_2 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_martial_prowess_3 value = yes }
-            set_global_variable = {  name = acs_filter_trait_education_martial_prowess_4 value = yes }
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_1 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_2 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_3 }
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_4 }
+            add_to_global_variable_list = { name = acs_active_filter_list target = flag:acs_filter_trait_education_martial }
         }
         else = {
             if = {
                 limit = {
-                    AND = {
-                        global_var:acs_filter_trait_education_martial_prowess_1 = yes
-                        global_var:acs_filter_trait_education_martial_prowess_2 = yes
-                        global_var:acs_filter_trait_education_martial_prowess_3 = yes
-                        global_var:acs_filter_trait_education_martial_prowess_4 = yes
+                    any_in_global_list = {
+                        variable = acs_filter_trait_education_martial_list
+                        OR = {
+                            flag:education_martial_prowess_1 = this
+                            flag:education_martial_prowess_2 = this
+                            flag:education_martial_prowess_3 = this
+                            flag:education_martial_prowess_4 = this
+                        }
+                        count = 4
                     }
                 }
-                set_global_variable = {  name = acs_filter_trait_education_martial_prowess_1 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_martial_prowess_2 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_martial_prowess_3 value = no }
-                set_global_variable = {  name = acs_filter_trait_education_martial_prowess_4 value = no }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_1 }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_2 }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_3 }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_4 }
+                add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_1_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_2_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_3_negative }
+                add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_4_negative }
             }
             else = {
-                remove_global_variable = acs_filter_trait_education_martial_prowess_1
-            remove_global_variable = acs_filter_trait_education_martial_prowess_2
-            remove_global_variable = acs_filter_trait_education_martial_prowess_3
-            remove_global_variable = acs_filter_trait_education_martial_prowess_4
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_1 }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_2 }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_3 }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_4 }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_1_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_2_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_3_negative }
+                remove_list_global_variable = { name = acs_filter_trait_education_martial_list target = flag:education_martial_prowess_4_negative }
+                remove_list_global_variable = { name = acs_active_filter_list target = flag:acs_filter_trait_education_martial }
             }
-
         }
         acs_auto_apply_sorting_and_filters = yes
     }

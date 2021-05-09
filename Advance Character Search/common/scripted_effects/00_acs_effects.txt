@@ -1,93 +1,97 @@
 ﻿create_searched_character_list = {
     if = {
         limit = {
-            NOT = { has_variable = is_acs_building_list }
+            NOT = { has_global_variable = is_acs_building_list }
         }
-        set_variable = is_acs_building_list
-    
+        set_global_variable = is_acs_building_list
+        initialize_province_indices = yes
+        
         if = {
             limit = {
-                NOT = { has_global_variable = acs_select_count }
+                NOT = { has_global_variable = acs_reset_v54 }
             }
+            set_global_variable = acs_reset_v54
             acs_reset_filters_and_sorting = yes
         }
         clear_acs_list = yes
-        save_scope_as = acs_filter_diplomatic_range_root
-        save_scope_as = acs_filter_hooks_root
-        save_scope_as = acs_filter_religion_root
-        save_scope_as = acs_filter_culture_root
-        save_scope_as = acs_filter_dynasty_root
-        save_scope_as = acs_sort_root
-        acs_filter_flag_generate = yes
-        
-        acs_add_to_sort_list = yes
-        if = {
-            limit = { global_var:acs_filter_relation = 0 }
-            every_living_character = { acs_add_to_sort_list = yes }
-        }
-        if = {
-            limit = { global_var:acs_filter_relation = 1 }
-            top_liege = {
+        random_player = {
+            save_scope_as = acs_filter_diplomatic_range_root
+            save_scope_as = acs_filter_hooks_root
+            faith = { save_scope_as = acs_filter_faith }
+            religion = { save_scope_as = acs_filter_religion }
+            save_scope_as = acs_filter_culture_root
+            save_scope_as = acs_filter_dynasty_root
+            save_scope_as = acs_sort_root
+            acs_make_reduced_and_count = yes
+            acs_add_to_sort_list = yes
+            if = {
+                limit = { global_var:acs_filter_relation = 0 }
+                every_living_character = { acs_add_to_sort_list = yes }
+            }
+            if = {
+                limit = { global_var:acs_filter_relation = 1 }
+                top_liege = {
+                    every_vassal_or_below = {
+                        every_courtier_or_guest = { acs_add_to_sort_list = yes }
+                        acs_add_to_sort_list = yes
+                    }
+                    acs_add_to_sort_list = yes
+                    every_courtier_or_guest = { acs_add_to_sort_list = yes }
+                }
+            }
+    
+            if = {
+                limit = { global_var:acs_filter_relation = 2 }
                 every_vassal_or_below = {
                     every_courtier_or_guest = { acs_add_to_sort_list = yes }
                     acs_add_to_sort_list = yes
                 }
-                acs_add_to_sort_list = yes
-				every_courtier_or_guest = { acs_add_to_sort_list = yes }
-            }
-        }
-
-        if = {
-            limit = { global_var:acs_filter_relation = 2 }
-            every_vassal_or_below = {
                 every_courtier_or_guest = { acs_add_to_sort_list = yes }
-                acs_add_to_sort_list = yes
             }
-			every_courtier_or_guest = { acs_add_to_sort_list = yes }
-        }
-        
-        if = {
-            limit = { global_var:acs_filter_relation = 3 }
-            every_vassal = { acs_add_to_sort_list = yes }
-        }
-
-        if = {
-            limit = { global_var:acs_filter_relation = 4 }
-            every_courtier_or_guest = { acs_add_to_sort_list = yes }
-        }
-		set_variable = {  
-			name = acs_selected_count 
-			value = {
-				value = 0
-				every_in_list = {
-					list = acs_to_sort
-					add = 1
-				}
-			}  
-		} 
-		set_variable = {
-			name = acs_total_number_of_characters
-			value = acs_total_number_of_characters
-		}
-        ordered_in_list = {
-            list = acs_to_sort
-            order_by = acs_sort_value
-            max = global_var:acs_select_count
-            check_range_bounds = no
-            root = {
-                add_to_variable_list = {
-                    name = acs_list
-                    target = prev
+            
+            if = {
+                limit = { global_var:acs_filter_relation = 3 }
+                every_vassal = { acs_add_to_sort_list = yes }
+            }
+    
+            if = {
+                limit = { global_var:acs_filter_relation = 4 }
+                every_courtier_or_guest = { acs_add_to_sort_list = yes }
+            }
+           
+            dummy_male = {
+                set_variable = {  
+                    name = acs_selected_count 
+                    value = {
+                        value = 0
+                        every_in_list = {
+                            list = acs_to_sort
+                            add = 1
+                        }
+                    }  
+                } 
+                set_variable = {
+                    name = acs_total_number_of_characters
+                    value = acs_total_number_of_characters
                 }
             }
-            set_claim_data = yes
-            set_index_data = yes
-            #set_variable = {  name = sort value = this.magic_souce days = 1 } 
-            #set_variable = {  name = age_sort value = this.age_sort_function days = 1 } 
-            #set_variable = {  name = health_sort value = this.health_sort_function days = 1 } 
-                
+            
+            ordered_in_list = {
+                list = acs_to_sort
+                order_by = acs_sort_value
+                max = global_var:acs_select_count
+                check_range_bounds = no
+                dummy_male = {
+                    add_to_variable_list = {
+                        name = acs_list
+                        target = prev
+                    }
+                }
+                set_claim_data = yes
+                set_index_data = yes
+            }      
         }
-        remove_variable = is_acs_building_list
+        remove_global_variable = is_acs_building_list
     }  
 }
 
@@ -96,15 +100,12 @@ acs_add_to_sort_list = {
     every_in_global_list = {
         variable = acs_active_filter_list
         save_scope_as = filter_flag
-        if = { 
-            limit = { acs_switch_filter = { FILTER = scope:filter_flag CANDIDATE = prev } }
-            change_global_variable = { name = acs_filter_passed add = 1 }     
-        }
+        acs_switch_filter = { FILTER = scope:filter_flag CANDIDATE = prev } 
     }
     if = { 
         limit = {  
             AND = {
-                global_var:acs_filter_passed = global_var:acs_active_filters_count
+                global_var:acs_filter_passed = global_var:acs_active_filter_count
                 acs_filter = yes
             }
         }
@@ -113,12 +114,14 @@ acs_add_to_sort_list = {
 }
 
 clear_acs_list = {
-    every_in_list = {
-        list = acs_list
-        clear_claim_data = yes
-        clear_index_data = yes
+    dummy_male = {
+        every_in_list = {
+            list = acs_list
+            clear_claim_data = yes
+            clear_index_data = yes
+        }
+        clear_variable_list = acs_list
     }
-    clear_variable_list = acs_list
 }
 
 set_claim_data = {
@@ -289,4 +292,209 @@ acs_auto_apply_sorting_and_filters = {
         limit = { global_var:acs_auto_apply_sorting_and_filters = yes }
         create_searched_character_list = yes
     }
+}
+initialize_province_indices = {
+    if = {
+        limit = {
+            dummy_male = { NOT = { has_variable = acs_digit_0 } }
+        }
+        set_local_variable = {name = idd value = 0}
+        every_province = {
+            set_variable = {name = index value = local_var:idd}
+            change_local_variable = {
+                name = idd
+                add = 1
+            }
+        }
+        remove_local_variable = idd
+        random_province = {
+            limit = { var:index = 0 } 
+            dummy_male = { set_variable = { name = acs_digit_0 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 1 } 
+            dummy_male = { set_variable = { name = acs_digit_1 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 2 } 
+            dummy_male = { set_variable = { name = acs_digit_2 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 3 } 
+            dummy_male = { set_variable = { name = acs_digit_3 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 4 } 
+            dummy_male = { set_variable = { name = acs_digit_4 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 5 } 
+            dummy_male = { set_variable = { name = acs_digit_5 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 6 } 
+            dummy_male = { set_variable = { name = acs_digit_6 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 7 } 
+            dummy_male = { set_variable = { name = acs_digit_7 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 8 } 
+            dummy_male = { set_variable = { name = acs_digit_8 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 9 } 
+            dummy_male = { set_variable = { name = acs_digit_9 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 10 } 
+            dummy_male = { set_variable = { name = acs_digit_10 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 11 } 
+            dummy_male = { set_variable = { name = acs_digit_11 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 12 } 
+            dummy_male = { set_variable = { name = acs_digit_12 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 13 } 
+            dummy_male = { set_variable = { name = acs_digit_13 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 14 } 
+            dummy_male = { set_variable = { name = acs_digit_14 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 15 } 
+            dummy_male = { set_variable = { name = acs_digit_15 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 16 } 
+            dummy_male = { set_variable = { name = acs_digit_16 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 17 } 
+            dummy_male = { set_variable = { name = acs_digit_17 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 18 } 
+            dummy_male = { set_variable = { name = acs_digit_18 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 19 } 
+            dummy_male = { set_variable = { name = acs_digit_19 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 20 } 
+            dummy_male = { set_variable = { name = acs_digit_20 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 21 } 
+            dummy_male = { set_variable = { name = acs_digit_21 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 22 } 
+            dummy_male = { set_variable = { name = acs_digit_22 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 23 } 
+            dummy_male = { set_variable = { name = acs_digit_23 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 24 } 
+            dummy_male = { set_variable = { name = acs_digit_24 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 25 } 
+            dummy_male = { set_variable = { name = acs_digit_25 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 26 } 
+            dummy_male = { set_variable = { name = acs_digit_26 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 27 } 
+            dummy_male = { set_variable = { name = acs_digit_27 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 28 } 
+            dummy_male = { set_variable = { name = acs_digit_28 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 29 } 
+            dummy_male = { set_variable = { name = acs_digit_29 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 30 } 
+            dummy_male = { set_variable = { name = acs_digit_30 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 31 } 
+            dummy_male = { set_variable = { name = acs_digit_31 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 32 } 
+            dummy_male = { set_variable = { name = acs_digit_32 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 33 } 
+            dummy_male = { set_variable = { name = acs_digit_33 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 34 } 
+            dummy_male = { set_variable = { name = acs_digit_34 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 35 } 
+            dummy_male = { set_variable = { name = acs_digit_35 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 36 } 
+            dummy_male = { set_variable = { name = acs_digit_36 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 37 } 
+            dummy_male = { set_variable = { name = acs_digit_37 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 38 } 
+            dummy_male = { set_variable = { name = acs_digit_38 value = prev } }
+        }
+        random_province = {
+            limit = { var:index = 39 } 
+            dummy_male = { set_variable = { name = acs_digit_39 value = prev } }
+        }
+    }
+}
+acs_simple_checkbox = {
+    acs_save_undo_0_filters = yes
+    set_local_variable = { name = acs_positive value = $START$ }
+    set_local_variable = { name = acs_negative value = { value = local_var:acs_positive add = 1 } }
+    if = {
+        limit = {
+            NOT = {
+                any_in_global_list = {
+                    variable = $LIST$
+                    OR = {
+                        this = local_var:acs_positive
+                        this = local_var:acs_negative
+                    }
+                } 
+            } 
+        }
+        add_to_global_variable_list = { name = $LIST$ target = local_var:acs_positive }
+    }
+    else = {
+        if = { limit = { any_in_global_list = { variable = $LIST$ this = local_var:acs_positive } }
+            remove_list_global_variable = { name = $LIST$ target = local_var:acs_positive }
+            add_to_global_variable_list = { name = $LIST$ target = local_var:acs_negative }
+        }
+        else = {
+            remove_list_global_variable = { name = $LIST$ target = local_var:acs_negative }
+        }
+    }
+    acs_auto_apply_sorting_and_filters = yes
 }
