@@ -96,17 +96,12 @@
 }
 
 acs_add_to_sort_list = {
-    set_global_variable = { name = acs_filter_passed value = 0  } 
-    every_in_global_list = {
-        variable = acs_active_filter_list
-        save_scope_as = filter_flag
-        acs_switch_filter = { FILTER = scope:filter_flag CANDIDATE = prev } 
-    }
     if = { 
         limit = {  
-            AND = {
-                global_var:acs_filter_passed = global_var:acs_active_filter_count
-                acs_filter = yes
+            any_in_global_list = {
+                variable = acs_active_filter_list
+                acs_switch_filter = { FILTER = this CANDIDATE = prev }
+                count = all
             }
         }
         add_to_temporary_list = acs_to_sort
@@ -155,14 +150,13 @@ set_claim_data = {
                 set_variable = {  name = acs_top_unpressed_claim_value value = scope:acs_top_unpressed_claim.claim_value_for_sort  } 
             }
         }
+        set_local_variable = {name  = help value = { value = var:acs_top_unpressed_claim_value subtract = var:acs_top_claim_value }}
         if = {
             limit = {
-                OR = {
-                    var:acs_top_unpressed_claim_value > var:acs_top_claim_value
-                    var:acs_top_unpressed_claim_value = var:acs_top_claim_value
+                AND = {
+                    local_var:help >= 0
+                    var:acs_top_unpressed_claim_value > 0
                 }
-                
-                var:acs_top_unpressed_claim_value > 0
             }
             scope:acs_top_unpressed_claim = {
                 save_scope_as = acs_top_claim
@@ -182,14 +176,13 @@ set_claim_data = {
                 set_variable = { name = acs_top_pressed_claim_value value = scope:acs_top_pressed_claim.claim_value_for_sort   } 
             }
         }
+        set_local_variable = {name  = help value = { value = var:acs_top_pressed_claim_value subtract = var:acs_top_claim_value }}
         if = {
             limit = {
-                OR = {
-                    var:acs_top_pressed_claim_value > var:acs_top_claim_value
-                    var:acs_top_pressed_claim_value = var:acs_top_claim_value
+                AND = {
+                    local_var:help >= 0
+                    var:acs_top_pressed_claim_value > 0
                 }
-                
-                var:acs_top_pressed_claim_value > 0
             }
             scope:acs_top_pressed_claim = {
                 save_scope_as = acs_top_claim

@@ -1,4 +1,4 @@
-
+﻿
 acs_filter_relation_all = {
     scope = character
         
@@ -834,8 +834,8 @@ acs_filter_simple_checkbox = {
     is_shown = { 
         any_in_global_list = {
             variable = acs_active_filter_list
-            this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = var:index add = -1 }
-        }
+            save_temporary_scope_value_as = {name = offset value = -1 }
+            this = acs_major_minor_offset
     }     
     effect = {
         set_local_variable = { name = acs_start value = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index } }
@@ -868,9 +868,12 @@ acs_filter_2_group_checkbox = {
             any_in_global_list = {
                 variable = acs_active_filter_list
                 OR = {
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 2 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 3 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 4 }
+                    save_temporary_scope_value_as = {name = offset value = 2 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = {name = offset value = 3 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = {name = offset value = 4 }
+                    this = acs_major_minor_offset
                 }
             }
         }

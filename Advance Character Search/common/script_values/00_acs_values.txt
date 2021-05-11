@@ -327,3 +327,9 @@ acs_num_of_bad_genetic_traits_modified = {
 		add = -1
 	}
 }
+acs_major_minor_offset = {
+    value = scope:major_digit.var:index multiply = 40 
+    add = scope:minor_digit.var:index 
+    add = var:index
+    add = scope:offset
+}

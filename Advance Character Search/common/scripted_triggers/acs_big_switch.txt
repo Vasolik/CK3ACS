@@ -1,0 +1,2705 @@
+﻿acs_switch_filter = {
+    $CANDIDATE$ = {
+        switch = {
+            trigger = $FILTER$
+            0 = {
+                any_in_global_list = {
+                    variable = acs_filter_trait_education_general_list_reduced
+                    prev = {
+                        switch = {
+                            trigger = prev
+                            0 = {
+                                has_trait = education_intrigue_1 
+                            }
+                            1 = { 
+                                NOT = { has_trait = education_intrigue_1 }   
+                            }
+                            2 = {
+                                has_trait = education_intrigue_2 
+                            }
+                            3 = { 
+                                NOT = { has_trait = education_intrigue_2 }   
+                            }
+                            4 = {
+                                has_trait = education_intrigue_3 
+                            }
+                            5 = { 
+                                NOT = { has_trait = education_intrigue_3 }   
+                            }
+                            6 = {
+                                has_trait = education_intrigue_4 
+                            }
+                            7 = { 
+                                NOT = { has_trait = education_intrigue_4 }   
+                            }
+                            8 = {
+                                has_trait = education_diplomacy_1 
+                            }
+                            9 = { 
+                                NOT = { has_trait = education_diplomacy_1 }   
+                            }
+                            10 = {
+                                has_trait = education_diplomacy_2 
+                            }
+                            11 = { 
+                                NOT = { has_trait = education_diplomacy_2 }   
+                            }
+                            12 = {
+                                has_trait = education_diplomacy_3 
+                            }
+                            13 = { 
+                                NOT = { has_trait = education_diplomacy_3 }   
+                            }
+                            14 = {
+                                has_trait = education_diplomacy_4 
+                            }
+                            15 = { 
+                                NOT = { has_trait = education_diplomacy_4 }   
+                            }
+                            16 = {
+                                has_trait = education_stewardship_1 
+                            }
+                            17 = { 
+                                NOT = { has_trait = education_stewardship_1 }   
+                            }
+                            18 = {
+                                has_trait = education_stewardship_2 
+                            }
+                            19 = { 
+                                NOT = { has_trait = education_stewardship_2 }   
+                            }
+                            20 = {
+                                has_trait = education_stewardship_3 
+                            }
+                            21 = { 
+                                NOT = { has_trait = education_stewardship_3 }   
+                            }
+                            22 = {
+                                has_trait = education_stewardship_4 
+                            }
+                            23 = { 
+                                NOT = { has_trait = education_stewardship_4 }   
+                            }
+                            24 = {
+                                has_trait = education_martial_1 
+                            }
+                            25 = { 
+                                NOT = { has_trait = education_martial_1 }   
+                            }
+                            26 = {
+                                has_trait = education_martial_2 
+                            }
+                            27 = { 
+                                NOT = { has_trait = education_martial_2 }   
+                            }
+                            28 = {
+                                has_trait = education_martial_3 
+                            }
+                            29 = { 
+                                NOT = { has_trait = education_martial_3 }   
+                            }
+                            30 = {
+                                has_trait = education_martial_4 
+                            }
+                            31 = { 
+                                NOT = { has_trait = education_martial_4 }   
+                            }
+                            32 = {
+                                has_trait = education_learning_1 
+                            }
+                            33 = { 
+                                NOT = { has_trait = education_learning_1 }   
+                            }
+                            34 = {
+                                has_trait = education_learning_2 
+                            }
+                            35 = { 
+                                NOT = { has_trait = education_learning_2 }   
+                            }
+                            36 = {
+                                has_trait = education_learning_3 
+                            }
+                            37 = { 
+                                NOT = { has_trait = education_learning_3 }   
+                            }
+                            38 = {
+                                has_trait = education_learning_4 
+                            }
+                            39 = { 
+                                NOT = { has_trait = education_learning_4 }   
+                            }
+                        }
+                    }
+                    count = global_var:acs_filter_trait_education_general_count
+                }
+            }
+            1 = {
+                any_in_global_list = {
+                    variable = acs_filter_trait_education_martial_list_reduced
+                    prev = {
+                        switch = {
+                            trigger = prev
+                            0 = {
+                                has_trait = education_martial_prowess_1 
+                            }
+                            1 = { 
+                                NOT = { has_trait = education_martial_prowess_1 }   
+                            }
+                            2 = {
+                                has_trait = education_martial_prowess_2 
+                            }
+                            3 = { 
+                                NOT = { has_trait = education_martial_prowess_2 }   
+                            }
+                            4 = {
+                                has_trait = education_martial_prowess_3 
+                            }
+                            5 = { 
+                                NOT = { has_trait = education_martial_prowess_3 }   
+                            }
+                            6 = {
+                                has_trait = education_martial_prowess_4 
+                            }
+                            7 = { 
+                                NOT = { has_trait = education_martial_prowess_4 }   
+                            }
+                        }
+                    }
+                    count = global_var:acs_filter_trait_education_martial_count
+                }
+            }
+            2 = {
+                has_trait = chaste
+            }
+            3 = {
+                NOT = { has_trait = chaste }
+            }
+            4 = {
+                has_trait = lustful
+            }
+            5 = {
+                OR = {
+                    has_trait = lustful
+                    has_trait = chaste
+                }
+            }
+            6 = {
+                has_trait = lustful
+            }
+            7 = {
+                NOT = { has_trait = lustful }
+            }
+            8 = {
+                has_trait = chaste
+            }
+            9 = {
+                AND = {
+                    NOT = { has_trait = lustful }
+                    NOT = { has_trait = chaste }
+                }
+            }
+            10 = {
+                has_trait = temperate
+            }
+            11 = {
+                NOT = { has_trait = temperate }
+            }
+            12 = {
+                has_trait = gluttonous
+            }
+            13 = {
+                OR = {
+                    has_trait = gluttonous
+                    has_trait = temperate
+                }
+            }
+            14 = {
+                has_trait = gluttonous
+            }
+            15 = {
+                NOT = { has_trait = gluttonous }
+            }
+            16 = {
+                has_trait = temperate
+            }
+            17 = {
+                AND = {
+                    NOT = { has_trait = gluttonous }
+                    NOT = { has_trait = temperate }
+                }
+            }
+            18 = {
+                has_trait = generous
+            }
+            19 = {
+                NOT = { has_trait = generous }
+            }
+            20 = {
+                has_trait = greedy
+            }
+            21 = {
+                OR = {
+                    has_trait = greedy
+                    has_trait = generous
+                }
+            }
+            22 = {
+                has_trait = greedy
+            }
+            23 = {
+                NOT = { has_trait = greedy }
+            }
+            24 = {
+                has_trait = generous
+            }
+            25 = {
+                AND = {
+                    NOT = { has_trait = greedy }
+                    NOT = { has_trait = generous }
+                }
+            }
+            26 = {
+                has_trait = diligent
+            }
+            27 = {
+                NOT = { has_trait = diligent }
+            }
+            28 = {
+                has_trait = lazy
+            }
+            29 = {
+                OR = {
+                    has_trait = lazy
+                    has_trait = diligent
+                }
+            }
+            30 = {
+                has_trait = lazy
+            }
+            31 = {
+                NOT = { has_trait = lazy }
+            }
+            32 = {
+                has_trait = diligent
+            }
+            33 = {
+                AND = {
+                    NOT = { has_trait = lazy }
+                    NOT = { has_trait = diligent }
+                }
+            }
+            34 = {
+                has_trait = calm
+            }
+            35 = {
+                NOT = { has_trait = calm }
+            }
+            36 = {
+                has_trait = wrathful
+            }
+            37 = {
+                OR = {
+                    has_trait = wrathful
+                    has_trait = calm
+                }
+            }
+            38 = {
+                has_trait = wrathful
+            }
+            39 = {
+                NOT = { has_trait = wrathful }
+            }
+            40 = {
+                has_trait = calm
+            }
+            41 = {
+                AND = {
+                    NOT = { has_trait = wrathful }
+                    NOT = { has_trait = calm }
+                }
+            }
+            42 = {
+                has_trait = impatient
+            }
+            43 = {
+                NOT = { has_trait = impatient }
+            }
+            44 = {
+                has_trait = patient
+            }
+            45 = {
+                OR = {
+                    has_trait = patient
+                    has_trait = impatient
+                }
+            }
+            46 = {
+                has_trait = patient
+            }
+            47 = {
+                NOT = { has_trait = patient }
+            }
+            48 = {
+                has_trait = impatient
+            }
+            49 = {
+                AND = {
+                    NOT = { has_trait = patient }
+                    NOT = { has_trait = impatient }
+                }
+            }
+            50 = {
+                has_trait = humble
+            }
+            51 = {
+                NOT = { has_trait = humble }
+            }
+            52 = {
+                has_trait = arrogant
+            }
+            53 = {
+                OR = {
+                    has_trait = arrogant
+                    has_trait = humble
+                }
+            }
+            54 = {
+                has_trait = arrogant
+            }
+            55 = {
+                NOT = { has_trait = arrogant }
+            }
+            56 = {
+                has_trait = humble
+            }
+            57 = {
+                AND = {
+                    NOT = { has_trait = arrogant }
+                    NOT = { has_trait = humble }
+                }
+            }
+            58 = {
+                has_trait = honest
+            }
+            59 = {
+                NOT = { has_trait = honest }
+            }
+            60 = {
+                has_trait = deceitful
+            }
+            61 = {
+                OR = {
+                    has_trait = deceitful
+                    has_trait = honest
+                }
+            }
+            62 = {
+                has_trait = deceitful
+            }
+            63 = {
+                NOT = { has_trait = deceitful }
+            }
+            64 = {
+                has_trait = honest
+            }
+            65 = {
+                AND = {
+                    NOT = { has_trait = deceitful }
+                    NOT = { has_trait = honest }
+                }
+            }
+            66 = {
+                has_trait = brave
+            }
+            67 = {
+                NOT = { has_trait = brave }
+            }
+            68 = {
+                has_trait = craven
+            }
+            69 = {
+                OR = {
+                    has_trait = craven
+                    has_trait = brave
+                }
+            }
+            70 = {
+                has_trait = craven
+            }
+            71 = {
+                NOT = { has_trait = craven }
+            }
+            72 = {
+                has_trait = brave
+            }
+            73 = {
+                AND = {
+                    NOT = { has_trait = craven }
+                    NOT = { has_trait = brave }
+                }
+            }
+            74 = {
+                has_trait = gregarious
+            }
+            75 = {
+                NOT = { has_trait = gregarious }
+            }
+            76 = {
+                has_trait = shy
+            }
+            77 = {
+                OR = {
+                    has_trait = shy
+                    has_trait = gregarious
+                }
+            }
+            78 = {
+                has_trait = shy
+            }
+            79 = {
+                NOT = { has_trait = shy }
+            }
+            80 = {
+                has_trait = gregarious
+            }
+            81 = {
+                AND = {
+                    NOT = { has_trait = shy }
+                    NOT = { has_trait = gregarious }
+                }
+            }
+            82 = {
+                has_trait = content
+            }
+            83 = {
+                NOT = { has_trait = content }
+            }
+            84 = {
+                has_trait = ambitious
+            }
+            85 = {
+                OR = {
+                    has_trait = ambitious
+                    has_trait = content
+                }
+            }
+            86 = {
+                has_trait = ambitious
+            }
+            87 = {
+                NOT = { has_trait = ambitious }
+            }
+            88 = {
+                has_trait = content
+            }
+            89 = {
+                AND = {
+                    NOT = { has_trait = ambitious }
+                    NOT = { has_trait = content }
+                }
+            }
+            90 = {
+                has_trait = just
+            }
+            91 = {
+                NOT = { has_trait = just }
+            }
+            92 = {
+                has_trait = arbitrary
+            }
+            93 = {
+                OR = {
+                    has_trait = arbitrary
+                    has_trait = just
+                }
+            }
+            94 = {
+                has_trait = arbitrary
+            }
+            95 = {
+                NOT = { has_trait = arbitrary }
+            }
+            96 = {
+                has_trait = just
+            }
+            97 = {
+                AND = {
+                    NOT = { has_trait = arbitrary }
+                    NOT = { has_trait = just }
+                }
+            }
+            98 = {
+                has_trait = zealous
+            }
+            99 = {
+                NOT = { has_trait = zealous }
+            }
+            100 = {
+                has_trait = cynical
+            }
+            101 = {
+                OR = {
+                    has_trait = cynical
+                    has_trait = zealous
+                }
+            }
+            102 = {
+                has_trait = cynical
+            }
+            103 = {
+                NOT = { has_trait = cynical }
+            }
+            104 = {
+                has_trait = zealous
+            }
+            105 = {
+                AND = {
+                    NOT = { has_trait = cynical }
+                    NOT = { has_trait = zealous }
+                }
+            }
+            106 = {
+                has_trait = trusting
+            }
+            107 = {
+                NOT = { has_trait = trusting }
+            }
+            108 = {
+                has_trait = paranoid
+            }
+            109 = {
+                OR = {
+                    has_trait = paranoid
+                    has_trait = trusting
+                }
+            }
+            110 = {
+                has_trait = paranoid
+            }
+            111 = {
+                NOT = { has_trait = paranoid }
+            }
+            112 = {
+                has_trait = trusting
+            }
+            113 = {
+                AND = {
+                    NOT = { has_trait = paranoid }
+                    NOT = { has_trait = trusting }
+                }
+            }
+            114 = {
+                has_trait = sadistic
+            }
+            115 = {
+                NOT = { has_trait = sadistic }
+            }
+            116 = {
+                has_trait = callous
+            }
+            117 = {
+                OR = {
+                    has_trait = callous
+                    has_trait = sadistic
+                }
+            }
+            118 = {
+                has_trait = callous
+            }
+            119 = {
+                NOT = { has_trait = callous }
+            }
+            120 = {
+                has_trait = sadistic
+            }
+            121 = {
+                AND = {
+                    NOT = { has_trait = callous }
+                    NOT = { has_trait = sadistic }
+                }
+            }
+            122 = {
+                has_trait = compassionate
+            }
+            123 = {
+                OR = {
+                    has_trait = compassionate
+                    has_trait = sadistic
+                }
+            }
+            124 = {
+                has_trait = compassionate
+            }
+            125 = {
+                OR = {
+                    has_trait = compassionate
+                    has_trait = callous
+                }
+            }
+            126 = {
+                OR = {
+                    has_trait = compassionate
+                    has_trait = callous
+                    has_trait = sadistic
+                }
+            }
+            127 = {
+                OR = {
+                    has_trait = compassionate
+                    has_trait = callous
+                }
+            }
+            128 = {
+                has_trait = compassionate
+            }
+            129 = {
+                OR = {
+                    has_trait = compassionate
+                    has_trait = sadistic
+                }
+            }
+            130 = {
+                has_trait = compassionate
+            }
+            131 = {
+                NOT = { has_trait = compassionate }
+            }
+            132 = {
+                has_trait = sadistic
+            }
+            133 = {
+                AND = {
+                    NOT = { has_trait = compassionate }
+                    NOT = { has_trait = sadistic }
+                }
+            }
+            134 = {
+                has_trait = callous
+            }
+            135 = {
+                OR = {
+                    has_trait = callous
+                    has_trait = sadistic
+                }
+            }
+            136 = {
+                has_trait = callous
+            }
+            137 = {
+                AND = {
+                    NOT = { has_trait = compassionate }
+                    NOT = { has_trait = callous }
+                }
+            }
+            138 = {
+                has_trait = sadistic
+            }
+            139 = {
+                AND = {
+                    NOT = { has_trait = compassionate }
+                    NOT = { has_trait = callous }
+                    NOT = { has_trait = sadistic }
+                }
+            }
+            140 = {
+                has_trait = fickle
+            }
+            141 = {
+                NOT = { has_trait = fickle }
+            }
+            142 = {
+                has_trait = stubborn
+            }
+            143 = {
+                OR = {
+                    has_trait = stubborn
+                    has_trait = fickle
+                }
+            }
+            144 = {
+                has_trait = stubborn
+            }
+            145 = {
+                NOT = { has_trait = stubborn }
+            }
+            146 = {
+                has_trait = fickle
+            }
+            147 = {
+                AND = {
+                    NOT = { has_trait = stubborn }
+                    NOT = { has_trait = fickle }
+                }
+            }
+            148 = {
+                has_trait = forgiving
+            }
+            149 = {
+                NOT = { has_trait = forgiving }
+            }
+            150 = {
+                has_trait = vengeful
+            }
+            151 = {
+                OR = {
+                    has_trait = vengeful
+                    has_trait = forgiving
+                }
+            }
+            152 = {
+                has_trait = vengeful
+            }
+            153 = {
+                NOT = { has_trait = vengeful }
+            }
+            154 = {
+                has_trait = forgiving
+            }
+            155 = {
+                AND = {
+                    NOT = { has_trait = vengeful }
+                    NOT = { has_trait = forgiving }
+                }
+            }
+            156 = {
+                any_in_global_list = {
+                    variable = acs_filter_trait_fame_born_status_list_reduced
+                    prev = {
+                        switch = {
+                            trigger = prev
+                            0 = {
+                                has_trait = bastard 
+                            }
+                            1 = { 
+                                NOT = { has_trait = bastard }   
+                            }
+                            2 = {
+                                has_trait = legitimized_bastard 
+                            }
+                            3 = { 
+                                NOT = { has_trait = legitimized_bastard }   
+                            }
+                            4 = {
+                                has_trait = disputed_heritage 
+                            }
+                            5 = { 
+                                NOT = { has_trait = disputed_heritage }   
+                            }
+                            6 = {
+                                has_trait = child_of_concubine_female 
+                            }
+                            7 = { 
+                                NOT = { has_trait = child_of_concubine_female }   
+                            }
+                            8 = {
+                                has_trait = child_of_concubine_male 
+                            }
+                            9 = { 
+                                NOT = { has_trait = child_of_concubine_male }   
+                            }
+                            10 = {
+                                has_trait = wild_oat 
+                            }
+                            11 = { 
+                                NOT = { has_trait = wild_oat }   
+                            }
+                            12 = {
+                                has_trait = bastard_founder 
+                            }
+                            13 = { 
+                                NOT = { has_trait = bastard_founder }   
+                            }
+                        }
+                    }
+                    count = global_var:acs_filter_trait_fame_born_status_count
+                }
+            }
+            157 = {
+                has_trait = kinslayer_3
+            }
+            158 = {
+                NOT = { has_trait = kinslayer_3 }
+            }
+            159 = {
+                has_trait = kinslayer_2
+            }
+            160 = {
+                OR = {
+                    has_trait = kinslayer_2
+                    has_trait = kinslayer_3
+                }
+            }
+            161 = {
+                has_trait = kinslayer_2
+            }
+            162 = {
+                NOT = { has_trait = kinslayer_2 }
+            }
+            163 = {
+                has_trait = kinslayer_3
+            }
+            164 = {
+                AND = {
+                    NOT = { has_trait = kinslayer_2 }
+                    NOT = { has_trait = kinslayer_3 }
+                }
+            }
+            165 = {
+                has_trait = kinslayer_1
+            }
+            166 = {
+                OR = {
+                    has_trait = kinslayer_1
+                    has_trait = kinslayer_3
+                }
+            }
+            167 = {
+                has_trait = kinslayer_1
+            }
+            168 = {
+                OR = {
+                    has_trait = kinslayer_1
+                    has_trait = kinslayer_2
+                }
+            }
+            169 = {
+                OR = {
+                    has_trait = kinslayer_1
+                    has_trait = kinslayer_2
+                    has_trait = kinslayer_3
+                }
+            }
+            170 = {
+                OR = {
+                    has_trait = kinslayer_1
+                    has_trait = kinslayer_2
+                }
+            }
+            171 = {
+                has_trait = kinslayer_1
+            }
+            172 = {
+                OR = {
+                    has_trait = kinslayer_1
+                    has_trait = kinslayer_3
+                }
+            }
+            173 = {
+                has_trait = kinslayer_1
+            }
+            174 = {
+                NOT = { has_trait = kinslayer_1 }
+            }
+            175 = {
+                has_trait = kinslayer_3
+            }
+            176 = {
+                AND = {
+                    NOT = { has_trait = kinslayer_1 }
+                    NOT = { has_trait = kinslayer_3 }
+                }
+            }
+            177 = {
+                has_trait = kinslayer_2
+            }
+            178 = {
+                OR = {
+                    has_trait = kinslayer_2
+                    has_trait = kinslayer_3
+                }
+            }
+            179 = {
+                has_trait = kinslayer_2
+            }
+            180 = {
+                AND = {
+                    NOT = { has_trait = kinslayer_1 }
+                    NOT = { has_trait = kinslayer_2 }
+                }
+            }
+            181 = {
+                has_trait = kinslayer_3
+            }
+            182 = {
+                AND = {
+                    NOT = { has_trait = kinslayer_1 }
+                    NOT = { has_trait = kinslayer_2 }
+                    NOT = { has_trait = kinslayer_3 }
+                }
+            }
+            183 = {
+                has_trait = berserker 
+            }
+            184 = { 
+                NOT = { has_trait = berserker }   
+            }
+            185 = {
+                has_trait = shieldmaiden 
+            }
+            186 = { 
+                NOT = { has_trait = shieldmaiden }   
+            }
+            187 = {
+                has_trait = varangian 
+            }
+            188 = { 
+                NOT = { has_trait = varangian }   
+            }
+            189 = {
+                has_trait = poet 
+            }
+            190 = { 
+                NOT = { has_trait = poet }   
+            }
+            191 = {
+                has_trait = twin 
+            }
+            192 = { 
+                NOT = { has_trait = twin }   
+            }
+            193 = {
+                has_trait = deviant 
+            }
+            194 = { 
+                NOT = { has_trait = deviant }   
+            }
+            195 = {
+                has_trait = cannibal 
+            }
+            196 = { 
+                NOT = { has_trait = cannibal }   
+            }
+            197 = {
+                has_trait = sodomite 
+            }
+            198 = { 
+                NOT = { has_trait = sodomite }   
+            }
+            199 = {
+                has_trait = incestuous 
+            }
+            200 = { 
+                NOT = { has_trait = incestuous }   
+            }
+            201 = {
+                has_trait = adulterer 
+            }
+            202 = { 
+                NOT = { has_trait = adulterer }   
+            }
+            203 = {
+                has_trait = fornicator 
+            }
+            204 = { 
+                NOT = { has_trait = fornicator }   
+            }
+            205 = {
+                has_trait = murderer 
+            }
+            206 = { 
+                NOT = { has_trait = murderer }   
+            }
+            207 = {
+                has_trait = born_in_the_purple 
+            }
+            208 = { 
+                NOT = { has_trait = born_in_the_purple }   
+            }
+            209 = {
+                has_trait = augustus 
+            }
+            210 = { 
+                NOT = { has_trait = augustus }   
+            }
+            211 = {
+                has_trait = viking 
+            }
+            212 = { 
+                NOT = { has_trait = viking }   
+            }
+            213 = {
+                has_trait = reincarnation 
+            }
+            214 = { 
+                NOT = { has_trait = reincarnation }   
+            }
+            215 = {
+                has_trait = adventurer 
+            }
+            216 = { 
+                NOT = { has_trait = adventurer }   
+            }
+            217 = {
+                has_trait = heresiarch 
+            }
+            218 = { 
+                NOT = { has_trait = heresiarch }   
+            }
+            219 = {
+                has_trait = peasant_leader 
+            }
+            220 = { 
+                NOT = { has_trait = peasant_leader }   
+            }
+            221 = {
+                has_trait = witch 
+            }
+            222 = { 
+                NOT = { has_trait = witch }   
+            }
+            223 = {
+                has_trait = disinherited 
+            }
+            224 = { 
+                NOT = { has_trait = disinherited }   
+            }
+            225 = {
+                has_trait = denounced 
+            }
+            226 = { 
+                NOT = { has_trait = denounced }   
+            }
+            227 = {
+                has_trait = chakravarti 
+            }
+            228 = { 
+                NOT = { has_trait = chakravarti }   
+            }
+            229 = {
+                has_trait = greatest_of_khans 
+            }
+            230 = { 
+                NOT = { has_trait = greatest_of_khans }   
+            }
+            231 = {
+                has_trait = logistician 
+            }
+            232 = { 
+                NOT = { has_trait = logistician }   
+            }
+            233 = {
+                has_trait = military_engineer 
+            }
+            234 = { 
+                NOT = { has_trait = military_engineer }   
+            }
+            235 = {
+                has_trait = aggressive_attacker 
+            }
+            236 = { 
+                NOT = { has_trait = aggressive_attacker }   
+            }
+            237 = {
+                has_trait = unyielding_defender 
+            }
+            238 = { 
+                NOT = { has_trait = unyielding_defender }   
+            }
+            239 = {
+                has_trait = forder 
+            }
+            240 = { 
+                NOT = { has_trait = forder }   
+            }
+            241 = {
+                has_trait = flexible_leader 
+            }
+            242 = { 
+                NOT = { has_trait = flexible_leader }   
+            }
+            243 = {
+                has_trait = desert_warrior 
+            }
+            244 = { 
+                NOT = { has_trait = desert_warrior }   
+            }
+            245 = {
+                has_trait = jungle_stalker 
+            }
+            246 = { 
+                NOT = { has_trait = jungle_stalker }   
+            }
+            247 = {
+                has_trait = reaver 
+            }
+            248 = { 
+                NOT = { has_trait = reaver }   
+            }
+            249 = {
+                has_trait = reckless 
+            }
+            250 = { 
+                NOT = { has_trait = reckless }   
+            }
+            251 = {
+                has_trait = holy_warrior 
+            }
+            252 = { 
+                NOT = { has_trait = holy_warrior }   
+            }
+            253 = {
+                has_trait = open_terrain_expert 
+            }
+            254 = { 
+                NOT = { has_trait = open_terrain_expert }   
+            }
+            255 = {
+                has_trait = rough_terrain_expert 
+            }
+            256 = { 
+                NOT = { has_trait = rough_terrain_expert }   
+            }
+            257 = {
+                has_trait = forest_fighter 
+            }
+            258 = { 
+                NOT = { has_trait = forest_fighter }   
+            }
+            259 = {
+                has_trait = cautious_leader 
+            }
+            260 = { 
+                NOT = { has_trait = cautious_leader }   
+            }
+            261 = {
+                has_trait = organizer 
+            }
+            262 = { 
+                NOT = { has_trait = organizer }   
+            }
+            263 = {
+                has_trait = winter_soldier 
+            }
+            264 = { 
+                NOT = { has_trait = winter_soldier }   
+            }
+            265 = {
+                has_trait = reveler_3
+            }
+            266 = {
+                NOT = { has_trait = reveler_3 }
+            }
+            267 = {
+                has_trait = reveler_2
+            }
+            268 = {
+                OR = {
+                    has_trait = reveler_2
+                    has_trait = reveler_3
+                }
+            }
+            269 = {
+                has_trait = reveler_2
+            }
+            270 = {
+                NOT = { has_trait = reveler_2 }
+            }
+            271 = {
+                has_trait = reveler_3
+            }
+            272 = {
+                AND = {
+                    NOT = { has_trait = reveler_2 }
+                    NOT = { has_trait = reveler_3 }
+                }
+            }
+            273 = {
+                has_trait = reveler_1
+            }
+            274 = {
+                OR = {
+                    has_trait = reveler_1
+                    has_trait = reveler_3
+                }
+            }
+            275 = {
+                has_trait = reveler_1
+            }
+            276 = {
+                OR = {
+                    has_trait = reveler_1
+                    has_trait = reveler_2
+                }
+            }
+            277 = {
+                OR = {
+                    has_trait = reveler_1
+                    has_trait = reveler_2
+                    has_trait = reveler_3
+                }
+            }
+            278 = {
+                OR = {
+                    has_trait = reveler_1
+                    has_trait = reveler_2
+                }
+            }
+            279 = {
+                has_trait = reveler_1
+            }
+            280 = {
+                OR = {
+                    has_trait = reveler_1
+                    has_trait = reveler_3
+                }
+            }
+            281 = {
+                has_trait = reveler_1
+            }
+            282 = {
+                NOT = { has_trait = reveler_1 }
+            }
+            283 = {
+                has_trait = reveler_3
+            }
+            284 = {
+                AND = {
+                    NOT = { has_trait = reveler_1 }
+                    NOT = { has_trait = reveler_3 }
+                }
+            }
+            285 = {
+                has_trait = reveler_2
+            }
+            286 = {
+                OR = {
+                    has_trait = reveler_2
+                    has_trait = reveler_3
+                }
+            }
+            287 = {
+                has_trait = reveler_2
+            }
+            288 = {
+                AND = {
+                    NOT = { has_trait = reveler_1 }
+                    NOT = { has_trait = reveler_2 }
+                }
+            }
+            289 = {
+                has_trait = reveler_3
+            }
+            290 = {
+                AND = {
+                    NOT = { has_trait = reveler_1 }
+                    NOT = { has_trait = reveler_2 }
+                    NOT = { has_trait = reveler_3 }
+                }
+            }
+            291 = {
+                has_trait = blademaster_3
+            }
+            292 = {
+                NOT = { has_trait = blademaster_3 }
+            }
+            293 = {
+                has_trait = blademaster_2
+            }
+            294 = {
+                OR = {
+                    has_trait = blademaster_2
+                    has_trait = blademaster_3
+                }
+            }
+            295 = {
+                has_trait = blademaster_2
+            }
+            296 = {
+                NOT = { has_trait = blademaster_2 }
+            }
+            297 = {
+                has_trait = blademaster_3
+            }
+            298 = {
+                AND = {
+                    NOT = { has_trait = blademaster_2 }
+                    NOT = { has_trait = blademaster_3 }
+                }
+            }
+            299 = {
+                has_trait = blademaster_1
+            }
+            300 = {
+                OR = {
+                    has_trait = blademaster_1
+                    has_trait = blademaster_3
+                }
+            }
+            301 = {
+                has_trait = blademaster_1
+            }
+            302 = {
+                OR = {
+                    has_trait = blademaster_1
+                    has_trait = blademaster_2
+                }
+            }
+            303 = {
+                OR = {
+                    has_trait = blademaster_1
+                    has_trait = blademaster_2
+                    has_trait = blademaster_3
+                }
+            }
+            304 = {
+                OR = {
+                    has_trait = blademaster_1
+                    has_trait = blademaster_2
+                }
+            }
+            305 = {
+                has_trait = blademaster_1
+            }
+            306 = {
+                OR = {
+                    has_trait = blademaster_1
+                    has_trait = blademaster_3
+                }
+            }
+            307 = {
+                has_trait = blademaster_1
+            }
+            308 = {
+                NOT = { has_trait = blademaster_1 }
+            }
+            309 = {
+                has_trait = blademaster_3
+            }
+            310 = {
+                AND = {
+                    NOT = { has_trait = blademaster_1 }
+                    NOT = { has_trait = blademaster_3 }
+                }
+            }
+            311 = {
+                has_trait = blademaster_2
+            }
+            312 = {
+                OR = {
+                    has_trait = blademaster_2
+                    has_trait = blademaster_3
+                }
+            }
+            313 = {
+                has_trait = blademaster_2
+            }
+            314 = {
+                AND = {
+                    NOT = { has_trait = blademaster_1 }
+                    NOT = { has_trait = blademaster_2 }
+                }
+            }
+            315 = {
+                has_trait = blademaster_3
+            }
+            316 = {
+                AND = {
+                    NOT = { has_trait = blademaster_1 }
+                    NOT = { has_trait = blademaster_2 }
+                    NOT = { has_trait = blademaster_3 }
+                }
+            }
+            317 = {
+                has_trait = hunter_3
+            }
+            318 = {
+                NOT = { has_trait = hunter_3 }
+            }
+            319 = {
+                has_trait = hunter_2
+            }
+            320 = {
+                OR = {
+                    has_trait = hunter_2
+                    has_trait = hunter_3
+                }
+            }
+            321 = {
+                has_trait = hunter_2
+            }
+            322 = {
+                NOT = { has_trait = hunter_2 }
+            }
+            323 = {
+                has_trait = hunter_3
+            }
+            324 = {
+                AND = {
+                    NOT = { has_trait = hunter_2 }
+                    NOT = { has_trait = hunter_3 }
+                }
+            }
+            325 = {
+                has_trait = hunter_1
+            }
+            326 = {
+                OR = {
+                    has_trait = hunter_1
+                    has_trait = hunter_3
+                }
+            }
+            327 = {
+                has_trait = hunter_1
+            }
+            328 = {
+                OR = {
+                    has_trait = hunter_1
+                    has_trait = hunter_2
+                }
+            }
+            329 = {
+                OR = {
+                    has_trait = hunter_1
+                    has_trait = hunter_2
+                    has_trait = hunter_3
+                }
+            }
+            330 = {
+                OR = {
+                    has_trait = hunter_1
+                    has_trait = hunter_2
+                }
+            }
+            331 = {
+                has_trait = hunter_1
+            }
+            332 = {
+                OR = {
+                    has_trait = hunter_1
+                    has_trait = hunter_3
+                }
+            }
+            333 = {
+                has_trait = hunter_1
+            }
+            334 = {
+                NOT = { has_trait = hunter_1 }
+            }
+            335 = {
+                has_trait = hunter_3
+            }
+            336 = {
+                AND = {
+                    NOT = { has_trait = hunter_1 }
+                    NOT = { has_trait = hunter_3 }
+                }
+            }
+            337 = {
+                has_trait = hunter_2
+            }
+            338 = {
+                OR = {
+                    has_trait = hunter_2
+                    has_trait = hunter_3
+                }
+            }
+            339 = {
+                has_trait = hunter_2
+            }
+            340 = {
+                AND = {
+                    NOT = { has_trait = hunter_1 }
+                    NOT = { has_trait = hunter_2 }
+                }
+            }
+            341 = {
+                has_trait = hunter_3
+            }
+            342 = {
+                AND = {
+                    NOT = { has_trait = hunter_1 }
+                    NOT = { has_trait = hunter_2 }
+                    NOT = { has_trait = hunter_3 }
+                }
+            }
+            343 = {
+                has_trait = mystic_3
+            }
+            344 = {
+                NOT = { has_trait = mystic_3 }
+            }
+            345 = {
+                has_trait = mystic_2
+            }
+            346 = {
+                OR = {
+                    has_trait = mystic_2
+                    has_trait = mystic_3
+                }
+            }
+            347 = {
+                has_trait = mystic_2
+            }
+            348 = {
+                NOT = { has_trait = mystic_2 }
+            }
+            349 = {
+                has_trait = mystic_3
+            }
+            350 = {
+                AND = {
+                    NOT = { has_trait = mystic_2 }
+                    NOT = { has_trait = mystic_3 }
+                }
+            }
+            351 = {
+                has_trait = mystic_1
+            }
+            352 = {
+                OR = {
+                    has_trait = mystic_1
+                    has_trait = mystic_3
+                }
+            }
+            353 = {
+                has_trait = mystic_1
+            }
+            354 = {
+                OR = {
+                    has_trait = mystic_1
+                    has_trait = mystic_2
+                }
+            }
+            355 = {
+                OR = {
+                    has_trait = mystic_1
+                    has_trait = mystic_2
+                    has_trait = mystic_3
+                }
+            }
+            356 = {
+                OR = {
+                    has_trait = mystic_1
+                    has_trait = mystic_2
+                }
+            }
+            357 = {
+                has_trait = mystic_1
+            }
+            358 = {
+                OR = {
+                    has_trait = mystic_1
+                    has_trait = mystic_3
+                }
+            }
+            359 = {
+                has_trait = mystic_1
+            }
+            360 = {
+                NOT = { has_trait = mystic_1 }
+            }
+            361 = {
+                has_trait = mystic_3
+            }
+            362 = {
+                AND = {
+                    NOT = { has_trait = mystic_1 }
+                    NOT = { has_trait = mystic_3 }
+                }
+            }
+            363 = {
+                has_trait = mystic_2
+            }
+            364 = {
+                OR = {
+                    has_trait = mystic_2
+                    has_trait = mystic_3
+                }
+            }
+            365 = {
+                has_trait = mystic_2
+            }
+            366 = {
+                AND = {
+                    NOT = { has_trait = mystic_1 }
+                    NOT = { has_trait = mystic_2 }
+                }
+            }
+            367 = {
+                has_trait = mystic_3
+            }
+            368 = {
+                AND = {
+                    NOT = { has_trait = mystic_1 }
+                    NOT = { has_trait = mystic_2 }
+                    NOT = { has_trait = mystic_3 }
+                }
+            }
+            369 = {
+                has_trait = physician_3
+            }
+            370 = {
+                NOT = { has_trait = physician_3 }
+            }
+            371 = {
+                has_trait = physician_2
+            }
+            372 = {
+                OR = {
+                    has_trait = physician_2
+                    has_trait = physician_3
+                }
+            }
+            373 = {
+                has_trait = physician_2
+            }
+            374 = {
+                NOT = { has_trait = physician_2 }
+            }
+            375 = {
+                has_trait = physician_3
+            }
+            376 = {
+                AND = {
+                    NOT = { has_trait = physician_2 }
+                    NOT = { has_trait = physician_3 }
+                }
+            }
+            377 = {
+                has_trait = physician_1
+            }
+            378 = {
+                OR = {
+                    has_trait = physician_1
+                    has_trait = physician_3
+                }
+            }
+            379 = {
+                has_trait = physician_1
+            }
+            380 = {
+                OR = {
+                    has_trait = physician_1
+                    has_trait = physician_2
+                }
+            }
+            381 = {
+                OR = {
+                    has_trait = physician_1
+                    has_trait = physician_2
+                    has_trait = physician_3
+                }
+            }
+            382 = {
+                OR = {
+                    has_trait = physician_1
+                    has_trait = physician_2
+                }
+            }
+            383 = {
+                has_trait = physician_1
+            }
+            384 = {
+                OR = {
+                    has_trait = physician_1
+                    has_trait = physician_3
+                }
+            }
+            385 = {
+                has_trait = physician_1
+            }
+            386 = {
+                NOT = { has_trait = physician_1 }
+            }
+            387 = {
+                has_trait = physician_3
+            }
+            388 = {
+                AND = {
+                    NOT = { has_trait = physician_1 }
+                    NOT = { has_trait = physician_3 }
+                }
+            }
+            389 = {
+                has_trait = physician_2
+            }
+            390 = {
+                OR = {
+                    has_trait = physician_2
+                    has_trait = physician_3
+                }
+            }
+            391 = {
+                has_trait = physician_2
+            }
+            392 = {
+                AND = {
+                    NOT = { has_trait = physician_1 }
+                    NOT = { has_trait = physician_2 }
+                }
+            }
+            393 = {
+                has_trait = physician_3
+            }
+            394 = {
+                AND = {
+                    NOT = { has_trait = physician_1 }
+                    NOT = { has_trait = physician_2 }
+                    NOT = { has_trait = physician_3 }
+                }
+            }
+            395 = {
+                has_trait = diplomat 
+            }
+            396 = { 
+                NOT = { has_trait = diplomat }   
+            }
+            397 = {
+                has_trait = family_first 
+            }
+            398 = { 
+                NOT = { has_trait = family_first }   
+            }
+            399 = {
+                has_trait = august 
+            }
+            400 = { 
+                NOT = { has_trait = august }   
+            }
+            401 = {
+                has_trait = strategist 
+            }
+            402 = { 
+                NOT = { has_trait = strategist }   
+            }
+            403 = {
+                has_trait = overseer 
+            }
+            404 = { 
+                NOT = { has_trait = overseer }   
+            }
+            405 = {
+                has_trait = gallant 
+            }
+            406 = { 
+                NOT = { has_trait = gallant }   
+            }
+            407 = {
+                has_trait = architect 
+            }
+            408 = { 
+                NOT = { has_trait = architect }   
+            }
+            409 = {
+                has_trait = administrator 
+            }
+            410 = { 
+                NOT = { has_trait = administrator }   
+            }
+            411 = {
+                has_trait = avaricious 
+            }
+            412 = { 
+                NOT = { has_trait = avaricious }   
+            }
+            413 = {
+                has_trait = schemer 
+            }
+            414 = { 
+                NOT = { has_trait = schemer }   
+            }
+            415 = {
+                has_trait = seducer 
+            }
+            416 = { 
+                NOT = { has_trait = seducer }   
+            }
+            417 = {
+                has_trait = torturer 
+            }
+            418 = { 
+                NOT = { has_trait = torturer }   
+            }
+            419 = {
+                has_trait = whole_of_body 
+            }
+            420 = { 
+                NOT = { has_trait = whole_of_body }   
+            }
+            421 = {
+                has_trait = scholar 
+            }
+            422 = { 
+                NOT = { has_trait = scholar }   
+            }
+            423 = {
+                has_trait = theologian 
+            }
+            424 = { 
+                NOT = { has_trait = theologian }   
+            }
+            425 = {
+                has_trait = lifestyle_herbalist 
+            }
+            426 = { 
+                NOT = { has_trait = lifestyle_herbalist }   
+            }
+            427 = {
+                has_trait = rowdy 
+            }
+            428 = { 
+                NOT = { has_trait = rowdy }   
+            }
+            429 = {
+                has_trait = charming 
+            }
+            430 = { 
+                NOT = { has_trait = charming }   
+            }
+            431 = {
+                has_trait = curious 
+            }
+            432 = { 
+                NOT = { has_trait = curious }   
+            }
+            433 = {
+                has_trait = pensive 
+            }
+            434 = { 
+                NOT = { has_trait = pensive }   
+            }
+            435 = {
+                has_trait = bossy 
+            }
+            436 = { 
+                NOT = { has_trait = bossy }   
+            }
+            437 = {
+                has_trait = drunkard 
+            }
+            438 = { 
+                NOT = { has_trait = drunkard }   
+            }
+            439 = {
+                has_trait = hashishiyah 
+            }
+            440 = { 
+                NOT = { has_trait = hashishiyah }   
+            }
+            441 = {
+                has_trait = rakish 
+            }
+            442 = { 
+                NOT = { has_trait = rakish }   
+            }
+            443 = {
+                has_trait = reclusive 
+            }
+            444 = { 
+                NOT = { has_trait = reclusive }   
+            }
+            445 = {
+                has_trait = irritable 
+            }
+            446 = { 
+                NOT = { has_trait = irritable }   
+            }
+            447 = {
+                has_trait = flagellant 
+            }
+            448 = { 
+                NOT = { has_trait = flagellant }   
+            }
+            449 = {
+                has_trait = profligate 
+            }
+            450 = { 
+                NOT = { has_trait = profligate }   
+            }
+            451 = {
+                has_trait = improvident 
+            }
+            452 = { 
+                NOT = { has_trait = improvident }   
+            }
+            453 = {
+                has_trait = contrite 
+            }
+            454 = { 
+                NOT = { has_trait = contrite }   
+            }
+            455 = {
+                has_trait = comfort_eater 
+            }
+            456 = { 
+                NOT = { has_trait = comfort_eater }   
+            }
+            457 = {
+                has_trait = inappetetic 
+            }
+            458 = { 
+                NOT = { has_trait = inappetetic }   
+            }
+            459 = {
+                has_trait = journaller 
+            }
+            460 = { 
+                NOT = { has_trait = journaller }   
+            }
+            461 = {
+                has_trait = confider 
+            }
+            462 = { 
+                NOT = { has_trait = confider }   
+            }
+            463 = {
+                has_trait = athletic 
+            }
+            464 = { 
+                NOT = { has_trait = athletic }   
+            }
+            465 = {
+                has_trait = wounded_3
+            }
+            466 = {
+                NOT = { has_trait = wounded_3 }
+            }
+            467 = {
+                has_trait = wounded_2
+            }
+            468 = {
+                OR = {
+                    has_trait = wounded_2
+                    has_trait = wounded_3
+                }
+            }
+            469 = {
+                has_trait = wounded_2
+            }
+            470 = {
+                NOT = { has_trait = wounded_2 }
+            }
+            471 = {
+                has_trait = wounded_3
+            }
+            472 = {
+                AND = {
+                    NOT = { has_trait = wounded_2 }
+                    NOT = { has_trait = wounded_3 }
+                }
+            }
+            473 = {
+                has_trait = wounded_1
+            }
+            474 = {
+                OR = {
+                    has_trait = wounded_1
+                    has_trait = wounded_3
+                }
+            }
+            475 = {
+                has_trait = wounded_1
+            }
+            476 = {
+                OR = {
+                    has_trait = wounded_1
+                    has_trait = wounded_2
+                }
+            }
+            477 = {
+                OR = {
+                    has_trait = wounded_1
+                    has_trait = wounded_2
+                    has_trait = wounded_3
+                }
+            }
+            478 = {
+                OR = {
+                    has_trait = wounded_1
+                    has_trait = wounded_2
+                }
+            }
+            479 = {
+                has_trait = wounded_1
+            }
+            480 = {
+                OR = {
+                    has_trait = wounded_1
+                    has_trait = wounded_3
+                }
+            }
+            481 = {
+                has_trait = wounded_1
+            }
+            482 = {
+                NOT = { has_trait = wounded_1 }
+            }
+            483 = {
+                has_trait = wounded_3
+            }
+            484 = {
+                AND = {
+                    NOT = { has_trait = wounded_1 }
+                    NOT = { has_trait = wounded_3 }
+                }
+            }
+            485 = {
+                has_trait = wounded_2
+            }
+            486 = {
+                OR = {
+                    has_trait = wounded_2
+                    has_trait = wounded_3
+                }
+            }
+            487 = {
+                has_trait = wounded_2
+            }
+            488 = {
+                AND = {
+                    NOT = { has_trait = wounded_1 }
+                    NOT = { has_trait = wounded_2 }
+                }
+            }
+            489 = {
+                has_trait = wounded_3
+            }
+            490 = {
+                AND = {
+                    NOT = { has_trait = wounded_1 }
+                    NOT = { has_trait = wounded_2 }
+                    NOT = { has_trait = wounded_3 }
+                }
+            }
+            491 = {
+                OR = {
+                            has_trait = depressed_1
+                            has_trait = depressed_genetic
+                        } 
+            }
+            492 = { 
+                NOR = {
+                            has_trait = depressed_1
+                            has_trait = depressed_genetic
+                        }   
+            }
+            493 = {
+                OR = {
+                            has_trait = lunatic_1
+                            has_trait = lunatic_genetic
+                        } 
+            }
+            494 = { 
+                NOR = {
+                            has_trait = lunatic_1
+                            has_trait = lunatic_genetic
+                        }   
+            }
+            495 = {
+                OR = {
+                            has_trait = possessed_1
+                            has_trait = possessed_genetic
+                        } 
+            }
+            496 = { 
+                NOR = {
+                            has_trait = possessed_1
+                            has_trait = possessed_genetic
+                        }   
+            }
+            497 = {
+                has_trait = ill 
+            }
+            498 = { 
+                NOT = { has_trait = ill }   
+            }
+            499 = {
+                has_trait = pneumonic 
+            }
+            500 = { 
+                NOT = { has_trait = pneumonic }   
+            }
+            501 = {
+                has_trait = great_pox 
+            }
+            502 = { 
+                NOT = { has_trait = great_pox }   
+            }
+            503 = {
+                OR = {
+                            has_trait = lovers_pox
+                            has_trait = early_great_pox
+                        } 
+            }
+            504 = { 
+                NOR = {
+                            has_trait = lovers_pox
+                            has_trait = early_great_pox
+                        }   
+            }
+            505 = {
+                has_trait = leper 
+            }
+            506 = { 
+                NOT = { has_trait = leper }   
+            }
+            507 = {
+                has_trait = maimed 
+            }
+            508 = { 
+                NOT = { has_trait = maimed }   
+            }
+            509 = {
+                has_trait = one_eyed 
+            }
+            510 = { 
+                NOT = { has_trait = one_eyed }   
+            }
+            511 = {
+                has_trait = one_legged 
+            }
+            512 = { 
+                NOT = { has_trait = one_legged }   
+            }
+            513 = {
+                has_trait = disfigured 
+            }
+            514 = { 
+                NOT = { has_trait = disfigured }   
+            }
+            515 = {
+                has_trait = infirm 
+            }
+            516 = { 
+                NOT = { has_trait = infirm }   
+            }
+            517 = {
+                has_trait = incapable 
+            }
+            518 = { 
+                NOT = { has_trait = incapable }   
+            }
+            519 = {
+                has_trait = gout_ridden 
+            }
+            520 = { 
+                NOT = { has_trait = gout_ridden }   
+            }
+            521 = {
+                has_trait = consumption 
+            }
+            522 = { 
+                NOT = { has_trait = consumption }   
+            }
+            523 = {
+                has_trait = cancer 
+            }
+            524 = { 
+                NOT = { has_trait = cancer }   
+            }
+            525 = {
+                has_trait = typhus 
+            }
+            526 = { 
+                NOT = { has_trait = typhus }   
+            }
+            527 = {
+                has_trait = bubonic_plague 
+            }
+            528 = { 
+                NOT = { has_trait = bubonic_plague }   
+            }
+            529 = {
+                has_trait = smallpox 
+            }
+            530 = { 
+                NOT = { has_trait = smallpox }   
+            }
+            531 = {
+                has_trait = sickly 
+            }
+            532 = { 
+                NOT = { has_trait = sickly }   
+            }
+            533 = {
+                has_trait = scarred 
+            }
+            534 = { 
+                NOT = { has_trait = scarred }   
+            }
+            535 = {
+                has_trait = eunuch 
+            }
+            536 = { 
+                NOT = { has_trait = eunuch }   
+            }
+            537 = {
+                has_trait = blind 
+            }
+            538 = { 
+                NOT = { has_trait = blind }   
+            }
+            539 = {
+                any_in_global_list = {
+                    variable = acs_filter_trait_physical_beauty_list_reduced
+                    prev = {
+                        switch = {
+                            trigger = prev
+                            0 = {
+                                has_trait = beauty_bad_1 
+                            }
+                            1 = { 
+                                NOT = { has_trait = beauty_bad_1 }   
+                            }
+                            2 = {
+                                has_trait = beauty_bad_2 
+                            }
+                            3 = { 
+                                NOT = { has_trait = beauty_bad_2 }   
+                            }
+                            4 = {
+                                has_trait = beauty_bad_3 
+                            }
+                            5 = { 
+                                NOT = { has_trait = beauty_bad_3 }   
+                            }
+                            6 = {
+                                has_trait = beauty_good_1 
+                            }
+                            7 = { 
+                                NOT = { has_trait = beauty_good_1 }   
+                            }
+                            8 = {
+                                has_trait = beauty_good_2 
+                            }
+                            9 = { 
+                                NOT = { has_trait = beauty_good_2 }   
+                            }
+                            10 = {
+                                has_trait = beauty_good_3 
+                            }
+                            11 = { 
+                                NOT = { has_trait = beauty_good_3 }   
+                            }
+                        }
+                    }
+                    count = global_var:acs_filter_trait_physical_beauty_count
+                }
+            }
+            540 = {
+                any_in_global_list = {
+                    variable = acs_filter_trait_physical_intellect_list_reduced
+                    prev = {
+                        switch = {
+                            trigger = prev
+                            0 = {
+                                has_trait = intellect_bad_1 
+                            }
+                            1 = { 
+                                NOT = { has_trait = intellect_bad_1 }   
+                            }
+                            2 = {
+                                has_trait = intellect_bad_2 
+                            }
+                            3 = { 
+                                NOT = { has_trait = intellect_bad_2 }   
+                            }
+                            4 = {
+                                has_trait = intellect_bad_3 
+                            }
+                            5 = { 
+                                NOT = { has_trait = intellect_bad_3 }   
+                            }
+                            6 = {
+                                has_trait = intellect_good_1 
+                            }
+                            7 = { 
+                                NOT = { has_trait = intellect_good_1 }   
+                            }
+                            8 = {
+                                has_trait = intellect_good_2 
+                            }
+                            9 = { 
+                                NOT = { has_trait = intellect_good_2 }   
+                            }
+                            10 = {
+                                has_trait = intellect_good_3 
+                            }
+                            11 = { 
+                                NOT = { has_trait = intellect_good_3 }   
+                            }
+                        }
+                    }
+                    count = global_var:acs_filter_trait_physical_intellect_count
+                }
+            }
+            541 = {
+                any_in_global_list = {
+                    variable = acs_filter_trait_physical_physique_list_reduced
+                    prev = {
+                        switch = {
+                            trigger = prev
+                            0 = {
+                                has_trait = physique_bad_1 
+                            }
+                            1 = { 
+                                NOT = { has_trait = physique_bad_1 }   
+                            }
+                            2 = {
+                                has_trait = physique_bad_2 
+                            }
+                            3 = { 
+                                NOT = { has_trait = physique_bad_2 }   
+                            }
+                            4 = {
+                                has_trait = physique_bad_3 
+                            }
+                            5 = { 
+                                NOT = { has_trait = physique_bad_3 }   
+                            }
+                            6 = {
+                                has_trait = physique_good_1 
+                            }
+                            7 = { 
+                                NOT = { has_trait = physique_good_1 }   
+                            }
+                            8 = {
+                                has_trait = physique_good_2 
+                            }
+                            9 = { 
+                                NOT = { has_trait = physique_good_2 }   
+                            }
+                            10 = {
+                                has_trait = physique_good_3 
+                            }
+                            11 = { 
+                                NOT = { has_trait = physique_good_3 }   
+                            }
+                        }
+                    }
+                    count = global_var:acs_filter_trait_physical_physique_count
+                }
+            }
+            542 = {
+                has_trait = pure_blooded 
+            }
+            543 = { 
+                NOT = { has_trait = pure_blooded }   
+            }
+            544 = {
+                has_trait = fecund 
+            }
+            545 = { 
+                NOT = { has_trait = fecund }   
+            }
+            546 = {
+                has_trait = strong 
+            }
+            547 = { 
+                NOT = { has_trait = strong }   
+            }
+            548 = {
+                has_trait = shrewd 
+            }
+            549 = { 
+                NOT = { has_trait = shrewd }   
+            }
+            550 = {
+                has_trait = clubfooted 
+            }
+            551 = { 
+                NOT = { has_trait = clubfooted }   
+            }
+            552 = {
+                has_trait = hunchbacked 
+            }
+            553 = { 
+                NOT = { has_trait = hunchbacked }   
+            }
+            554 = {
+                has_trait = lisping 
+            }
+            555 = { 
+                NOT = { has_trait = lisping }   
+            }
+            556 = {
+                has_trait = stuttering 
+            }
+            557 = { 
+                NOT = { has_trait = stuttering }   
+            }
+            558 = {
+                has_trait = dwarf 
+            }
+            559 = { 
+                NOT = { has_trait = dwarf }   
+            }
+            560 = {
+                has_trait = giant 
+            }
+            561 = { 
+                NOT = { has_trait = giant }   
+            }
+            562 = {
+                has_trait = inbred 
+            }
+            563 = { 
+                NOT = { has_trait = inbred }   
+            }
+            564 = {
+                has_trait = weak 
+            }
+            565 = { 
+                NOT = { has_trait = weak }   
+            }
+            566 = {
+                has_trait = dull 
+            }
+            567 = { 
+                NOT = { has_trait = dull }   
+            }
+            568 = {
+                OR = {
+                            has_trait = impotent
+                            has_trait = infertile
+                        } 
+            }
+            569 = { 
+                NOR = {
+                            has_trait = impotent
+                            has_trait = infertile
+                        }   
+            }
+            570 = {
+                has_trait = spindly 
+            }
+            571 = { 
+                NOT = { has_trait = spindly }   
+            }
+            572 = {
+                has_trait = scaly 
+            }
+            573 = { 
+                NOT = { has_trait = scaly }   
+            }
+            574 = {
+                has_trait = albino 
+            }
+            575 = { 
+                NOT = { has_trait = albino }   
+            }
+            576 = {
+                has_trait = wheezing 
+            }
+            577 = { 
+                NOT = { has_trait = wheezing }   
+            }
+            578 = {
+                has_trait = bleeder 
+            }
+            579 = { 
+                NOT = { has_trait = bleeder }   
+            }
+            580 = {
+                has_trait = pregnant 
+            }
+            581 = { 
+                NOT = { has_trait = pregnant }   
+            }
+            582 = {
+                has_trait = celibate 
+            }
+            583 = { 
+                NOT = { has_trait = celibate }   
+            }
+            584 = {
+                has_trait = pilgrim 
+            }
+            585 = { 
+                NOT = { has_trait = pilgrim }   
+            }
+            586 = {
+                has_trait = excommunicated 
+            }
+            587 = { 
+                NOT = { has_trait = excommunicated }   
+            }
+            588 = {
+                has_trait = devoted 
+            }
+            589 = { 
+                NOT = { has_trait = devoted }   
+            }
+            590 = {
+                has_trait = sayyid 
+            }
+            591 = { 
+                NOT = { has_trait = sayyid }   
+            }
+            592 = {
+                has_trait = saoshyant 
+            }
+            593 = { 
+                NOT = { has_trait = saoshyant }   
+            }
+            594 = {
+                has_trait = saoshyant_descendant 
+            }
+            595 = { 
+                NOT = { has_trait = saoshyant_descendant }   
+            }
+            596 = {
+                has_trait = savior 
+            }
+            597 = { 
+                NOT = { has_trait = savior }   
+            }
+            598 = {
+                has_trait = divine_blood 
+            }
+            599 = { 
+                NOT = { has_trait = divine_blood }   
+            }
+            600 = {
+                has_trait = blood_of_prophet 
+            }
+            601 = { 
+                NOT = { has_trait = blood_of_prophet }   
+            }
+            602 = {
+                has_trait = faith_warrior 
+            }
+            603 = { 
+                NOT = { has_trait = faith_warrior }   
+            }
+            604 = {
+                has_trait = saint 
+            }
+            605 = { 
+                NOT = { has_trait = saint }   
+            }
+            606 = {
+                has_trait = order_member 
+            }
+            607 = { 
+                NOT = { has_trait = order_member }   
+            }
+            608 = {
+                has_trait = paragon 
+            }
+            609 = { 
+                NOT = { has_trait = paragon }   
+            }
+            610 = {
+                has_trait = consecrated_blood 
+            }
+            611 = { 
+                NOT = { has_trait = consecrated_blood }   
+            }
+            612 = {
+                has_trait = crusader_king 
+            }
+            613 = { 
+                NOT = { has_trait = crusader_king }   
+            }
+            614 = {
+                num_sinful_traits = { value > 0 faith = scope:acs_filter_faith } 
+            }
+            615 = { 
+                num_sinful_traits = { value = 0 faith = scope:acs_filter_faith }   
+            }
+            616 = {
+                num_virtuous_traits = { value > 0 faith = scope:acs_filter_faith } 
+            }
+            617 = { 
+                num_virtuous_traits = { value = 0 faith = scope:acs_filter_faith }   
+            }
+            618 = {
+                num_sinful_traits > 0 
+            }
+            619 = { 
+                num_sinful_traits = 0   
+            }
+            620 = {
+                num_virtuous_traits > 0 
+            }
+            621 = { 
+                num_virtuous_traits = 0   
+            }
+            622 = {
+                num_of_bad_genetic_traits > 0 
+            }
+            623 = { 
+                num_of_bad_genetic_traits = 0   
+            }
+            624 = {
+                num_of_good_genetic_traits > 0 
+            }
+            625 = { 
+                num_of_good_genetic_traits = 0   
+            }
+            626 = {
+                number_of_commander_traits > 0 
+            }
+            627 = { 
+                number_of_commander_traits = 0   
+            }
+            628 = {
+                number_of_lifestyle_traits > 0 
+            }
+            629 = { 
+                number_of_lifestyle_traits = 0   
+            }
+            630 = {
+                OR = { 
+                            has_trait = adulterer
+                            has_trait = fornicator
+                            has_trait = murderer
+                            has_trait = deviant
+                            has_trait = cannibal
+                            has_trait = sodomite
+                            has_trait = kinslayer
+                            has_trait = incestuous
+                            has_trait = witch
+                            has_trait = excommunicated
+                        } 
+            }
+            631 = { 
+                NOR = {
+                            has_trait = adulterer
+                            has_trait = fornicator
+                            has_trait = murderer
+                            has_trait = deviant
+                            has_trait = cannibal
+                            has_trait = sodomite
+                            has_trait = kinslayer
+                            has_trait = incestuous
+                            has_trait = witch
+                            has_trait = excommunicated
+                        }   
+            }
+            632 = {
+                OR = {
+                            has_trait = ill
+                            has_trait = bubonic_plague
+                            has_trait = cancer
+                            has_trait = consumption
+                            has_trait = great_pox
+                            has_trait = gout_ridden
+                            has_trait = leper
+                            has_trait = lovers_pox
+                            has_trait = pneumonic
+                            has_trait = smallpox
+                            has_trait = typhus
+                            has_trait = early_great_pox
+                            } 
+            }
+            633 = { 
+                NOR = {
+                            has_trait = ill
+                            has_trait = bubonic_plague
+                            has_trait = cancer
+                            has_trait = consumption
+                            has_trait = great_pox
+                            has_trait = gout_ridden
+                            has_trait = leper
+                            has_trait = lovers_pox
+                            has_trait = pneumonic
+                            has_trait = smallpox
+                            has_trait = typhus
+                            has_trait = early_great_pox
+                            }   
+            }
+        }
+    }
+}
