@@ -835,10 +835,11 @@ acs_filter_simple_checkbox = {
         any_in_global_list = {
             variable = acs_active_filter_list
             save_temporary_scope_value_as = {name = offset value = -1 }
-            this = acs_major_minor_offset
+            this = acs_major_minor_index_offset
+        }
     }     
     effect = {
-        set_local_variable = { name = acs_start value = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index } }
+        set_local_variable = { name = acs_start value = acs_major_minor }
         acs_simple_checkbox = { LIST = acs_active_filter_list START = local_var:acs_start }
     }
 }
@@ -885,10 +886,12 @@ acs_filter_2_group_checkbox = {
             any_in_global_list = {
                 variable = acs_active_filter_list
                 OR = {
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 5 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 6 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 7 }
-
+                    save_temporary_scope_value_as = {name = offset value = 5 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = {name = offset value = 6 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = {name = offset value = 7 }
+                    this = acs_major_minor_offset
                 }
             }
         }
@@ -900,9 +903,11 @@ acs_filter_2_group_checkbox = {
             any_in_global_list = {
                 variable = acs_active_filter_list
                 OR = {
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 3 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 6 }
+                    this = acs_major_minor
+                    save_temporary_scope_value_as = {name = offset value = 3 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = {name = offset value = 6 }
+                    this = acs_major_minor_offset
                 }
             }
         }
@@ -910,9 +915,12 @@ acs_filter_2_group_checkbox = {
             any_in_global_list = {
                 variable = acs_active_filter_list
                 OR = {
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 1 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 4 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 7 }
+                    save_temporary_scope_value_as = {name = offset value = 1 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = {name = offset value = 4 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = {name = offset value = 7 }
+                    this = acs_major_minor_offset
                 }
             }
         }
@@ -920,90 +928,151 @@ acs_filter_2_group_checkbox = {
         
     effect = {
         acs_save_undo_0_filters = yes
-        set_local_variable = { name = acs_index value = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index } }
         if = {
             limit = {
                 NOT = {
                     any_in_global_list = {
                         variable = acs_active_filter_list
-                        AND = {
-                            this >= local_var:acs_index
-                            this <= { value = local_var:acs_index add = 7 }
-                        }
+                        this >= acs_major_minor
+                        save_temporary_scope_value_as = { name = offset value = 7 }
+                        this <= acs_major_minor_offset
                     } 
                 } 
             }
             if = { limit = {  scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 2 } }
+                save_temporary_scope_value_as = { name = offset value = 2 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = local_var:acs_index }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = local_var:acs_index } }
-            remove_list_global_variable = { name = acs_active_filter_list target = local_var:acs_index }
+        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = acs_major_minor } }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 3} }
+                save_temporary_scope_value_as = { name = offset value = 3 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 1} }
+                save_temporary_scope_value_as = { name = offset value = 1 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 1 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 1 }  }
+        else_if = { 
+            limit = {
+                any_in_global_list = {
+                    save_temporary_scope_value_as = { name = offset value = 1 }
+                    variable = acs_active_filter_list
+                    this = acs_major_minor_offset
+                } 
+            }
+            save_temporary_scope_value_as = { name = offset value = 1 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset  }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 4 } }
+                save_temporary_scope_value_as = { name = offset value = 4 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset}
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 2 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 2 }  }
+        else_if = {
+            limit = {
+                any_in_global_list = {
+                    save_temporary_scope_value_as = { name = offset value = 2 }
+                    variable = acs_active_filter_list
+                    this = acs_major_minor_offset
+                } 
+            }
+            save_temporary_scope_value_as = { name = offset value = 2 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset  }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 5 } }
+                save_temporary_scope_value_as = { name = offset value = 5 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 3 } }
+                save_temporary_scope_value_as = { name = offset value = 3 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 3 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 3 }  }
+        else_if = {
+            limit = {
+                any_in_global_list = {
+                    save_temporary_scope_value_as = { name = offset value = 3 }
+                    variable = acs_active_filter_list
+                    this = acs_major_minor_offset
+                } 
+            }
+            save_temporary_scope_value_as = { name = offset value = 3 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 6 } }
+                save_temporary_scope_value_as = { name = offset value = 6 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 4 } }
+                save_temporary_scope_value_as = { name = offset value = 4 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 4 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 4 } }
+        else_if = { 
+            limit = {
+                any_in_global_list = {
+                    save_temporary_scope_value_as = { name = offset value = 4 }
+                    variable = acs_active_filter_list
+                    this = acs_major_minor_offset
+                } 
+            }
+            save_temporary_scope_value_as = { name = offset value = 4 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 7 } }
+                save_temporary_scope_value_as = { name = offset value = 7 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 2 } }
+                save_temporary_scope_value_as = { name = offset value = 2 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 5 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 5 } }
+        else_if = {
+            limit = {
+                any_in_global_list = {
+                    save_temporary_scope_value_as = { name = offset value = 5 }
+                    variable = acs_active_filter_list
+                    this = acs_major_minor_offset
+                } 
+            }
+            save_temporary_scope_value_as = { name = offset value = 5 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 6 } }
+                save_temporary_scope_value_as = { name = offset value = 6 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 6 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 6 }  }
+        else_if = { 
+            limit = {
+                any_in_global_list = {
+                    save_temporary_scope_value_as = { name = offset value = 6 }
+                    variable = acs_active_filter_list
+                    this = acs_major_minor_offset
+                } 
+            }
+            save_temporary_scope_value_as = { name = offset value = 6 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset  }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = local_var:acs_index }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 7 } }
+                save_temporary_scope_value_as = { name = offset value = 7 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
         else = {
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 7}  }
+            save_temporary_scope_value_as = { name = offset value = 7 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset  }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 1 } }
+                save_temporary_scope_value_as = { name = offset value = 1 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 5 } }
+                save_temporary_scope_value_as = { name = offset value = 5 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
         acs_auto_apply_sorting_and_filters = yes
@@ -1052,8 +1121,10 @@ acs_filter_3_group_checkbox = {
             any_in_global_list = {
                 variable = acs_active_filter_list
                 AND = {
-                    this >= { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 8 }
-                    this <= { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 16 }
+                    save_temporary_scope_value_as = { name = offset value = 8 }
+                    this >= acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 16 }
+                    this <= acs_major_minor_offset
                 }
             }
         }
@@ -1065,8 +1136,11 @@ acs_filter_3_group_checkbox = {
             any_in_global_list = {
                 variable = acs_active_filter_list
                 AND = {
-                    this >= { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 17 }
-                    this <= { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 25 }
+                    
+                    save_temporary_scope_value_as = { name = offset value = 17 }
+                    this >= acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 25 }
+                    this <= acs_major_minor_offset
                 }
             }
         }
@@ -1078,15 +1152,24 @@ acs_filter_3_group_checkbox = {
             any_in_global_list = {
                 variable = acs_active_filter_list
                 OR = {
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 2 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 3 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 4 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 11 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 12 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 13 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 20 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 21 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 22 }
+                    save_temporary_scope_value_as = { name = offset value = 2 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 3 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 4 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 11 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 12 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 13 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 20 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 21 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 22 }
+                    this = acs_major_minor_offset
                 }
             }
         }
@@ -1098,15 +1181,24 @@ acs_filter_3_group_checkbox = {
             any_in_global_list = {
                 variable = acs_active_filter_list
                 OR = {
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 5 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 6 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 7 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 14 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 15 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 16 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 23 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 24 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 25 }
+                    save_temporary_scope_value_as = { name = offset value = 5 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 6 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 7 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 14 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 15 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 16 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 23 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 24 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 25 }
+                    this = acs_major_minor_offset
                 }
             }
         }
@@ -1118,15 +1210,23 @@ acs_filter_3_group_checkbox = {
             any_in_global_list = {
                 variable = acs_active_filter_list
                 OR = {
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 3 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 6 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 9 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 12 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 15 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 18 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 21 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 24 }
+                    this = acs_major_minor
+                    save_temporary_scope_value_as = { name = offset value = 3 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 6 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 9 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 12 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 15 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 18 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 21 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 24 }
+                    this = acs_major_minor_offset
                 }
             }
         }
@@ -1134,15 +1234,24 @@ acs_filter_3_group_checkbox = {
             any_in_global_list = {
                 variable = acs_active_filter_list
                 OR = {
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 1}
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 4 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 7 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 10 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 13 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 16 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 19 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 22 }
-                    this = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index add = 25 }
+                    save_temporary_scope_value_as = { name = offset value = 1 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 4 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 7 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 10 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 13 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 16 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 19 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 22 }
+                    this = acs_major_minor_offset
+                    save_temporary_scope_value_as = { name = offset value = 25 }
+                    this = acs_major_minor_offset
                 }
             }
         }
@@ -1150,332 +1259,728 @@ acs_filter_3_group_checkbox = {
         
     effect = {
         acs_save_undo_0_filters = yes
-        set_local_variable = { name = acs_index value = { value = scope:major_digit.var:index multiply = 40 add = scope:minor_digit.var:index } }
-
         if = {
             limit = {
                 NOT = {
                     any_in_global_list = {
                         variable = acs_active_filter_list
                         AND = {
-                            this >= local_var:acs_index
-                            this <= { value = local_var:acs_index add = 25 }
+                            this >= acs_major_minor
+                            save_temporary_scope_value_as = { name = offset value = 25 }
+                            this <= acs_major_minor_offset
                         }
                     } 
                 } 
             }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 8 } }
+                save_temporary_scope_value_as = { name = offset value = 8 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 2 } }
+                save_temporary_scope_value_as = { name = offset value = 2 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = local_var:acs_index }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = local_var:acs_index } }
-            remove_list_global_variable = { name = acs_active_filter_list target = local_var:acs_index }
+        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = acs_major_minor } }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 9 } }
+                save_temporary_scope_value_as = { name = offset value = 9 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 3 } }
+                save_temporary_scope_value_as = { name = offset value = 3 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 1 } }
+                save_temporary_scope_value_as = { name = offset value = 1 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 1 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 1 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 1 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 1 } 
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 10 } }
+                save_temporary_scope_value_as = { name = offset value = 10 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 4 } }
+                save_temporary_scope_value_as = { name = offset value = 4 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 2 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 2 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 2 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 2 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 11 } }
+                save_temporary_scope_value_as = { name = offset value = 11 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 5 } }
+                save_temporary_scope_value_as = { name = offset value = 5 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 3 } }
+                save_temporary_scope_value_as = { name = offset value = 3 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 3 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 3 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 3 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 3 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 12 } }
+                save_temporary_scope_value_as = { name = offset value = 12 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 6 } }
+                save_temporary_scope_value_as = { name = offset value = 6 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 4 } }
+                save_temporary_scope_value_as = { name = offset value = 4 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 4 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 4 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 4 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 4 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 13 } }
+                save_temporary_scope_value_as = { name = offset value = 13 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 7 } }
+                save_temporary_scope_value_as = { name = offset value = 7 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 2 } }
+                save_temporary_scope_value_as = { name = offset value = 2 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 5 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 5 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 5 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 5 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 14 } }
+                save_temporary_scope_value_as = { name = offset value = 14 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 2 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 6 } }
+                save_temporary_scope_value_as = { name = offset value = 6 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 6 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 6 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 6 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 6 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 15 } }
+                save_temporary_scope_value_as = { name = offset value = 15 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = local_var:acs_index }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 7 } }
+                save_temporary_scope_value_as = { name = offset value = 7 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 7 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 7 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 7 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 7 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 16 } }
+                save_temporary_scope_value_as = { name = offset value = 16 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 1 } }
+                save_temporary_scope_value_as = { name = offset value = 1 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 5 } }
+                save_temporary_scope_value_as = { name = offset value = 5 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 8 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 8 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 8 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 8 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 17 } }
+                save_temporary_scope_value_as = { name = offset value = 17 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 11 } }
+                save_temporary_scope_value_as = { name = offset value = 11 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 9 } }
+                save_temporary_scope_value_as = { name = offset value = 9 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 9 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 9 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 9 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 9 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 18 } }
+                save_temporary_scope_value_as = { name = offset value = 18 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 12 } }
+                save_temporary_scope_value_as = { name = offset value = 12 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 10 } }
+                save_temporary_scope_value_as = { name = offset value = 10 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 10 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 10 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 10 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 10 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 19 } }
+                save_temporary_scope_value_as = { name = offset value = 19 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 13 } }
+                save_temporary_scope_value_as = { name = offset value = 13 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 8 } }
+                save_temporary_scope_value_as = { name = offset value = 8 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 11 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 11 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 11 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 11 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 20 } }
+                save_temporary_scope_value_as = { name = offset value = 20 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 14 } }
+                save_temporary_scope_value_as = { name = offset value = 14 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 12 } }
+                save_temporary_scope_value_as = { name = offset value = 12 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 12 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 12 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 12 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 12 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 21 } }
+                save_temporary_scope_value_as = { name = offset value = 21 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 15 } }
+                save_temporary_scope_value_as = { name = offset value = 15 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 13 } }
+                save_temporary_scope_value_as = { name = offset value = 13 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 13 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 13 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 13 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 13 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 22 } }
+                save_temporary_scope_value_as = { name = offset value = 22 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 16 } }
+                save_temporary_scope_value_as = { name = offset value = 16 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 11 } }
+                save_temporary_scope_value_as = { name = offset value = 11 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 14 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 14 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 14 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 14 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 23 } }
+                save_temporary_scope_value_as = { name = offset value = 23 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 8 } }
+                save_temporary_scope_value_as = { name = offset value = 8 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 15 } }
+                save_temporary_scope_value_as = { name = offset value = 15 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 15 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 15 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 15 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 15 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 24 } }
+                save_temporary_scope_value_as = { name = offset value = 24 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 9 } }
+                save_temporary_scope_value_as = { name = offset value = 9 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 16 } }
+                save_temporary_scope_value_as = { name = offset value = 16 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 16 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 16 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 16 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 16 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 25 } }
+                save_temporary_scope_value_as = { name = offset value = 25 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 10 } }
+                save_temporary_scope_value_as = { name = offset value = 10 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 14 } }
+                save_temporary_scope_value_as = { name = offset value = 14 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 17 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 17 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 17 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 17 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 20 } }
+                save_temporary_scope_value_as = { name = offset value = 20 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 2 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 18 } }
+                save_temporary_scope_value_as = { name = offset value = 18 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 18 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 18 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 18 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 18 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = local_var:acs_index }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 21 } }
+                save_temporary_scope_value_as = { name = offset value = 21 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 19 } }
+                save_temporary_scope_value_as = { name = offset value = 19 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 19 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 19 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 19 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 19 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 1 } }
+                save_temporary_scope_value_as = { name = offset value = 1 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 22 } }
+                save_temporary_scope_value_as = { name = offset value = 22 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 17 } }
+                save_temporary_scope_value_as = { name = offset value = 17 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 20 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 20 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 20 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 20 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 2 } }
+                save_temporary_scope_value_as = { name = offset value = 2 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 23 } }
+                save_temporary_scope_value_as = { name = offset value = 23 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 21 } }
+                save_temporary_scope_value_as = { name = offset value = 21 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 21 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 21 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 21 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 21 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 3 } }
+                save_temporary_scope_value_as = { name = offset value = 3 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 24 } }
+                save_temporary_scope_value_as = { name = offset value = 24 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 22 } }
+                save_temporary_scope_value_as = { name = offset value = 22 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 22 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 22 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 22 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 22 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 4 } }
+                save_temporary_scope_value_as = { name = offset value = 4 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 25 } }
+                save_temporary_scope_value_as = { name = offset value = 25 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 20 } }
+                save_temporary_scope_value_as = { name = offset value = 20 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 23 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 23 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 23 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 23 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 5 } }
+                save_temporary_scope_value_as = { name = offset value = 5 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 17 } }
+                save_temporary_scope_value_as = { name = offset value = 17 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 24 } }
+                save_temporary_scope_value_as = { name = offset value = 24 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = { value = local_var:acs_index add = 24 } } }
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 24 }  }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 24 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 24 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 6 } }
+                save_temporary_scope_value_as = { name = offset value = 6 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 18 } }
+                save_temporary_scope_value_as = { name = offset value = 18 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 25 } }
+                save_temporary_scope_value_as = { name = offset value = 25 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
         }
         else = {
-            remove_list_global_variable = { name = acs_active_filter_list target = { value = local_var:acs_index add = 25 }  }
+            save_temporary_scope_value_as = { name = offset value = 25 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
             if = { limit = { scope:element_in_group.var:index = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 7 } }
+                save_temporary_scope_value_as = { name = offset value = 7 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else_if = { limit = {  scope:element_in_group.var:index = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 19 } }
+                save_temporary_scope_value_as = { name = offset value = 19 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
             else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = { value = local_var:acs_index add = 23 } }
+                save_temporary_scope_value_as = { name = offset value = 23 }
+                add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
             }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_filter_3_group_checkbox_group = {
+    scope = province
+    saved_scopes = {
+		major_digit
+        minor_digit
+	}
+    is_shown = { 
+        trigger_if = {
+            limit = { 
+                var:index = 0
+            }
+            NOT = {
+                any_in_global_list = {
+                    variable = acs_active_filter_list
+                    AND = {
+                        this >= acs_major_minor
+                        save_temporary_scope_value_as = { name = offset value = 25 }
+                        this <= acs_major_minor_offset
+                    }
+                }
+            }    
+        } 
+        trigger_else_if = {
+            limit = { 
+                var:index = 1
+            }
+            any_in_global_list = {
+                variable = acs_active_filter_list
+                save_temporary_scope_value_as = { name = offset value = 12 }
+                this = acs_major_minor_offset
+            }
+        }
+        trigger_else = {
+            any_in_global_list = {
+                variable = acs_active_filter_list
+                save_temporary_scope_value_as = { name = offset value = 25 }
+                this = acs_major_minor_offset
+            }
+        }
+    }
+
+    effect = {
+        acs_save_undo_0_filters = yes
+        if = {
+            limit = {
+                NOT = {
+                    any_in_global_list = {
+                        variable = acs_active_filter_list
+                        AND = {
+                            this >= acs_major_minor
+                            save_temporary_scope_value_as = { name = offset value = 25 }
+                            this <= acs_major_minor_offset
+                        }
+                    } 
+                } 
+            }
+            save_temporary_scope_value_as = { name = offset value = 12 }
+            add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
+        }
+        else_if = {
+            limit = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 12 }
+                    this = acs_major_minor_offset
+                }
+            }
+            save_temporary_scope_value_as = { name = offset value = 12 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 25 }
+            add_to_global_variable_list = { name = acs_active_filter_list target = acs_major_minor_offset }
+        }
+        else = {
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor }
+            save_temporary_scope_value_as = { name = offset value = 1 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 2 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 3 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 4 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 5 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 6 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 7 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 8 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 9 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 10 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 11 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 12 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 13 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 14 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 15 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 16 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 17 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 18 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 19 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 20 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 21 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 22 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 23 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 24 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+            save_temporary_scope_value_as = { name = offset value = 25 }
+            remove_list_global_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
         }
         acs_auto_apply_sorting_and_filters = yes
     }
