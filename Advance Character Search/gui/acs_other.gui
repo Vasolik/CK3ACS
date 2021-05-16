@@ -15,10 +15,10 @@ template acs_skill_grid_background
 ### LIST TEMPLATE
 types acs_character_list_types {
 
-	type acs_dropdown_sort_characterlist = widget {
+    type acs_dropdown_sort_characterlist = widget {
         name = "sort_options"
-		size = { 225 33 }
-		
+        size = { 225 33 }
+        
         allow_outside = yes
 
         acs_sort_dropdown_selected_value = {
@@ -379,7 +379,7 @@ types acs_character_list_types {
         
     }
 
-	type acs_header_pattern = widget {
+    type acs_header_pattern = widget {
         layoutpolicy_horizontal = expanding
         name = "header"
         size = { 100 56 }
@@ -494,28 +494,28 @@ types acs_character_list_types {
             size = { 225 33 }
         }
 
-		button_standard = {
-			name = "sort_order"
+        button_standard = {
+            name = "sort_order"
             size = { 25 25 }
             onclick =  "[GetScriptedGui( 'acs_change_sort_order' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 
-			tooltip = "CHARACTER_SORT_BY"
-			using = tooltip_nw
+            tooltip = "CHARACTER_SORT_BY"
+            using = tooltip_nw
 
-			button_icon = {
-				alwaystransparent = yes
-				parentanchor = center
-				size = { 25 25 }
-				texture = "gfx/interface/icons/flat_icons/sort_icon.dds"
-				framesize = { 66 66 }
-				frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+            button_icon = {
+                alwaystransparent = yes
+                parentanchor = center
+                size = { 25 25 }
+                texture = "gfx/interface/icons/flat_icons/sort_icon.dds"
+                framesize = { 66 66 }
+                frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
 
-				blockoverride "button_frames"
-				{
-					effectname = "NoHighlight"
-				}
-			}
-		}
+                blockoverride "button_frames"
+                {
+                    effectname = "NoHighlight"
+                }
+            }
+        }
 
         expand = {}
 
@@ -530,7 +530,7 @@ types acs_character_list_types {
                         texture = "gfx/interface/icons/icon_skills.dds"
                         size = { 32 32 }
                         framesize = { 60 60 }
-                        frame = 1	
+                        frame = 1    
                     }
                     onclick = "[GetScriptedGui( 'acs_sort_by_diplomacy' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
                     tooltip = "acs_sort_by_diplomacy"
@@ -570,7 +570,7 @@ types acs_character_list_types {
                         texture = "gfx/interface/icons/icon_skills.dds"
                         size = { 32 32 }
                         framesize = { 60 60 }
-                        frame = 3			
+                        frame = 3            
                     }
 
                     onclick = "[GetScriptedGui( 'acs_sort_by_stewardship' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -767,7 +767,7 @@ types acs_character_list_types {
 
     type acs_widget_character_list_item_finder = widget {
         datacontext = "[Scope.GetCharacter]"
-		size = { 200 94 }
+        size = { 200 94 }
 
         background = {
             visible = "[GetScriptedGui( 'acs_even_index' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End ) ]"
@@ -947,62 +947,62 @@ types acs_character_list_types {
                                 }
                             }
 
-							hbox = {
-								datacontext = "[Scope.GetCharacter]"
+                            hbox = {
+                                datacontext = "[Scope.GetCharacter]"
                                 layoutpolicy_horizontal = expanding
                                 layoutpolicy_vertical = expanding
 
-								acs_widget_list_claims = {}
+                                acs_widget_list_claims = {}
 
-								# Religion and culture
-								hbox = {
-									layoutpolicy_horizontal = expanding
-									layoutpolicy_vertical = expanding
-									margin_left = 8
-									margin_right = 4
-									spacing = 5
+                                # Religion and culture
+                                hbox = {
+                                    layoutpolicy_horizontal = expanding
+                                    layoutpolicy_vertical = expanding
+                                    margin_left = 8
+                                    margin_right = 4
+                                    spacing = 5
 
-									background = {
-										using = Background_Area_Dark
-										alpha = 0.5
-										margin = { 0 2 }
-									}
+                                    background = {
+                                        using = Background_Area_Dark
+                                        alpha = 0.5
+                                        margin = { 0 2 }
+                                    }
 
-									icon = {
-										name = "faith_button"
-										size = { 38 38 }
-										datacontext = "[Character.GetFaith]"
-										tooltipwidget = { faith_tooltip = {} }
-										using = tooltip_se
+                                    icon = {
+                                        name = "faith_button"
+                                        size = { 38 38 }
+                                        datacontext = "[Character.GetFaith]"
+                                        tooltipwidget = { faith_tooltip = {} }
+                                        using = tooltip_se
 
-										texture = "[Faith.GetIcon]"
-									}
+                                        texture = "[Faith.GetIcon]"
+                                    }
 
-									hbox = {
-										datacontext = "[Character.GetCulture]"
-										layoutpolicy_horizontal = expanding
-										spacing = 3
+                                    hbox = {
+                                        datacontext = "[Character.GetCulture]"
+                                        layoutpolicy_horizontal = expanding
+                                        spacing = 3
 
-										tooltipwidget = {
-											culture_tooltip = {}
-										}
-										using = tooltip_se
+                                        tooltipwidget = {
+                                            culture_tooltip = {}
+                                        }
+                                        using = tooltip_se
 
-										icon = {
-											name = "culture"
-											texture = "gfx/interface/icons/icon_culture.dds"
-											size = { 24 24 }
-										}
+                                        icon = {
+                                            name = "culture"
+                                            texture = "gfx/interface/icons/icon_culture.dds"
+                                            size = { 24 24 }
+                                        }
 
-										text_single = {
-											layoutpolicy_horizontal = expanding
-											text = "CULTURE_LISTS_WINDOW"
-											autoresize = no
-											align = nobaseline
-										}
-									}
-								}
-							}
+                                        text_single = {
+                                            layoutpolicy_horizontal = expanding
+                                            text = "CULTURE_LISTS_WINDOW"
+                                            autoresize = no
+                                            align = nobaseline
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -1074,7 +1074,7 @@ types acs_character_list_types {
     type acs_button_character_search_small = button_icon {
         name = "acs_button"
         tooltip = "FIND_CHARACTER"
-        texture = "gfx/interface/icons/flat_icons/character_search.dds"					
+        texture = "gfx/interface/icons/flat_icons/character_search.dds"                    
                      
         using = tooltip_ne
         shortcut = "character_finder"

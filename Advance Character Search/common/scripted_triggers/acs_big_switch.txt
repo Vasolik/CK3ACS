@@ -3,169 +3,177 @@
         switch = {
             trigger = $FILTER$
             0 = {
-                any_in_global_list = {
-                    variable = acs_filter_trait_education_general_list_reduced
-                    prev = {
-                        switch = {
-                            trigger = prev
-                            0 = {
-                                has_trait = education_intrigue_1 
-                            }
-                            1 = { 
-                                NOT = { has_trait = education_intrigue_1 }   
-                            }
-                            2 = {
-                                has_trait = education_intrigue_2 
-                            }
-                            3 = { 
-                                NOT = { has_trait = education_intrigue_2 }   
-                            }
-                            4 = {
-                                has_trait = education_intrigue_3 
-                            }
-                            5 = { 
-                                NOT = { has_trait = education_intrigue_3 }   
-                            }
-                            6 = {
-                                has_trait = education_intrigue_4 
-                            }
-                            7 = { 
-                                NOT = { has_trait = education_intrigue_4 }   
-                            }
-                            8 = {
-                                has_trait = education_diplomacy_1 
-                            }
-                            9 = { 
-                                NOT = { has_trait = education_diplomacy_1 }   
-                            }
-                            10 = {
-                                has_trait = education_diplomacy_2 
-                            }
-                            11 = { 
-                                NOT = { has_trait = education_diplomacy_2 }   
-                            }
-                            12 = {
-                                has_trait = education_diplomacy_3 
-                            }
-                            13 = { 
-                                NOT = { has_trait = education_diplomacy_3 }   
-                            }
-                            14 = {
-                                has_trait = education_diplomacy_4 
-                            }
-                            15 = { 
-                                NOT = { has_trait = education_diplomacy_4 }   
-                            }
-                            16 = {
-                                has_trait = education_stewardship_1 
-                            }
-                            17 = { 
-                                NOT = { has_trait = education_stewardship_1 }   
-                            }
-                            18 = {
-                                has_trait = education_stewardship_2 
-                            }
-                            19 = { 
-                                NOT = { has_trait = education_stewardship_2 }   
-                            }
-                            20 = {
-                                has_trait = education_stewardship_3 
-                            }
-                            21 = { 
-                                NOT = { has_trait = education_stewardship_3 }   
-                            }
-                            22 = {
-                                has_trait = education_stewardship_4 
-                            }
-                            23 = { 
-                                NOT = { has_trait = education_stewardship_4 }   
-                            }
-                            24 = {
-                                has_trait = education_martial_1 
-                            }
-                            25 = { 
-                                NOT = { has_trait = education_martial_1 }   
-                            }
-                            26 = {
-                                has_trait = education_martial_2 
-                            }
-                            27 = { 
-                                NOT = { has_trait = education_martial_2 }   
-                            }
-                            28 = {
-                                has_trait = education_martial_3 
-                            }
-                            29 = { 
-                                NOT = { has_trait = education_martial_3 }   
-                            }
-                            30 = {
-                                has_trait = education_martial_4 
-                            }
-                            31 = { 
-                                NOT = { has_trait = education_martial_4 }   
-                            }
-                            32 = {
-                                has_trait = education_learning_1 
-                            }
-                            33 = { 
-                                NOT = { has_trait = education_learning_1 }   
-                            }
-                            34 = {
-                                has_trait = education_learning_2 
-                            }
-                            35 = { 
-                                NOT = { has_trait = education_learning_2 }   
-                            }
-                            36 = {
-                                has_trait = education_learning_3 
-                            }
-                            37 = { 
-                                NOT = { has_trait = education_learning_3 }   
-                            }
-                            38 = {
-                                has_trait = education_learning_4 
-                            }
-                            39 = { 
-                                NOT = { has_trait = education_learning_4 }   
+                save_temporary_scope_as = candidate2
+                dummy_male = {
+                    any_in_list = {
+                        variable = acs_filter_trait_education_general_list_reduced
+                        save_temporary_scope_as = filter2
+                        scope:candidate2 = {
+                            switch = {
+                                trigger = scope:filter2
+                                0 = {
+                                    has_trait = education_intrigue_1 
+                                }
+                                1 = { 
+                                    NOT = { has_trait = education_intrigue_1 }   
+                                }
+                                2 = {
+                                    has_trait = education_intrigue_2 
+                                }
+                                3 = { 
+                                    NOT = { has_trait = education_intrigue_2 }   
+                                }
+                                4 = {
+                                    has_trait = education_intrigue_3 
+                                }
+                                5 = { 
+                                    NOT = { has_trait = education_intrigue_3 }   
+                                }
+                                6 = {
+                                    has_trait = education_intrigue_4 
+                                }
+                                7 = { 
+                                    NOT = { has_trait = education_intrigue_4 }   
+                                }
+                                8 = {
+                                    has_trait = education_diplomacy_1 
+                                }
+                                9 = { 
+                                    NOT = { has_trait = education_diplomacy_1 }   
+                                }
+                                10 = {
+                                    has_trait = education_diplomacy_2 
+                                }
+                                11 = { 
+                                    NOT = { has_trait = education_diplomacy_2 }   
+                                }
+                                12 = {
+                                    has_trait = education_diplomacy_3 
+                                }
+                                13 = { 
+                                    NOT = { has_trait = education_diplomacy_3 }   
+                                }
+                                14 = {
+                                    has_trait = education_diplomacy_4 
+                                }
+                                15 = { 
+                                    NOT = { has_trait = education_diplomacy_4 }   
+                                }
+                                16 = {
+                                    has_trait = education_stewardship_1 
+                                }
+                                17 = { 
+                                    NOT = { has_trait = education_stewardship_1 }   
+                                }
+                                18 = {
+                                    has_trait = education_stewardship_2 
+                                }
+                                19 = { 
+                                    NOT = { has_trait = education_stewardship_2 }   
+                                }
+                                20 = {
+                                    has_trait = education_stewardship_3 
+                                }
+                                21 = { 
+                                    NOT = { has_trait = education_stewardship_3 }   
+                                }
+                                22 = {
+                                    has_trait = education_stewardship_4 
+                                }
+                                23 = { 
+                                    NOT = { has_trait = education_stewardship_4 }   
+                                }
+                                24 = {
+                                    has_trait = education_martial_1 
+                                }
+                                25 = { 
+                                    NOT = { has_trait = education_martial_1 }   
+                                }
+                                26 = {
+                                    has_trait = education_martial_2 
+                                }
+                                27 = { 
+                                    NOT = { has_trait = education_martial_2 }   
+                                }
+                                28 = {
+                                    has_trait = education_martial_3 
+                                }
+                                29 = { 
+                                    NOT = { has_trait = education_martial_3 }   
+                                }
+                                30 = {
+                                    has_trait = education_martial_4 
+                                }
+                                31 = { 
+                                    NOT = { has_trait = education_martial_4 }   
+                                }
+                                32 = {
+                                    has_trait = education_learning_1 
+                                }
+                                33 = { 
+                                    NOT = { has_trait = education_learning_1 }   
+                                }
+                                34 = {
+                                    has_trait = education_learning_2 
+                                }
+                                35 = { 
+                                    NOT = { has_trait = education_learning_2 }   
+                                }
+                                36 = {
+                                    has_trait = education_learning_3 
+                                }
+                                37 = { 
+                                    NOT = { has_trait = education_learning_3 }   
+                                }
+                                38 = {
+                                    has_trait = education_learning_4 
+                                }
+                                39 = { 
+                                    NOT = { has_trait = education_learning_4 }   
+                                }
                             }
                         }
+                        count = global_var:acs_filter_trait_education_general_count
                     }
-                    count = global_var:acs_filter_trait_education_general_count
                 }
             }
             1 = {
-                any_in_global_list = {
-                    variable = acs_filter_trait_education_martial_list_reduced
-                    prev = {
-                        switch = {
-                            trigger = prev
-                            0 = {
-                                has_trait = education_martial_prowess_1 
-                            }
-                            1 = { 
-                                NOT = { has_trait = education_martial_prowess_1 }   
-                            }
-                            2 = {
-                                has_trait = education_martial_prowess_2 
-                            }
-                            3 = { 
-                                NOT = { has_trait = education_martial_prowess_2 }   
-                            }
-                            4 = {
-                                has_trait = education_martial_prowess_3 
-                            }
-                            5 = { 
-                                NOT = { has_trait = education_martial_prowess_3 }   
-                            }
-                            6 = {
-                                has_trait = education_martial_prowess_4 
-                            }
-                            7 = { 
-                                NOT = { has_trait = education_martial_prowess_4 }   
+                save_temporary_scope_as = candidate2
+                dummy_male = {
+                    any_in_list = {
+                        variable = acs_filter_trait_education_martial_list_reduced
+                        save_temporary_scope_as = filter2
+                        scope:candidate2 = {
+                            switch = {
+                                trigger = scope:filter2
+                                0 = {
+                                    has_trait = education_martial_prowess_1 
+                                }
+                                1 = { 
+                                    NOT = { has_trait = education_martial_prowess_1 }   
+                                }
+                                2 = {
+                                    has_trait = education_martial_prowess_2 
+                                }
+                                3 = { 
+                                    NOT = { has_trait = education_martial_prowess_2 }   
+                                }
+                                4 = {
+                                    has_trait = education_martial_prowess_3 
+                                }
+                                5 = { 
+                                    NOT = { has_trait = education_martial_prowess_3 }   
+                                }
+                                6 = {
+                                    has_trait = education_martial_prowess_4 
+                                }
+                                7 = { 
+                                    NOT = { has_trait = education_martial_prowess_4 }   
+                                }
                             }
                         }
+                        count = global_var:acs_filter_trait_education_martial_count
                     }
-                    count = global_var:acs_filter_trait_education_martial_count
                 }
             }
             2 = {
@@ -762,56 +770,60 @@
                 }
             }
             156 = {
-                any_in_global_list = {
-                    variable = acs_filter_trait_fame_born_status_list_reduced
-                    prev = {
-                        switch = {
-                            trigger = prev
-                            0 = {
-                                has_trait = bastard 
-                            }
-                            1 = { 
-                                NOT = { has_trait = bastard }   
-                            }
-                            2 = {
-                                has_trait = legitimized_bastard 
-                            }
-                            3 = { 
-                                NOT = { has_trait = legitimized_bastard }   
-                            }
-                            4 = {
-                                has_trait = disputed_heritage 
-                            }
-                            5 = { 
-                                NOT = { has_trait = disputed_heritage }   
-                            }
-                            6 = {
-                                has_trait = child_of_concubine_female 
-                            }
-                            7 = { 
-                                NOT = { has_trait = child_of_concubine_female }   
-                            }
-                            8 = {
-                                has_trait = child_of_concubine_male 
-                            }
-                            9 = { 
-                                NOT = { has_trait = child_of_concubine_male }   
-                            }
-                            10 = {
-                                has_trait = wild_oat 
-                            }
-                            11 = { 
-                                NOT = { has_trait = wild_oat }   
-                            }
-                            12 = {
-                                has_trait = bastard_founder 
-                            }
-                            13 = { 
-                                NOT = { has_trait = bastard_founder }   
+                save_temporary_scope_as = candidate2
+                dummy_male = {
+                    any_in_list = {
+                        variable = acs_filter_trait_fame_born_status_list_reduced
+                        save_temporary_scope_as = filter2
+                        scope:candidate2 = {
+                            switch = {
+                                trigger = scope:filter2
+                                0 = {
+                                    has_trait = bastard 
+                                }
+                                1 = { 
+                                    NOT = { has_trait = bastard }   
+                                }
+                                2 = {
+                                    has_trait = legitimized_bastard 
+                                }
+                                3 = { 
+                                    NOT = { has_trait = legitimized_bastard }   
+                                }
+                                4 = {
+                                    has_trait = disputed_heritage 
+                                }
+                                5 = { 
+                                    NOT = { has_trait = disputed_heritage }   
+                                }
+                                6 = {
+                                    has_trait = child_of_concubine_female 
+                                }
+                                7 = { 
+                                    NOT = { has_trait = child_of_concubine_female }   
+                                }
+                                8 = {
+                                    has_trait = child_of_concubine_male 
+                                }
+                                9 = { 
+                                    NOT = { has_trait = child_of_concubine_male }   
+                                }
+                                10 = {
+                                    has_trait = wild_oat 
+                                }
+                                11 = { 
+                                    NOT = { has_trait = wild_oat }   
+                                }
+                                12 = {
+                                    has_trait = bastard_founder 
+                                }
+                                13 = { 
+                                    NOT = { has_trait = bastard_founder }   
+                                }
                             }
                         }
+                        count = global_var:acs_filter_trait_fame_born_status_count
                     }
-                    count = global_var:acs_filter_trait_fame_born_status_count
                 }
             }
             157 = {
@@ -2230,144 +2242,156 @@
                 NOT = { has_trait = blind }   
             }
             539 = {
-                any_in_global_list = {
-                    variable = acs_filter_trait_physical_beauty_list_reduced
-                    prev = {
-                        switch = {
-                            trigger = prev
-                            0 = {
-                                has_trait = beauty_bad_1 
-                            }
-                            1 = { 
-                                NOT = { has_trait = beauty_bad_1 }   
-                            }
-                            2 = {
-                                has_trait = beauty_bad_2 
-                            }
-                            3 = { 
-                                NOT = { has_trait = beauty_bad_2 }   
-                            }
-                            4 = {
-                                has_trait = beauty_bad_3 
-                            }
-                            5 = { 
-                                NOT = { has_trait = beauty_bad_3 }   
-                            }
-                            6 = {
-                                has_trait = beauty_good_1 
-                            }
-                            7 = { 
-                                NOT = { has_trait = beauty_good_1 }   
-                            }
-                            8 = {
-                                has_trait = beauty_good_2 
-                            }
-                            9 = { 
-                                NOT = { has_trait = beauty_good_2 }   
-                            }
-                            10 = {
-                                has_trait = beauty_good_3 
-                            }
-                            11 = { 
-                                NOT = { has_trait = beauty_good_3 }   
+                save_temporary_scope_as = candidate2
+                dummy_male = {
+                    any_in_list = {
+                        variable = acs_filter_trait_physical_beauty_list_reduced
+                        save_temporary_scope_as = filter2
+                        scope:candidate2 = {
+                            switch = {
+                                trigger = scope:filter2
+                                0 = {
+                                    has_trait = beauty_bad_1 
+                                }
+                                1 = { 
+                                    NOT = { has_trait = beauty_bad_1 }   
+                                }
+                                2 = {
+                                    has_trait = beauty_bad_2 
+                                }
+                                3 = { 
+                                    NOT = { has_trait = beauty_bad_2 }   
+                                }
+                                4 = {
+                                    has_trait = beauty_bad_3 
+                                }
+                                5 = { 
+                                    NOT = { has_trait = beauty_bad_3 }   
+                                }
+                                6 = {
+                                    has_trait = beauty_good_1 
+                                }
+                                7 = { 
+                                    NOT = { has_trait = beauty_good_1 }   
+                                }
+                                8 = {
+                                    has_trait = beauty_good_2 
+                                }
+                                9 = { 
+                                    NOT = { has_trait = beauty_good_2 }   
+                                }
+                                10 = {
+                                    has_trait = beauty_good_3 
+                                }
+                                11 = { 
+                                    NOT = { has_trait = beauty_good_3 }   
+                                }
                             }
                         }
+                        count = global_var:acs_filter_trait_physical_beauty_count
                     }
-                    count = global_var:acs_filter_trait_physical_beauty_count
                 }
             }
             540 = {
-                any_in_global_list = {
-                    variable = acs_filter_trait_physical_intellect_list_reduced
-                    prev = {
-                        switch = {
-                            trigger = prev
-                            0 = {
-                                has_trait = intellect_bad_1 
-                            }
-                            1 = { 
-                                NOT = { has_trait = intellect_bad_1 }   
-                            }
-                            2 = {
-                                has_trait = intellect_bad_2 
-                            }
-                            3 = { 
-                                NOT = { has_trait = intellect_bad_2 }   
-                            }
-                            4 = {
-                                has_trait = intellect_bad_3 
-                            }
-                            5 = { 
-                                NOT = { has_trait = intellect_bad_3 }   
-                            }
-                            6 = {
-                                has_trait = intellect_good_1 
-                            }
-                            7 = { 
-                                NOT = { has_trait = intellect_good_1 }   
-                            }
-                            8 = {
-                                has_trait = intellect_good_2 
-                            }
-                            9 = { 
-                                NOT = { has_trait = intellect_good_2 }   
-                            }
-                            10 = {
-                                has_trait = intellect_good_3 
-                            }
-                            11 = { 
-                                NOT = { has_trait = intellect_good_3 }   
+                save_temporary_scope_as = candidate2
+                dummy_male = {
+                    any_in_list = {
+                        variable = acs_filter_trait_physical_intellect_list_reduced
+                        save_temporary_scope_as = filter2
+                        scope:candidate2 = {
+                            switch = {
+                                trigger = scope:filter2
+                                0 = {
+                                    has_trait = intellect_bad_1 
+                                }
+                                1 = { 
+                                    NOT = { has_trait = intellect_bad_1 }   
+                                }
+                                2 = {
+                                    has_trait = intellect_bad_2 
+                                }
+                                3 = { 
+                                    NOT = { has_trait = intellect_bad_2 }   
+                                }
+                                4 = {
+                                    has_trait = intellect_bad_3 
+                                }
+                                5 = { 
+                                    NOT = { has_trait = intellect_bad_3 }   
+                                }
+                                6 = {
+                                    has_trait = intellect_good_1 
+                                }
+                                7 = { 
+                                    NOT = { has_trait = intellect_good_1 }   
+                                }
+                                8 = {
+                                    has_trait = intellect_good_2 
+                                }
+                                9 = { 
+                                    NOT = { has_trait = intellect_good_2 }   
+                                }
+                                10 = {
+                                    has_trait = intellect_good_3 
+                                }
+                                11 = { 
+                                    NOT = { has_trait = intellect_good_3 }   
+                                }
                             }
                         }
+                        count = global_var:acs_filter_trait_physical_intellect_count
                     }
-                    count = global_var:acs_filter_trait_physical_intellect_count
                 }
             }
             541 = {
-                any_in_global_list = {
-                    variable = acs_filter_trait_physical_physique_list_reduced
-                    prev = {
-                        switch = {
-                            trigger = prev
-                            0 = {
-                                has_trait = physique_bad_1 
-                            }
-                            1 = { 
-                                NOT = { has_trait = physique_bad_1 }   
-                            }
-                            2 = {
-                                has_trait = physique_bad_2 
-                            }
-                            3 = { 
-                                NOT = { has_trait = physique_bad_2 }   
-                            }
-                            4 = {
-                                has_trait = physique_bad_3 
-                            }
-                            5 = { 
-                                NOT = { has_trait = physique_bad_3 }   
-                            }
-                            6 = {
-                                has_trait = physique_good_1 
-                            }
-                            7 = { 
-                                NOT = { has_trait = physique_good_1 }   
-                            }
-                            8 = {
-                                has_trait = physique_good_2 
-                            }
-                            9 = { 
-                                NOT = { has_trait = physique_good_2 }   
-                            }
-                            10 = {
-                                has_trait = physique_good_3 
-                            }
-                            11 = { 
-                                NOT = { has_trait = physique_good_3 }   
+                save_temporary_scope_as = candidate2
+                dummy_male = {
+                    any_in_list = {
+                        variable = acs_filter_trait_physical_physique_list_reduced
+                        save_temporary_scope_as = filter2
+                        scope:candidate2 = {
+                            switch = {
+                                trigger = scope:filter2
+                                0 = {
+                                    has_trait = physique_bad_1 
+                                }
+                                1 = { 
+                                    NOT = { has_trait = physique_bad_1 }   
+                                }
+                                2 = {
+                                    has_trait = physique_bad_2 
+                                }
+                                3 = { 
+                                    NOT = { has_trait = physique_bad_2 }   
+                                }
+                                4 = {
+                                    has_trait = physique_bad_3 
+                                }
+                                5 = { 
+                                    NOT = { has_trait = physique_bad_3 }   
+                                }
+                                6 = {
+                                    has_trait = physique_good_1 
+                                }
+                                7 = { 
+                                    NOT = { has_trait = physique_good_1 }   
+                                }
+                                8 = {
+                                    has_trait = physique_good_2 
+                                }
+                                9 = { 
+                                    NOT = { has_trait = physique_good_2 }   
+                                }
+                                10 = {
+                                    has_trait = physique_good_3 
+                                }
+                                11 = { 
+                                    NOT = { has_trait = physique_good_3 }   
+                                }
                             }
                         }
+                        count = global_var:acs_filter_trait_physical_physique_count
                     }
-                    count = global_var:acs_filter_trait_physical_physique_count
                 }
             }
             542 = {

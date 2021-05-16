@@ -8,9 +8,9 @@
         
         if = {
             limit = {
-                NOT = { has_global_variable = acs_reset_v54 }
+                NOT = { has_global_variable = acs_reset_v55 }
             }
-            set_global_variable = acs_reset_v54
+            set_global_variable = acs_reset_v55
             acs_reset_filters_and_sorting = yes
         }
         clear_acs_list = yes
@@ -58,64 +58,68 @@
                 limit = { global_var:acs_filter_relation = 4 }
                 every_courtier_or_guest = { acs_add_to_sort_list = yes }
             }
-           
-            dummy_male = {
-                set_variable = {  
-                    name = acs_selected_count 
-                    value = {
-                        value = 0
-                        every_in_list = {
-                            list = acs_to_sort
-                            add = 1
-                        }
-                    }  
-                } 
-                set_variable = {
-                    name = acs_total_number_of_characters
-                    value = acs_total_number_of_characters
-                }
+        }
+          
+        dummy_male = {
+            set_variable = {  
+                name = acs_selected_count 
+                value = {
+                    value = 0
+                    every_in_list = { list = acs_to_sort add = 1 }
+                }  
+            } 
+            set_variable = {
+                name = acs_total_number_of_characters
+                value = acs_total_number_of_characters
             }
-            
+        }
+        dummy_male = {
             ordered_in_list = {
                 list = acs_to_sort
                 order_by = acs_sort_value
                 max = global_var:acs_select_count
                 check_range_bounds = no
-                dummy_male = {
-                    add_to_variable_list = {
-                        name = acs_list
-                        target = prev
-                    }
+                dummy_female = {
+                    add_to_variable_list = { name = acs_list target = prev }
                 }
                 set_claim_data = yes
                 set_index_data = yes
-            }      
-        }
+            }   
+        }   
+        
         remove_global_variable = is_acs_building_list
     }  
 }
 
 acs_add_to_sort_list = {
     if = { 
-        limit = {  
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                acs_switch_filter = { FILTER = this CANDIDATE = prev }
-                count = all
+        limit = { 
+            save_temporary_scope_as = candidate
+            dummy_male = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_as = tag
+                    acs_switch_filter = { FILTER = scope:tag CANDIDATE = scope:candidate }
+                    count = all
+                }
             }
+            acs_filter = yes
         }
         add_to_temporary_list = acs_to_sort
     }
 }
 
 clear_acs_list = {
-    dummy_male = {
-        every_in_list = {
-            list = acs_list
-            clear_claim_data = yes
-            clear_index_data = yes
-        }
-        clear_variable_list = acs_list
+    dummy_female = {
+        if = {
+            limit = { has_variable_list = acs_list }
+            every_in_list = {
+                list = acs_list
+                clear_claim_data = yes
+                clear_index_data = yes
+            }
+            clear_variable_list = acs_list
+        } 
     }
 }
 
@@ -294,200 +298,198 @@ initialize_province_indices = {
         set_local_variable = {name = idd value = 0}
         every_province = {
             set_variable = {name = index value = local_var:idd}
-            change_local_variable = {
-                name = idd
-                add = 1
+            if = { 
+                limit = { local_var:idd = 0 } 
+                dummy_male = { set_variable = { name = acs_digit_0 value = prev } }
             }
+            if = {
+                limit = { local_var:idd = 1 } 
+                dummy_male = { set_variable = { name = acs_digit_1 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 2 } 
+                dummy_male = { set_variable = { name = acs_digit_2 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 3 } 
+                dummy_male = { set_variable = { name = acs_digit_3 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 4 } 
+                dummy_male = { set_variable = { name = acs_digit_4 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 5 } 
+                dummy_male = { set_variable = { name = acs_digit_5 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 6 } 
+                dummy_male = { set_variable = { name = acs_digit_6 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 7 } 
+                dummy_male = { set_variable = { name = acs_digit_7 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 8 } 
+                dummy_male = { set_variable = { name = acs_digit_8 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 9 } 
+                dummy_male = { set_variable = { name = acs_digit_9 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 10 } 
+                dummy_male = { set_variable = { name = acs_digit_10 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 11 } 
+                dummy_male = { set_variable = { name = acs_digit_11 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 12 } 
+                dummy_male = { set_variable = { name = acs_digit_12 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 13 } 
+                dummy_male = { set_variable = { name = acs_digit_13 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 14 } 
+                dummy_male = { set_variable = { name = acs_digit_14 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 15 } 
+                dummy_male = { set_variable = { name = acs_digit_15 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 16 } 
+                dummy_male = { set_variable = { name = acs_digit_16 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 17 } 
+                dummy_male = { set_variable = { name = acs_digit_17 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 18 } 
+                dummy_male = { set_variable = { name = acs_digit_18 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 19 } 
+                dummy_male = { set_variable = { name = acs_digit_19 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 20 } 
+                dummy_male = { set_variable = { name = acs_digit_20 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 21 } 
+                dummy_male = { set_variable = { name = acs_digit_21 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 22 } 
+                dummy_male = { set_variable = { name = acs_digit_22 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 23 } 
+                dummy_male = { set_variable = { name = acs_digit_23 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 24 } 
+                dummy_male = { set_variable = { name = acs_digit_24 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 25 } 
+                dummy_male = { set_variable = { name = acs_digit_25 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 26 } 
+                dummy_male = { set_variable = { name = acs_digit_26 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 27 } 
+                dummy_male = { set_variable = { name = acs_digit_27 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 28 } 
+                dummy_male = { set_variable = { name = acs_digit_28 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 29 } 
+                dummy_male = { set_variable = { name = acs_digit_29 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 30 } 
+                dummy_male = { set_variable = { name = acs_digit_30 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 31 } 
+                dummy_male = { set_variable = { name = acs_digit_31 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 32 } 
+                dummy_male = { set_variable = { name = acs_digit_32 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 33 } 
+                dummy_male = { set_variable = { name = acs_digit_33 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 34 } 
+                dummy_male = { set_variable = { name = acs_digit_34 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 35 } 
+                dummy_male = { set_variable = { name = acs_digit_35 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 36 } 
+                dummy_male = { set_variable = { name = acs_digit_36 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 37 } 
+                dummy_male = { set_variable = { name = acs_digit_37 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 38 } 
+                dummy_male = { set_variable = { name = acs_digit_38 value = prev } }
+            }
+            if = {
+                limit = { local_var:idd = 39 } 
+                dummy_male = { set_variable = { name = acs_digit_39 value = prev } }
+            }
+            change_local_variable = { name = idd add = 1 }
         }
         remove_local_variable = idd
-        random_province = {
-            limit = { var:index = 0 } 
-            dummy_male = { set_variable = { name = acs_digit_0 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 1 } 
-            dummy_male = { set_variable = { name = acs_digit_1 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 2 } 
-            dummy_male = { set_variable = { name = acs_digit_2 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 3 } 
-            dummy_male = { set_variable = { name = acs_digit_3 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 4 } 
-            dummy_male = { set_variable = { name = acs_digit_4 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 5 } 
-            dummy_male = { set_variable = { name = acs_digit_5 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 6 } 
-            dummy_male = { set_variable = { name = acs_digit_6 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 7 } 
-            dummy_male = { set_variable = { name = acs_digit_7 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 8 } 
-            dummy_male = { set_variable = { name = acs_digit_8 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 9 } 
-            dummy_male = { set_variable = { name = acs_digit_9 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 10 } 
-            dummy_male = { set_variable = { name = acs_digit_10 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 11 } 
-            dummy_male = { set_variable = { name = acs_digit_11 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 12 } 
-            dummy_male = { set_variable = { name = acs_digit_12 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 13 } 
-            dummy_male = { set_variable = { name = acs_digit_13 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 14 } 
-            dummy_male = { set_variable = { name = acs_digit_14 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 15 } 
-            dummy_male = { set_variable = { name = acs_digit_15 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 16 } 
-            dummy_male = { set_variable = { name = acs_digit_16 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 17 } 
-            dummy_male = { set_variable = { name = acs_digit_17 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 18 } 
-            dummy_male = { set_variable = { name = acs_digit_18 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 19 } 
-            dummy_male = { set_variable = { name = acs_digit_19 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 20 } 
-            dummy_male = { set_variable = { name = acs_digit_20 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 21 } 
-            dummy_male = { set_variable = { name = acs_digit_21 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 22 } 
-            dummy_male = { set_variable = { name = acs_digit_22 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 23 } 
-            dummy_male = { set_variable = { name = acs_digit_23 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 24 } 
-            dummy_male = { set_variable = { name = acs_digit_24 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 25 } 
-            dummy_male = { set_variable = { name = acs_digit_25 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 26 } 
-            dummy_male = { set_variable = { name = acs_digit_26 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 27 } 
-            dummy_male = { set_variable = { name = acs_digit_27 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 28 } 
-            dummy_male = { set_variable = { name = acs_digit_28 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 29 } 
-            dummy_male = { set_variable = { name = acs_digit_29 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 30 } 
-            dummy_male = { set_variable = { name = acs_digit_30 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 31 } 
-            dummy_male = { set_variable = { name = acs_digit_31 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 32 } 
-            dummy_male = { set_variable = { name = acs_digit_32 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 33 } 
-            dummy_male = { set_variable = { name = acs_digit_33 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 34 } 
-            dummy_male = { set_variable = { name = acs_digit_34 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 35 } 
-            dummy_male = { set_variable = { name = acs_digit_35 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 36 } 
-            dummy_male = { set_variable = { name = acs_digit_36 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 37 } 
-            dummy_male = { set_variable = { name = acs_digit_37 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 38 } 
-            dummy_male = { set_variable = { name = acs_digit_38 value = prev } }
-        }
-        random_province = {
-            limit = { var:index = 39 } 
-            dummy_male = { set_variable = { name = acs_digit_39 value = prev } }
-        }
     }
 }
 acs_simple_checkbox = {
     acs_save_undo_0_filters = yes
-    set_local_variable = { name = acs_positive value = $START$ }
-    set_local_variable = { name = acs_negative value = { value = local_var:acs_positive add = 1 } }
-    if = {
-        limit = {
-            NOT = {
-                any_in_global_list = {
-                    variable = $LIST$
-                    OR = {
-                        this = local_var:acs_positive
-                        this = local_var:acs_negative
-                    }
+    dummy_male = {
+        set_local_variable = { name = acs_positive value = $START$ }
+        set_local_variable = { name = acs_negative value = { value = local_var:acs_positive add = 1 } }
+        if = {
+            limit = {
+                NOT = {
+                    any_in_list = {
+                        variable = $LIST$
+                        OR = {
+                            this = local_var:acs_positive
+                            this = local_var:acs_negative
+                        }
+                    } 
                 } 
-            } 
-        }
-        add_to_global_variable_list = { name = $LIST$ target = local_var:acs_positive }
-    }
-    else = {
-        if = { limit = { any_in_global_list = { variable = $LIST$ this = local_var:acs_positive } }
-            remove_list_global_variable = { name = $LIST$ target = local_var:acs_positive }
-            add_to_global_variable_list = { name = $LIST$ target = local_var:acs_negative }
+            }
+            add_to_variable_list = { name = $LIST$ target = local_var:acs_positive }
         }
         else = {
-            remove_list_global_variable = { name = $LIST$ target = local_var:acs_negative }
+            if = { limit = { any_in_list = { variable = $LIST$ this = local_var:acs_positive } }
+                remove_list_variable = { name = $LIST$ target = local_var:acs_positive }
+                add_to_variable_list = { name = $LIST$ target = local_var:acs_negative }
+            }
+            else = {
+                remove_list_variable = { name = $LIST$ target = local_var:acs_negative }
+            }
         }
     }
-    acs_auto_apply_sorting_and_filters = yes
 }

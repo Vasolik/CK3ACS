@@ -58,7 +58,7 @@ window = {
                             addcolumn = 650
                             addrow = 92
                             name = "characters_grid"
-                            datamodel = "[GetDummyMale.MakeScope.GetList('acs_list')]"
+                            datamodel = "[GetDummyFemale.MakeScope.GetList('acs_list')]"
                             visible = "[GetScriptedGui('acs_window').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
                             layoutpolicy_horizontal = expanding
                             item = {
@@ -116,10 +116,7 @@ window = {
                             min_width = 130
                         }
                     }
-                    acs_select_count_item = {
-                        position = { 0 5 }
-                        
-                    }
+                    acs_select_count_item = { }
                     expand = {}
     
                     text_single = {

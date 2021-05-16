@@ -1,2 +1,317 @@
-﻿
+﻿acs_trait_item_skill_right = {
+    datacontext = "[GetScriptedGui( 'acs_filter_trait_education_general_group' )]" 
+    blockoverride "acs_trait_item_action" {
+        onclick = "[ScriptedGui.Execute(
+         GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope )
+            .AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope )
+            .AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).End )]"
+    }
+    blockoverride "acs_checkbox_state" {
+        frame = "[Select_int32( 
+        ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope )
+            .AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope )
+            .AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).End ), 
+            '(int32)2' , Select_int32( ScriptedGui.IsShown( 
+                GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope )
+                .AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope )
+                .AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).End ) , 
+                '(int32)3', Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' )
+                .Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope )
+                .AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).End )  , '(int32)1', '(int32)4' ) ) )]"
+    }
+    blockoverride "acs_filter_name" {  
+        text = "[intrigue|E]"
+    }
+    blockoverride "acs_skill_frame" {  
+        frame = 4
+    }
+}
+acs_trait_item_right_moved = {
+    datacontext = "[GetScriptedGui( 'acs_filter_trait_education_general' )]"
+    blockoverride "acs_trait_item_action" {
+        datacontext = "[GetTrait( 'education_intrigue_1' )]"
+        onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).End )]"
         
+    }
+    blockoverride "acs_checkbox_state" {
+        frame = "[Select_int32( ScriptedGui.IsShown( 
+        GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope )
+        .AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope )
+        .AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).End ) , '(int32)2' ,  Select_int32( 
+        
+        ScriptedGui.IsShown( 
+        GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope )
+        .AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope )
+        .AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).End ) , '(int32)3' , '(int32)1' ) )]"
+    }
+}
+
+dummy_male = {
+    var:acs_digit_0 = {
+        save_scope_as = major_digit
+        save_scope_as = minor_digit
+    } 
+    
+}
+acs_filter_trait_education_general = {
+    scope = province
+    saved_scopes = {
+        major_digit
+        minor_digit
+    }
+    is_shown = {
+        dummy_male = {
+            any_in_list = {
+                variable = acs_filter_trait_education_general_list
+                save_temporary_scope_value_as = { name = offset value = -1 }
+                this = acs_major_minor_index_offset
+            }
+        }    
+    }     
+    effect = {
+        set_local_variable = { name = acs_start value = acs_major_minor }
+        acs_simple_checkbox = { LIST = acs_filter_trait_education_general_list START = local_var:acs_start }
+    }
+}
+
+
+acs_filter_trait_education_general_group = {
+    scope = province
+    saved_scopes = {
+        major_digit
+        minor_digit
+    }
+    is_shown = {
+        dummy_male = {
+            trigger_if = {
+                limit = { 
+                    var:index = 0
+                }
+                NOT = {
+                    any_in_list = {
+                        variable = acs_filter_trait_education_general_list
+                        AND = {
+                            this >= acs_major_minor
+                            save_temporary_scope_value_as = { name = offset value = 7 }
+                            this <= acs_major_minor_offset
+                        }
+                    }
+                }    
+            } 
+            trigger_else_if = {
+                limit = { 
+                    var:index = 1
+                }
+                any_in_list = {
+                    variable =  acs_filter_trait_education_general_list
+                    OR = {
+                        this = acs_major_minor
+                        save_temporary_scope_value_as = { name = offset value = 2 }
+                        this = acs_major_minor_offset
+                        save_temporary_scope_value_as = { name = offset value = 4 }
+                        this = acs_major_minor_offset
+                        save_temporary_scope_value_as = { name = offset value = 6 }
+                        this = acs_major_minor_offset
+                    }
+                    count = 4
+                }
+            }
+            trigger_else = {
+                 any_in_list = {
+                    variable =  acs_filter_trait_education_general_list
+                    OR = {
+                        save_temporary_scope_value_as = { name = offset value = 1 }
+                        this = acs_major_minor_offset
+                        save_temporary_scope_value_as = { name = offset value = 3 }
+                        this = acs_major_minor_offset
+                        save_temporary_scope_value_as = { name = offset value = 5 }
+                        this = acs_major_minor_offset
+                        save_temporary_scope_value_as = { name = offset value = 7 }
+                        this = acs_major_minor_offset
+                    }
+                    count = 4
+                }
+            }
+        }  
+    }     
+    effect = {
+        dummy_male = {
+            acs_save_undo_0_filters = yes
+            if = {
+                limit = {
+                    NOT = {
+                        any_in_list = {
+                            variable = acs_filter_trait_education_general_list
+                            AND = {
+                                this >= acs_major_minor
+                                save_temporary_scope_value_as = { name = offset value = 7 }
+                                this <= acs_major_minor_offset
+                            }
+                        }
+                    }
+                }
+                set_local_variable = { name = acs_counter value = acs_major_minor }
+                set_local_variable = { name = acs_total_left value = 4 }
+                while = {
+                    limit = {
+                        local_var:acs_total_left > 0
+                    }
+                    add_to_variable_list = { name =  acs_filter_trait_education_general_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 2 }
+                    change_local_variable = { name = acs_total_left add = -1 }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable =  acs_filter_trait_education_general_list
+                        OR = {
+                            this = acs_major_minor
+                            save_temporary_scope_value_as = { name = offset value = 2 }
+                            this = acs_major_minor_offset
+                            save_temporary_scope_value_as = { name = offset value = 4 }
+                            this = acs_major_minor_offset
+                            save_temporary_scope_value_as = { name = offset value = 6 }
+                            this = acs_major_minor_offset
+                        }
+                        count = 4
+                    }
+                }
+                set_local_variable = { name = acs_counter value = acs_major_minor }
+                set_local_variable = { name = acs_total_left value = 4 }
+                while = {
+                    limit = {
+                        local_var:acs_total_left > 0
+                    }
+                    remove_list_variable = { name = acs_filter_trait_education_general_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 1 }
+                    add_to_variable_list = { name =  acs_filter_trait_education_general_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 1 }
+                    change_local_variable = { name = acs_total_left add = -1 }
+                }
+            }
+            else = {
+                set_local_variable = { name = acs_counter value = acs_major_minor }
+                set_local_variable = { name = acs_total_left value = 8 }
+                while = {
+                    limit = {
+                        local_var:acs_total_left > 0
+                    }
+                    remove_list_variable = { name = acs_filter_trait_education_general_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 1 }
+                    change_local_variable = { name = acs_total_left add = -1 }
+                }
+            }
+            acs_auto_apply_sorting_and_filters = yes
+        }
+    }
+}
+
+dummy_male = {
+    clear_variable_list = acs_filter_trait_education_general_list_reduced
+    set_global_variable = { name = acs_filter_trait_education_general_count value = 0  } 
+    every_in_list = {
+        variable = acs_filter_trait_education_general_list
+        save_scope_as = tmp1
+
+        save_scope_value_as = { name = to_get_modulo value = scope:tmp1 }
+    }
+}
+
+dummy_male = { 
+            OR = {
+                var:test = 0
+                var:test = 2
+                var:test = 4
+                var:test = 6
+                var:test = 8
+                var:test = 10
+                var:test = 12
+                var:test = 14
+                var:test = 16
+                var:test = 18
+                var:test = 20
+                var:test = 22
+                var:test = 24
+                var:test = 26
+                var:test = 28
+                var:test = 30
+                var:test = 32
+                var:test = 34
+                var:test = 36
+                var:test = 38
+            }
+}
+
+acs_modulo_2 = {
+	value = scope:to_get_modulo
+	modulo = 2
+}
+
+dummy_male = {
+    clear_variable_list = acs_filter_trait_education_general_list_reduced
+    set_global_variable = { name = acs_filter_trait_education_general_count value = 0  } 
+    every_in_list = {
+        variable = acs_filter_trait_education_general_list
+        save_temporary_scope_value_as = { name = to_get_modulo value = this }
+        dummy_male = { 
+            if = {
+                limit = { acs_modulo_2 = 0 }
+                add_to_variable_list = { name = acs_filter_trait_education_general_list_reduced target = scope:to_get_modulo }
+                change_global_variable = { name = acs_filter_trait_education_general_count add = 1 } 
+            }
+        }
+        
+    }
+
+    if = {
+        limit = {
+            global_var:acs_filter_trait_education_general_count > 0
+        }
+        set_global_variable = { name = acs_filter_trait_education_general_count value = 1 } 
+    }
+    if = {
+        limit = {
+            global_var:acs_filter_trait_education_general_count = 0
+        }
+        every_in_list = {
+            variable = acs_filter_trait_education_general_list
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_value_as = { name = to_get_modulo value = this }
+            dummy_male = { 
+                if = {
+                    limit = { acs_modulo_2 = 1 }
+                    add_to_variable_list = { name = acs_filter_trait_education_general_list_reduced target = scope:to_get_modulo }
+                    change_global_variable = { name = acs_filter_trait_education_general_count add = 1 } 
+                }
+            }
+        }
+    }
+    set_variable = { name = test  value = global_var:acs_filter_trait_education_general_count }
+}
+
+
+0 = {
+    save_temporary_scope_as = candidate2
+    dummy_male = {
+        any_in_list = {
+            variable = acs_filter_trait_education_general_list_reduced
+            save_temporary_scope_as = ff1
+            scope:candidate2 = {
+                switch = {
+                    trigger = scope:ff1
+                    27 = { 
+                        NOT = { has_trait = education_martial_2 }   
+                    }
+                    28 = {
+                        has_trait = education_martial_3 
+                    }
+                    29 = { 
+                        NOT = { has_trait = education_martial_3 }   
+                    }
+                }
+            }
+            count = global_var:acs_filter_trait_education_general_count
+        }
+    } 
+}

@@ -1,321 +1,319 @@
 types acs_filter_trait_types {
-	type acs_four_state_checkbox = checkbutton {
-		gfxtype = checkbuttongfx
-		shaderfile = "gfx/FX/pdxgui_pushbutton.shader"
-		highlightchecked = yes
-		texture = "gfx/interface/buttons/button_checkbox.dds" 
-		checked = no
-		framesize = { 80 80 }
-		size = { 30 30 }
-		
-		using = Master_Button_Modify_Texture
-		blockoverride "master_color_frame" {
-			frame = 1
-		}
+    type acs_four_state_checkbox = checkbutton {
+        gfxtype = checkbuttongfx
+        shaderfile = "gfx/FX/pdxgui_pushbutton.shader"
+        highlightchecked = yes
+        texture = "gfx/interface/buttons/button_checkbox.dds" 
+        checked = no
+        framesize = { 80 80 }
+        size = { 30 30 }
+        
+        using = Master_Button_Modify_Texture
+        blockoverride "master_color_frame" {
+            frame = 1
+        }
 
-		background = {
-			texture = "gfx/interface/buttons/button_checkbox_background.dds"
-			margin = { 1 1 }
-		}
-		icon = {
+        background = {
+            texture = "gfx/interface/buttons/button_checkbox_background.dds"
+            margin = { 1 1 }
+        }
+        icon = {
 
-			framesize = { 80 80 }
-			block "acs_checkbox_state" {
-				frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_berserker' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_berserker_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-			}
-			size = { 30 30 }
-			texture = "gfx/interface/icons/checkbox_4_state_no_border.dds"
+            framesize = { 80 80 }
+            block "acs_checkbox_state" {
+                frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_berserker' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_berserker_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
+            }
+            size = { 30 30 }
+            texture = "gfx/interface/icons/checkbox_4_state_no_border.dds"
 
-		}
-	}
+        }
+    }
 
-	type acs_trait_icon = icon_trait {
+    type acs_trait_icon = icon_trait {
 
-		blockoverride "icon_size"
-		{
-			size = { 30 30 }
-		}
+        blockoverride "icon_size"
+        {
+            size = { 30 30 }
+        }
 
-		blockoverride "tooltip_placement"
-		{
-			using = tooltip_se
-		}
+        blockoverride "tooltip_placement"
+        {
+            using = tooltip_se
+        }
 
-		blockoverride "glow_radius"
-		{
-			glow_radius = 3
-		}
-	}
+        blockoverride "glow_radius"
+        {
+            glow_radius = 3
+        }
+    }
 
-	
+    
 
-	type acs_trait_item_custom_left = widget {
-		block "acs_trait_item_size" {  
-			size = { 275 30 }
-		}
-		button_group = {
+    type acs_trait_item_custom_left = widget {
+        block "acs_trait_item_size" {  
+            size = { 275 30 }
+        }
+        button_group = {
 
-			block "acs_trait_item_action" {
-				onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-			}
-			
-			flowcontainer = {
-				spacing = 5
-				parentanchor = top|left
-				widgetanchor = top|left
-				acs_four_state_checkbox = {}
+            block "acs_trait_item_action" {
+                onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            
+            flowcontainer = {
+                spacing = 5
+                parentanchor = top|left
+                widgetanchor = top|left
+                acs_four_state_checkbox = {}
 
-				icon = {
-					size = { 32 32 }
-					block "acs_custom_image" {  
-						frame = 1
-						texture = "gfx/interface/icons/icon_skills.dds"
-						framesize = { 60 60 }
-					}
-				}
-	
-				text_single = {
-					layoutpolicy_horizontal = expanding
-					block "acs_filter_name" {  
-						text = "[diplomacy|E]"
-					}
-					default_format = "#medium"
+                icon = {
+                    size = { 32 32 }
+                    block "acs_custom_image" {  
+                        frame = 1
+                        texture = "gfx/interface/icons/icon_skills.dds"
+                        framesize = { 60 60 }
+                    }
+                }
+    
+                text_single = {
+                    layoutpolicy_horizontal = expanding
+                    block "acs_filter_name" {  
+                        text = "[diplomacy|E]"
+                    }
+                    default_format = "#medium"
 
-					align = bottom|left
-				}
-			}
-		}
-	}
+                    align = bottom|left
+                }
+            }
+        }
+    }
 
-	type acs_trait_item_custom_right = widget {
-		block "acs_trait_item_size" {  
-			size = { 275 30 }
-		}
-		button_group = {
-			block "acs_trait_item_size2" {  
-				size = { 275 30 }
-			}
-			block "acs_trait_item_action" {
-				onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-			}
-			
-			hbox = {
-				spacing = 5
-				parentanchor = top|left
-				widgetanchor = top|left
-				expand = {}
-				text_single = {
-					layoutpolicy_horizontal = expanding
-					block "acs_filter_name" {  
-						text = "[diplomacy|E]"
-					}
-					default_format = "#medium"
+    type acs_trait_item_custom_right = widget {
+        block "acs_trait_item_size" {  
+            size = { 275 30 }
+        }
+        button_group = {
+            block "acs_trait_item_size2" {  
+                size = { 275 30 }
+            }
+            block "acs_trait_item_action" {
+                onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+            
+            hbox = {
+                spacing = 5
+                parentanchor = top|left
+                widgetanchor = top|left
+                expand = {}
+                text_single = {
+                    layoutpolicy_horizontal = expanding
+                    block "acs_filter_name" {  
+                        text = "[diplomacy|E]"
+                    }
+                    default_format = "#medium"
 
-					align = top|right
-				}
-				icon = {
-					size = { 32 32 }
-					block "acs_custom_image" {  
-						frame = 1
-						texture = "gfx/interface/icons/icon_skills.dds"
-						framesize = { 60 60 }
-					}
-				}
-				acs_four_state_checkbox = {}
-			}
-		}
-	}
+                    align = top|right
+                }
+                icon = {
+                    size = { 32 32 }
+                    block "acs_custom_image" {  
+                        frame = 1
+                        texture = "gfx/interface/icons/icon_skills.dds"
+                        framesize = { 60 60 }
+                    }
+                }
+                acs_four_state_checkbox = {}
+            }
+        }
+    }
 
-	type acs_trait_item_custom_left_third = acs_trait_item_custom_left {
-		blockoverride "acs_trait_item_size" {
-			size = { 183 30 }
-		}
-	}
+    type acs_trait_item_custom_left_third = acs_trait_item_custom_left {
+        blockoverride "acs_trait_item_size" {
+            size = { 183 30 }
+        }
+    }
 
-	type acs_trait_item_custom_right_third = acs_trait_item_custom_right {
-		blockoverride "acs_trait_item_size" {
-			size = { 183 30 }
-		}
-		blockoverride "acs_trait_item_size2" {
-			size = { 183 30 }
-		}
-	}
+    type acs_trait_item_custom_right_third = acs_trait_item_custom_right {
+        blockoverride "acs_trait_item_size" {
+            size = { 183 30 }
+        }
+        blockoverride "acs_trait_item_size2" {
+            size = { 183 30 }
+        }
+    }
 
-	type acs_trait_item_skill_left = acs_trait_item_custom_left	{
-		blockoverride "acs_custom_image" {
-			texture = "gfx/interface/icons/icon_skills.dds"
-			framesize = { 60 60 }
-			block "acs_skill_frame" {  
-				frame = 1
-			}
-		}
-	}
+    type acs_trait_item_skill_left = acs_trait_item_custom_left {
+        blockoverride "acs_custom_image" {
+            texture = "gfx/interface/icons/icon_skills.dds"
+            framesize = { 60 60 }
+            block "acs_skill_frame" {  
+                frame = 1
+            }
+        }
+    }
 
-	type acs_trait_item_skill_right = acs_trait_item_custom_right {
+    type acs_trait_item_skill_right = acs_trait_item_custom_right {
 
-		blockoverride "acs_custom_image" {
-			texture = "gfx/interface/icons/icon_skills.dds"
-			framesize = { 60 60 }
-			block "acs_skill_frame" {  
-				frame = 1
-			}
-		}
-	}
+        blockoverride "acs_custom_image" {
+            texture = "gfx/interface/icons/icon_skills.dds"
+            framesize = { 60 60 }
+            block "acs_skill_frame" {  
+                frame = 1
+            }
+        }
+    }
 
-	
-	type acs_trait_item_left = widget {
-		block "acs_trait_item_size" {  
-			size = { 275 30 }
-		}
-		button_group = {
-			datacontext = "[GetPlayer]"
+    
+    type acs_trait_item_left = widget {
+        block "acs_trait_item_size" {  
+            size = { 275 30 }
+        }
+        button_group = {
+            datacontext = "[GetPlayer]"
 
-			block "acs_trait_item_action" {
-				onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				datacontext = "[GetTrait( 'berserker' )]"
-			}
-			
-			flowcontainer = {
-				spacing = 5
-				parentanchor = top|left
-				widgetanchor = top|left
-				block "acs_trait_item_moved" {  
-					
-				}
-				acs_four_state_checkbox = {}
+            block "acs_trait_item_action" {
 
-				acs_trait_icon = {}
-	
-				text_single = {
-					layoutpolicy_horizontal = expanding
-					block "acs_filter_name" {  
-						text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
-					}
-					default_format = "#medium"
+            }
+            
+            flowcontainer = {
+                spacing = 5
+                parentanchor = top|left
+                widgetanchor = top|left
+                block "acs_trait_item_moved" {  
+                    
+                }
+                acs_four_state_checkbox = {}
 
-					align = bottom|left
-				}
-			}
-		}
-	}
+                acs_trait_icon = {}
+    
+                text_single = {
+                    layoutpolicy_horizontal = expanding
+                    block "acs_filter_name" {  
+                        text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
+                    }
+                    default_format = "#medium"
 
-	type acs_trait_item_right = widget {
-		block "acs_trait_item_size" {  
-			size = { 275 30 }
-		}
-		button_group = {
-			block "acs_trait_item_size2" {  
-				size = { 275 30 }
-			}
-			datacontext = "[GetPlayer]"
-			block "acs_trait_item_action" {
-				onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				datacontext = "[GetTrait( 'berserker' )]"
-			}
-			
-			hbox = {
-				spacing = 5
-				parentanchor = top|left
-				widgetanchor = top|left
-				layoutpolicy_horizontal = expanding
-				expand = {}
-				
-	
-				text_single = {
-					layoutpolicy_horizontal = expanding
-					block "acs_filter_name" {  
-						text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
-					}
-					default_format = "#medium"
+                    align = bottom|left
+                }
+            }
+        }
+    }
 
-					align = top|right
-				}
-				acs_trait_icon = {}
-				acs_four_state_checkbox = {}
-				block "acs_trait_item_moved" {  
-					
-				}
-			}
-		}
-	}
+    type acs_trait_item_right = widget {
+        block "acs_trait_item_size" {  
+            size = { 275 30 }
+        }
+        button_group = {
+            block "acs_trait_item_size2" {  
+                size = { 275 30 }
+            }
+            datacontext = "[GetPlayer]"
+            block "acs_trait_item_action" {
 
-	type acs_trait_item_left_moved = acs_trait_item_left {
-		blockoverride "acs_trait_item_moved" {
-			widget = {
-				size = { 30 30 }
-			}
-		}
-	}
+            }
+            
+            hbox = {
+                spacing = 5
+                parentanchor = top|left
+                widgetanchor = top|left
+                layoutpolicy_horizontal = expanding
+                expand = {}
+                
+    
+                text_single = {
+                    layoutpolicy_horizontal = expanding
+                    block "acs_filter_name" {  
+                        text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
+                    }
+                    default_format = "#medium"
 
-	type acs_trait_item_right_moved = acs_trait_item_right { 
-		blockoverride "acs_trait_item_moved" {
-			widget = {
-				size = { 30 30 }
-			}
-		}
-	}
+                    align = top|right
+                }
+                acs_trait_icon = {}
+                acs_four_state_checkbox = {}
+                block "acs_trait_item_moved" {  
+                    
+                }
+            }
+        }
+    }
 
-	type acs_trait_item_right_small = acs_trait_item_right {
-		blockoverride "acs_trait_item_size" {
-			size = { 159 30 }
-		}
-		blockoverride "acs_trait_item_size2" {
-			size = { 159 30 }
-		}
-	}
+    type acs_trait_item_left_moved = acs_trait_item_left {
+        blockoverride "acs_trait_item_moved" {
+            widget = {
+                size = { 30 30 }
+            }
+        }
+    }
 
-	
-	type acs_trait_item_left_third = acs_trait_item_left {
-		blockoverride "acs_trait_item_size" {
-			size = { 183 30 }
-		}
-	}
+    type acs_trait_item_right_moved = acs_trait_item_right { 
+        blockoverride "acs_trait_item_moved" {
+            widget = {
+                size = { 30 30 }
+            }
+        }
+    }
 
-	type acs_trait_item_right_third = acs_trait_item_right {
-		blockoverride "acs_trait_item_size" {
-			size = { 183 30 }
-		}
-		blockoverride "acs_trait_item_size2" {
-			size = { 183 30 }
-		}
-	}
+    type acs_trait_item_right_small = acs_trait_item_right {
+        blockoverride "acs_trait_item_size" {
+            size = { 159 30 }
+        }
+        blockoverride "acs_trait_item_size2" {
+            size = { 159 30 }
+        }
+    }
 
-	type acs_trait_item_top = widget {
+    
+    type acs_trait_item_left_third = acs_trait_item_left {
+        blockoverride "acs_trait_item_size" {
+            size = { 183 30 }
+        }
+    }
 
-		size = { 555 105 }
-		hbox = {
-			layoutpolicy_horizontal = expanding
-			expand = {}
-			button_group = {
-				datacontext = "[GetPlayer]"
-				size = { 230 105 }
-				block "acs_trait_item_action" {
-					onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					datacontext = "[GetTrait( 'berserker' )]"
-				}
-				
-				vbox = {
-					#direction = vertical
-					spacing = 5
-					parentanchor = top|left
-					widgetanchor = top|left
-					
-					text_single = {
-						layoutpolicy_horizontal = expanding
-						block "acs_filter_name" {  
-							text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
-						}
-						default_format = "#medium"
-	
-						align = bottom|center
-					}
-					
-					acs_trait_icon = {}
-					acs_four_state_checkbox = {}
-				}
-			}
-			expand = {}
-		}
-		
-	}
+    type acs_trait_item_right_third = acs_trait_item_right {
+        blockoverride "acs_trait_item_size" {
+            size = { 183 30 }
+        }
+        blockoverride "acs_trait_item_size2" {
+            size = { 183 30 }
+        }
+    }
+
+    type acs_trait_item_top = widget {
+
+        size = { 555 105 }
+        hbox = {
+            layoutpolicy_horizontal = expanding
+            expand = {}
+            button_group = {
+                datacontext = "[GetPlayer]"
+                size = { 230 105 }
+                block "acs_trait_item_action" {
+                    onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    datacontext = "[GetTrait( 'berserker' )]"
+                }
+                
+                vbox = {
+                    #direction = vertical
+                    spacing = 5
+                    parentanchor = top|left
+                    widgetanchor = top|left
+                    
+                    text_single = {
+                        layoutpolicy_horizontal = expanding
+                        block "acs_filter_name" {  
+                            text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
+                        }
+                        default_format = "#medium"
+    
+                        align = vcenter|center
+                    }
+                    
+                    acs_trait_icon = {}
+                    acs_four_state_checkbox = {}
+                }
+            }
+            expand = {}
+        }
+        
+    }
 }

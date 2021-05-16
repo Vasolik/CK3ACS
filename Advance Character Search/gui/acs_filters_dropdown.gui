@@ -10,7 +10,7 @@ types acs_filters_dropdown_types {
         }
     }
 
-	type acs_filter_relation_dropdown_selected_value = acs_filter_dropdown_selected_value {
+    type acs_filter_relation_dropdown_selected_value = acs_filter_dropdown_selected_value {
         blockoverride "onclick_button_drop" {
             onclick = "[GetVariableSystem.Toggle( 'acs_filter_relation' )]"
         }
@@ -158,92 +158,92 @@ types acs_filters_dropdown_types {
 types acs_filters_items_types {
 
     type acs_filter_item_dropdown = widget {
-		block "acs_filter_item_widget_size" { 
-			size = { 300 33 }
-		}
-		
-		allow_outside = yes
-		
-		block "acs_filter_selected_value" {   
-			acs_filter_dropdown_selected_value = {
-				blockoverride "visibility" {
-					visible = "[GetScriptedGui( 'acs_sort_by_health' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				}
-				blockoverride "text_button_drop" {
-					text = "SORT_HEALTH"
-				}
-			}
-		}
+        block "acs_filter_item_widget_size" { 
+            size = { 300 33 }
+        }
+        
+        allow_outside = yes
+        
+        block "acs_filter_selected_value" {   
+            acs_filter_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_health' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "SORT_HEALTH"
+                }
+            }
+        }
 
-		scrollarea = {
-			#parentanchor = bottom|right
-			position = { 5 33 }
+        scrollarea = {
+            #parentanchor = bottom|right
+            position = { 5 33 }
 
-			state = {
-				name = _show
-				using = Animation_FadeIn_Quick
-			}
-	
-			state = {
-				name = _hide
-				using = Animation_FadeOut_Quick
-			}
+            state = {
+                name = _show
+                using = Animation_FadeIn_Quick
+            }
+    
+            state = {
+                name = _hide
+                using = Animation_FadeOut_Quick
+            }
 
 
-			block "acs_filter_item_widget_maximumsize" { 
-				maximumsize = { 300 250 }
-			}
-		   
-			autoresizescrollarea = yes
-			scrollbarpolicy_horizontal = always_off
+            block "acs_filter_item_widget_maximumsize" { 
+                maximumsize = { 300 250 }
+            }
+           
+            autoresizescrollarea = yes
+            scrollbarpolicy_horizontal = always_off
 
-			using = Background_DropDown
-			block "acs_drop_down_visible" { 
-				visible = "[GetVariableSystem.Exists( 'acs_sort_list' )]"
-			}
+            using = Background_DropDown
+            block "acs_drop_down_visible" { 
+                visible = "[GetVariableSystem.Exists( 'acs_sort_list' )]"
+            }
 
-			scrollwidget = {
-				vbox = {
-					using = Background_DropDown
-					layoutpolicy_vertical = expanding
-					layoutpolicy_horizontal = expanding
-					ignoreinvisible = yes
-					block "acs_filter_other_value" { 
-						acs_filter_dropdown_other_value = {
-							blockoverride "text_button_drop" {
-								text = "SORT_HEALTH"
-								onclick = "[GetScriptedGui( 'acs_sort_by_health' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							}
-						}
-					}
-				}
-			}
+            scrollwidget = {
+                vbox = {
+                    using = Background_DropDown
+                    layoutpolicy_vertical = expanding
+                    layoutpolicy_horizontal = expanding
+                    ignoreinvisible = yes
+                    block "acs_filter_other_value" { 
+                        acs_filter_dropdown_other_value = {
+                            blockoverride "text_button_drop" {
+                                text = "SORT_HEALTH"
+                                onclick = "[GetScriptedGui( 'acs_sort_by_health' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                            }
+                        }
+                    }
+                }
+            }
 
-			scrollbar_vertical = {
-				using = Scrollbar_Vertical
-			}	
-		}
-		
-	}
+            scrollbar_vertical = {
+                using = Scrollbar_Vertical
+            }    
+        }
+        
+    }
 
     type acs_filter_item_dropdown1 = dropDown {
 
         block "acs_filter_item_widget_size" { 
-			size = { 300 33 }
-		}
+            size = { 300 33 }
+        }
 
-		active_item = {
-			block "acs_filter_selected_value" {   
+        active_item = {
+            block "acs_filter_selected_value" {   
 
             }
-		}
+        }
 
-		item = {
-			widget = {	}
-		}
+        item = {
+            widget = {    }
+        }
 
-		list = {
-			scrollarea = {
+        list = {
+            scrollarea = {
                 #parentanchor = bottom|right
                 position = { 5 33 }
     
@@ -284,17 +284,17 @@ types acs_filters_items_types {
     
                 scrollbar_vertical = {
                     using = Scrollbar_Vertical
-                }	
+                }    
             }
-		}
-	}
+        }
+    }
 
 
 
-	type acs_filter_item = widget {
-		block "acs_filter_item_size" { 
-			size = { 560 43 }
-		}
+    type acs_filter_item = widget {
+        block "acs_filter_item_size" { 
+            size = { 560 43 }
+        }
         allow_outside = yes
         hbox = {
             layoutpolicy_horizontal = expanding
@@ -313,17 +313,17 @@ types acs_filters_items_types {
                 autoresize = no
                 align = nobaseline
             }
-			block "acs_filter_item_expand" { 
-				expand = {}
-			}
+            block "acs_filter_item_expand" { 
+                expand = {}
+            }
             
     
             acs_filter_item_dropdown = {}
         }
 
     }
-	
-	type acs_filter_relation_item = acs_filter_item {
+    
+    type acs_filter_relation_item = acs_filter_item {
         blockoverride "acs_drop_down_visible" { 
             visible = "[GetVariableSystem.Exists( 'acs_filter_relation' )]"
         }

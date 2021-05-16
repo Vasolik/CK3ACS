@@ -1,0 +1,555 @@
+﻿acs_filter_trait_education_general = {
+    scope = province
+    saved_scopes = {
+        major_digit
+        minor_digit
+    }
+    is_shown = {
+        dummy_male = {
+            any_in_list = {
+                variable = acs_filter_trait_education_general_list
+                save_temporary_scope_value_as = { name = offset value = -1 }
+                this = acs_major_minor_index_offset
+            }
+        }
+
+    }     
+    effect = {
+        set_local_variable = { name = acs_start value = acs_major_minor }
+        acs_simple_checkbox = { LIST = acs_filter_trait_education_general_list START = local_var:acs_start }
+        dummy_male = {
+            if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_filter_trait_education_general_list
+                        always = yes
+                    }
+                }
+                add_to_variable_list = { name = acs_active_filter_list target = 0 }
+            }
+            else = {
+                remove_list_variable = { name = acs_active_filter_list target = 0 }
+            }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_general_group = {
+    scope = province
+    saved_scopes = {
+        major_digit
+        minor_digit
+    }
+    is_shown = {
+        dummy_male = {
+            trigger_if = {
+                limit = { 
+                    root.var:index = 0
+                }
+                NOT = {
+                    any_in_list = {
+                        variable = acs_filter_trait_education_general_list
+                        AND = {
+                            this >= acs_major_minor
+                            save_temporary_scope_value_as = { name = offset value = 7 }
+                            this <= acs_major_minor_offset
+                        }
+                    }
+                }    
+            } 
+            trigger_else_if = {
+                limit = { 
+                    root.var:index = 1
+                }
+                any_in_list = {
+                    variable =  acs_filter_trait_education_general_list
+                    OR = {
+                        this = acs_major_minor
+                        save_temporary_scope_value_as = { name = offset value = 2 }
+                        this = acs_major_minor_offset
+                        save_temporary_scope_value_as = { name = offset value = 4 }
+                        this = acs_major_minor_offset
+                        save_temporary_scope_value_as = { name = offset value = 6 }
+                        this = acs_major_minor_offset
+                    }
+                    count = 4
+                }
+            }
+            trigger_else = {
+                 any_in_list = {
+                    variable =  acs_filter_trait_education_general_list
+                    OR = {
+                        save_temporary_scope_value_as = { name = offset value = 1 }
+                        this = acs_major_minor_offset
+                        save_temporary_scope_value_as = { name = offset value = 3 }
+                        this = acs_major_minor_offset
+                        save_temporary_scope_value_as = { name = offset value = 5 }
+                        this = acs_major_minor_offset
+                        save_temporary_scope_value_as = { name = offset value = 7 }
+                        this = acs_major_minor_offset
+                    }
+                    count = 4
+                }
+            }
+        }  
+    }     
+    effect = {
+        dummy_male = {
+            acs_save_undo_0_filters = yes
+            if = {
+                limit = {
+                    NOT = {
+                        any_in_list = {
+                            variable = acs_filter_trait_education_general_list
+                            AND = {
+                                this >= acs_major_minor
+                                save_temporary_scope_value_as = { name = offset value = 7 }
+                                this <= acs_major_minor_offset
+                            }
+                        }
+                    }
+                }
+                set_local_variable = { name = acs_counter value = acs_major_minor }
+                set_local_variable = { name = acs_total_left value = 4 }
+                while = {
+                    limit = {
+                        local_var:acs_total_left > 0
+                    }
+                    add_to_variable_list = { name =  acs_filter_trait_education_general_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 2 }
+                    change_local_variable = { name = acs_total_left add = -1 }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable =  acs_filter_trait_education_general_list
+                        OR = {
+                            this = acs_major_minor
+                            save_temporary_scope_value_as = { name = offset value = 2 }
+                            this = acs_major_minor_offset
+                            save_temporary_scope_value_as = { name = offset value = 4 }
+                            this = acs_major_minor_offset
+                            save_temporary_scope_value_as = { name = offset value = 6 }
+                            this = acs_major_minor_offset
+                        }
+                        count = 4
+                    }
+                }
+                set_local_variable = { name = acs_counter value = acs_major_minor }
+                set_local_variable = { name = acs_total_left value = 4 }
+                while = {
+                    limit = {
+                        local_var:acs_total_left > 0
+                    }
+                    remove_list_variable = { name = acs_filter_trait_education_general_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 1 }
+                    add_to_variable_list = { name =  acs_filter_trait_education_general_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 1 }
+                    change_local_variable = { name = acs_total_left add = -1 }
+                }
+            }
+            else = {
+                set_local_variable = { name = acs_counter value = acs_major_minor }
+                set_local_variable = { name = acs_total_left value = 8 }
+                while = {
+                    limit = {
+                        local_var:acs_total_left > 0
+                    }
+                    remove_list_variable = { name = acs_filter_trait_education_general_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 1 }
+                    change_local_variable = { name = acs_total_left add = -1 }
+                }
+            }
+            dummy_male = {
+                if = {
+                    limit = {
+                        any_in_list = {
+                            variable = acs_filter_trait_education_general_list
+                            always = yes
+                        }
+                    }
+                    add_to_variable_list = { name = acs_active_filter_list target = 0 }
+                }
+                else = {
+                    remove_list_variable = { name = acs_active_filter_list target = 0 }
+                }
+            }
+            acs_auto_apply_sorting_and_filters = yes
+        }
+    }
+}
+acs_filter_trait_education_martial = {
+    scope = province
+    saved_scopes = {
+        major_digit
+        minor_digit
+    }
+    is_shown = {
+        dummy_male = {
+            any_in_list = {
+                variable = acs_filter_trait_education_martial_list
+                save_temporary_scope_value_as = { name = offset value = -1 }
+                this = acs_major_minor_index_offset
+            }
+        }
+
+    }     
+    effect = {
+        set_local_variable = { name = acs_start value = acs_major_minor }
+        acs_simple_checkbox = { LIST = acs_filter_trait_education_martial_list START = local_var:acs_start }
+        dummy_male = {
+            if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_filter_trait_education_martial_list
+                        always = yes
+                    }
+                }
+                add_to_variable_list = { name = acs_active_filter_list target = 1 }
+            }
+            else = {
+                remove_list_variable = { name = acs_active_filter_list target = 1 }
+            }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_education_martial_group = {
+    scope = province
+    is_shown = {
+        dummy_male = {
+            trigger_if = {
+                limit = { 
+                    root.var:index = 0
+                }
+                NOT = {
+                    any_in_list = {
+                        variable = acs_filter_trait_education_martial_list
+                        always = yes
+                    }
+                }    
+            } 
+            trigger_else_if = {
+                limit = { 
+                    root.var:index = 1
+                }
+                any_in_list = {
+                    variable =  acs_filter_trait_education_martial_list
+                    save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                    save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                    scope:to_test = 0
+                    count = 4
+                }
+            }
+            trigger_else = {
+                 any_in_list = {
+                    variable =  acs_filter_trait_education_martial_list
+                    save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                    save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                    scope:to_test = 1
+                    count = 4
+                }
+            }
+        }
+        
+    }     
+    effect = {
+        dummy_male = {
+            acs_save_undo_0_filters = yes
+            if = {
+                limit = {
+                    NOT = {
+                        any_in_list = {
+                            variable = acs_filter_trait_education_martial_list
+                            always = yes
+                        }
+                    }
+                }
+                set_local_variable = { name = acs_counter value = 0 }
+                while = {
+                    limit = {
+                        local_var:acs_counter < 8
+                    }
+                    add_to_variable_list = { name =  acs_filter_trait_education_martial_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 2 }
+                }
+                add_to_variable_list = { name = acs_active_filter_list target = 1 }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable =  acs_filter_trait_education_martial_list
+                        save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                        save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                        scope:to_test = 0
+                        count = 4
+                    }
+                }
+                set_local_variable = { name = acs_counter value = 0 }
+                while = {
+                    limit = {
+                        local_var:acs_counter < 8
+                    }
+                    remove_list_variable = { name = acs_filter_trait_education_martial_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 1 }
+                    add_to_variable_list = { name =  acs_filter_trait_education_martial_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 1 }
+                }
+            }
+            else = {
+                set_local_variable = { name = acs_counter value = 0 }
+                while = {
+                    limit = {
+                        local_var:acs_counter < 8
+                    }
+                    remove_list_variable = { name = acs_filter_trait_education_martial_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 1 }
+                }
+                remove_list_variable = { name = acs_active_filter_list target = 1 }
+            }
+            acs_auto_apply_sorting_and_filters = yes
+        }
+    }    
+}
+acs_filter_trait_fame_born_status = {
+    scope = province
+    saved_scopes = {
+        major_digit
+        minor_digit
+    }
+    is_shown = {
+        dummy_male = {
+            any_in_list = {
+                variable = acs_filter_trait_fame_born_status_list
+                save_temporary_scope_value_as = { name = offset value = -1 }
+                this = acs_major_minor_index_offset
+            }
+        }
+
+    }     
+    effect = {
+        set_local_variable = { name = acs_start value = acs_major_minor }
+        acs_simple_checkbox = { LIST = acs_filter_trait_fame_born_status_list START = local_var:acs_start }
+        dummy_male = {
+            if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        always = yes
+                    }
+                }
+                add_to_variable_list = { name = acs_active_filter_list target = 156 }
+            }
+            else = {
+                remove_list_variable = { name = acs_active_filter_list target = 156 }
+            }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_fame_born_status_group = {
+    scope = province
+    is_shown = {
+        dummy_male = {
+            trigger_if = {
+                limit = { 
+                    root.var:index = 0
+                }
+                NOT = {
+                    any_in_list = {
+                        variable = acs_filter_trait_fame_born_status_list
+                        always = yes
+                    }
+                }    
+            } 
+            trigger_else_if = {
+                limit = { 
+                    root.var:index = 1
+                }
+                any_in_list = {
+                    variable =  acs_filter_trait_fame_born_status_list
+                    save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                    save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                    scope:to_test = 0
+                    count = 7
+                }
+            }
+            trigger_else = {
+                 any_in_list = {
+                    variable =  acs_filter_trait_fame_born_status_list
+                    save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                    save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                    scope:to_test = 1
+                    count = 7
+                }
+            }
+        }
+        
+    }     
+    effect = {
+        dummy_male = {
+            acs_save_undo_0_filters = yes
+            if = {
+                limit = {
+                    NOT = {
+                        any_in_list = {
+                            variable = acs_filter_trait_fame_born_status_list
+                            always = yes
+                        }
+                    }
+                }
+                set_local_variable = { name = acs_counter value = 0 }
+                while = {
+                    limit = {
+                        local_var:acs_counter < 14
+                    }
+                    add_to_variable_list = { name =  acs_filter_trait_fame_born_status_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 2 }
+                }
+                add_to_variable_list = { name = acs_active_filter_list target = 156 }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable =  acs_filter_trait_fame_born_status_list
+                        save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                        save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                        scope:to_test = 0
+                        count = 7
+                    }
+                }
+                set_local_variable = { name = acs_counter value = 0 }
+                while = {
+                    limit = {
+                        local_var:acs_counter < 14
+                    }
+                    remove_list_variable = { name = acs_filter_trait_fame_born_status_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 1 }
+                    add_to_variable_list = { name =  acs_filter_trait_fame_born_status_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 1 }
+                }
+            }
+            else = {
+                set_local_variable = { name = acs_counter value = 0 }
+                while = {
+                    limit = {
+                        local_var:acs_counter < 14
+                    }
+                    remove_list_variable = { name = acs_filter_trait_fame_born_status_list target = local_var:acs_counter }
+                    change_local_variable = { name = acs_counter add = 1 }
+                }
+                remove_list_variable = { name = acs_active_filter_list target = 156 }
+            }
+            acs_auto_apply_sorting_and_filters = yes
+        }
+    }    
+}
+acs_filter_trait_physical_beauty = {
+    scope = province
+    saved_scopes = {
+        major_digit
+        minor_digit
+    }
+    is_shown = {
+        dummy_male = {
+            any_in_list = {
+                variable = acs_filter_trait_physical_beauty_list
+                save_temporary_scope_value_as = { name = offset value = -1 }
+                this = acs_major_minor_index_offset
+            }
+        }
+
+    }     
+    effect = {
+        set_local_variable = { name = acs_start value = acs_major_minor }
+        acs_simple_checkbox = { LIST = acs_filter_trait_physical_beauty_list START = local_var:acs_start }
+        dummy_male = {
+            if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_filter_trait_physical_beauty_list
+                        always = yes
+                    }
+                }
+                add_to_variable_list = { name = acs_active_filter_list target = 539 }
+            }
+            else = {
+                remove_list_variable = { name = acs_active_filter_list target = 539 }
+            }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_physical_intellect = {
+    scope = province
+    saved_scopes = {
+        major_digit
+        minor_digit
+    }
+    is_shown = {
+        dummy_male = {
+            any_in_list = {
+                variable = acs_filter_trait_physical_intellect_list
+                save_temporary_scope_value_as = { name = offset value = -1 }
+                this = acs_major_minor_index_offset
+            }
+        }
+
+    }     
+    effect = {
+        set_local_variable = { name = acs_start value = acs_major_minor }
+        acs_simple_checkbox = { LIST = acs_filter_trait_physical_intellect_list START = local_var:acs_start }
+        dummy_male = {
+            if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_filter_trait_physical_intellect_list
+                        always = yes
+                    }
+                }
+                add_to_variable_list = { name = acs_active_filter_list target = 540 }
+            }
+            else = {
+                remove_list_variable = { name = acs_active_filter_list target = 540 }
+            }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_filter_trait_physical_physique = {
+    scope = province
+    saved_scopes = {
+        major_digit
+        minor_digit
+    }
+    is_shown = {
+        dummy_male = {
+            any_in_list = {
+                variable = acs_filter_trait_physical_physique_list
+                save_temporary_scope_value_as = { name = offset value = -1 }
+                this = acs_major_minor_index_offset
+            }
+        }
+
+    }     
+    effect = {
+        set_local_variable = { name = acs_start value = acs_major_minor }
+        acs_simple_checkbox = { LIST = acs_filter_trait_physical_physique_list START = local_var:acs_start }
+        dummy_male = {
+            if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_filter_trait_physical_physique_list
+                        always = yes
+                    }
+                }
+                add_to_variable_list = { name = acs_active_filter_list target = 541 }
+            }
+            else = {
+                remove_list_variable = { name = acs_active_filter_list target = 541 }
+            }
+        }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
