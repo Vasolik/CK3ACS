@@ -1,4 +1,4 @@
-version="5.2"
+version="6"
 tags={
 	"Gameplay"
 	"Utilities"
