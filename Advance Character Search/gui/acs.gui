@@ -42,9 +42,7 @@ window = {
                     layoutpolicy_horizontal = expanding
                 }
             }
-    
-            block "special_character" {}
-    
+
             scrollbox = {
                 name = "acs_characters_scroll_area"
                 layoutpolicy_vertical = expanding
@@ -77,16 +75,6 @@ window = {
                                 }
                             }
                         }
-                    }
-                }
-    
-                blockoverride "scrollbox_empty"
-                {
-                    block "scrollbox_empty_visibility"
-                    {
-                        layoutpolicy_vertical = expanding
-                        visible = "[GreaterThan_int32(GetDataModelSize(GetPlayer.MakeScope.GetList('acs_list')), '(int32)0')]"
-                        text = "NO_CHARACTERS_TO_SELECT"
                     }
                 }
             }
@@ -123,14 +111,14 @@ window = {
                         datacontext = "[CharacterSelectionList]"
                         text = "acs_slot_text"
                         default_format = "#low"
-                        visible = "[GreaterThan_CFixedPoint( GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+                        visible = "[GreaterThan_CFixedPoint( EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
                     }
                     widget = {
                         size = { 20 15 }
     
                         icon = {
                             size = { 20 20 }
-                            visible = "[Not( EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-2') )]"
+                            visible = "[Not( EqualTo_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-2') )]"
                             tooltip = "CHARACTER_FINDER_FILTER_SET"
                             texture = "gfx/interface/icons/symbols/icon_warning.dds"
                         }

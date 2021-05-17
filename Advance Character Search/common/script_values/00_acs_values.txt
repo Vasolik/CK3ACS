@@ -23,17 +23,19 @@ claim_value_for_sort = {
     multiply = 10
     if = {
         limit = {
-            NOT = {
-                title_capital_county.culture = prev.culture
-            }
+			trigger_if = {
+				limit = { tier = tier_county }
+				NOT = { title_capital_county.culture = prev.culture }
+			}
         }
         add = -1
     }
     if = {
         limit = {
-            NOT = {
-                title_capital_county.culture_group = prev.culture_group
-            }
+			trigger_if = {
+				limit = { tier = tier_county }
+				NOT = { title_capital_county.culture_group = prev.culture_group }
+			}
         }
         add = -2
     }
@@ -284,7 +286,7 @@ acs_sort_value = {
 		add = total_claim_value_for_sort
 	}
 	if = {
-		limit = { global_var:acs_sort_by_ascending = yes }
+		limit = { global_var:acs_sort_by_ascending = 1 }
 		multiply = -1
 	}
 }

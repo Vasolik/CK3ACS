@@ -75,13 +75,10 @@ types acs_filters_types {
 					maximumsize = { 600 653 }
 					blockoverride "scrollbox_content" {
 						widget = {
-							size = { 580 5000 }
-							using = Scrollbox_Margins
-							
+							size = { 580 5500 }
 							flowcontainer = {
 								state = {
 									name = "up"
-									
 									trigger_when = "[And( GetVariableSystem.Exists( 'acs_filter_group_personal' ), GetVariableSystem.Exists( 'acs_filter_group_membership' ))]"
 									position_y = 161
 								}
@@ -1269,7 +1266,7 @@ types acs_filters_types {
 					blockoverride "acs_filter_selected_value" {   
 						acs_filter_load_selected_value = {
 							blockoverride "visibility" {
-								visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+								visible = "[EqualTo_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
 							}
 							blockoverride "text_button_drop" {
 								text = "acs_none"
@@ -1278,7 +1275,7 @@ types acs_filters_types {
 	
 						acs_filter_load_selected_value = {
 							blockoverride "visibility" {
-								visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-2')]"
+								visible = "[EqualTo_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-2')]"
 							}
 							blockoverride "text_button_drop" {
 								text = "acs_default"
@@ -1287,10 +1284,10 @@ types acs_filters_types {
 						
 						acs_filter_load_selected_value = {
 							blockoverride "visibility" {
-								visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+								visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
 							}
 							blockoverride "text_button_drop" {
-								text = "[GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used')|0]"
+								text = "[EmptyScope.ScriptValue('acs_current_slot_used')|0]"
 							}
 						}
 					}
@@ -1425,7 +1422,7 @@ types acs_filters_types {
 					blockoverride "acs_filter_selected_value" {   
 						acs_filter_save_selected_value = {
 							blockoverride "visibility" {
-								visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+								visible = "[EqualTo_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
 							}
 							blockoverride "text_button_drop" {
 								text = "acs_none"
@@ -1434,7 +1431,7 @@ types acs_filters_types {
 	
 						acs_filter_save_selected_value = {
 							blockoverride "visibility" {
-								visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-2')]"
+								visible = "[EqualTo_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-2')]"
 							}
 							blockoverride "text_button_drop" {
 								text = "acs_default"
@@ -1443,10 +1440,10 @@ types acs_filters_types {
 						
 						acs_filter_save_selected_value = {
 							blockoverride "visibility" {
-								visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+								visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
 							}
 							blockoverride "text_button_drop" {
-								text = "[GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_current_slot_used')|0]"
+								text = "[EmptyScope.ScriptValue('acs_current_slot_used')|0]"
 							}
 						}
 					}

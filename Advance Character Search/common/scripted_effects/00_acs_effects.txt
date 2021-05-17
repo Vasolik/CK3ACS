@@ -8,9 +8,9 @@
         
         if = {
             limit = {
-                NOT = { has_global_variable = acs_reset_v55 }
+                NOT = { has_global_variable = acs_reset_v6 }
             }
-            set_global_variable = acs_reset_v55
+            set_global_variable = acs_reset_v6
             acs_reset_filters_and_sorting = yes
         }
         clear_acs_list = yes
@@ -272,16 +272,12 @@ clear_index_data = {
 
 acs_change_sort_order = {
     if = {
-        limit = { global_var:acs_sort_by_ascending = yes }
-        set_global_variable = {  name = acs_sort_by_ascending value = no }
+        limit = { global_var:acs_sort_by_ascending = 1 }
+        set_global_variable = {  name = acs_sort_by_ascending value = 0 }
     }
     else = {
-        set_global_variable = {  name = acs_sort_by_ascending value = yes }
+        set_global_variable = {  name = acs_sort_by_ascending value = 1 }
     }
-    
-    #for debug:
-    set_variable = {name = acs_sort_by value = global_var:acs_sort_by}
-    set_variable = {name = acs_sort_by_ascending value = global_var:acs_sort_by_ascending}
 }
 
 acs_auto_apply_sorting_and_filters = {

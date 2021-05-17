@@ -98,7 +98,7 @@ types acs_load_save_types {
                     visible = yes
                 }
                 blockoverride "text_button_drop" {
-                    text = "[GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_select_count')|0]"
+                    text = "[EmptyScope.ScriptValue('acs_select_count')|0]"
                 }
             }
         }
@@ -193,7 +193,7 @@ types acs_load_save_types {
                     visible = yes
                 }
                 blockoverride "text_button_drop" {
-                    text = "[GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('acs_select_count')|0]"
+                    text = "[EmptyScope.ScriptValue('acs_select_count')|0]"
                 }
             }
         }
