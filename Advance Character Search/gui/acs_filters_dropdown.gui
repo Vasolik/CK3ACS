@@ -12,7 +12,7 @@ types acs_filters_dropdown_types {
 
     type acs_filter_relation_dropdown_selected_value = acs_filter_dropdown_selected_value {
         blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_relation' )]"
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_relation' )]" 
         }
     }
     
@@ -176,7 +176,7 @@ types acs_filters_items_types {
         }
 
         scrollarea = {
-            #parentanchor = bottom|right
+            name = "acs_dropdown_part"
             position = { 5 33 }
 
             state = {
@@ -225,72 +225,7 @@ types acs_filters_items_types {
         }
         
     }
-
-    type acs_filter_item_dropdown1 = dropDown {
-
-        block "acs_filter_item_widget_size" { 
-            size = { 300 33 }
-        }
-
-        active_item = {
-            block "acs_filter_selected_value" {   
-
-            }
-        }
-
-        item = {
-            widget = {    }
-        }
-
-        list = {
-            scrollarea = {
-                #parentanchor = bottom|right
-                position = { 5 33 }
     
-                state = {
-                    name = _show
-                    using = Animation_FadeIn_Quick
-                }
-        
-                state = {
-                    name = _hide
-                    using = Animation_FadeOut_Quick
-                }
-    
-    
-                block "acs_filter_item_widget_maximumsize" { 
-                    maximumsize = { 300 250 }
-                }
-               
-                autoresizescrollarea = yes
-                scrollbarpolicy_horizontal = always_off
-    
-                using = Background_DropDown
-                block "acs_drop_down_visible" { 
-                    
-                }
-    
-                scrollwidget = {
-                    vbox = {
-                        using = Background_DropDown
-                        layoutpolicy_vertical = expanding
-                        layoutpolicy_horizontal = expanding
-                        ignoreinvisible = yes
-                        block "acs_filter_other_value" { 
-                           
-                        }
-                    }
-                }
-    
-                scrollbar_vertical = {
-                    using = Scrollbar_Vertical
-                }    
-            }
-        }
-    }
-
-
-
     type acs_filter_item = widget {
         block "acs_filter_item_size" { 
             size = { 560 43 }

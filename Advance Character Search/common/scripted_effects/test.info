@@ -1,5 +1,6 @@
 ﻿acs_trait_item_skill_right = {
-    datacontext = "[GetScriptedGui( 'acs_filter_trait_education_general_group' )]" 
+    datacontext = "[GuiScope.SetRoot( some_scope ).End ]" 
+    text = "[TopScope.ScriptValue('acs_current_slot_used')]"
     blockoverride "acs_trait_item_action" {
         onclick = "[ScriptedGui.Execute(
          GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope )
@@ -53,6 +54,49 @@ dummy_male = {
     } 
     
 }
+dummy_male = {
+    add_to_variable_list = { name = acs_filter_ruler target = var:acs_digit_0 }
+    add_to_variable_list = { name = acs_filter_ruler target = var:acs_digit_1 }
+    add_to_variable_list = { name = acs_filter_ruler target = var:acs_digit_2 }
+}
+
+dummy_male = {
+    clear_variable_list = acs_filter_ruler
+}
+dummy_male = {
+    remove_variable = acs_digit_0
+}
+
+
+every_province = {
+    set_variable = {name = index value = local_var:idd}
+    if = {
+        limit = { local_var:idd < 4  } 
+        if = { 
+            limit = { local_var:idd = 0 } 
+            dummy_male = { set_variable = { name = acs_digit_0 value = prev } }
+        }
+        if = {
+            limit = { local_var:idd = 1 } 
+            dummy_male = { set_variable = { name = acs_digit_1 value = prev } }
+        }
+        if = {
+            limit = { local_var:idd = 2 } 
+            dummy_male = { set_variable = { name = acs_digit_2 value = prev } }
+        }
+        if = {
+            limit = { local_var:idd = 3 } 
+            dummy_male = { set_variable = { name = acs_digit_3 value = prev } }
+        }
+    }
+    change_local_variable = { name = idd add = 1 }
+}
+dummy_male = {
+    add_to_variable_list = { name = acs_filter_ruler target = var:acs_digit_0 }
+    add_to_variable_list = { name = acs_filter_ruler target = var:acs_digit_1 }
+    add_to_variable_list = { name = acs_filter_ruler target = var:acs_digit_2 }
+}
+
 acs_filter_trait_education_general = {
     scope = province
     saved_scopes = {

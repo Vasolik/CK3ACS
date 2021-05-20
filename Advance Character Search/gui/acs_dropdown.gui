@@ -63,7 +63,11 @@ types acs_dropdown_types {
             block "onclick_button_drop" {
                 onclick = "[GetVariableSystem.Toggle( 'acs_sort_list' )]"
             }
-            
+            onclick = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.StackTop]"
+            onclick = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.StackTop]"
+            onclick = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.StackTop]"
+            onclick = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.StackTop]"
+            onclick = "[PdxGuiWidget.AccessParent.AccessParent.FindChild('acs_dropdown_part').StackTop]"
             block "text_button_drop" {
                 text = "diplomacy"
             }
