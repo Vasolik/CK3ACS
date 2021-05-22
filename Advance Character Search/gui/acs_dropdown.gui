@@ -60,14 +60,12 @@ types acs_dropdown_types {
         }
 
         acs_button_drop = {
-            block "onclick_button_drop" {
-                onclick = "[GetVariableSystem.Toggle( 'acs_sort_list' )]"
-            }
             onclick = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.StackTop]"
             onclick = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.StackTop]"
             onclick = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.StackTop]"
             onclick = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.StackTop]"
             onclick = "[PdxGuiWidget.AccessParent.AccessParent.FindChild('acs_dropdown_part').StackTop]"
+            onclick = "[PdxGuiWidget.AccessParent.AccessParent.FindChild('acs_dropdown_part').Show]"
             block "text_button_drop" {
                 text = "diplomacy"
             }
@@ -105,24 +103,11 @@ types acs_dropdown_types {
                 text = "diplomacy"
             }
             
-            block "onclick_dropdown_close" {
-
-            }
+            onclick = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.Hide]"
 
             default_format = "#clickable"
         }
     }
-
-    type acs_sort_dropdown_selected_value = acs_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_sort_list' )]"
-        }
-    }
     
-    type acs_sort_dropdown_other_value = acs_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_sort_list' )]"
-        }
-        
-    }
+
 }

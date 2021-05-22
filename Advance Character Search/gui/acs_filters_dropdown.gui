@@ -1,158 +1,12 @@
 types acs_filters_dropdown_types {
     
-    type acs_filter_dropdown_selected_value = acs_dropdown_selected_value {
-
-    }
     
     type acs_filter_dropdown_other_value = acs_dropdown_other_value {
         blockoverride "size_dropdown" {
             size = { 300 33 }
         }
     }
-
-    type acs_filter_relation_dropdown_selected_value = acs_filter_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_relation' )]" 
-        }
-    }
-    
-    type acs_filter_relation_dropdown_other_value = acs_filter_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_relation' )]"
-        }
-    }
-    
-    type acs_filter_diplomatic_range_dropdown_selected_value = acs_filter_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_diplomatic_range' )]"
-        }
-    }
-    
-    type acs_filter_diplomatic_range_dropdown_other_value = acs_filter_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_diplomatic_range' )]"
-        }
-    }
-    
-    type acs_filter_ruler_dropdown_selected_value = acs_filter_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_ruler' )]"
-        }
-    }
-    
-    type acs_filter_ruler_dropdown_other_value = acs_filter_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_ruler' )]"
-        }
-    }
-        
-    type acs_filter_adult_dropdown_selected_value = acs_filter_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_adult' )]"
-        }
-    }
-    
-    type acs_filter_adult_dropdown_other_value = acs_filter_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_adult' )]"
-        }
-    }
             
-    type acs_filter_gender_dropdown_selected_value = acs_filter_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_gender' )]"
-        }
-    }
-    
-    type acs_filter_gender_dropdown_other_value = acs_filter_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_gender' )]"
-        }
-    }
-    
-    type acs_filter_martial_status_dropdown_selected_value = acs_filter_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_martial_status' )]"
-        }
-    }
-    
-    type acs_filter_martial_status_dropdown_other_value = acs_filter_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_martial_status' )]"
-        }
-    }
-        
-    type acs_filter_imprisonment_status_dropdown_selected_value = acs_filter_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_imprisonment_status' )]"
-        }
-    }
-    
-    type acs_filter_imprisonment_status_dropdown_other_value = acs_filter_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_imprisonment_status' )]"
-        }
-    }
-            
-    type acs_filter_hooks_dropdown_selected_value = acs_filter_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_hooks' )]"
-        }
-    }
-    
-    type acs_filter_hooks_dropdown_other_value = acs_filter_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_hooks' )]"
-        }
-    }
-    
-    type acs_filter_sexuality_dropdown_selected_value = acs_filter_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_sexuality' )]"
-        }
-    }
-    
-    type acs_filter_sexuality_dropdown_other_value = acs_filter_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_sexuality' )]"
-        }
-    }
-                
-    type acs_filter_religion_dropdown_selected_value = acs_filter_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_religion' )]"
-        }
-    }
-    
-    type acs_filter_religion_dropdown_other_value = acs_filter_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_religion' )]"
-        }
-    }
-                    
-    type acs_filter_culture_dropdown_selected_value = acs_filter_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_culture' )]"
-        }
-    }
-    
-    type acs_filter_culture_dropdown_other_value = acs_filter_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_culture' )]"
-        }
-    }
-    
-    type acs_filter_dynasty_dropdown_selected_value = acs_filter_dropdown_selected_value {
-        blockoverride "onclick_button_drop" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_dynasty' )]"
-        }
-    }
-    
-    type acs_filter_dynasty_dropdown_other_value = acs_filter_dropdown_other_value {
-        blockoverride "onclick_dropdown_close" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_dynasty' )]"
-        }
-    }
 }
 
 types acs_filters_items_types {
@@ -161,11 +15,24 @@ types acs_filters_items_types {
         block "acs_filter_item_widget_size" { 
             size = { 300 33 }
         }
+
+        state = {
+            name = "idle"
+        }
+
+        state = {
+            name = _mouse_hierarchy_leave
+            on_finish = "[PdxGuiWidget.FindChild('acs_dropdown_part').Hide]"
+        }
+
+        state = {
+            name = "idle"
+        }
         
         allow_outside = yes
         
         block "acs_filter_selected_value" {   
-            acs_filter_dropdown_selected_value = {
+            acs_dropdown_selected_value = {
                 blockoverride "visibility" {
                     visible = "[GetScriptedGui( 'acs_sort_by_health' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
                 }
@@ -212,7 +79,6 @@ types acs_filters_items_types {
                         acs_filter_dropdown_other_value = {
                             blockoverride "text_button_drop" {
                                 text = "SORT_HEALTH"
-                                onclick = "[GetScriptedGui( 'acs_sort_by_health' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
                             }
                         }
                     }
@@ -257,77 +123,6 @@ types acs_filters_items_types {
         }
 
     }
-    
-    type acs_filter_relation_item = acs_filter_item {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_filter_relation' )]"
-        }
-    }
-
-    type acs_filter_diplomatic_range_item = acs_filter_item {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_filter_diplomatic_range' )]"
-        }
-    }
-
-    type acs_filter_ruler_item = acs_filter_item {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_filter_ruler' )]"
-        }
-    }
-
-    type acs_filter_adult_item = acs_filter_item {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_filter_adult' )]"
-        }
-    }
-
-    type acs_filter_gender_item = acs_filter_item {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_filter_gender' )]"
-        }
-    }
-
-    type acs_filter_martial_status_item = acs_filter_item {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_filter_martial_status' )]"
-        }
-    }
-
-    type acs_filter_imprisonment_status_item = acs_filter_item {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_filter_imprisonment_status' )]"
-        }
-    }
-
-    type acs_filter_hooks_item = acs_filter_item {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_filter_hooks' )]"
-        }
-    }
-
-    type acs_filter_sexuality_item = acs_filter_item {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_filter_sexuality' )]"
-        }
-    }
-
-
-    type acs_filter_religion_item = acs_filter_item {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_filter_religion' )]"
-        }
-    }
-
-    type acs_filter_culture_item = acs_filter_item {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_filter_culture' )]"
-        }
-    }
-    
-    type acs_filter_dynasty_item = acs_filter_item {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_filter_dynasty' )]"
-        }
-    }
 }
+
+
