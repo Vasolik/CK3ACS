@@ -17,35 +17,30 @@ types acs_load_save_types {
         blockoverride "acs_filter_item_size" {
             size = { 170 43 }
         }
-        blockoverride "acs_filter_item_widget_size" { 
+        blockoverride "acs_dropdown_size" { 
             size = { 100 33 }
         }
 
-        blockoverride "acs_filter_item_widget_maximumsize" { 
+        blockoverride "acs_dropdown_scroll_maximumsize" { 
             maximumsize = { 170 120 }
         }
     }
     
     
-    type acs_select_count_item = acs_filter_item_dropdown {
-        blockoverride "acs_drop_down_visible" { 
-            visible = "[GetVariableSystem.Exists( 'acs_select_count' )]"
-        }
+    type acs_select_count_item = acs_dropdown {
+
         blockoverride "acs_filter_item_size" {
             size = { 80 50 }
         }
-        blockoverride "acs_filter_item_widget_size" { 
+        blockoverride "acs_dropdown_size" { 
             size = { 80 33 }
         }
 
-        blockoverride "acs_filter_item_widget_maximumsize" { 
+        blockoverride "acs_dropdown_scroll_maximumsize" { 
             maximumsize = { 80 80 }
         }
 
-        blockoverride "filter_name" {  
-            text = ""
-        }
-        blockoverride "acs_filter_selected_value" {   
+        blockoverride "acs_dropdown_selected_values" {   
             acs_filter_load_save_selected_value = {
                 blockoverride "visibility" {
                     visible = yes
@@ -56,7 +51,7 @@ types acs_load_save_types {
             }
         }
 
-        blockoverride "acs_filter_other_value" { 
+        blockoverride "acs_dropdown_other_values" { 
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
                     text = "acs_10"

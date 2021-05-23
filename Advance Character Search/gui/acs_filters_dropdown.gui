@@ -11,87 +11,6 @@ types acs_filters_dropdown_types {
 
 types acs_filters_items_types {
 
-    type acs_filter_item_dropdown = widget {
-        block "acs_filter_item_widget_size" { 
-            size = { 300 33 }
-        }
-
-        state = {
-            name = "idle"
-        }
-
-        state = {
-            name = _mouse_hierarchy_leave
-            on_finish = "[PdxGuiWidget.FindChild('acs_dropdown_part').Hide]"
-        }
-
-        state = {
-            name = "idle"
-        }
-        
-        allow_outside = yes
-        
-        block "acs_filter_selected_value" {   
-            acs_dropdown_selected_value = {
-                blockoverride "visibility" {
-                    visible = "[GetScriptedGui( 'acs_sort_by_health' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                }
-                blockoverride "text_button_drop" {
-                    text = "SORT_HEALTH"
-                }
-            }
-        }
-
-        scrollarea = {
-            name = "acs_dropdown_part"
-            position = { 5 33 }
-
-            state = {
-                name = _show
-                using = Animation_FadeIn_Quick
-            }
-    
-            state = {
-                name = _hide
-                using = Animation_FadeOut_Quick
-            }
-
-
-            block "acs_filter_item_widget_maximumsize" { 
-                maximumsize = { 300 250 }
-            }
-           
-            autoresizescrollarea = yes
-            scrollbarpolicy_horizontal = always_off
-
-            using = Background_DropDown
-            block "acs_drop_down_visible" { 
-                visible = "[GetVariableSystem.Exists( 'acs_sort_list' )]"
-            }
-
-            scrollwidget = {
-                vbox = {
-                    using = Background_DropDown
-                    layoutpolicy_vertical = expanding
-                    layoutpolicy_horizontal = expanding
-                    ignoreinvisible = yes
-                    block "acs_filter_other_value" { 
-                        acs_filter_dropdown_other_value = {
-                            blockoverride "text_button_drop" {
-                                text = "SORT_HEALTH"
-                            }
-                        }
-                    }
-                }
-            }
-
-            scrollbar_vertical = {
-                using = Scrollbar_Vertical
-            }    
-        }
-        
-    }
-    
     type acs_filter_item = widget {
         block "acs_filter_item_size" { 
             size = { 560 43 }
@@ -119,7 +38,7 @@ types acs_filters_items_types {
             }
             
     
-            acs_filter_item_dropdown = {}
+            acs_dropdown = {}
         }
 
     }

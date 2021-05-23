@@ -1,5 +1,5 @@
 ﻿types acs_filter_trait_personality_child_group_types {
-    type acs_filter_trait_personality_child_group =  acs_vbox_filter_group_trait {
+    type acs_filter_trait_personality_child_group =  acs_vbox_filter_group {
         parentanchor = top|left
         blockoverride "acs_vbox_filter_group_name" {
             text = "acs_filter_trait_group_personality_child"
@@ -9,72 +9,70 @@
             onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_personality_child' )]"
             frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_personality_child' ) ), '(int32)1', '(int32)2' )]"
         }
-        blockoverride "filters" {
+        blockoverride "acs_filter_visible" {
+            visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_personality_child' )]"
+        }
+
+        blockoverride "acs_filters" {
             flowcontainer = {
-                visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_personality_child' )]"
-                position = { 0 26 }
-                direction = vertical
-                spacing = 5
-                flowcontainer = {
-                    acs_trait_item_left_third = {
-                        datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                        blockoverride "acs_trait_item_action" {
-                            datacontext = "[GetTrait( 'rowdy' )]"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_27' ).Province.MakeScope ).End )]"
-                            
-                        }
-                        blockoverride "acs_checkbox_state" {
-                            frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_27' ).Province.MakeScope ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_27' ).Province.MakeScope ).End ) , '(int32)3' , '(int32)1' ) )]"
-                        }
+                acs_trait_item_left_third = {
+                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+                    blockoverride "acs_trait_item_action" {
+                        datacontext = "[GetTrait( 'rowdy' )]"
+                        onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_27' ).Province.MakeScope ).End )]"
+                        
                     }
-                    acs_trait_item_left_third = {
-                        datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                        blockoverride "acs_trait_item_action" {
-                            datacontext = "[GetTrait( 'charming' )]"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_29' ).Province.MakeScope ).End )]"
-                            
-                        }
-                        blockoverride "acs_checkbox_state" {
-                            frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_29' ).Province.MakeScope ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_29' ).Province.MakeScope ).End ) , '(int32)3' , '(int32)1' ) )]"
-                        }
-                    }
-                    acs_trait_item_right_third = {
-                        datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                        blockoverride "acs_trait_item_action" {
-                            datacontext = "[GetTrait( 'curious' )]"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_31' ).Province.MakeScope ).End )]"
-                            
-                        }
-                        blockoverride "acs_checkbox_state" {
-                            frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_31' ).Province.MakeScope ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_31' ).Province.MakeScope ).End ) , '(int32)3' , '(int32)1' ) )]"
-                        }
+                    blockoverride "acs_checkbox_state" {
+                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_27' ).Province.MakeScope ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_27' ).Province.MakeScope ).End ) , '(int32)3' , '(int32)1' ) )]"
                     }
                 }
-                flowcontainer = { 
-                    acs_trait_item_left = {
-                        datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                        blockoverride "acs_trait_item_action" {
-                            datacontext = "[GetTrait( 'pensive' )]"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_33' ).Province.MakeScope ).End )]"
-                            
-                        }
-                        blockoverride "acs_checkbox_state" {
-                            frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_33' ).Province.MakeScope ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_33' ).Province.MakeScope ).End ) , '(int32)3' , '(int32)1' ) )]"
-                        }
+                acs_trait_item_left_third = {
+                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+                    blockoverride "acs_trait_item_action" {
+                        datacontext = "[GetTrait( 'charming' )]"
+                        onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_29' ).Province.MakeScope ).End )]"
+                        
                     }
-                    acs_trait_item_right = {
-                        datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                        blockoverride "acs_trait_item_action" {
-                            datacontext = "[GetTrait( 'bossy' )]"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_35' ).Province.MakeScope ).End )]"
-                            
-                        }
-                        blockoverride "acs_checkbox_state" {
-                            frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_35' ).Province.MakeScope ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_35' ).Province.MakeScope ).End ) , '(int32)3' , '(int32)1' ) )]"
-                        }
-                    } 
+                    blockoverride "acs_checkbox_state" {
+                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_29' ).Province.MakeScope ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_29' ).Province.MakeScope ).End ) , '(int32)3' , '(int32)1' ) )]"
+                    }
                 }
-            }    
+                acs_trait_item_right_third = {
+                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+                    blockoverride "acs_trait_item_action" {
+                        datacontext = "[GetTrait( 'curious' )]"
+                        onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_31' ).Province.MakeScope ).End )]"
+                        
+                    }
+                    blockoverride "acs_checkbox_state" {
+                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_31' ).Province.MakeScope ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_31' ).Province.MakeScope ).End ) , '(int32)3' , '(int32)1' ) )]"
+                    }
+                }
+            }
+            flowcontainer = { 
+                acs_trait_item_left = {
+                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+                    blockoverride "acs_trait_item_action" {
+                        datacontext = "[GetTrait( 'pensive' )]"
+                        onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_33' ).Province.MakeScope ).End )]"
+                        
+                    }
+                    blockoverride "acs_checkbox_state" {
+                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_33' ).Province.MakeScope ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_33' ).Province.MakeScope ).End ) , '(int32)3' , '(int32)1' ) )]"
+                    }
+                }
+                acs_trait_item_right = {
+                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+                    blockoverride "acs_trait_item_action" {
+                        datacontext = "[GetTrait( 'bossy' )]"
+                        onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_35' ).Province.MakeScope ).End )]"
+                        
+                    }
+                    blockoverride "acs_checkbox_state" {
+                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_35' ).Province.MakeScope ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_35' ).Province.MakeScope ).End ) , '(int32)3' , '(int32)1' ) )]"
+                    }
+                } 
+            }
         }
     }
 }

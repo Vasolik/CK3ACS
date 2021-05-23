@@ -15,366 +15,342 @@ template acs_skill_grid_background
 ### LIST TEMPLATE
 types acs_character_list_types {
 
-    type acs_dropdown_sort_characterlist = widget {
+    type acs_dropdown_sort_characterlist = acs_dropdown {
         name = "sort_options"
-        size = { 225 33 }
-        
-        allow_outside = yes
-
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_health' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "SORT_HEALTH"
-            }
+        blockoverride "acs_filter_item_size" {
+            size = { 225 33 }
+        }
+        blockoverride "acs_dropdown_size" { 
+            size = { 225 33 }
         }
 
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_title' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "CHARACTER_SORT_TITLES"
-            }
-        }
-        
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_age' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "CHARACTER_SORT_AGE"
-            }
-        }
-
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_opinion' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "SORT_OPINION"
-            }
-        }
-
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_diplomacy' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "diplomacy"
-            }
-        }
-
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_martial' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "martial"
-            }
-        }
-
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_stewardship' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "stewardship"
-            }
-        }
-
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_intrigue' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "intrigue"
-            }
-        }
-
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_learning' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "learning"
-            }
-        }
-
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_prowess' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "prowess"
-            }
-        }
-
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_all_stats' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "CHARACTER_SORT_ALL_SKILLS"
-            }
-        }
-        
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_magic_sauce' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "acs_sort_by_magic_sauce"
-            }
-        }
-        
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_gold' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "game_concept_gold"
-            }
-        }
-            
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_prestige' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "game_concept_prestige"
-            }
-        }
-        
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_piety' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "game_concept_piety"
-            }
-        }
-        
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_military_strength' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "SORT_MILITARY_STRENGTH"
-            }
-        }
-        
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_dread' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "game_concept_dread"
-            }
-        }
-        
-                
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_military_strength' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "SORT_MILITARY_STRENGTH"
-            }
-        }
-        
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_dread' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "game_concept_dread"
-            }
-        }
-                
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_progeny' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "progeny"
-            }
-        }
-
-        acs_dropdown_selected_value = {
-            blockoverride "visibility" {
-                visible = "[GetScriptedGui( 'acs_sort_by_claim' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
-            blockoverride "text_button_drop" {
-                text = "game_concept_claim"
-            }
-        }
-        
-        scrollarea = {
-            #parentanchor = bottom|right
-            position = { 5 33 }
-
-            state = {
-                name = _show
-                using = Animation_FadeIn_Quick
-            }
-    
-            state = {
-                name = _hide
-                using = Animation_FadeOut_Quick
-            }
-
-
+        blockoverride "acs_dropdown_scroll_maximumsize" { 
             maximumsize = { 215 250 }
-            autoresizescrollarea = yes
-            scrollbarpolicy_horizontal = always_off
+        }
 
-            using = Background_DropDown
-            
-            visible = "[GetVariableSystem.Exists( 'acs_sort_list' )]"
-
-            scrollwidget = {
-                vbox = {
-                    using = Background_DropDown
-                    layoutpolicy_vertical = expanding
-                    layoutpolicy_horizontal = expanding
-                    
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "SORT_HEALTH"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_health' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "CHARACTER_SORT_TITLES"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_title' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "CHARACTER_SORT_AGE"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_age' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "SORT_OPINION"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_opinion' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "diplomacy"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_diplomacy' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "martial"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_martial' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "stewardship"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_stewardship' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "intrigue"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_intrigue' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "learning"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_learning' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "prowess"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_prowess' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "CHARACTER_SORT_ALL_SKILLS"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_all_stats' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_sort_by_magic_sauce"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_magic_sauce' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "game_concept_gold"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_gold' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "game_concept_prestige"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_prestige' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "game_concept_piety"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_piety' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "SORT_MILITARY_STRENGTH"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_military_strength' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                                        
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "game_concept_dread"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_dread' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "progeny"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_progeny' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "game_concept_claim"
-                            onclick = "[GetScriptedGui( 'acs_sort_by_claim' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
+        blockoverride "acs_dropdown_stack_top" { }
+        
+        blockoverride "acs_dropdown_selected_values" { 
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_health' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "SORT_HEALTH"
                 }
             }
 
-            scrollbar_vertical = {
-                using = Scrollbar_Vertical
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_title' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "CHARACTER_SORT_TITLES"
+                }
             }
             
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_age' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "CHARACTER_SORT_AGE"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_opinion' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "SORT_OPINION"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_diplomacy' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "diplomacy"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_martial' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "martial"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_stewardship' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "stewardship"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_intrigue' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "intrigue"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_learning' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "learning"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_prowess' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "prowess"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_all_stats' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "CHARACTER_SORT_ALL_SKILLS"
+                }
+            }
+            
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_magic_sauce' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "acs_sort_by_magic_sauce"
+                }
+            }
+            
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_gold' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "game_concept_gold"
+                }
+            }
+                
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_prestige' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "game_concept_prestige"
+                }
+            }
+            
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_piety' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "game_concept_piety"
+                }
+            }
+            
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_military_strength' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "SORT_MILITARY_STRENGTH"
+                }
+            }
+            
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_dread' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "game_concept_dread"
+                }
+            }
+            
+                    
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_military_strength' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "SORT_MILITARY_STRENGTH"
+                }
+            }
+            
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_dread' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "game_concept_dread"
+                }
+            }
+                    
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_progeny' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "progeny"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+                    visible = "[GetScriptedGui( 'acs_sort_by_claim' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "game_concept_claim"
+                }
+            }
+        }
+
+        blockoverride "acs_dropdown_other_values" {
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "SORT_HEALTH"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_health' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "CHARACTER_SORT_TITLES"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_title' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "CHARACTER_SORT_AGE"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_age' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "SORT_OPINION"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_opinion' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "diplomacy"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_diplomacy' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "martial"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_martial' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "stewardship"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_stewardship' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "intrigue"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_intrigue' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "learning"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_learning' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "prowess"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_prowess' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "CHARACTER_SORT_ALL_SKILLS"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_all_stats' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "acs_sort_by_magic_sauce"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_magic_sauce' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "game_concept_gold"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_gold' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "game_concept_prestige"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_prestige' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "game_concept_piety"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_piety' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "SORT_MILITARY_STRENGTH"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_military_strength' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+                                
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "game_concept_dread"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_dread' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "progeny"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_progeny' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "game_concept_claim"
+                    onclick = "[GetScriptedGui( 'acs_sort_by_claim' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
         }
         
     }
@@ -463,7 +439,7 @@ types acs_character_list_types {
         ignoreinvisible = yes
 
         button_standard = {
-            name = "filters"
+            name = "acs_filters"
             size = { 25 25 }
 
             down = "[CharacterSelectionList.FiltersShown]"
