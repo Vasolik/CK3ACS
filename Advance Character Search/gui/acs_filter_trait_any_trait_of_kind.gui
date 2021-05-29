@@ -1,16 +1,16 @@
-﻿types acs_filter_trait_any_trait_of_kind_group_types {
+﻿types  acs_filter_trait_any_trait_of_kind_group_types {
     type acs_filter_trait_any_trait_of_kind_group =  acs_vbox_filter_group {
-        parentanchor = top|left
+        name = "acs_filter_trait_any_trait_of_kind"
         blockoverride "acs_vbox_filter_group_name" {
             text = "acs_filter_trait_group_any_trait_of_kind"
         }
 
         blockoverride "acs_vbox_filter_group_toggle" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_any_trait_of_kind' )]"
-            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_any_trait_of_kind' ) ), '(int32)1', '(int32)2' )]"
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_any_trait_of_kind' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_any_trait_of_kind' ) ), '(int32)1', '(int32)2' )]"
         }
         blockoverride "acs_filter_visible" {
-            visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_any_trait_of_kind' )]"
+            visible = "[GetVariableSystem.Exists( 'acs_filter_trait_any_trait_of_kind' )]"
         }
 
         blockoverride "acs_filters" {

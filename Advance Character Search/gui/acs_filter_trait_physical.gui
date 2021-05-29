@@ -1,16 +1,16 @@
-﻿types acs_filter_trait_physical_group_types {
+﻿types  acs_filter_trait_physical_group_types {
     type acs_filter_trait_physical_group =  acs_vbox_filter_group {
-        parentanchor = top|left
+        name = "acs_filter_trait_physical"
         blockoverride "acs_vbox_filter_group_name" {
             text = "acs_filter_trait_group_physical"
         }
 
         blockoverride "acs_vbox_filter_group_toggle" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_group_physical' )]"
-            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_group_physical' ) ), '(int32)1', '(int32)2' )]"
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_physical' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_physical' ) ), '(int32)1', '(int32)2' )]"
         }
         blockoverride "acs_filter_visible" {
-            visible = "[GetVariableSystem.Exists( 'acs_filter_trait_group_physical' )]"
+            visible = "[GetVariableSystem.Exists( 'acs_filter_trait_physical' )]"
         }
 
         blockoverride "acs_filters" {

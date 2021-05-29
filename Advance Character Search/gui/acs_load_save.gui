@@ -24,10 +24,14 @@ types acs_load_save_types {
         blockoverride "acs_dropdown_scroll_maximumsize" { 
             maximumsize = { 170 120 }
         }
+
+        blockoverride "acs_dropdown_replace" { 
+            acs_dropdown_no_order_change = {}
+        }
     }
     
     
-    type acs_select_count_item = acs_dropdown {
+    type acs_select_count_item = acs_dropdown_no_order_change {
 
         blockoverride "acs_filter_item_size" {
             size = { 80 50 }

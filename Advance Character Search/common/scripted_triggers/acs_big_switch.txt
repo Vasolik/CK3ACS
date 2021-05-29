@@ -2075,39 +2075,39 @@
             }
             491 = {
                 OR = {
-                            has_trait = depressed_1
-                            has_trait = depressed_genetic
-                        } 
+                    has_trait = depressed_1
+                    has_trait = depressed_genetic
+                } 
             }
             492 = { 
                 NOR = {
-                            has_trait = depressed_1
-                            has_trait = depressed_genetic
-                        }   
+                    has_trait = depressed_1
+                    has_trait = depressed_genetic
+                }   
             }
             493 = {
                 OR = {
-                            has_trait = lunatic_1
-                            has_trait = lunatic_genetic
-                        } 
+                    has_trait = lunatic_1
+                    has_trait = lunatic_genetic
+                } 
             }
             494 = { 
                 NOR = {
-                            has_trait = lunatic_1
-                            has_trait = lunatic_genetic
-                        }   
+                    has_trait = lunatic_1
+                    has_trait = lunatic_genetic
+                }   
             }
             495 = {
                 OR = {
-                            has_trait = possessed_1
-                            has_trait = possessed_genetic
-                        } 
+                    has_trait = possessed_1
+                    has_trait = possessed_genetic
+                } 
             }
             496 = { 
                 NOR = {
-                            has_trait = possessed_1
-                            has_trait = possessed_genetic
-                        }   
+                    has_trait = possessed_1
+                    has_trait = possessed_genetic
+                }   
             }
             497 = {
                 has_trait = ill 
@@ -2129,15 +2129,15 @@
             }
             503 = {
                 OR = {
-                            has_trait = lovers_pox
-                            has_trait = early_great_pox
-                        } 
+                    has_trait = lovers_pox
+                    has_trait = early_great_pox
+                } 
             }
             504 = { 
                 NOR = {
-                            has_trait = lovers_pox
-                            has_trait = early_great_pox
-                        }   
+                    has_trait = lovers_pox
+                    has_trait = early_great_pox
+                }   
             }
             505 = {
                 has_trait = leper 
@@ -2474,15 +2474,15 @@
             }
             568 = {
                 OR = {
-                            has_trait = impotent
-                            has_trait = infertile
-                        } 
+                    has_trait = impotent
+                    has_trait = infertile
+                } 
             }
             569 = { 
                 NOR = {
-                            has_trait = impotent
-                            has_trait = infertile
-                        }   
+                    has_trait = impotent
+                    has_trait = infertile
+                }   
             }
             570 = {
                 has_trait = spindly 
@@ -2666,63 +2666,200 @@
             }
             630 = {
                 OR = { 
-                            has_trait = adulterer
-                            has_trait = fornicator
-                            has_trait = murderer
-                            has_trait = deviant
-                            has_trait = cannibal
-                            has_trait = sodomite
-                            has_trait = kinslayer
-                            has_trait = incestuous
-                            has_trait = witch
-                            has_trait = excommunicated
-                        } 
+                    has_trait = adulterer
+                    has_trait = fornicator
+                    has_trait = murderer
+                    has_trait = deviant
+                    has_trait = cannibal
+                    has_trait = sodomite
+                    has_trait = kinslayer
+                    has_trait = incestuous
+                    has_trait = witch
+                    has_trait = excommunicated
+                } 
             }
             631 = { 
                 NOR = {
-                            has_trait = adulterer
-                            has_trait = fornicator
-                            has_trait = murderer
-                            has_trait = deviant
-                            has_trait = cannibal
-                            has_trait = sodomite
-                            has_trait = kinslayer
-                            has_trait = incestuous
-                            has_trait = witch
-                            has_trait = excommunicated
-                        }   
+                    has_trait = adulterer
+                    has_trait = fornicator
+                    has_trait = murderer
+                    has_trait = deviant
+                    has_trait = cannibal
+                    has_trait = sodomite
+                    has_trait = kinslayer
+                    has_trait = incestuous
+                    has_trait = witch
+                    has_trait = excommunicated
+                }   
             }
             632 = {
                 OR = {
-                            has_trait = ill
-                            has_trait = bubonic_plague
-                            has_trait = cancer
-                            has_trait = consumption
-                            has_trait = great_pox
-                            has_trait = gout_ridden
-                            has_trait = leper
-                            has_trait = lovers_pox
-                            has_trait = pneumonic
-                            has_trait = smallpox
-                            has_trait = typhus
-                            has_trait = early_great_pox
-                            } 
+                    has_trait = ill
+                    has_trait = bubonic_plague
+                    has_trait = cancer
+                    has_trait = consumption
+                    has_trait = great_pox
+                    has_trait = gout_ridden
+                    has_trait = leper
+                    has_trait = lovers_pox
+                    has_trait = pneumonic
+                    has_trait = smallpox
+                    has_trait = typhus
+                    has_trait = early_great_pox
+                } 
             }
             633 = { 
                 NOR = {
-                            has_trait = ill
-                            has_trait = bubonic_plague
-                            has_trait = cancer
-                            has_trait = consumption
-                            has_trait = great_pox
-                            has_trait = gout_ridden
-                            has_trait = leper
-                            has_trait = lovers_pox
-                            has_trait = pneumonic
-                            has_trait = smallpox
-                            has_trait = typhus
-                            has_trait = early_great_pox
-                            }   
+                    has_trait = ill
+                    has_trait = bubonic_plague
+                    has_trait = cancer
+                    has_trait = consumption
+                    has_trait = great_pox
+                    has_trait = gout_ridden
+                    has_trait = leper
+                    has_trait = lovers_pox
+                    has_trait = pneumonic
+                    has_trait = smallpox
+                    has_trait = typhus
+                    has_trait = early_great_pox 
+                }   
+            }
+            634 = {
+                in_diplomatic_range = scope:acs_filter_diplomatic_range_root
+            }
+            635 = {
+                NOT = { in_diplomatic_range = scope:acs_filter_diplomatic_range_root }
+            }
+            637 = {
+                is_ruler = yes
+            }
+            638 = {
+                holds_landed_title = yes
+                is_ruler = yes
+            }
+            639 = {
+                holds_landed_title = no
+                is_ruler = yes
+            }
+            640 = {
+                is_ruler = no
+            }
+            641 = {
+                is_ruler = no
+                any_heir_to_title = { count = 0 }
+            }
+            642 = {
+                is_independent_ruler = yes
+            }
+            644 = {
+                is_adult = no
+            }
+            645 = {
+                is_adult = yes
+            }
+            646 = {
+                is_adult = yes
+                age < 35
+            }
+            647 = {
+                is_adult = yes
+                age >= 35
+            }
+            649 = {
+                is_male = no
+            }
+            650 = {
+                is_male = yes
+            }
+            652 = {
+                is_married = yes
+            }
+            653 = {
+                is_married = no
+            }
+            654 = {
+                is_betrothed = yes
+            }
+            655 = {
+                is_betrothed = no
+                is_married = no
+            }
+            657 = {
+                is_imprisoned = yes
+            }
+            658 = {
+                is_imprisoned = no
+            }
+            660 = {
+                scope:acs_filter_hooks_root = { has_hook = prev }
+            }
+            661 = {
+                NOT = { scope:acs_filter_hooks_root = { has_hook = prev } }
+            }
+            662 = {
+                any_secret_knower = { this = scope:acs_filter_hooks_root }
+            }
+            663 = {
+                NOT = { scope:acs_filter_hooks_root = { has_hook = prev } }
+                NOT = { any_secret_knower = { this = scope:acs_filter_hooks_root } }
+            }
+            665 = {
+                has_sexuality = heterosexual
+            }
+            666 = {
+                has_sexuality = homosexual
+            }
+            667 = {
+                has_sexuality = bisexual
+            }
+            668 = {
+                has_sexuality = asexual
+            }
+            670 = {
+                faith = scope:acs_filter_faith
+            }
+            671 = {
+                religion = scope:acs_filter_religion
+            }
+            672 = {
+                NOT = { faith = scope:acs_filter_faith }
+            }
+            673 = {
+                NOT = { religion = scope:acs_filter_religion }
+            }
+            675 = {
+                culture_group = scope:acs_filter_culture_root.culture_group
+            }
+            676 = {
+                culture = scope:acs_filter_culture_root.culture
+            }
+            677 = {
+                NOT = { culture_group = scope:acs_filter_culture_root.culture_group }
+            }
+            678 = {
+                NOT = { culture = scope:acs_filter_culture_root.culture }
+            }
+            680 = {
+                dynasty = scope:acs_filter_dynasty_root.dynasty
+            }
+            681 = {
+                NOT = { dynasty = scope:acs_filter_dynasty_root.dynasty }
+            }
+            682 = {
+                house = scope:acs_filter_dynasty_root.house
+            }
+            683 = {
+                NOT = { house = scope:acs_filter_dynasty_root.house }
+            }
+            684 = {
+                is_lowborn = no
+            }
+            685 = {
+                is_lowborn = yes
+            }
+            686 = {
+                is_lowborn = no
+                NOT = { dynasty = scope:acs_filter_dynasty_root.dynasty }
             }
         }
     }

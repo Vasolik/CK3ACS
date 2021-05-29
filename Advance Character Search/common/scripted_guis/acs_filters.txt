@@ -2002,3 +2002,68 @@ acs_filter_3_group_checkbox_group = {
         }
     }
 }
+
+acs_filter_simple_dropdown = {
+    scope = province
+    saved_scopes = {
+        major_digit
+        minor_digit
+        total_element_count
+    }
+    is_shown = {
+        dummy_male = {
+            trigger_if = {
+                limit = { root.var:index = 0 }
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    count = 0
+                    AND = {
+                        this >= acs_major_minor
+                        this <= acs_major_minor_total_count
+                    }
+                }
+                   
+            } 
+            trigger_else = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = -1 }
+                    this = acs_major_minor_index_offset
+                }
+            }
+        }
+    }
+
+    effect = {
+        dummy_male = {
+            acs_save_undo_0_filters = yes
+            set_local_variable = { name  = acs_counter value = scope:total_element_count.var:index }
+            while = { 
+                limit = { local_var:acs_counter >= 0 }
+                save_temporary_scope_value_as = { name = offset value = local_var:acs_counter }
+                remove_list_variable = { name = acs_active_filter_list target = acs_major_minor_offset }
+                change_local_variable = { name = acs_counter add = -1 }
+            }
+            remove_local_variable = acs_counter
+            if = {
+                limit = { root.var:index > 0 }
+                add_to_variable_list = { name = acs_active_filter_list target = acs_major_minor_index } 
+            } 
+            acs_auto_apply_sorting_and_filters = yes
+        }     
+    }
+}
+
+acs_filter_relation = {
+    scope = province
+        
+    is_shown = {
+        global_var:acs_filter_relation = root.var:index
+    }
+        
+    effect = {
+        acs_save_undo_0_filters = yes
+        set_global_variable = {  name = acs_filter_relation value = root.var:index }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}
