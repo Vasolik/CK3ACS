@@ -2748,294 +2748,712 @@
                 is_independent_ruler = yes
             }
             643 = {
-                any_heir_to_title = { }
-            }
-            644 = {
                 any_heir_to_title = { tier = tier_empire }
             }
-            645 = {
+            644 = {
                 any_heir_to_title = { tier >= tier_kingdom }
             }
-            646 = {
+            645 = {
                 any_heir_to_title = { tier >= tier_duchy }
             }
-            647 = {
+            646 = {
                 any_heir_to_title = { tier >= tier_county }
             }
+            647 = {
+                any_heir_to_title = { }
+            }
             648 = {
-                any_heir_to_title = { count = 0 }
+                OR = {
+                	any_heir_to_title = { tier = tier_empire  }
+                	any_pretender_title = { 
+                		tier = tier_empire
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 2
+                		}
+                	}
+                }
             }
             649 = {
-                any_heir_to_title = { tier = tier_empire count = 0 }
+                OR = {
+                	any_heir_to_title = { tier >= tier_kingdom }
+                	any_pretender_title = { 
+                		tier >= tier_kingdom
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 2
+                		}
+                	}
+                }
             }
             650 = {
-                any_heir_to_title = { tier >= tier_kingdom count = 0 }
+                OR = {
+                	any_heir_to_title = { tier >= tier_duchy }
+                	any_pretender_title = { 
+                		tier >= tier_duchy
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 2
+                		}
+                	}
+                }
             }
             651 = {
-                any_heir_to_title = { tier >= tier_duchy count = 0 }
+                OR = {
+                	any_heir_to_title = { tier >= tier_county }
+                	any_pretender_title = { 
+                		tier >= tier_county
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 2
+                		}
+                	}
+                }
             }
             652 = {
-                any_heir_to_title = { tier >= tier_county count = 0 }
+                OR = {
+                	any_heir_to_title = {  }
+                	any_pretender_title = {
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 2
+                		}
+                	}
+                }
             }
             653 = {
-                OR = { any_heir_to_title = {  } any_parent = { is_ruler = yes is_alive = yes} }
+                OR = {
+                	any_heir_to_title = { tier = tier_empire  }
+                	any_pretender_title = { 
+                		tier = tier_empire
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 3
+                		}
+                	}
+                }
             }
             654 = {
                 OR = {
-                	any_heir_to_title = { tier = tier_empire } 
+                	any_heir_to_title = { tier >= tier_kingdom }
+                	any_pretender_title = { 
+                		tier >= tier_kingdom
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 3
+                		}
+                	}
+                }
+            }
+            655 = {
+                OR = {
+                	any_heir_to_title = { tier >= tier_duchy }
+                	any_pretender_title = { 
+                		tier >= tier_duchy
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 3
+                		}
+                	}
+                }
+            }
+            656 = {
+                OR = {
+                	any_heir_to_title = { tier >= tier_county }
+                	any_pretender_title = { 
+                		tier >= tier_county
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 3
+                		}
+                	}
+                }
+            }
+            657 = {
+                OR = {
+                	any_heir_to_title = {  }
+                	any_pretender_title = {
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 3
+                		}
+                	}
+                }
+            }
+            658 = {
+                OR = {
+                	any_heir_to_title = { tier = tier_empire  }
+                	any_pretender_title = { 
+                		tier = tier_empire
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 4
+                		}
+                	}
+                }
+            }
+            659 = {
+                OR = {
+                	any_heir_to_title = { tier >= tier_kingdom }
+                	any_pretender_title = { 
+                		tier >= tier_kingdom
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 4
+                		}
+                	}
+                }
+            }
+            660 = {
+                OR = {
+                	any_heir_to_title = { tier >= tier_duchy }
+                	any_pretender_title = { 
+                		tier >= tier_duchy
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 4
+                		}
+                	}
+                }
+            }
+            661 = {
+                OR = {
+                	any_heir_to_title = { tier >= tier_county }
+                	any_pretender_title = { 
+                		tier >= tier_county
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 4
+                		}
+                	}
+                }
+            }
+            662 = {
+                OR = {
+                	any_heir_to_title = {  }
+                	any_pretender_title = {
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 4
+                		}
+                	}
+                }
+            }
+            663 = {
+                OR = {
+                	any_heir_to_title = { tier = tier_empire }
+                	any_pretender_title = { tier = tier_empire }
+                }
+            }
+            664 = {
+                OR = {
+                	any_heir_to_title = { tier >= tier_kingdom }
+                	any_pretender_title = { tier >= tier_kingdom }
+                }
+            }
+            665 = {
+                OR = {
+                	any_heir_to_title = { tier >= tier_duchy }
+                	any_pretender_title = { tier >= tier_duchy }
+                }
+            }
+            666 = {
+                OR = {
+                	any_heir_to_title = { tier >= tier_county }
+                	any_pretender_title = { tier >= tier_county }
+                }
+            }
+            667 = {
+                OR = {
+                	any_heir_to_title = {  }
+                	any_pretender_title = { }
+                }
+            }
+            668 = {
+                OR = {
+                	any_heir_to_title = { tier = tier_empire }
+                	any_pretender_title = { tier = tier_empire }
                 	any_parent = { 
                 		highest_held_title_tier = tier_empire
                 		is_alive = yes
                 	} 
                 }
             }
-            655 = {
+            669 = {
                 OR = {
                 	any_heir_to_title = { tier >= tier_kingdom } 
+                	any_pretender_title = { tier >= tier_kingdom }
                 	any_parent = { 
                 		highest_held_title_tier >= tier_kingdom
                 		is_alive = yes
                 	} 
                 }
             }
-            656 = {
+            670 = {
                 OR = {
                 	any_heir_to_title = { tier >=  tier_duchy } 
+                	any_pretender_title = { tier >= tier_duchy }
                 	any_parent = { 
-                		highest_held_title_tier >=  tier_duchy
+                		highest_held_title_tier >= tier_duchy
                 		is_alive = yes
                 	} 
                 }
             }
-            657 = {
+            671 = {
                 OR = {
-                	any_heir_to_title = { tier >= tier_county } 
+                	any_heir_to_title = { tier >= tier_county }
+                	any_pretender_title = { tier >= tier_county }
                 	any_parent = { 
                 		highest_held_title_tier >=  tier_county
                 		is_alive = yes
                 	} 
                 }
             }
-            658 = {
-                NOR = {
-                	any_heir_to_title = { tier >= tier_county } 
+            672 = {
+                OR = {
+                	any_heir_to_title = { } 
+                	any_pretender_title = { }
                 	any_parent = { 
                 		highest_held_title_tier >= tier_county 
                 		is_alive = yes
                 	} 
                 }
             }
-            659 = {
-                any_empire = {
-                	any_title_heir = { scope:candidate = this }
-                }
-            }
-            660 = {
-                any_kingdom = {
-                	any_title_heir = { scope:candidate = this }
-                }
-            }
-            661 = {
-                any_duchy = {
-                	any_title_heir = { scope:candidate = this }
-                }
-            }
-            662 = {
-                any_county = {
-                	any_title_heir = { scope:candidate = this }
-                }
-            }
-            663 = {
-                NOT = {
-                	any_empire = {
-                		any_title_heir = { scope:candidate = this }
-                	}
-                }
-            }
-            664 = {
-                NOT = {
-                	any_kingdom = {
-                		any_title_heir = { scope:candidate = this }
-                	}
-                }
-            }
-            665 = {
-                NOT = {
-                	any_duchy = {
-                		any_title_heir = { scope:candidate = this }
-                	}
-                }
-            }
-            666 = {
-                NOT = {
-                	any_county = {
-                		any_title_heir = { scope:candidate = this }
-                	}
-                }
-            }
-            668 = {
-                any_parent = { count = 2 is_alive = yes } 
-            }
-            669 = {
-                any_parent = { count >= 1 is_alive = yes } 
-            }
-            670 = {
-                any_parent = { count = 1 is_alive = yes } 
-            }
-            671 = {
-                AND = {
-                			has_mother = yes
-                			NOT = { has_father = yes }
-                		}
-            }
-            672 = {
-                AND = {
-                			NOT = { has_mother = yes }
-                			has_father = yes
-                		}
-            }
-            673 = {
-                any_parent = { count = 0 is_alive = yes }
-            }
             674 = {
-                AND = {
-                			NOT = { exists = mother }
-                			has_father = yes
-                		}
+                any_heir_to_title = { tier = tier_empire count = 0 }
             }
             675 = {
-                AND = {
-                			NOT = { exists = mother }
-                			exists = father
-                			father = { is_alive = no }
-                		}
+                any_heir_to_title = { tier >= tier_kingdom count = 0 }
             }
             676 = {
-                AND = {
-                			NOT = { exists = father }
-                			has_mother = yes
-                		}
+                any_heir_to_title = { tier >= tier_duchy count = 0 }
             }
             677 = {
-                AND = {
-                			NOT = { exists = father }
-                			exists = mother
-                			mother = { is_alive = no }
-                		}
+                any_heir_to_title = { tier >= tier_county count = 0 }
             }
             678 = {
-                AND = {
-                			NOT = { exists = father }
-                			NOT = { exists = mother }
+                any_heir_to_title = { count = 0 }
+            }
+            679 = {
+                NOR = {
+                	any_heir_to_title = { tier = tier_empire  }
+                	any_pretender_title = { 
+                		tier = tier_empire
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 2
                 		}
+                	}
+                }
             }
             680 = {
-                is_adult = no
+                NOR = {
+                	any_heir_to_title = { tier >= tier_kingdom }
+                	any_pretender_title = { 
+                		tier >= tier_kingdom
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 2
+                		}
+                	}
+                }
             }
             681 = {
-                is_adult = yes
+                NOR = {
+                	any_heir_to_title = { tier >= tier_duchy }
+                	any_pretender_title = { 
+                		tier >= tier_duchy
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 2
+                		}
+                	}
+                }
             }
             682 = {
+                NOR = {
+                	any_heir_to_title = { tier >= tier_county }
+                	any_pretender_title = { 
+                		tier >= tier_county
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 2
+                		}
+                	}
+                }
+            }
+            683 = {
+                NOR = {
+                	any_heir_to_title = {  }
+                	any_pretender_title = {
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 2
+                		}
+                	}
+                }
+            }
+            684 = {
+                NOR = {
+                	any_heir_to_title = { tier = tier_empire  }
+                	any_pretender_title = { 
+                		tier = tier_empire
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 3
+                		}
+                	}
+                }
+            }
+            685 = {
+                NOR = {
+                	any_heir_to_title = { tier >= tier_kingdom }
+                	any_pretender_title = { 
+                		tier >= tier_kingdom
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 3
+                		}
+                	}
+                }
+            }
+            686 = {
+                NOR = {
+                	any_heir_to_title = { tier >= tier_duchy }
+                	any_pretender_title = { 
+                		tier >= tier_duchy
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 3
+                		}
+                	}
+                }
+            }
+            687 = {
+                NOR = {
+                	any_heir_to_title = { tier >= tier_county }
+                	any_pretender_title = { 
+                		tier >= tier_county
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 3
+                		}
+                	}
+                }
+            }
+            688 = {
+                NOR = {
+                	any_heir_to_title = {  }
+                	any_pretender_title = {
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 3
+                		}
+                	}
+                }
+            }
+            689 = {
+                NOR = {
+                	any_heir_to_title = { tier = tier_empire  }
+                	any_pretender_title = { 
+                		tier = tier_empire
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 4
+                		}
+                	}
+                }
+            }
+            690 = {
+                NOR = {
+                	any_heir_to_title = { tier >= tier_kingdom }
+                	any_pretender_title = { 
+                		tier >= tier_kingdom
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 4
+                		}
+                	}
+                }
+            }
+            691 = {
+                NOR = {
+                	any_heir_to_title = { tier >= tier_duchy }
+                	any_pretender_title = { 
+                		tier >= tier_duchy
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 4
+                		}
+                	}
+                }
+            }
+            692 = {
+                NOR = {
+                	any_heir_to_title = { tier >= tier_county }
+                	any_pretender_title = { 
+                		tier >= tier_county
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 4
+                		}
+                	}
+                }
+            }
+            693 = {
+                NOR = {
+                	any_heir_to_title = {  }
+                	any_pretender_title = {
+                		place_in_line_of_succession = {
+                			target = scope:candidate
+                			value <= 4
+                		}
+                	}
+                }
+            }
+            694 = {
+                NOR = {
+                	any_heir_to_title = { tier = tier_empire }
+                	any_pretender_title = { tier = tier_empire }
+                }
+            }
+            695 = {
+                NOR = {
+                	any_heir_to_title = { tier >= tier_kingdom }
+                	any_pretender_title = { tier >= tier_kingdom }
+                }
+            }
+            696 = {
+                NOR = {
+                	any_heir_to_title = { tier >= tier_duchy }
+                	any_pretender_title = { tier >= tier_duchy }
+                }
+            }
+            697 = {
+                NOR = {
+                	any_heir_to_title = { tier >= tier_county }
+                	any_pretender_title = { tier >= tier_county }
+                }
+            }
+            698 = {
+                NOR = {
+                	any_heir_to_title = {  }
+                	any_pretender_title = { }
+                }
+            }
+            699 = {
+                NOR = {
+                	any_heir_to_title = { tier = tier_empire }
+                	any_pretender_title = { tier = tier_empire }
+                	any_parent = { 
+                		highest_held_title_tier = tier_empire
+                		is_alive = yes
+                	} 
+                }
+            }
+            700 = {
+                NOR = {
+                	any_heir_to_title = { tier >= tier_kingdom } 
+                	any_pretender_title = { tier >= tier_kingdom }
+                	any_parent = { 
+                		highest_held_title_tier >= tier_kingdom
+                		is_alive = yes
+                	} 
+                }
+            }
+            701 = {
+                NOR = {
+                	any_heir_to_title = { tier >=  tier_duchy } 
+                	any_pretender_title = { tier >= tier_duchy }
+                	any_parent = { 
+                		highest_held_title_tier >= tier_duchy
+                		is_alive = yes
+                	} 
+                }
+            }
+            702 = {
+                NOR = {
+                	any_heir_to_title = { tier >= tier_county }
+                	any_pretender_title = { tier >= tier_county }
+                	any_parent = { 
+                		highest_held_title_tier >=  tier_county
+                		is_alive = yes
+                	} 
+                }
+            }
+            703 = {
+                NOR = {
+                	any_heir_to_title = { } 
+                	any_pretender_title = { }
+                	any_parent = { 
+                		highest_held_title_tier >= tier_county 
+                		is_alive = yes
+                	} 
+                }
+            }
+            705 = {
+                any_parent = { count = 2 is_alive = yes } 
+            }
+            706 = {
+                any_parent = { count >= 1 is_alive = yes } 
+            }
+            707 = {
+                any_parent = { count = 1 is_alive = yes } 
+            }
+            708 = {
+                AND = {
+                    has_mother = yes
+                    NOT = { has_father = yes }
+                }
+            }
+            709 = {
+                AND = {
+                    NOT = { has_mother = yes }
+                    has_father = yes
+                }
+            }
+            710 = {
+                any_parent = { count = 0 is_alive = yes }
+            }
+            711 = {
+                AND = {
+                    NOT = { exists = mother }
+                    has_father = yes
+                }
+            }
+            712 = {
+                AND = {
+                    NOT = { exists = mother }
+                    exists = father
+                    father = { is_alive = no }
+                }
+            }
+            713 = {
+                AND = {
+                    NOT = { exists = father }
+                    has_mother = yes
+                }
+            }
+            714 = {
+                AND = {
+                    NOT = { exists = father }
+                    exists = mother
+                    mother = { is_alive = no }
+                }
+            }
+            715 = {
+                AND = {
+                    NOT = { exists = father }
+                    NOT = { exists = mother }
+                }
+            }
+            717 = {
+                is_adult = no
+            }
+            718 = {
+                is_adult = yes
+            }
+            719 = {
                 is_adult = yes
                 age < 35
             }
-            683 = {
+            720 = {
                 is_adult = yes
                 age >= 35
             }
-            685 = {
+            722 = {
                 is_male = no
             }
-            686 = {
+            723 = {
                 is_male = yes
             }
-            688 = {
+            725 = {
                 is_married = yes
             }
-            689 = {
+            726 = {
                 is_married = no
             }
-            690 = {
+            727 = {
                 is_betrothed = yes
             }
-            691 = {
+            728 = {
                 is_betrothed = no
                 is_married = no
             }
-            693 = {
+            730 = {
                 is_imprisoned = yes
             }
-            694 = {
+            731 = {
                 is_imprisoned = no
             }
-            696 = {
+            733 = {
                 scope:acs_filter_hooks_root = { has_hook = prev }
             }
-            697 = {
+            734 = {
                 NOT = { scope:acs_filter_hooks_root = { has_hook = prev } }
             }
-            698 = {
+            735 = {
                 any_secret_knower = { this = scope:acs_filter_hooks_root }
             }
-            699 = {
+            736 = {
                 NOT = { scope:acs_filter_hooks_root = { has_hook = prev } }
                 NOT = { any_secret_knower = { this = scope:acs_filter_hooks_root } }
             }
-            701 = {
+            738 = {
                 has_sexuality = heterosexual
             }
-            702 = {
+            739 = {
                 has_sexuality = homosexual
             }
-            703 = {
+            740 = {
                 has_sexuality = bisexual
             }
-            704 = {
+            741 = {
                 has_sexuality = asexual
             }
-            706 = {
+            743 = {
                 faith = scope:acs_filter_faith
             }
-            707 = {
+            744 = {
                 religion = scope:acs_filter_religion
             }
-            708 = {
+            745 = {
                 NOT = { faith = scope:acs_filter_faith }
             }
-            709 = {
+            746 = {
                 NOT = { religion = scope:acs_filter_religion }
             }
-            711 = {
+            748 = {
                 culture_group = scope:acs_filter_culture_root.culture_group
             }
-            712 = {
+            749 = {
                 culture = scope:acs_filter_culture_root.culture
             }
-            713 = {
+            750 = {
                 NOT = { culture_group = scope:acs_filter_culture_root.culture_group }
             }
-            714 = {
+            751 = {
                 NOT = { culture = scope:acs_filter_culture_root.culture }
             }
-            716 = {
+            753 = {
                 dynasty = scope:acs_filter_dynasty_root.dynasty
             }
-            717 = {
+            754 = {
                 NOT = { dynasty = scope:acs_filter_dynasty_root.dynasty }
             }
-            718 = {
+            755 = {
                 house = scope:acs_filter_dynasty_root.house
             }
-            719 = {
+            756 = {
                 NOT = { house = scope:acs_filter_dynasty_root.house }
             }
-            720 = {
+            757 = {
                 is_lowborn = no
             }
-            721 = {
+            758 = {
                 is_lowborn = yes
             }
-            722 = {
+            759 = {
                 is_lowborn = no
                 NOT = { dynasty = scope:acs_filter_dynasty_root.dynasty }
             }

@@ -1,0 +1,1181 @@
+﻿types  acs_filter_dropdown_authority_and_heritage_group_types {
+    type acs_filter_dropdown_authority_and_heritage_group = acs_vbox_filter_group {
+        name = "acs_filter_dropdown_authority_and_heritage"
+        
+        blockoverride "acs_vbox_filter_group_name" {
+            text = "acs_filter_dropdown_authority_and_heritage"
+        }
+        
+        blockoverride "acs_vbox_filter_group_toggle" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_dropdown_authority_and_heritage' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_dropdown_authority_and_heritage' ) ), '(int32)1', '(int32)2' )]"
+        }
+        
+        blockoverride "acs_filter_visible" {
+            visible = "[GetVariableSystem.Exists( 'acs_filter_dropdown_authority_and_heritage' )]"
+        }
+        
+        blockoverride "acs_filters" {
+            acs_filter_item = {
+                datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+                blockoverride "filter_name" {  
+                    text = "ruler_filter"
+                }
+                blockoverride "acs_dropdown_selected_values" {
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_37' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "any_filter_option"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_37' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "ruler_filter_option"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_37' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "landed_ruler_filter_option"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_37' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "landless_ruler_filter_option"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_4' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_37' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "not_ruler_filter_option"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_37' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_independent_filter"
+                        }
+                    }
+                }
+                blockoverride "acs_dropdown_other_values" {
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "any_filter_option"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_37' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "ruler_filter_option"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_37' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "landed_ruler_filter_option"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_37' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "landless_ruler_filter_option"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_37' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "not_ruler_filter_option"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_4' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_37' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_independent_filter"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_37' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                }
+            }
+            acs_filter_item = {
+                datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+                blockoverride "filter_name" {  
+                    text = "acs_filter_trait_fame_born_status"
+                }
+                blockoverride "acs_dropdown_selected_values" {
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "any_filter_option"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_empire"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_kingdom"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_duchy"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_4' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_county"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_anything"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_6' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_empire"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_7' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_kingdom"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_8' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_duchy"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_9' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_county"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_anything"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_empire"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_12' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_kingdom"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_13' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_duchy"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_14' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_county"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_anything"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_empire"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_kingdom"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_18' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_duchy"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_19' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_county"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_20' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_anything"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_21' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_empire"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_22' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_kingdom"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_23' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_duchy"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_24' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_county"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_anything"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_26' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_empire"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_27' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_kingdom"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_28' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_duchy"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_29' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_county"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_anything"
+                        }
+                    }
+                }
+                blockoverride "acs_dropdown_other_values" {
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "any_filter_option"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_empire"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_kingdom"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_duchy"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_county"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_4' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_anything"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_empire"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_6' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_kingdom"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_7' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_duchy"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_8' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_county"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_9' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_anything"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_empire"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_kingdom"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_12' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_duchy"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_13' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_county"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_14' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_anything"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_empire"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_kingdom"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_duchy"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_18' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_county"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_19' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_anything"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_20' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_empire"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_21' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_kingdom"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_22' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_duchy"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_23' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_county"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_24' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_anything"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_empire"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_26' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_kingdom"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_27' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_duchy"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_28' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_county"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_29' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_anything"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                }
+            }
+            acs_filter_item = {
+                datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+                blockoverride "filter_name" {  
+                    text = "acs_filter_no_heritage"
+                }
+                blockoverride "acs_dropdown_selected_values" {
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "any_filter_option"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_empire"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_kingdom"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_duchy"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_4' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_county"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_anything"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_6' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_empire"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_7' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_kingdom"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_8' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_duchy"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_9' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_county"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_anything"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_empire"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_12' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_kingdom"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_13' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_duchy"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_14' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_county"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_anything"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_empire"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_kingdom"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_18' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_duchy"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_19' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_county"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_20' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_anything"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_21' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_empire"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_22' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_kingdom"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_23' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_duchy"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_24' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_county"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_anything"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_26' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_empire"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_27' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_kingdom"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_28' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_duchy"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_29' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_county"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_anything"
+                        }
+                    }
+                }
+                blockoverride "acs_dropdown_other_values" {
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "any_filter_option"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_empire"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_kingdom"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_duchy"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_county"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_4' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_heir_to_anything"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_empire"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_6' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_kingdom"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_7' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_duchy"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_8' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_county"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_9' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_2heir_to_anything"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_empire"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_kingdom"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_12' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_duchy"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_13' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_county"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_14' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_3heir_to_anything"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_empire"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_kingdom"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_duchy"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_18' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_county"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_19' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_4heir_to_anything"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_20' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_empire"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_21' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_kingdom"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_22' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_duchy"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_23' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_county"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_24' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_sheir_to_anything"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_empire"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_26' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_kingdom"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_27' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_duchy"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_28' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_county"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_29' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_pheir_to_anything"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_16' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_30' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                }
+            }
+            acs_filter_item = {
+                datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+                blockoverride "filter_name" {  
+                    text = "acs_filter_parents"
+                }
+                blockoverride "acs_dropdown_selected_values" {
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "any_filter_option"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_parents_alive"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_1pparents_alive"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_1parents_alive"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_4' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_mother_alive"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_father_alive"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_6' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_parents_dead"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_7' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_father_alive_nm"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_8' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_father_dead_nm"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_9' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_mother_alive_nf"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_mother_dead_nf"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_no_parents"
+                        }
+                    }
+                }
+                blockoverride "acs_dropdown_other_values" {
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "any_filter_option"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_parents_alive"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_1pparents_alive"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_1parents_alive"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_mother_alive"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_4' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_father_alive"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_parents_dead"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_6' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_father_alive_nm"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_7' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_father_dead_nm"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_8' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_mother_alive_nf"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_9' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_mother_dead_nf"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_filter_no_parents"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_17' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_25' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

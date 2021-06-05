@@ -28,88 +28,156 @@
                 limit = { global_var:acs_filter_relation = 0 }
                 every_living_character = { acs_add_to_sort_list = yes }
             }
-            if = {
+            else_if = {
                 limit = { 
-                    OR = { 
-                        global_var:acs_filter_relation = 1
-                        global_var:acs_filter_relation = 2
+                    NOR = { 
+                        global_var:acs_filter_relation = 6
+                        global_var:acs_filter_relation = 7
                     }
                 }
-                top_liege = {
-                    every_neighboring_and_across_water_top_liege_realm_owner = {
-                        every_vassal_or_below = {
-                            acs_add_court_to_list = yes
+                if = {
+                    limit = { 
+                        OR = { 
+                            global_var:acs_filter_relation = 1
+                            global_var:acs_filter_relation = 2
+                            global_var:acs_filter_relation = 3
+                            global_var:acs_filter_relation = 4
                         }
-                        acs_add_court_to_list = yes
                     }
+                    top_liege = { add_to_temporary_list = acs_to_sort_courts }
                 }
-            }
-            if = {
-                limit = { 
-                    OR = { 
-                        global_var:acs_filter_relation = 3
-                        global_var:acs_filter_relation = 4
-                    }
-                }
-                top_liege = {
-                    every_neighboring_top_liege_realm_owner = {
-                        every_vassal_or_below = {
-                            acs_add_court_to_list = yes
+
+                if = {
+                    limit = {
+                        OR = { 
+                            global_var:acs_filter_relation = 1
+                            global_var:acs_filter_relation = 8
+                            global_var:acs_filter_relation = 12
                         }
-                        acs_add_court_to_list = yes
+                    }
+                    top_liege = { #close realms
+                        save_temporary_scope_as = top_liege_scope
+                        every_neighboring_and_across_water_top_liege_realm_owner = {
+                            add_to_temporary_list = acs_to_sort_courts
+                            set_variable = { name = acs_distance value = realm_size }
+                        }
+
+                        set_local_variable = { name = new_entrie_found value = 1 }
+                        while = {
+                            limit = { local_var:new_entrie_found = 1 }
+                            set_local_variable = { name = new_entrie_found value = 0 }
+                            every_in_list = {
+                                list = acs_to_sort_courts
+                                if = { 
+                                    limit = { var:acs_distance < 14 }
+                                    
+                                    every_neighboring_and_across_water_top_liege_realm_owner = {
+                                        set_local_variable = { name = distace value = { value = prev.var:acs_distance add = realm_size }  }
+                                        if = {
+                                            limit = {
+                                                trigger_if = {
+                                                    limit = { exists = var:acs_distance }
+                                                    local_var:distance < var:acs_distance
+                                                }
+                                                trigger_else = { 
+                                                    always = yes
+                                                }
+                                                NOT = { scope:top_liege_scope = this }
+                                            }
+                                            add_to_temporary_list = acs_to_sort_courts
+                                            set_variable = { name = acs_distance value = local_var:distance }
+                                            set_local_variable = { name = new_entrie_found value = 1 }
+                                        }  
+                                    }
+                                }
+                            }
+                        }
+                        every_in_list = {
+                            list = acs_to_sort_courts
+                            remove_variable = acs_distance
+                        }
                     }
                 }
-            }
-            if = {
-                limit = { 
-                    OR = { 
-                        global_var:acs_filter_relation = 1
-                        global_var:acs_filter_relation = 3
+                else_if = {
+                    limit = {
+                        OR = { 
+                            global_var:acs_filter_relation = 2
+                            global_var:acs_filter_relation = 9
+                            global_var:acs_filter_relation = 13
+                        }
+                    }
+                    top_liege = { 
+                        every_neighboring_and_across_water_top_liege_realm_owner = {
+                            add_to_temporary_list = acs_to_sort_courts
+                        }
+                    }
+                }
+                else_if = {
+                    limit = {
+                        OR = { 
+                            global_var:acs_filter_relation = 3
+                            global_var:acs_filter_relation = 10
+                            global_var:acs_filter_relation = 14
+                        }
+                    }
+                    top_liege = { 
+                        every_neighboring_top_liege_realm_owner = {
+                            add_to_temporary_list = acs_to_sort_courts
+                        }
+                    }
+                }
+                else_if = {
+                    limit = {
+                        global_var:acs_filter_relation = 11
+                    }
+                   
+                    top_liege = { 
+                        every_independent_ruler = {
+                            add_to_temporary_list = acs_to_sort_courts
+                        }
+                    }
+                }
+                else_if = {
+                    limit = { 
                         global_var:acs_filter_relation = 5
                     }
+                    add_to_temporary_list = acs_to_sort_courts
                 }
-                top_liege = {
-                    every_vassal_or_below = {
+                if = {
+                    limit = {
+                        OR = { 
+                            global_var:acs_filter_relation = 1
+                            global_var:acs_filter_relation = 2
+                            global_var:acs_filter_relation = 3
+                            global_var:acs_filter_relation = 4
+                            global_var:acs_filter_relation = 5
+                            global_var:acs_filter_relation = 8
+                            global_var:acs_filter_relation = 9
+                            global_var:acs_filter_relation = 10
+                        }
+                    }
+                    every_in_list = {
+                        list = acs_to_sort_courts
+                        every_vassal_or_below = {
+                            acs_add_court_to_list = yes
+                        }
                         acs_add_court_to_list = yes
                     }
-                    acs_add_court_to_list = yes
                 }
+                else = {
+                    every_in_list = {
+                        list = acs_to_sort_courts
+                        acs_add_court_to_list = yes
+                    }
+                }
+                
             }
-    
-            if = {
+            else_if = {
                 limit = { global_var:acs_filter_relation = 6 }
-                every_vassal_or_below = {
-                    acs_add_court_to_list = yes
-                }
-                acs_add_court_to_list = yes
-            }
-            
-            if = {
-                limit = { global_var:acs_filter_relation = 7 }
                 every_vassal = { acs_add_court_to_list = yes }
             }
-    
-            if = {
-                limit = { global_var:acs_filter_relation = 8 }
+            else = {
                 acs_add_court_to_list = yes
-            }
-
-            if = {
-                limit = { global_var:acs_filter_relation = 9 }
-                top_liege = {
-                    every_neighboring_and_across_water_top_liege_realm_owner = {
-                        acs_add_court_to_list = yes
-                    }
-                }
-            }
-
-            if = {
-                limit = { global_var:acs_filter_relation = 10 }
-                top_liege = {
-                    every_neighboring_top_liege_realm_owner = {
-                        acs_add_court_to_list = yes
-                    }
-                }
             }
         }
           

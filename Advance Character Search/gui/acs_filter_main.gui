@@ -22,7 +22,7 @@
                             visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).End )]"
                         }
                         blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_and_this_aw"
+                            text = "acs_any_close_realm_and_this"
                         }
                     }
                     acs_dropdown_selected_value = {
@@ -30,7 +30,7 @@
                             visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).End )]"
                         }
                         blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_aw"
+                            text = "acs_any_neighboring_realm_and_this_aw"
                         }
                     }
                     acs_dropdown_selected_value = {
@@ -46,7 +46,7 @@
                             visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_4' ).Province.MakeScope ).End )]"
                         }
                         blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm"
+                            text = "top_realm_relation_filter"
                         }
                     }
                     acs_dropdown_selected_value = {
@@ -54,7 +54,7 @@
                             visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
                         }
                         blockoverride "text_button_drop" {
-                            text = "top_realm_relation_filter"
+                            text = "realm_relation_filter"
                         }
                     }
                     acs_dropdown_selected_value = {
@@ -62,7 +62,7 @@
                             visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_6' ).Province.MakeScope ).End )]"
                         }
                         blockoverride "text_button_drop" {
-                            text = "realm_relation_filter"
+                            text = "vassal_relation_filter"
                         }
                     }
                     acs_dropdown_selected_value = {
@@ -70,7 +70,7 @@
                             visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_7' ).Province.MakeScope ).End )]"
                         }
                         blockoverride "text_button_drop" {
-                            text = "vassal_relation_filter"
+                            text = "court_relation_filter"
                         }
                     }
                     acs_dropdown_selected_value = {
@@ -78,7 +78,7 @@
                             visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_8' ).Province.MakeScope ).End )]"
                         }
                         blockoverride "text_button_drop" {
-                            text = "court_relation_filter"
+                            text = "acs_any_close_realm"
                         }
                     }
                     acs_dropdown_selected_value = {
@@ -86,12 +86,44 @@
                             visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_9' ).Province.MakeScope ).End )]"
                         }
                         blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_awc"
+                            text = "acs_any_neighboring_realm_aw"
                         }
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
                             visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_any_neighboring_realm"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_any_independent_c"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_12' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_any_close_realm_c"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_13' ).Province.MakeScope ).End )]"
+                        }
+                        blockoverride "text_button_drop" {
+                            text = "acs_any_neighboring_realm_awc"
+                        }
+                    }
+                    acs_dropdown_selected_value = {
+                        blockoverride "visibility" {
+                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_14' ).Province.MakeScope ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm_c"
@@ -107,13 +139,13 @@
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_and_this_aw"
+                            text = "acs_any_close_realm_and_this"
                             onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_aw"
+                            text = "acs_any_neighboring_realm_and_this_aw"
                             onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).End )]"
                         }
                     }
@@ -125,44 +157,68 @@
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm"
+                            text = "top_realm_relation_filter"
                             onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_4' ).Province.MakeScope ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
-                            text = "top_realm_relation_filter"
+                            text = "realm_relation_filter"
                             onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
-                            text = "realm_relation_filter"
+                            text = "vassal_relation_filter"
                             onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_6' ).Province.MakeScope ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
-                            text = "vassal_relation_filter"
+                            text = "court_relation_filter"
                             onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_7' ).Province.MakeScope ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
-                            text = "court_relation_filter"
+                            text = "acs_any_close_realm"
                             onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_8' ).Province.MakeScope ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_awc"
+                            text = "acs_any_neighboring_realm_aw"
                             onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_9' ).Province.MakeScope ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_c"
+                            text = "acs_any_neighboring_realm"
                             onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_any_independent_c"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_any_close_realm_c"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_12' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_any_neighboring_realm_awc"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_13' ).Province.MakeScope ).End )]"
+                        }
+                    }
+                    acs_filter_dropdown_other_value = {
+                        blockoverride "text_button_drop" {
+                            text = "acs_any_neighboring_realm_c"
+                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_14' ).Province.MakeScope ).End )]"
                         }
                     }
                 }

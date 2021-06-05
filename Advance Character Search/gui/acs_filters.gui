@@ -500,6 +500,7 @@ types acs_block_types {
         }
 
 		acs_filter_main_group = { }
+        acs_filter_dropdown_authority_and_heritage_group = { }
         acs_filter_dropdown_personal_group = { }
         acs_filter_dropdown_membership_group = { }
         widget = {
@@ -519,6 +520,7 @@ types acs_block_types {
                 duration = 0.001
                 on_start = "[GetVariableSystem.Clear( 'acs_sort_widget' )]"
                 on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_filter_main').StackTop]"
+				on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_filter_dropdown_authority_and_heritage').StackTop]"
                 on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_filter_dropdown_personal').StackTop]"
                 on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_filter_dropdown_membership').StackTop]"     
                 next = idle
