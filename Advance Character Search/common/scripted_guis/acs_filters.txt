@@ -2021,8 +2021,7 @@ acs_filter_simple_dropdown = {
                         this >= acs_major_minor
                         this <= acs_major_minor_total_count
                     }
-                }
-                   
+                }     
             } 
             trigger_else = {
                 any_in_list = {
@@ -2047,7 +2046,8 @@ acs_filter_simple_dropdown = {
             remove_local_variable = acs_counter
             if = {
                 limit = { root.var:index > 0 }
-                add_to_variable_list = { name = acs_active_filter_list target = acs_major_minor_index } 
+                save_temporary_scope_value_as = { name = offset value = -1 }
+                add_to_variable_list = { name = acs_active_filter_list target = acs_major_minor_index_offset } 
             } 
             acs_auto_apply_sorting_and_filters = yes
         }     

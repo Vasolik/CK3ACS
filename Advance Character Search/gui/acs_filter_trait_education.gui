@@ -1,18 +1,20 @@
 ﻿types  acs_filter_trait_education_group_types {
-    type acs_filter_trait_education_group =  acs_vbox_filter_group {
+    type acs_filter_trait_education_group = acs_vbox_filter_group {
         name = "acs_filter_trait_education"
+        
         blockoverride "acs_vbox_filter_group_name" {
             text = "acs_filter_trait_group_education"
         }
-
+        
         blockoverride "acs_vbox_filter_group_toggle" {
             onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_education' )]"
             frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_education' ) ), '(int32)1', '(int32)2' )]"
         }
+        
         blockoverride "acs_filter_visible" {
             visible = "[GetVariableSystem.Exists( 'acs_filter_trait_education' )]"
         }
-
+        
         blockoverride "acs_filters" {
             flowcontainer = {
                 flowcontainer = { 

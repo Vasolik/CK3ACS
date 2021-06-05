@@ -22,7 +22,7 @@ types acs_dropdown_types {
             spriteborder = { 75 11 }
             clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_checkbox"
     
-
+            onclick = "[PdxGuiWidget.AccessParent.AccessParent.TriggerAnimation('acs_show_drop')]"
             buttonText = {
                 text_single = {
                     size = { 100% 100% }
@@ -109,13 +109,10 @@ types acs_dropdown_types {
     type acs_dropdown = acs_dropdown_base {
         state = {
             name = acs_show_drop
-
             on_finish = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.StackTop]"
             on_finish = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.StackTop]"
             on_finish = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.StackTop]"
             on_finish = "[PdxGuiWidget.AccessParent.AccessParent.StackTop]"
-            on_finish = "[PdxGuiWidget.AccessParent.StackTop]"
-            on_finish = "[PdxGuiWidget.FindChild('acs_dropdown_part').StackTop]"
 
             on_finish = "[PdxGuiWidget.FindChild('acs_dropdown_part').Show]"
             alpha = 1
@@ -143,22 +140,8 @@ types acs_dropdown_types {
         }
 
         state = {
-            name = _mouse_hierarchy_enter
-            duration = 0.1
-            alpha = 1
-            next = acs_show_drop
-        }
-
-        state = {
-            name = acs_hide_drop_auto
-            trigger_when = "[GetVariableSystem.Exists( 'acs_sort_widget_finished' )]"
-            duration = 0.1
-            alpha = 1
-            next = acs_hide_drop
-        }
-
-        state = {
             name = acs_hide_drop
+            trigger_on_create = yes
             duration = 0.1
             on_finish = "[PdxGuiWidget.FindChild('acs_dropdown_part').Hide]"
             alpha = 1

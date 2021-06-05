@@ -23,40 +23,93 @@
             save_scope_as = acs_filter_dynasty_root
             save_scope_as = acs_sort_root
             acs_make_reduced_and_count = yes
-            acs_add_to_sort_list = yes
+            
             if = {
                 limit = { global_var:acs_filter_relation = 0 }
                 every_living_character = { acs_add_to_sort_list = yes }
             }
             if = {
-                limit = { global_var:acs_filter_relation = 1 }
+                limit = { 
+                    OR = { 
+                        global_var:acs_filter_relation = 1
+                        global_var:acs_filter_relation = 2
+                    }
+                }
+                top_liege = {
+                    every_neighboring_and_across_water_top_liege_realm_owner = {
+                        every_vassal_or_below = {
+                            acs_add_court_to_list = yes
+                        }
+                        acs_add_court_to_list = yes
+                    }
+                }
+            }
+            if = {
+                limit = { 
+                    OR = { 
+                        global_var:acs_filter_relation = 3
+                        global_var:acs_filter_relation = 4
+                    }
+                }
+                top_liege = {
+                    every_neighboring_top_liege_realm_owner = {
+                        every_vassal_or_below = {
+                            acs_add_court_to_list = yes
+                        }
+                        acs_add_court_to_list = yes
+                    }
+                }
+            }
+            if = {
+                limit = { 
+                    OR = { 
+                        global_var:acs_filter_relation = 1
+                        global_var:acs_filter_relation = 3
+                        global_var:acs_filter_relation = 5
+                    }
+                }
                 top_liege = {
                     every_vassal_or_below = {
-                        every_courtier_or_guest = { acs_add_to_sort_list = yes }
-                        acs_add_to_sort_list = yes
+                        acs_add_court_to_list = yes
                     }
-                    acs_add_to_sort_list = yes
-                    every_courtier_or_guest = { acs_add_to_sort_list = yes }
+                    acs_add_court_to_list = yes
                 }
             }
     
             if = {
-                limit = { global_var:acs_filter_relation = 2 }
+                limit = { global_var:acs_filter_relation = 6 }
                 every_vassal_or_below = {
-                    every_courtier_or_guest = { acs_add_to_sort_list = yes }
-                    acs_add_to_sort_list = yes
+                    acs_add_court_to_list = yes
                 }
-                every_courtier_or_guest = { acs_add_to_sort_list = yes }
+                acs_add_court_to_list = yes
             }
             
             if = {
-                limit = { global_var:acs_filter_relation = 3 }
-                every_vassal = { acs_add_to_sort_list = yes }
+                limit = { global_var:acs_filter_relation = 7 }
+                every_vassal = { acs_add_court_to_list = yes }
             }
     
             if = {
-                limit = { global_var:acs_filter_relation = 4 }
-                every_courtier_or_guest = { acs_add_to_sort_list = yes }
+                limit = { global_var:acs_filter_relation = 8 }
+                acs_add_court_to_list = yes
+            }
+
+            if = {
+                limit = { global_var:acs_filter_relation = 9 }
+                top_liege = {
+                    every_neighboring_and_across_water_top_liege_realm_owner = {
+                        acs_add_court_to_list = yes
+                    }
+                }
+            }
+
+            if = {
+                limit = { global_var:acs_filter_relation = 10 }
+                top_liege = {
+                    every_neighboring_top_liege_realm_owner = {
+                        acs_add_court_to_list = yes
+                    }
+                }
             }
         }
           
@@ -91,6 +144,12 @@
     }  
 }
 
+acs_add_court_to_list = {
+    every_courtier_or_guest = { acs_add_to_sort_list = yes }
+    every_prisoner = { acs_add_to_sort_list = yes }
+    acs_add_to_sort_list = yes
+}
+
 acs_add_to_sort_list = {
     if = { 
         limit = { 
@@ -103,7 +162,6 @@ acs_add_to_sort_list = {
                     count = all
                 }
             }
-            acs_filter = yes
         }
         add_to_temporary_list = acs_to_sort
     }

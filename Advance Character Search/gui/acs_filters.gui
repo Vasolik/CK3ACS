@@ -85,14 +85,15 @@ types acs_filters_types {
                     
                             state = {
                                 name = acs_sort
-                                on_finish = "[PdxGuiWidget.FindChild('acs_jitter').TriggerAnimation('acs_jitter')]"
+								on_start = "[PdxGuiWidget.FindChild('acs_dropdown_block').StackBottom]"
+                                on_finish = "[PdxGuiWidget.FindChild('acs_jitter').TriggerAnimation('acs_sort')]"
                                 alpha = 1
-                                duration = 0.1
+                                duration = 0.001
                                 next = idle
                             }
 
-							acs_dropdown_block = {}
-							acs_checkbox_block = { name = "acs_checkboxes" }
+							acs_dropdown_block = { }
+							acs_checkbox_block = {  }
 
                             widget = {
                                 size = { 1 1 }
@@ -103,12 +104,20 @@ types acs_filters_types {
                                     size = { 1 1 }
                                 }
 
+								state = {
+                                    trigger_on_create = yes
+									on_finish = "[GetVariableSystem.Toggle( 'acs_sort_widget' )]"
+									duration = 0.001
+                                    name = start
+                                    size = { 1 1 }
+									next = acs_sort
+                                }
+
                                 state = {
                                     name = acs_sort
                                     trigger_when = "[GetVariableSystem.Exists( 'acs_sort_widget' )]"
-                                    size = { 2 2 }
-                                    on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_checkboxes').StackTop]"
-                                    duration = 0.02
+                                    size = { 2 2 } 
+                                    duration = 0.002
                                     next = idle
                                 }
                             }
@@ -407,8 +416,10 @@ types acs_filters_types {
 		direction = vertical
 		ignoreinvisible = yes
 		spacing = 7
+		allow_outside = yes
         widget = {
             size = { 580 26 }
+			block "acs_header_visible" {}
             hbox = {	
                 position = { 0 0 }
                 button = {
@@ -452,19 +463,27 @@ types acs_filters_types {
             block "acs_filters" {}	
         }
     }
-	
+
+	type acs_vbox_filter_group_no_header = flowcontainer {
+		direction = vertical
+		ignoreinvisible = yes
+		spacing = 7
+		allow_outside = yes
+       
+		block "acs_filters" {}	
+	}
 }
 
 types acs_block_types {
 
     type acs_dropdown_block = flowcontainer {
+		name = "acs_dropdown_block"
         layoutpolicy_horizontal = expanding
         layoutpolicy_vertical = expanding
         direction = vertical
         spacing = 5
-
+		allow_outside = yes
         state = {
-            #trigger_when = "[Not( GetVariableSystem.Exists( 'acs_sort_widget' ) )]"
             name = idle
             alpha = 1
         }
@@ -476,162 +495,11 @@ types acs_block_types {
             on_finish = "[PdxGuiWidget.AccessParent.TriggerAnimation('acs_sort')]"
         
             alpha = 1
-            duration = 0.1
+            duration = 0.001
             next = idle
         }
 
-        flowcontainer = { name = "acs_main_filter"
-            layoutpolicy_horizontal = expanding
-            layoutpolicy_vertical = expanding
-            direction = vertical
-            spacing = 5	
-            acs_filter_item = {
-                blockoverride "filter_name" {  
-                    text = "relation_filter"
-                }
-                blockoverride "acs_dropdown_selected_values" {   
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[GetScriptedGui( 'acs_filter_relation_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                        }
-                    }
-
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[GetScriptedGui( 'acs_filter_relation_top_relm' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "top_realm_relation_filter"
-                        }
-                    }
-                    
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[GetScriptedGui( 'acs_filter_relation_relm' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "realm_relation_filter"
-                        }
-                    }
-
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[GetScriptedGui( 'acs_filter_relation_vassals' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "vassal_relation_filter"
-                        }
-                    }
-                    
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[GetScriptedGui( 'acs_filter_relation_court' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "court_relation_filter"
-                        }
-                    }
-                }
-
-                blockoverride "acs_dropdown_other_values" { 
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                            onclick = "[GetScriptedGui( 'acs_filter_relation_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "top_realm_relation_filter"
-                            onclick = "[GetScriptedGui( 'acs_filter_relation_top_relm' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "realm_relation_filter"
-                            onclick = "[GetScriptedGui( 'acs_filter_relation_relm' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "vassal_relation_filter"
-                            onclick = "[GetScriptedGui( 'acs_filter_relation_vassals' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "court_relation_filter"
-                            onclick = "[GetScriptedGui( 'acs_filter_relation_court' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                }
-
-            }
-
-            acs_filter_item = {
-                blockoverride "filter_name" {  
-                    text = "rule_diplomatic_range"
-                }
-                blockoverride "acs_dropdown_selected_values" {   
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[GetScriptedGui( 'acs_filter_diplomatic_range_all' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                        }
-                    }
-
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[GetScriptedGui( 'acs_filter_diplomatic_range_inside' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "in_range_filter"
-                        }
-                    }
-                    
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[GetScriptedGui( 'acs_filter_diplomatic_range_outside' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "not_in_range_filter"
-                        }
-                    }
-                }
-
-                blockoverride "acs_dropdown_other_values" { 
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                            onclick = "[GetScriptedGui( 'acs_filter_diplomatic_range_all' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "in_range_filter"
-                            onclick = "[GetScriptedGui( 'acs_filter_diplomatic_range_inside' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                    
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "not_in_range_filter"
-                            onclick = "[GetScriptedGui( 'acs_filter_diplomatic_range_outside' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-                    }
-                }
-            }
-        }
+		acs_filter_main_group = { }
         acs_filter_dropdown_personal_group = { }
         acs_filter_dropdown_membership_group = { }
         widget = {
@@ -648,9 +516,9 @@ types acs_block_types {
                 trigger_when = "[GetVariableSystem.Exists( 'acs_sort_widget' )]"
                 size = { 2 2 }
             
-                duration = 0.01
-                on_start = "[GetVariableSystem.Toggle( 'acs_sort_widget' )]"
-                on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_main_filter').StackTop]"
+                duration = 0.001
+                on_start = "[GetVariableSystem.Clear( 'acs_sort_widget' )]"
+                on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_filter_main').StackTop]"
                 on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_filter_dropdown_personal').StackTop]"
                 on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_filter_dropdown_membership').StackTop]"     
                 next = idle

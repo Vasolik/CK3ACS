@@ -349,3 +349,9 @@ acs_modulo_2 = {
 	value = scope:to_get_modulo
 	modulo = 2
 }
+
+acs_major_minor_total_count = {
+    value = scope:major_digit.var:index multiply = 40 
+    add = scope:minor_digit.var:index
+    add = scope:total_element_count.var:index
+}
