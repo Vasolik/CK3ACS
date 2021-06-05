@@ -1,1 +1,84 @@
-﻿
+﻿save_scope_as = actor
+every_heir_title = {
+	if = {
+		limit = {
+			place_in_line_of_succession = {
+				target = scope:actor
+				value > 1
+			}
+		}
+		prev = {
+			add_to_variable_list = { name = test1 target = prev }
+		}
+	}
+	
+}
+
+every_heir_to_title = {
+	if = {
+		limit = {
+			place_in_line_of_succession = {
+				target = scope:actor
+				value > 1
+			}
+		}
+		prev = {
+			add_to_variable_list = { name = test1 target = prev }
+		}
+	}
+	
+}
+
+every_heir_title = {
+	prev = {
+		add_to_variable_list = { name = test1 target = prev }
+	}
+	
+}
+
+every_heir_to_title = {
+	prev = {
+		add_to_variable_list = { name = test2 target = prev }
+	}
+	
+}
+
+
+any_heir_title = {}
+
+any_heir_to_title = {}
+
+
+every_living_character = {
+	save_scope_as = actor1
+	if = {
+		limit = {
+			any_kingdom = { # Execute rulers you can inherit land from
+				place_in_line_of_succession = {
+					target = scope:actor1
+					value <= 2
+				}
+			}
+		}
+		add_to_variable_list = { name = test3 target = scope:actor1 }
+	}
+	
+}
+
+any_kingdom
+
+every_held_title = {
+	if = {
+		limit = {
+			tier = tier_kingdom
+		}
+		save_scope_as = t1
+	}
+	
+}
+save_scope_as = t2
+scope:t1 = {
+	every_title_heir = {
+		scope:t2 = { add_to_variable_list = { name = test3 target = prev } }
+	}
+}
