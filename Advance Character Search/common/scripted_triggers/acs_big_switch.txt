@@ -3316,144 +3316,150 @@
                 any_parent = { count = 0 is_alive = yes }
             }
             711 = {
+                NOT = { exists = mother }
+            }
+            712 = {
                 AND = {
                     NOT = { exists = mother }
                     has_father = yes
                 }
             }
-            712 = {
+            713 = {
                 AND = {
                     NOT = { exists = mother }
                     exists = father
                     father = { is_alive = no }
                 }
             }
-            713 = {
+            714 = {
+                NOT = { exists = father }
+            }
+            715 = {
                 AND = {
                     NOT = { exists = father }
                     has_mother = yes
                 }
             }
-            714 = {
+            716 = {
                 AND = {
                     NOT = { exists = father }
                     exists = mother
                     mother = { is_alive = no }
                 }
             }
-            715 = {
+            717 = {
                 AND = {
                     NOT = { exists = father }
                     NOT = { exists = mother }
                 }
             }
-            717 = {
-                is_adult = no
-            }
-            718 = {
-                is_adult = yes
-            }
             719 = {
-                is_adult = yes
-                age < 35
+                is_adult = no
             }
             720 = {
                 is_adult = yes
-                age >= 35
+            }
+            721 = {
+                is_adult = yes
+                age < 35
             }
             722 = {
+                is_adult = yes
+                age >= 35
+            }
+            724 = {
                 is_male = no
             }
-            723 = {
+            725 = {
                 is_male = yes
             }
-            725 = {
+            727 = {
                 is_married = yes
             }
-            726 = {
+            728 = {
                 is_married = no
             }
-            727 = {
+            729 = {
                 is_betrothed = yes
             }
-            728 = {
+            730 = {
                 is_betrothed = no
                 is_married = no
             }
-            730 = {
+            732 = {
                 is_imprisoned = yes
             }
-            731 = {
+            733 = {
                 is_imprisoned = no
             }
-            733 = {
-                scope:acs_filter_hooks_root = { has_hook = prev }
-            }
-            734 = {
-                NOT = { scope:acs_filter_hooks_root = { has_hook = prev } }
-            }
             735 = {
-                any_secret_knower = { this = scope:acs_filter_hooks_root }
+                scope:acs_filter_hooks_root = { has_hook = prev }
             }
             736 = {
                 NOT = { scope:acs_filter_hooks_root = { has_hook = prev } }
-                NOT = { any_secret_knower = { this = scope:acs_filter_hooks_root } }
+            }
+            737 = {
+                any_secret_knower = { this = scope:acs_filter_hooks_root }
             }
             738 = {
-                has_sexuality = heterosexual
-            }
-            739 = {
-                has_sexuality = homosexual
+                NOT = { scope:acs_filter_hooks_root = { has_hook = prev } }
+                NOT = { any_secret_knower = { this = scope:acs_filter_hooks_root } }
             }
             740 = {
-                has_sexuality = bisexual
+                has_sexuality = heterosexual
             }
             741 = {
-                has_sexuality = asexual
+                has_sexuality = homosexual
+            }
+            742 = {
+                has_sexuality = bisexual
             }
             743 = {
-                faith = scope:acs_filter_faith
-            }
-            744 = {
-                religion = scope:acs_filter_religion
+                has_sexuality = asexual
             }
             745 = {
-                NOT = { faith = scope:acs_filter_faith }
+                faith = scope:acs_filter_faith
             }
             746 = {
-                NOT = { religion = scope:acs_filter_religion }
+                religion = scope:acs_filter_religion
+            }
+            747 = {
+                NOT = { faith = scope:acs_filter_faith }
             }
             748 = {
-                culture_group = scope:acs_filter_culture_root.culture_group
-            }
-            749 = {
-                culture = scope:acs_filter_culture_root.culture
+                NOT = { religion = scope:acs_filter_religion }
             }
             750 = {
-                NOT = { culture_group = scope:acs_filter_culture_root.culture_group }
+                culture_group = scope:acs_filter_culture_root.culture_group
             }
             751 = {
-                NOT = { culture = scope:acs_filter_culture_root.culture }
+                culture = scope:acs_filter_culture_root.culture
+            }
+            752 = {
+                NOT = { culture_group = scope:acs_filter_culture_root.culture_group }
             }
             753 = {
-                dynasty = scope:acs_filter_dynasty_root.dynasty
-            }
-            754 = {
-                NOT = { dynasty = scope:acs_filter_dynasty_root.dynasty }
+                NOT = { culture = scope:acs_filter_culture_root.culture }
             }
             755 = {
-                house = scope:acs_filter_dynasty_root.house
+                dynasty = scope:acs_filter_dynasty_root.dynasty
             }
             756 = {
-                NOT = { house = scope:acs_filter_dynasty_root.house }
+                NOT = { dynasty = scope:acs_filter_dynasty_root.dynasty }
             }
             757 = {
-                is_lowborn = no
+                house = scope:acs_filter_dynasty_root.house
             }
             758 = {
-                is_lowborn = yes
+                NOT = { house = scope:acs_filter_dynasty_root.house }
             }
             759 = {
+                is_lowborn = no
+            }
+            760 = {
+                is_lowborn = yes
+            }
+            761 = {
                 is_lowborn = no
                 NOT = { dynasty = scope:acs_filter_dynasty_root.dynasty }
             }
