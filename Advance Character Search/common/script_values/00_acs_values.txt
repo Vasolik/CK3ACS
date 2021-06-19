@@ -329,29 +329,27 @@ acs_num_of_bad_genetic_traits_modified = {
 		add = -1
 	}
 }
-acs_major_minor_index_offset = {
-    value = scope:major_digit.var:index multiply = 40 
-    add = scope:minor_digit.var:index 
-    add = root.var:index
-    add = scope:offset
-}
 
-acs_major_minor_offset = {
-    value = scope:major_digit.var:index multiply = 40 
-    add = scope:minor_digit.var:index
-    add = scope:offset
-}
-acs_major_minor = {
-    value = scope:major_digit.var:index multiply = 40 
-    add = scope:minor_digit.var:index
-}
 acs_modulo_2 = {
 	value = scope:to_get_modulo
 	modulo = 2
 }
 
-acs_major_minor_total_count = {
-    value = scope:major_digit.var:index multiply = 40 
-    add = scope:minor_digit.var:index
-    add = scope:total_element_count.var:index
+acs_position_value_offset = {
+    value = scope:position
+    add = scope:ctrl_value
+    add = scope:offset
 }
+
+acs_position_offset = {
+    value = scope:position
+    add = scope:offset
+}
+
+acs_position_total_count = {
+    value =  scope:position
+    add = scope:total_element_count
+}
+
+
+

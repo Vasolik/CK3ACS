@@ -11,7 +11,7 @@
                 blockoverride "acs_dropdown_selected_values" {
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "any_filter_option"
@@ -19,7 +19,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "acs_any_close_realm_and_this"
@@ -27,7 +27,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm_and_this_aw"
@@ -35,7 +35,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm_and_this"
@@ -43,7 +43,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_4' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "top_realm_relation_filter"
@@ -51,7 +51,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "realm_relation_filter"
@@ -59,7 +59,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_6' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "vassal_relation_filter"
@@ -67,7 +67,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_7' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "court_relation_filter"
@@ -75,7 +75,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_8' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "acs_any_close_realm"
@@ -83,7 +83,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_9' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm_aw"
@@ -91,7 +91,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm"
@@ -99,7 +99,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "acs_any_independent_c"
@@ -107,7 +107,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_12' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "acs_any_close_realm_c"
@@ -115,7 +115,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_13' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm_awc"
@@ -123,7 +123,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_14' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm_c"
@@ -134,91 +134,91 @@
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "any_filter_option"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "acs_any_close_realm_and_this"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm_and_this_aw"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm_and_this"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_3' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "top_realm_relation_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_4' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "realm_relation_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_5' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "vassal_relation_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_6' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "court_relation_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_7' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "acs_any_close_realm"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_8' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm_aw"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_9' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_10' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "acs_any_independent_c"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_11' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "acs_any_close_realm_c"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_12' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm_awc"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_13' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "acs_any_neighboring_realm_c"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_14' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).End )]"
                         }
                     }
                 }
@@ -231,7 +231,7 @@
                 blockoverride "acs_dropdown_selected_values" {
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "any_filter_option"
@@ -239,7 +239,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "in_range_filter"
@@ -247,7 +247,7 @@
                     }
                     acs_dropdown_selected_value = {
                         blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).End )]"
+                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
                             text = "not_in_range_filter"
@@ -258,19 +258,19 @@
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "any_filter_option"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_0' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "in_range_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_1' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
                         }
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
                             text = "not_in_range_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).AddScope( 'major_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_15' ).Province.MakeScope ).AddScope( 'minor_digit' , GetDummyMale.MakeScope.Var( 'acs_digit_34' ).Province.MakeScope ).AddScope( 'total_element_count' , GetDummyMale.MakeScope.Var( 'acs_digit_2' ).Province.MakeScope ).End )]"
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
                         }
                     }
                 }

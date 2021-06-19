@@ -1,21 +1,20 @@
 ﻿acs_filter_trait_education_general = {
-    scope = province
     saved_scopes = {
-        major_digit
-        minor_digit
+        ctrl_value
+        position
     }
     is_shown = {
         dummy_male = {
             any_in_list = {
                 variable = acs_filter_trait_education_general_list
                 save_temporary_scope_value_as = { name = offset value = -1 }
-                this = acs_major_minor_index_offset
+                this = acs_position_value_offset
             }
         }
 
     }     
     effect = {
-        set_local_variable = { name = acs_start value = acs_major_minor }
+        set_local_variable = { name = acs_start value = scope:position }
         acs_simple_checkbox = { LIST = acs_filter_trait_education_general_list START = local_var:acs_start }
         dummy_male = {
             if = {
@@ -35,42 +34,41 @@
     }
 }
 acs_filter_trait_education_general_group = {
-    scope = province
     saved_scopes = {
-        major_digit
-        minor_digit
+        ctrl_value
+        position
     }
     is_shown = {
         dummy_male = {
             trigger_if = {
                 limit = { 
-                    root.var:index = 0
+                    scope:ctrl_value = 0
                 }
                 NOT = {
                     any_in_list = {
                         variable = acs_filter_trait_education_general_list
                         AND = {
-                            this >= acs_major_minor
+                            this >= scope:position
                             save_temporary_scope_value_as = { name = offset value = 7 }
-                            this <= acs_major_minor_offset
+                            this <= acs_position_offset
                         }
                     }
                 }    
             } 
             trigger_else_if = {
                 limit = { 
-                    root.var:index = 1
+                    scope:ctrl_value = 1
                 }
                 any_in_list = {
                     variable =  acs_filter_trait_education_general_list
                     OR = {
-                        this = acs_major_minor
+                        this = scope:position
                         save_temporary_scope_value_as = { name = offset value = 2 }
-                        this = acs_major_minor_offset
+                        this = acs_position_offset
                         save_temporary_scope_value_as = { name = offset value = 4 }
-                        this = acs_major_minor_offset
+                        this = acs_position_offset
                         save_temporary_scope_value_as = { name = offset value = 6 }
-                        this = acs_major_minor_offset
+                        this = acs_position_offset
                     }
                     count = 4
                 }
@@ -80,13 +78,13 @@ acs_filter_trait_education_general_group = {
                     variable =  acs_filter_trait_education_general_list
                     OR = {
                         save_temporary_scope_value_as = { name = offset value = 1 }
-                        this = acs_major_minor_offset
+                        this = acs_position_offset
                         save_temporary_scope_value_as = { name = offset value = 3 }
-                        this = acs_major_minor_offset
+                        this = acs_position_offset
                         save_temporary_scope_value_as = { name = offset value = 5 }
-                        this = acs_major_minor_offset
+                        this = acs_position_offset
                         save_temporary_scope_value_as = { name = offset value = 7 }
-                        this = acs_major_minor_offset
+                        this = acs_position_offset
                     }
                     count = 4
                 }
@@ -102,14 +100,14 @@ acs_filter_trait_education_general_group = {
                         any_in_list = {
                             variable = acs_filter_trait_education_general_list
                             AND = {
-                                this >= acs_major_minor
+                                this >= scope:position
                                 save_temporary_scope_value_as = { name = offset value = 7 }
-                                this <= acs_major_minor_offset
+                                this <= acs_position_offset
                             }
                         }
                     }
                 }
-                set_local_variable = { name = acs_counter value = acs_major_minor }
+                set_local_variable = { name = acs_counter value = scope:position }
                 set_local_variable = { name = acs_total_left value = 4 }
                 while = {
                     limit = {
@@ -125,18 +123,18 @@ acs_filter_trait_education_general_group = {
                     any_in_list = {
                         variable =  acs_filter_trait_education_general_list
                         OR = {
-                            this = acs_major_minor
+                            this = scope:position
                             save_temporary_scope_value_as = { name = offset value = 2 }
-                            this = acs_major_minor_offset
+                            this = acs_position_offset
                             save_temporary_scope_value_as = { name = offset value = 4 }
-                            this = acs_major_minor_offset
+                            this = acs_position_offset
                             save_temporary_scope_value_as = { name = offset value = 6 }
-                            this = acs_major_minor_offset
+                            this = acs_position_offset
                         }
                         count = 4
                     }
                 }
-                set_local_variable = { name = acs_counter value = acs_major_minor }
+                set_local_variable = { name = acs_counter value = scope:position }
                 set_local_variable = { name = acs_total_left value = 4 }
                 while = {
                     limit = {
@@ -150,7 +148,7 @@ acs_filter_trait_education_general_group = {
                 }
             }
             else = {
-                set_local_variable = { name = acs_counter value = acs_major_minor }
+                set_local_variable = { name = acs_counter value = scope:position }
                 set_local_variable = { name = acs_total_left value = 8 }
                 while = {
                     limit = {
@@ -180,23 +178,22 @@ acs_filter_trait_education_general_group = {
     }
 }
 acs_filter_trait_education_martial = {
-    scope = province
     saved_scopes = {
-        major_digit
-        minor_digit
+        ctrl_value
+        position
     }
     is_shown = {
         dummy_male = {
             any_in_list = {
                 variable = acs_filter_trait_education_martial_list
                 save_temporary_scope_value_as = { name = offset value = -1 }
-                this = acs_major_minor_index_offset
+                this = acs_position_value_offset
             }
         }
 
     }     
     effect = {
-        set_local_variable = { name = acs_start value = acs_major_minor }
+        set_local_variable = { name = acs_start value = scope:position }
         acs_simple_checkbox = { LIST = acs_filter_trait_education_martial_list START = local_var:acs_start }
         dummy_male = {
             if = {
@@ -216,12 +213,14 @@ acs_filter_trait_education_martial = {
     }
 }
 acs_filter_trait_education_martial_group = {
-    scope = province
+        saved_scopes = {
+        ctrl_value
+    }
     is_shown = {
         dummy_male = {
             trigger_if = {
                 limit = { 
-                    root.var:index = 0
+                    scope:ctrl_value = 0
                 }
                 NOT = {
                     any_in_list = {
@@ -232,7 +231,7 @@ acs_filter_trait_education_martial_group = {
             } 
             trigger_else_if = {
                 limit = { 
-                    root.var:index = 1
+                    scope:ctrl_value = 1
                 }
                 any_in_list = {
                     variable =  acs_filter_trait_education_martial_list
@@ -313,23 +312,22 @@ acs_filter_trait_education_martial_group = {
     }    
 }
 acs_filter_trait_fame_born_status = {
-    scope = province
     saved_scopes = {
-        major_digit
-        minor_digit
+        ctrl_value
+        position
     }
     is_shown = {
         dummy_male = {
             any_in_list = {
                 variable = acs_filter_trait_fame_born_status_list
                 save_temporary_scope_value_as = { name = offset value = -1 }
-                this = acs_major_minor_index_offset
+                this = acs_position_value_offset
             }
         }
 
     }     
     effect = {
-        set_local_variable = { name = acs_start value = acs_major_minor }
+        set_local_variable = { name = acs_start value = scope:position }
         acs_simple_checkbox = { LIST = acs_filter_trait_fame_born_status_list START = local_var:acs_start }
         dummy_male = {
             if = {
@@ -349,12 +347,14 @@ acs_filter_trait_fame_born_status = {
     }
 }
 acs_filter_trait_fame_born_status_group = {
-    scope = province
+        saved_scopes = {
+        ctrl_value
+    }
     is_shown = {
         dummy_male = {
             trigger_if = {
                 limit = { 
-                    root.var:index = 0
+                    scope:ctrl_value = 0
                 }
                 NOT = {
                     any_in_list = {
@@ -365,7 +365,7 @@ acs_filter_trait_fame_born_status_group = {
             } 
             trigger_else_if = {
                 limit = { 
-                    root.var:index = 1
+                    scope:ctrl_value = 1
                 }
                 any_in_list = {
                     variable =  acs_filter_trait_fame_born_status_list
@@ -446,23 +446,22 @@ acs_filter_trait_fame_born_status_group = {
     }    
 }
 acs_filter_trait_physical_beauty = {
-    scope = province
     saved_scopes = {
-        major_digit
-        minor_digit
+        ctrl_value
+        position
     }
     is_shown = {
         dummy_male = {
             any_in_list = {
                 variable = acs_filter_trait_physical_beauty_list
                 save_temporary_scope_value_as = { name = offset value = -1 }
-                this = acs_major_minor_index_offset
+                this = acs_position_value_offset
             }
         }
 
     }     
     effect = {
-        set_local_variable = { name = acs_start value = acs_major_minor }
+        set_local_variable = { name = acs_start value = scope:position }
         acs_simple_checkbox = { LIST = acs_filter_trait_physical_beauty_list START = local_var:acs_start }
         dummy_male = {
             if = {
@@ -482,23 +481,22 @@ acs_filter_trait_physical_beauty = {
     }
 }
 acs_filter_trait_physical_intellect = {
-    scope = province
     saved_scopes = {
-        major_digit
-        minor_digit
+        ctrl_value
+        position
     }
     is_shown = {
         dummy_male = {
             any_in_list = {
                 variable = acs_filter_trait_physical_intellect_list
                 save_temporary_scope_value_as = { name = offset value = -1 }
-                this = acs_major_minor_index_offset
+                this = acs_position_value_offset
             }
         }
 
     }     
     effect = {
-        set_local_variable = { name = acs_start value = acs_major_minor }
+        set_local_variable = { name = acs_start value = scope:position }
         acs_simple_checkbox = { LIST = acs_filter_trait_physical_intellect_list START = local_var:acs_start }
         dummy_male = {
             if = {
@@ -518,23 +516,22 @@ acs_filter_trait_physical_intellect = {
     }
 }
 acs_filter_trait_physical_physique = {
-    scope = province
     saved_scopes = {
-        major_digit
-        minor_digit
+        ctrl_value
+        position
     }
     is_shown = {
         dummy_male = {
             any_in_list = {
                 variable = acs_filter_trait_physical_physique_list
                 save_temporary_scope_value_as = { name = offset value = -1 }
-                this = acs_major_minor_index_offset
+                this = acs_position_value_offset
             }
         }
 
     }     
     effect = {
-        set_local_variable = { name = acs_start value = acs_major_minor }
+        set_local_variable = { name = acs_start value = scope:position }
         acs_simple_checkbox = { LIST = acs_filter_trait_physical_physique_list START = local_var:acs_start }
         dummy_male = {
             if = {
