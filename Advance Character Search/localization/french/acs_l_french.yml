@@ -40,7 +40,7 @@
  acs_50000:0 "50 000"
  acs_100000:0 "100 000"
  acs_slot_text:0 "Utiliser [EmptyScope.ScriptValue('acs_current_slot_used')|0]"
- acs_character_finder_count:0 "[Select_CString( LessThan_CFixedPoint( GetDummyMale.MakeScope.Var( 'acs_selected_count' ).GetValue, GetDummyMale.MakeScope.Var('acs_total_number_of_characters').GetValue ), '#high', '#low' )] [GetDummyMale.MakeScope.Var( 'acs_selected_count' ).GetValue|0] #!de [GetDummyMale.MakeScope.Var('acs_total_number_of_characters').GetValue|0] Personnages"
+ acs_character_finder_count:0 "[Select_CString( LessThan_CFixedPoint( GetGlobalVariable( 'acs_selected_count' ).GetValue, GetGlobalVariable('acs_total_number_of_characters').GetValue ), '#high', '#low' )] [GetGlobalVariable( 'acs_selected_count' ).GetValue|0] #!de [GetGlobalVariable('acs_total_number_of_characters').GetValue|0] Personnages"
  acs_show:0 "Montrer"
  acs_reload_tooltip:0 "Recharger"
  acs_vannila_search:0 "Trouver un personnage"

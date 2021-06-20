@@ -22,7 +22,6 @@
             save_scope_as = acs_filter_dynasty_root
             save_scope_as = acs_sort_root
             acs_make_reduced_and_count = yes
-            
             if = {
                 limit = { global_var:acs_filter_relation = 0 }
                 every_living_character = { acs_add_to_sort_list = yes }
@@ -69,14 +68,13 @@
                                 list = acs_to_sort_courts
                                 if = { 
                                     limit = { var:acs_distance < 14 }
-                                    
                                     every_neighboring_and_across_water_top_liege_realm_owner = {
-                                        set_local_variable = { name = distace value = { value = prev.var:acs_distance add = realm_size }  }
+                                        set_local_variable = { name = distance value = { value = prev.var:acs_distance add = realm_size }  }
                                         if = {
                                             limit = {
                                                 trigger_if = {
                                                     limit = { exists = var:acs_distance }
-                                                    local_var:distance < var:acs_distance
+                                                    acs_distance > 0
                                                 }
                                                 trigger_else = { 
                                                     always = yes
@@ -180,32 +178,27 @@
             }
         }
           
-        dummy_male = {
-            set_variable = {  
-                name = acs_selected_count 
-                value = {
-                    value = 0
-                    every_in_list = { list = acs_to_sort add = 1 }
-                }  
-            } 
-            set_variable = {
-                name = acs_total_number_of_characters
-                value = acs_total_number_of_characters
-            }
+        set_global_variable = {  
+            name = acs_selected_count 
+            value = {
+                value = 0
+                every_in_list = { list = acs_to_sort add = 1 }
+            }  
+        } 
+        set_global_variable = {
+            name = acs_total_number_of_characters
+            value = acs_total_number_of_characters
         }
-        dummy_male = {
-            ordered_in_list = {
-                list = acs_to_sort
-                order_by = acs_sort_value
-                max = global_var:acs_select_count
-                check_range_bounds = no
-                dummy_female = {
-                    add_to_variable_list = { name = acs_list target = prev }
-                }
-                set_claim_data = yes
-                set_index_data = yes
-            }   
-        }   
+
+        ordered_in_list = {
+            list = acs_to_sort
+            order_by = acs_sort_value
+            max = global_var:acs_select_count
+            check_range_bounds = no
+            add_to_global_variable_list = { name = acs_list target = this }
+            set_claim_data = yes
+            set_index_data = yes
+        }    
         
         remove_global_variable = is_acs_building_list
     }  
@@ -221,13 +214,11 @@ acs_add_to_sort_list = {
     if = { 
         limit = { 
             save_temporary_scope_as = candidate
-            dummy_male = {
-                any_in_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_as = tag
-                    acs_switch_filter = { FILTER = scope:tag CANDIDATE = scope:candidate }
-                    count = all
-                }
+            any_in_global_list = {
+                variable = acs_active_filter_list
+                save_temporary_scope_as = tag
+                acs_switch_filter = { FILTER = scope:tag CANDIDATE = scope:candidate }
+                count = all
             }
         }
         add_to_temporary_list = acs_to_sort
@@ -235,16 +226,14 @@ acs_add_to_sort_list = {
 }
 
 clear_acs_list = {
-    dummy_female = {
-        if = {
-            limit = { has_variable_list = acs_list }
-            every_in_list = {
-                list = acs_list
-                clear_claim_data = yes
-                clear_index_data = yes
-            }
-            clear_variable_list = acs_list
-        } 
+    if = {
+        limit = { has_global_variable_list = acs_list }
+        every_in_global_list = {
+            list = acs_list
+            clear_claim_data = yes
+            clear_index_data = yes
+        }
+        clear_global_variable_list = acs_list
     }
 }
 
@@ -414,31 +403,29 @@ acs_auto_apply_sorting_and_filters = {
 
 acs_simple_checkbox = {
     acs_save_undo_0_filters = yes
-    dummy_male = {
-        set_local_variable = { name = acs_positive value = $START$ }
-        set_local_variable = { name = acs_negative value = { value = local_var:acs_positive add = 1 } }
-        if = {
-            limit = {
-                NOT = {
-                    any_in_list = {
-                        variable = $LIST$
-                        OR = {
-                            this = local_var:acs_positive
-                            this = local_var:acs_negative
-                        }
-                    } 
+    set_local_variable = { name = acs_positive value = $START$ }
+    set_local_variable = { name = acs_negative value = { value = local_var:acs_positive add = 1 } }
+    if = {
+        limit = {
+            NOT = {
+                any_in_global_list = {
+                    variable = $LIST$
+                    OR = {
+                        this = local_var:acs_positive
+                        this = local_var:acs_negative
+                    }
                 } 
-            }
-            add_to_variable_list = { name = $LIST$ target = local_var:acs_positive }
+            } 
+        }
+        add_to_global_variable_list = { name = $LIST$ target = local_var:acs_positive }
+    }
+    else = {
+        if = { limit = { any_in_global_list = { variable = $LIST$ this = local_var:acs_positive } }
+            remove_list_global_variable = { name = $LIST$ target = local_var:acs_positive }
+            add_to_global_variable_list = { name = $LIST$ target = local_var:acs_negative }
         }
         else = {
-            if = { limit = { any_in_list = { variable = $LIST$ this = local_var:acs_positive } }
-                remove_list_variable = { name = $LIST$ target = local_var:acs_positive }
-                add_to_variable_list = { name = $LIST$ target = local_var:acs_negative }
-            }
-            else = {
-                remove_list_variable = { name = $LIST$ target = local_var:acs_negative }
-            }
+            remove_list_global_variable = { name = $LIST$ target = local_var:acs_negative }
         }
     }
 }

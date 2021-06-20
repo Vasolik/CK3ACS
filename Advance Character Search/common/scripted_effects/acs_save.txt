@@ -1,728 +1,702 @@
 ﻿acs_save_0_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_0 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_0
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_0 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_0
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_0 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_0
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_0 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_0
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_0 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_0
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_0 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_0
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_0 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_0
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_0 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_0_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_0_used
+        set_global_variable = { name = acs_filter_relation_0 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_0
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_0 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_0
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_0 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_0
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_0 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_0
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_0 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_0
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_0 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_0
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_0 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_0
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_0 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_0_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_0_used
     }
 }
 acs_save_1_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_1 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_1
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_1 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_1
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_1 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_1
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_1 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_1
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_1 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_1
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_1 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_1
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_1 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_1
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_1 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_1_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_1_used
+        set_global_variable = { name = acs_filter_relation_1 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_1
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_1 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_1
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_1 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_1
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_1 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_1
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_1 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_1
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_1 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_1
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_1 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_1
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_1 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_1_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_1_used
     }
 }
 acs_save_2_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_2 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_2
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_2 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_2
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_2 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_2
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_2 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_2
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_2 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_2
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_2 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_2
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_2 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_2
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_2 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_2_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_2_used
+        set_global_variable = { name = acs_filter_relation_2 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_2
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_2 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_2
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_2 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_2
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_2 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_2
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_2 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_2
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_2 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_2
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_2 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_2
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_2 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_2_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_2_used
     }
 }
 acs_save_3_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_3 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_3
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_3 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_3
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_3 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_3
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_3 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_3
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_3 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_3
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_3 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_3
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_3 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_3
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_3 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_3_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_3_used
+        set_global_variable = { name = acs_filter_relation_3 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_3
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_3 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_3
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_3 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_3
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_3 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_3
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_3 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_3
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_3 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_3
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_3 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_3
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_3 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_3_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_3_used
     }
 }
 acs_save_4_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_4 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_4
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_4 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_4
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_4 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_4
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_4 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_4
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_4 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_4
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_4 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_4
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_4 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_4
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_4 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_4_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_4_used
+        set_global_variable = { name = acs_filter_relation_4 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_4
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_4 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_4
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_4 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_4
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_4 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_4
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_4 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_4
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_4 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_4
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_4 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_4
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_4 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_4_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_4_used
     }
 }
 acs_save_5_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_5 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_5
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_5 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_5
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_5 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_5
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_5 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_5
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_5 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_5
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_5 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_5
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_5 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_5
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_5 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_5_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_5_used
+        set_global_variable = { name = acs_filter_relation_5 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_5
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_5 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_5
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_5 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_5
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_5 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_5
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_5 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_5
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_5 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_5
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_5 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_5
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_5 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_5_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_5_used
     }
 }
 acs_save_6_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_6 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_6
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_6 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_6
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_6 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_6
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_6 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_6
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_6 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_6
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_6 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_6
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_6 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_6
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_6 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_6_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_6_used
+        set_global_variable = { name = acs_filter_relation_6 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_6
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_6 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_6
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_6 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_6
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_6 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_6
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_6 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_6
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_6 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_6
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_6 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_6
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_6 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_6_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_6_used
     }
 }
 acs_save_7_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_7 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_7
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_7 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_7
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_7 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_7
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_7 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_7
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_7 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_7
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_7 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_7
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_7 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_7
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_7 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_7_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_7_used
+        set_global_variable = { name = acs_filter_relation_7 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_7
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_7 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_7
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_7 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_7
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_7 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_7
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_7 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_7
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_7 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_7
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_7 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_7
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_7 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_7_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_7_used
     }
 }
 acs_save_8_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_8 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_8
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_8 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_8
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_8 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_8
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_8 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_8
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_8 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_8
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_8 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_8
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_8 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_8
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_8 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_8_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_8_used
+        set_global_variable = { name = acs_filter_relation_8 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_8
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_8 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_8
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_8 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_8
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_8 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_8
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_8 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_8
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_8 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_8
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_8 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_8
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_8 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_8_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_8_used
     }
 }
 acs_save_9_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_9 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_9
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_9 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_9
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_9 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_9
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_9 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_9
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_9 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_9
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_9 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_9
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_9 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_9
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_9 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_9_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_9_used
+        set_global_variable = { name = acs_filter_relation_9 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_9
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_9 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_9
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_9 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_9
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_9 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_9
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_9 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_9
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_9 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_9
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_9 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_9
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_9 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_9_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_9_used
     }
 }
 acs_save_10_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_10 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_10
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_10 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_10
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_10 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_10
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_10 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_10
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_10 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_10
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_10 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_10
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_10 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_10
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_10 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_10_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_10_used
+        set_global_variable = { name = acs_filter_relation_10 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_10
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_10 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_10
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_10 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_10
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_10 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_10
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_10 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_10
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_10 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_10
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_10 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_10
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_10 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_10_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_10_used
     }
 }
 acs_save_11_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_11 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_11
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_11 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_11
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_11 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_11
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_11 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_11
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_11 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_11
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_11 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_11
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_11 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_11
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_11 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_11_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_11_used
+        set_global_variable = { name = acs_filter_relation_11 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_11
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_11 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_11
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_11 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_11
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_11 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_11
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_11 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_11
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_11 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_11
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_11 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_11
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_11 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_11_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_11_used
     }
 }
 acs_save_12_filters = {
-    dummy_male = {
-        if = {
-            limit = {
-                NOT = { acs_current_slot_used = -2 }
-            }
-            set_global_variable = { name = acs_filter_relation_12 value = global_var:acs_filter_relation }
-            clear_variable_list = acs_filter_trait_education_general_list_12
-            every_in_list = {
-                variable = acs_filter_trait_education_general_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_general_list_12 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_education_martial_list_12
-            every_in_list = {
-                variable = acs_filter_trait_education_martial_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_education_martial_list_12 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_fame_born_status_list_12
-            every_in_list = {
-                variable = acs_filter_trait_fame_born_status_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_fame_born_status_list_12 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_beauty_list_12
-            every_in_list = {
-                variable = acs_filter_trait_physical_beauty_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_beauty_list_12 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_intellect_list_12
-            every_in_list = {
-                variable = acs_filter_trait_physical_intellect_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_intellect_list_12 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_filter_trait_physical_physique_list_12
-            every_in_list = {
-                variable = acs_filter_trait_physical_physique_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_filter_trait_physical_physique_list_12 target = scope:slot_value } }
-            }
-            clear_variable_list = acs_active_filter_list_12
-            every_in_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = slot_value
-                dummy_male = { add_to_variable_list = { name = acs_active_filter_list_12 target = scope:slot_value } }
-            } 
-            set_global_variable = asc_save_slot_12_used
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
         }
-        else = {
-            remove_global_variable = asc_save_slot_12_used
+        set_global_variable = { name = acs_filter_relation_12 value = global_var:acs_filter_relation }
+        clear_global_variable_list = acs_filter_trait_education_general_list_12
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_12 target = scope:slot_value } 
         }
+        clear_global_variable_list = acs_filter_trait_education_martial_list_12
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_12 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_fame_born_status_list_12
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_12 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_beauty_list_12
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_12 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_intellect_list_12
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_12 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_filter_trait_physical_physique_list_12
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_12 target = scope:slot_value } 
+        }
+        clear_global_variable_list = acs_active_filter_list_12
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            add_to_global_variable_list = { name = acs_active_filter_list_12 target = scope:slot_value }
+        } 
+        set_global_variable = asc_save_slot_12_used
+    }
+    else = {
+        remove_global_variable = asc_save_slot_12_used
     }
 }

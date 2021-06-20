@@ -346,10 +346,17 @@ acs_position_offset = {
     add = scope:offset
 }
 
+acs_position = {
+    value = scope:position
+}
+
 acs_position_total_count = {
     value =  scope:position
     add = scope:total_element_count
 }
 
 
-
+acs_distance = {
+	value = var:acs_distance 
+	subtract = local_var:distance
+}

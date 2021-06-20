@@ -1,30 +1,28 @@
 ﻿acs_reset_filters_and_sorting = {
-    dummy_male = {
-        if = {
-            limit = { 
-                NOR = {
-                    NOT = { has_global_variable = acs_auto_apply_sorting_and_filters }
-                    acs_current_slot_used = -2 
-                }
-            }
-            acs_save_undo_0_filters = yes
-        }
-        set_global_variable = { name = acs_sort_by value = 0  }
-        set_global_variable = { name = acs_sort_by_ascending value = 1  }
-        set_global_variable = { name = acs_select_count value = 100 }
-        set_global_variable = { name = acs_filter_relation value = 4 }
-        clear_variable_list = acs_filter_trait_education_general_list
-        clear_variable_list = acs_filter_trait_education_martial_list
-        clear_variable_list = acs_filter_trait_fame_born_status_list
-        clear_variable_list = acs_filter_trait_physical_beauty_list
-        clear_variable_list = acs_filter_trait_physical_intellect_list
-        clear_variable_list = acs_filter_trait_physical_physique_list
-        clear_variable_list = acs_active_filter_list  
-        if = {
-            limit = {
+    if = {
+        limit = { 
+            NOR = {
                 NOT = { has_global_variable = acs_auto_apply_sorting_and_filters }
+                acs_current_slot_used = -2 
             }
-            set_global_variable = { name = acs_auto_apply_sorting_and_filters value = yes }
         }
+        acs_save_undo_0_filters = yes
+    }
+    set_global_variable = { name = acs_sort_by value = 0  }
+    set_global_variable = { name = acs_sort_by_ascending value = 1  }
+    set_global_variable = { name = acs_select_count value = 100 }
+    set_global_variable = { name = acs_filter_relation value = 4 }
+    clear_global_variable_list = acs_filter_trait_education_general_list
+    clear_global_variable_list = acs_filter_trait_education_martial_list
+    clear_global_variable_list = acs_filter_trait_fame_born_status_list
+    clear_global_variable_list = acs_filter_trait_physical_beauty_list
+    clear_global_variable_list = acs_filter_trait_physical_intellect_list
+    clear_global_variable_list = acs_filter_trait_physical_physique_list
+    clear_global_variable_list = acs_active_filter_list  
+    if = {
+        limit = {
+            NOT = { has_global_variable = acs_auto_apply_sorting_and_filters }
+        }
+        set_global_variable = { name = acs_auto_apply_sorting_and_filters value = yes }
     }
 }

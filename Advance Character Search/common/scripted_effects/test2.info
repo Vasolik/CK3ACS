@@ -8,7 +8,7 @@ every_heir_title = {
 			}
 		}
 		prev = {
-			add_to_variable_list = { name = test1 target = prev }
+			add_to_global_variable_list = { name = test1 target = prev }
 		}
 	}
 	
@@ -23,7 +23,7 @@ every_heir_to_title = {
 			}
 		}
 		prev = {
-			add_to_variable_list = { name = test1 target = prev }
+			add_to_global_variable_list = { name = test1 target = prev }
 		}
 	}
 	
@@ -31,14 +31,14 @@ every_heir_to_title = {
 
 every_heir_title = {
 	prev = {
-		add_to_variable_list = { name = test1 target = prev }
+		add_to_global_variable_list = { name = test1 target = prev }
 	}
 	
 }
 
 every_heir_to_title = {
 	prev = {
-		add_to_variable_list = { name = test2 target = prev }
+		add_to_global_variable_list = { name = test2 target = prev }
 	}
 	
 }
@@ -60,7 +60,7 @@ every_living_character = {
 				}
 			}
 		}
-		add_to_variable_list = { name = test3 target = scope:actor1 }
+		add_to_global_variable_list = { name = test3 target = scope:actor1 }
 	}
 	
 }
@@ -79,7 +79,7 @@ every_held_title = {
 save_scope_as = t2
 scope:t1 = {
 	every_title_heir = {
-		scope:t2 = { add_to_variable_list = { name = test3 target = prev } }
+		scope:t2 = { add_to_global_variable_list = { name = test3 target = prev } }
 	}
 }
 
