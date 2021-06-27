@@ -354,6 +354,155 @@ set_claim_data = {
                 }
             }
         }
+        remove_variable = acs_best_heritage
+        clear_variable_list = acs_heir_to_title_list
+        ordered_heir_to_title = {
+            order_by = tier
+            max = 20
+            check_range_bounds = no
+            if = {
+                limit = { 
+                    scope:target_character = {
+                        NOT = { has_variable = acs_best_heritage }
+                    }
+                    
+                }
+                scope:target_character = {
+                    set_variable = { name = acs_best_heritage value = prev }
+                }
+            }
+            scope:target_character = {
+                add_to_variable_list = {
+                    name = acs_heir_to_title_list
+                    target = prev
+                }
+            }
+        }
+
+        clear_variable_list = acs_2nd_to_title_list
+        ordered_pretender_title = {
+            order_by = tier
+            max = 20
+            check_range_bounds = no
+            if = {
+                limit = {
+                    place_in_line_of_succession = {
+                        target = scope:target_character
+                        value = 2
+                    }
+                }
+                if = {
+                    limit = { 
+                        scope:target_character = {
+                            NOT = { has_variable = acs_best_heritage }
+                        }   
+                    }
+                    scope:target_character = {
+                        set_variable = { name = acs_best_heritage value = prev }
+                    }
+                }
+                scope:target_character = {
+                    add_to_variable_list = {
+                        name = acs_2nd_to_title_list
+                        target = prev
+                    }
+                }
+            }  
+        }
+
+        clear_variable_list = acs_3rd_to_title_list
+        ordered_pretender_title = {
+            order_by = tier
+            max = 20
+            check_range_bounds = no
+            if = {
+                limit = {
+                    place_in_line_of_succession = {
+                        target = scope:target_character
+                        value = 3
+                    }
+                }
+                if = {
+                    limit = { 
+                        scope:target_character = {
+                            NOT = { has_variable = acs_best_heritage }
+                        }   
+                    }
+                    scope:target_character = {
+                        set_variable = { name = acs_best_heritage value = prev }
+                    }
+                }
+                scope:target_character = {
+                    add_to_variable_list = {
+                        name = acs_3rd_to_title_list
+                        target = prev
+                    }
+                }
+            }  
+        }
+
+        clear_variable_list = acs_4th_to_title_list
+        ordered_pretender_title = {
+            order_by = tier
+            max = 20
+            check_range_bounds = no
+            if = {
+                limit = {
+                    place_in_line_of_succession = {
+                        target = scope:target_character
+                        value = 4
+                    }
+                }
+                if = {
+                    limit = { 
+                        scope:target_character = {
+                            NOT = { has_variable = acs_best_heritage }
+                        }   
+                    }
+                    scope:target_character = {
+                        set_variable = { name = acs_best_heritage value = prev }
+                    }
+                }
+                scope:target_character = {
+                    add_to_variable_list = {
+                        name = acs_4th_to_title_list
+                        target = prev
+                    }
+                }
+            }  
+        }
+
+        clear_variable_list = acs_other_heritage_list
+        ordered_pretender_title = {
+            order_by = tier
+            max = 20
+            check_range_bounds = no
+            if = {
+                limit = {
+                    place_in_line_of_succession = {
+                        target = scope:target_character
+                        value > 4
+                    }
+                }
+                if = {
+                    limit = { 
+                        scope:target_character = {
+                            NOT = { has_variable = acs_best_heritage }
+                        }   
+                    }
+                    scope:target_character = {
+                        set_variable = { name = acs_best_heritage value = prev }
+                    }
+                }
+                scope:target_character = {
+                    add_to_variable_list = {
+                        name = acs_other_heritage_list
+                        target = prev
+                    }
+                }
+            }  
+        }
+
         remove_variable = is_acs_building_claim_list
     } 
 }
@@ -373,8 +522,14 @@ clear_claim_data = {
     clear_variable_list = acs_implicit_claim_list
     clear_variable_list = acs_unpressed_claim_list
     clear_variable_list = acs_pressed_claim_list
-    clear_variable_list = acs_is_top_claim_explicit
-    clear_variable_list = acs_is_top_claim_pressed
+    remove_variable = acs_is_top_claim_explicit
+    remove_variable = acs_is_top_claim_pressed
+    remove_variable = acs_best_heritage
+    clear_variable_list = acs_heir_to_title_list
+    clear_variable_list = acs_2nd_to_title_list
+    clear_variable_list = acs_3rd_to_title_list
+    clear_variable_list = acs_4th_to_title_list
+    clear_variable_list = acs_other_heritage_list
 }
 
 clear_index_data = {

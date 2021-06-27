@@ -404,14 +404,17 @@ types acs_character_list_types {
     
             button_close = {
                 name = "button_close"
-                shortcut = "close_window"
+                
                 tooltip = "CLOSE_TOOLTIP"
                 clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_close"
     
                 using = Animation_ShowHide_Standard
-    
-                onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
-                onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
+                block "button_close" {
+                    shortcut = "close_window"
+                    onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
+                    onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
+                }
+
             }
         }
 
@@ -419,8 +422,9 @@ types acs_character_list_types {
             name = "header_text"
             parentanchor = top|hcenter
             position = { 0 5 }
-
-            text = "acs_advance_search"
+            block "header_text" {
+                text = "acs_advance_search"
+            }
 
             maximumsize = { 400 -1 }
 
@@ -632,11 +636,12 @@ types acs_character_list_types {
         minimumsize = { 160 0 }
         widget = {
             size = { 32 25 }
+            
 
             text_single = {
                 using = acs_skill_grid_text
                 text = "[Character.GetSkill( 'diplomacy' )]"
-                tooltip = "c"
+                tooltip = "[diplomacy|E]"
             }
 
             background = {
@@ -878,8 +883,7 @@ types acs_character_list_types {
                                             margin = { 0 2 }
                                         }
 
-                                        fixedgridbox = {
-                                            name = "traits_grid"
+                                        fixedgridbox = { name = "traits_grid"
                                             datamodel = "[Character.GetTraitIndices]"
                                             datamodel_reuse_widgets = yes
                                             flipdirection = yes
@@ -928,6 +932,7 @@ types acs_character_list_types {
                                 layoutpolicy_horizontal = expanding
                                 layoutpolicy_vertical = expanding
 
+                                acs_herigate_widget = {}
                                 acs_widget_list_claims = {}
 
                                 # Religion and culture
@@ -989,6 +994,7 @@ types acs_character_list_types {
     type acs_widget_list_claims = widget {
         datacontext = "[Scope.GetCharacter]"
         layoutpolicy_vertical = expanding
+            
         size = { 55 0 }
 
         datacontext = "[GetScriptedGui('acs_claim')]"
@@ -999,8 +1005,11 @@ types acs_character_list_types {
             position = { -10 0 }
             scale = 0.8
 
-            tooltip = "CHARACTER_LIST_CLAIM_TOOLTIP"
+            tooltipwidget = {
+                acs_claim_tooltip = {}
+            }
             using = tooltip_ne
+
 
             blockoverride "coa_button" {
                 datacontext = "[Character.MakeScope.Var( 'acs_best_claim' ).Title]"
@@ -1043,8 +1052,36 @@ types acs_character_list_types {
             using = Font_Size_Medium
             align = center
         }
+    }
 
-        tooltip = "acs_claim_tooltip"
+    type acs_herigate_widget = widget {
+        datacontext = "[Scope.GetCharacter]"
+        layoutpolicy_vertical = expanding
+
+        size = { 55 0 }
+
+        datacontext = "[GetScriptedGui('acs_heritage')]"
+        
+        coa_title_tiny_crown = {
+
+            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+            parentanchor = center
+            position = { -10 0 }
+            scale = 0.8
+
+            tooltipwidget = {
+                acs_heritage_tooltip = {}
+            }
+            using = tooltip_ne
+
+
+            blockoverride "coa_button" {
+                datacontext = "[Character.MakeScope.Var( 'acs_best_heritage' ).Title]"
+                onclick = "[DefaultOnCoatOfArmsClick(Title.GetID)]"
+                onrightclick = "[DefaultOnCoatOfArmsRightClick(Title.GetID)]"
+                button_ignore = none
+            }
+        }
     }
 
     type acs_button_character_search_small = button_icon {
@@ -1057,5 +1094,275 @@ types acs_character_list_types {
         
         onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
         onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
+    }
+
+    type acs_claim_tooltip = flowcontainer {
+        layoutpolicy_horizontal = expanding
+        layoutpolicy_vertical = expanding
+        alwaystransparent = no
+        using = DefaultTooltipBackground
+        flowcontainer = {
+            
+            layoutpolicy_horizontal = expanding
+            layoutpolicy_vertical = expanding
+            direction = vertical
+            ignoreinvisible = yes
+            margin = { 12 16 }
+            margin_bottom = 16
+            spacing = 4
+        
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_claim_tooltip"
+                #align = center|nobaseline
+                default_format = "#clickable"
+            }
+
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "[pressed_claim|E]"
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_pressed_claim_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_pressed_claim_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[pressed_claim_i][Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+
+            text_single = {
+
+                autoresize = yes
+                text = "[unpressed_claim|E]"
+                #align = center|nobaseline
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_unpressed_claim_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_unpressed_claim_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[unpressed_claim_i][Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+
+            text_single = {
+
+                autoresize = yes
+                text = "[implicit_claim|E]"
+                #align = center|nobaseline
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_implicit_claim_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_implicit_claim_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[implicit_claim_i][Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+    
+        } 
+    }
+
+
+    type acs_heritage_tooltip = flowcontainer {
+        layoutpolicy_horizontal = expanding
+        layoutpolicy_vertical = expanding
+        alwaystransparent = no
+        using = DefaultTooltipBackground
+        flowcontainer = {
+            
+            layoutpolicy_horizontal = expanding
+            layoutpolicy_vertical = expanding
+            direction = vertical
+            ignoreinvisible = yes
+            margin = { 12 16 }
+            margin_bottom = 16
+            spacing = 4
+        
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_heritage_tooltip"
+                #align = center|nobaseline
+                default_format = "#clickable"
+            }
+
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_heritage_tooltip.heir"
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_heir_to_title_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_heir_to_title_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_heritage_tooltip.2nd"
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_2nd_to_title_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_2nd_to_title_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_heritage_tooltip.3rd"
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_3rd_to_title_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_3rd_to_title_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+    
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_heritage_tooltip.4th"
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_4th_to_title_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_4th_to_title_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_heritage_tooltip.pretender"
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_other_heritage_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_other_heritage_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+        } 
     }
 }

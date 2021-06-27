@@ -25,7 +25,14 @@ acs_claim = {
         var:acs_total_claim_value > 0
     }
 
+}
 
+acs_heritage = {
+    scope = character
+
+    is_shown = { 
+        has_variable = acs_best_heritage
+    }
 }
 
 acs_even_index = {
