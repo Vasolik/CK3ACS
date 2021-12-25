@@ -1096,6 +1096,31 @@ types acs_character_list_types {
         onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
     }
 
+    type acs_button_character_search = button_standard {
+        text = "acs_advance_search"
+        onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
+        onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
+        onclick = "[GetVariableSystem.Toggle( 'extra_buttons_expand' )]"
+        tooltip = "IM_TT_FIND_CHARACTER"
+    }
+
+    type acs_button_character_search_vannila = button_standard {
+        name = "acs_vanilla_find_character_button"
+        text = "acs_vannila_search"
+        onclick = "[ToggleGameView( 'character_finder' )]"
+        onclick = "[GetVariableSystem.Toggle( 'extra_buttons_expand' )]"
+        tooltip = "IM_TT_FIND_CHARACTER"
+    }
+
+    type acs_button_encyclopedia = button_standard {
+        name = "acs_button_encyclopedia"
+        text = "HEADING_ENCYCLOPEDIA"
+        onclick = "[ToggleEncyclopedia]"
+        onclick = "[GetVariableSystem.Toggle( 'extra_buttons_expand' )]"
+        tooltip = "OPEN_ENCYCLOPEDIA"
+        shortcut = "encyclopedia"
+    }
+
     type acs_claim_tooltip = flowcontainer {
         layoutpolicy_horizontal = expanding
         layoutpolicy_vertical = expanding
