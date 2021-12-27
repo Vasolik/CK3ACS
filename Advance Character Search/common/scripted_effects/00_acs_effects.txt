@@ -21,6 +21,7 @@
             save_scope_as = acs_filter_culture_root
             save_scope_as = acs_filter_dynasty_root
             save_scope_as = acs_sort_root
+            save_scope_as = acs_invite_to_court
             acs_make_reduced_and_count = yes
             if = {
                 limit = { global_var:acs_filter_relation = 0 }
@@ -388,7 +389,7 @@ set_claim_data = {
                 limit = {
                     place_in_line_of_succession = {
                         target = scope:target_character
-                        value = 2
+                        value == 2
                     }
                 }
                 if = {
@@ -419,7 +420,7 @@ set_claim_data = {
                 limit = {
                     place_in_line_of_succession = {
                         target = scope:target_character
-                        value = 3
+                        value == 3
                     }
                 }
                 if = {
@@ -450,7 +451,7 @@ set_claim_data = {
                 limit = {
                     place_in_line_of_succession = {
                         target = scope:target_character
-                        value = 4
+                        value == 4
                     }
                 }
                 if = {

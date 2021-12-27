@@ -76,7 +76,7 @@ every_held_title = {
 	}
 	
 }
-save_scope_as = t2
+save_scope_as = acs_invite_to_court
 scope:t1 = {
 	every_title_heir = {
 		scope:t2 = { add_to_global_variable_list = { name = test3 target = prev } }
@@ -84,3 +84,193 @@ scope:t1 = {
 }
 
 effect set_relation_friend = dummy_male
+36880
+
+if = {
+			limit = {save_temporary_opinion_value_as  = {name = temp_op target = scope:acs_sort_root}}
+			add = scope:temp_op
+		}
+
+save_scope_as = acs_invite_to_court
+
+
+
+
+set_variable = { name = test1 value = {
+	value = -50
+	if = {
+		limit = {
+			save_temporary_opinion_value_as  = { name = temp_op target = scope:acs_invite_to_court }
+		}
+		add = {
+			value = scope:temp_op
+			multiply = 0.1 # multiplier 0.5 divide 5
+			if = {
+				limit = { scope:temp_op < 0 }
+				ceiling = yes
+			}
+			else = {
+				floor = yes 
+			} 
+			multiply = 5
+			max = 25
+		} 
+	} 
+	if = {
+		limit = {
+			is_knight = yes
+		}
+		add = -20
+	}  
+	if = {
+		limit = {
+			is_commanding_army = yes
+		}
+		add = -30
+	} 
+	if = {
+		limit = {
+			is_councillor = yes
+		}
+		add = -40
+	} 
+	if = {
+		limit = {
+			has_relation_lover = scope:acs_invite_to_court
+		}
+		add = 100
+	} 
+	if = {
+		limit = {
+			has_relation_friend = scope:acs_invite_to_court
+		}
+		add = 75
+	} 
+	if = {
+		limit = {
+			is_child_of = scope:acs_invite_to_court
+		}
+		add = 160
+	} 
+	if = {
+		limit = {
+			this.dynasty.dynast = scope:acs_invite_to_court
+		}
+		add = 30
+	} 
+	if = {
+		limit = {
+			this.house.house_head = scope:acs_invite_to_court
+		}
+		add = 30
+	} 
+	if = {
+		limit = {
+			NOT = { is_child_of = scope:acs_invite_to_court }
+ 			is_close_family_of = scope:acs_invite_to_court
+		}
+		add = 75
+	} 
+	if = {
+		limit = {
+			is_spouse_of = scope:acs_invite_to_court
+		}
+		add = 75
+	} 
+	if = {
+		limit = {
+			exists = liege
+		}
+		if = {
+			limit = {
+				 has_relation_lover = liege
+			}
+			add = -100
+		} 
+		if = {
+			limit = {
+				 has_relation_friend = liege
+			}
+			add = -75
+		} 
+		if = {
+			limit = {
+				is_child_of = liege
+			}
+			add = -100
+		} 
+		if = {
+			limit = {
+				NOT = { is_child_of = liege }
+ 				is_close_family_of = liege
+			}
+			add = -75
+		} 
+
+		if = {
+			limit = {
+				is_courtier_of = liege
+				save_temporary_opinion_value_as  = { name = temp_op target = this.liege }
+			}
+			add = {
+				value = scope:temp_op
+				multiply = -0.1 # multiplier -0.5 divide 5
+				if = {
+					limit = { scope:temp_op > 0 }
+					ceiling = yes
+				}
+				else = {
+					floor = yes 
+				}
+				multiply = 5
+				max = 25
+			} 
+		} 
+	}
+	if = {
+		limit = { exists = location }
+		if = {
+			limit = {
+				any_consort_not_in_traveling_family_trigger = yes
+			}
+			add = -100
+		} 
+		if = {
+			limit = {
+				any_child_not_in_traveling_family_trigger = yes
+			}
+			add = -100
+		} 
+	}
+	if = {
+		limit = {
+			is_married = yes
+			is_male = yes
+			any_spouse = {
+				matrilinear_marriage = yes
+				host = prev.host
+			}
+		}
+		add = -50
+	}
+	if = {
+		limit = {
+			is_married = yes
+ 			is_female = yes
+ 			any_spouse = {
+ 				patrilinear_marriage = yes
+ 				host = prev.host
+ 			}
+		}
+		add = -50
+	}
+	if = {
+		limit = {
+			is_child_of = scope:acs_invite_to_court
+ 			has_character_modifier = lust_for_adventure
+		}
+		add = -500
+	}
+}
+
+}}
