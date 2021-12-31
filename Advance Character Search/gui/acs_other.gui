@@ -497,145 +497,190 @@ types acs_character_list_types {
 
         expand = {}
 
-        block "skill_sort_buttons"
-        {
-            hbox = {
-                button_standard_hover = {
-                    name = "skill_diplomacy"
-                    size = { 32 32 }
-                    
-                    icon = {
-                        texture = "gfx/interface/icons/icon_skills.dds"
-                        size = { 32 32 }
-                        framesize = { 60 60 }
-                        frame = 1    
-                    }
-                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)4' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
-                    tooltip = "acs_sort_by_diplomacy"
-                    using = tooltip_below
-
-                    skillitem_sort_icon = {
-                        visible = "[GetScriptedGui( 'acs_sort' ).IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)4' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
-                        frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
-                    }
-                }
-
-                button_standard_hover = {
-                    name = "skill_martial"
-                    size = { 32 32 }
-                    
-                    icon = {
-                        texture = "gfx/interface/icons/icon_skills.dds"
-                        size = { 32 32 }
-                        framesize = { 60 60 }
-                        frame = 2
-                    }
-                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)5' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
-                    tooltip = "acs_sort_by_martial"
-                    using = tooltip_below
-
-                    skillitem_sort_icon = {
-                        visible = "[GetScriptedGui( 'acs_sort' ).IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)5' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
-                        frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
-                    }
-                }
-
-                button_standard_hover = {
-                    name = "skill_stewardship"
-                    size = { 32 32 }
-                    
-                    icon = {
-                        texture = "gfx/interface/icons/icon_skills.dds"
-                        size = { 32 32 }
-                        framesize = { 60 60 }
-                        frame = 3            
-                    }
-
-                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)6' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
-                    tooltip = "acs_sort_by_stewardship"
-                    using = tooltip_below
-
-                    skillitem_sort_icon = {
-                        visible = "[GetScriptedGui( 'acs_sort' ).IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)6' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
-                        frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
-                    }
-                }
-
-                button_standard_hover = {
-                    name = "skill_intrigue"
-                    size = { 32 32 }
-                    
-                    icon = {
-                        texture = "gfx/interface/icons/icon_skills.dds"
-                        size = { 32 32 }
-                        framesize = { 60 60 }
-                        frame = 4
-                    }
-
-                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)7' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
-                    tooltip = "acs_sort_by_intrigue"
-                    using = tooltip_below
-
-                    skillitem_sort_icon = {
-                        visible = "[GetScriptedGui( 'acs_sort' ).IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)7' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
-                        frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
-                    }
-                }
-
-                button_standard_hover = {
-                    name = "skill_learning"
-                    size = { 32 32 }
-                    
-                    icon = {
-                        texture = "gfx/interface/icons/icon_skills.dds"
-                        size = { 32 32 }
-                        framesize = { 60 60 }
-                        frame = 5
-                    }
-
-                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)8' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
-                    tooltip = "acs_sort_by_learning"
-                    using = tooltip_below
-
-                    skillitem_sort_icon = {
-                        visible = "[GetScriptedGui( 'acs_sort' ).IsShown(  GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)8' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
-                        frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
-                    }
-                }
+        hbox = {
+            button_standard_hover = {
+                name = "skill_diplomacy"
+                size = { 32 32 }
                 
-                button_standard_hover = {
-                    name = "skill_prowess"
+                icon = {
+                    texture = "gfx/interface/icons/icon_skills.dds"
                     size = { 32 32 }
-                    
-                    icon = {
-                        texture = "gfx/interface/icons/icon_skills.dds"
-                        size = { 32 32 }
-                        framesize = { 60 60 }
-                        frame = 6
-                    }
+                    framesize = { 60 60 }
+                    frame = 1    
+                }
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)4' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                tooltip = "acs_sort_by_diplomacy"
+                using = tooltip_below
 
-                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)9' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
-                    tooltip = "acs_sort_by_prowess"
-                    using = tooltip_below
+                skillitem_sort_icon = {
+                    visible = "[GetScriptedGui( 'acs_sort' ).IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)4' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                    frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                }
+            }
 
-                    skillitem_sort_icon = {
-                        visible = "[GetScriptedGui( 'acs_sort' ).IsShown(  GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)9' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
-                        frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
-                    }
+            button_standard_hover = {
+                name = "skill_martial"
+                size = { 32 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_skills.dds"
+                    size = { 32 32 }
+                    framesize = { 60 60 }
+                    frame = 2
+                }
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)5' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                tooltip = "acs_sort_by_martial"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[GetScriptedGui( 'acs_sort' ).IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)5' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                    frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                }
+            }
+
+            button_standard_hover = {
+                name = "skill_stewardship"
+                size = { 32 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_skills.dds"
+                    size = { 32 32 }
+                    framesize = { 60 60 }
+                    frame = 3            
+                }
+
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)6' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                tooltip = "acs_sort_by_stewardship"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[GetScriptedGui( 'acs_sort' ).IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)6' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                    frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                }
+            }
+
+            button_standard_hover = {
+                name = "skill_intrigue"
+                size = { 32 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_skills.dds"
+                    size = { 32 32 }
+                    framesize = { 60 60 }
+                    frame = 4
+                }
+
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)7' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                tooltip = "acs_sort_by_intrigue"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[GetScriptedGui( 'acs_sort' ).IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)7' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                    frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                }
+            }
+
+            button_standard_hover = {
+                name = "skill_learning"
+                size = { 32 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_skills.dds"
+                    size = { 32 32 }
+                    framesize = { 60 60 }
+                    frame = 5
+                }
+
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)8' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                tooltip = "acs_sort_by_learning"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[GetScriptedGui( 'acs_sort' ).IsShown(  GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)8' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                    frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                }
+            }
+            
+            button_standard_hover = {
+                name = "skill_prowess"
+                size = { 32 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_skills.dds"
+                    size = { 32 32 }
+                    framesize = { 60 60 }
+                    frame = 6
+                }
+
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)9' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                tooltip = "acs_sort_by_prowess"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[GetScriptedGui( 'acs_sort' ).IsShown(  GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)9' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                    frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                }
+            }
+            button_standard_hover = {#gold
+                size = { 34 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_gold.dds"
+                    size = { 32 32 } 
+                }
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)12' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                #tooltip = "acs_sort_by_diplomacy"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[GetScriptedGui( 'acs_sort' ).IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)12' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                    frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                }
+            }
+            button_standard_hover = {#prestige
+                size = { 34 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/currencies/icon_prestige_01.dds"
+                    size = { 32 32 } 
+                }
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)13' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                #tooltip = "acs_sort_by_diplomacy"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[GetScriptedGui( 'acs_sort' ).IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)13' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                    frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
+                }
+            }
+            button_standard_hover = {#piety
+                size = { 34 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/currencies/icon_piety_pagan_01.dds"
+                    size = { 32 32 } 
+                }
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)14' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                #tooltip = "acs_sort_by_diplomacy"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[GetScriptedGui( 'acs_sort' ).IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)14' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                    frame = "[BoolTo1And2(GetScriptedGui( 'acs_change_sort_order' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]"
                 }
             }
         }
+        
         
 
     }
 
     type acs_hbox_skills_grid = hbox {
         name = "acs_skills_grid"
-        minimumsize = { 160 0 }
+        #size = { 160 25 }
         widget = {
             size = { 32 25 }
             
-
             text_single = {
                 using = acs_skill_grid_text
                 text = "[Character.GetSkill( 'diplomacy' )]"
@@ -643,15 +688,10 @@ types acs_character_list_types {
             }
 
             background = {
-
                 using = acs_skill_grid_background
-                block "bg"
-                {
-                    frame = 1
-                }
+                frame = 1
             }
         }
-
         widget = {
             size = { 32 25 }
 
@@ -664,13 +704,9 @@ types acs_character_list_types {
             background = {
 
                 using = acs_skill_grid_background
-                block "bg"
-                {
-                    frame = 2
-                }
+                frame = 2
             }
         }
-
         widget = {
             size = { 32 25 }
 
@@ -682,15 +718,10 @@ types acs_character_list_types {
             }
 
             background = {
-
                 using = acs_skill_grid_background
-                block "bg"
-                {
-                    frame = 3
-                }
+                frame = 3
             }
         }
-        
         widget = {
             size = { 32 25 }
 
@@ -710,7 +741,6 @@ types acs_character_list_types {
                 }
             }
         }
-
         widget = {
             size = { 32 25 }
 
@@ -730,18 +760,89 @@ types acs_character_list_types {
                 }
             }
         }
-
         widget = {
             size = { 32 25 }
 
             text_single = {
                 name = "value"
                 using = acs_skill_grid_text
-                text = "[Character.GetSkill( 'prowess' )]"
-                tooltip = "[prowess|E]"
+                text = "[Character.GetProwess]"
+                tooltip = "[Character.GetProwessBreakdown]"
             }
         }
-        
+        widget = {
+            size = { 60 25 }
+
+            text_single = {
+                text = "[Character.GetGoldText]"
+                #default_format = "#color_goldy_yellow"
+                align = center
+                parentanchor = center
+                fontsize_min = 9.5
+                max_width = 60
+                tooltip = "[Character.GetGoldTooltipWithBalance]"
+            }
+            
+        } 
+        divider = {
+            layoutpolicy_vertical = expanding
+            size = { 2 3 }
+            color = { 0.13 0.55 0.13 1 }
+        }
+        widget = {
+            size = { 32 25 }
+
+            text_single = {
+                text = "[Character.GetPrestige|0]"
+                default_format = "#color_green"
+                align = center
+                parentanchor = center
+                fontsize_min = 9.5
+                max_width = 35
+                tooltip = "[Character.GetPrestigeTooltipWithBalance]"
+            }
+        }
+        divider = {
+            layoutpolicy_vertical = expanding
+            size = { 2 3 }
+            color = { 1 0.13 0.13 1 }
+        }
+         
+        divider = {
+            layoutpolicy_vertical = expanding
+            size = { 2 3 }
+            color = { 1 0.13 0.13 1 }
+        }
+        widget = {
+            size = { 42 25 }
+            
+            text_single = {
+                text = "[Character.GetMilitaryStrengthText]"
+                default_format = "#High"
+                align = center
+                parentanchor = center
+                fontsize_min = 9.5
+                max_width = 42
+                tooltip = "[Character.GetMilitaryStrengthTooltip]"
+            }
+        }    
+        divider = {
+            layoutpolicy_vertical = expanding
+            size = { 2 3 }
+            color = { 1 0.13 0.13 1 }
+        }
+        widget = {
+            size = { 42 25 }
+            
+            text_single = {
+                text = "[Character.RealmSize|0]"
+                default_format = "#High"
+                align = center
+                parentanchor = center
+                fontsize_min = 9.5
+                max_width = 42
+            }
+        }     
     }
 
     type acs_widget_character_list_item_finder = widget {
@@ -755,9 +856,6 @@ types acs_character_list_types {
             margin_bottom = 2
             alpha = 0.5
         }
-        block "divider" {}
-
-        block "widget" {}
 
         hbox = {
             layoutpolicy_horizontal = expanding
@@ -768,178 +866,133 @@ types acs_character_list_types {
                 portrait_head_small_cached = {}
             }
 
-            block "button_content"
-            {
-                hbox = {
+            hbox = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                margin_top = 5
+
+                vbox = {
                     layoutpolicy_horizontal = expanding
                     layoutpolicy_vertical = expanding
-                    margin_top = 5
 
-                    vbox = {
+                    # Name and age
+                    hbox = {
                         layoutpolicy_horizontal = expanding
-                        layoutpolicy_vertical = expanding
+                        margin = { 0 3 }
+                        margin_left = 5
+                        margin_right = 10
 
-                        # Name and age
-                        hbox = {
-                            layoutpolicy_horizontal = expanding
-                            margin = { 0 3 }
-                            margin_left = 5
-                            margin_right = 10
-
-                            background = {
-                                using = Background_Area_Characterlist
-                            }
-
-                            background = {
-                                using = Background_Area_Dark
-
-                                modify_texture = {
-                                    texture = "gfx/interface/component_masks/mask_fade_vertical_up.dds"
-                                    blend_mode = alphamultiply
-                                    alpha = 1
-                                    rotate_uv = -90
-                                }
-                            }
-
-                            hbox = {
-                                margin_left = 3
-                                layoutpolicy_horizontal = expanding
-                                maximumsize = { 338 -1 }
-
-                                text_single = {
-                                    using = Font_Size_Medium
-                                    layoutpolicy_horizontal = expanding
-                                    align = nobaseline
-                                    text = "[Character.GetUINameNoTooltip]"
-                                    autoresize = no
-                                    fontsize_min = 14
-                                }
-
-                                block "character_relation"
-                                {
-                                    hbox = {
-                                        visible = "[And(Character.HasRelationTo( GetPlayer ), Not(Character.IsPlayer))]"
-                                        text_single = {
-                                            text = "•"
-                                            align = nobaseline
-                                            margin = { 5 0 }
-                                        }
-
-                                        text_single = {
-                                            name = "character_relation"
-                                            text = "[Character.GetRelationToString( GetPlayer )]"
-                                            default_format = "#low"
-                                            align = nobaseline
-                                            fontsize_min = 14
-                                            max_width = 180
-                                        }
-                                    }
-                                }
-
-                                expand = {}
-                            }
-
-                            hbox = {
-                                using = character_age_or_death_text
-                            }
-
-                            # Skills
-                            acs_hbox_skills_grid = {}
+                        background = {
+                            using = Background_Area_Characterlist
                         }
 
-                        ### BOTTOM ROW ###
+                        background = {
+                            using = Background_Area_Dark
+
+                            modify_texture = {
+                                texture = "gfx/interface/component_masks/mask_fade_vertical_up.dds"
+                                blend_mode = alphamultiply
+                                alpha = 1
+                                rotate_uv = -90
+                            }
+                        }
+
                         hbox = {
+                            margin_left = 3
                             layoutpolicy_horizontal = expanding
-                            layoutpolicy_vertical = expanding
-                            
-                            vbox = {
+                            maximumsize = { 338 -1 }
+
+                            text_single = {
+                                using = Font_Size_Medium
                                 layoutpolicy_horizontal = expanding
-
-                                hbox = {
-                                    layoutpolicy_horizontal = expanding
-
-                                    # Dynasty
-                                    widget = {
-                                        size = { 45 40 }
-
-                                        coa_house_small = {
-                                            datacontext = "[Character.GetHouse]"
-                                            parentanchor = center
-                                            scale = 0.7
-                                        }
-                                    }
-
-                                    # Traits
-                                    hbox = {
-                                        layoutpolicy_vertical = expanding
-                                        margin = { 10 0 }
-                                        minimumsize = { 140 0 } #### needed for prison view
-
-                                        background = {
-                                            using = Background_Area_Dark
-                                            alpha = 0.5
-                                            margin = { 0 2 }
-                                        }
-
-                                        fixedgridbox = { name = "traits_grid"
-                                            datamodel = "[Character.GetTraitIndices]"
-                                            datamodel_reuse_widgets = yes
-                                            flipdirection = yes
-                                            layoutpolicy_horizontal = expanding
-                                            layoutpolicy_vertical = expanding
-                                            addcolumn = 30
-                                            addrow = 28
-
-                                            block "gridbox_items"
-                                            {
-                                                min_width = 210
-                                                datamodel_wrap = 7
-                                                maxverticalslots = 2
-                                            }
-
-                                            item = {
-                                                icon_trait = {
-                                                    datacontext = "[GetTraitForIndex(uint16.GetUint)]"
-                                                    visible = "[Trait.IsValid]"
-
-                                                    blockoverride "icon_size"
-                                                    {
-                                                        size = { 30 30 }
-                                                    }
-
-                                                    blockoverride "tooltip_placement"
-                                                    {
-                                                        using = tooltip_se
-                                                    }
-
-                                                    blockoverride "glow_radius"
-                                                    {
-                                                        glow_radius = 3
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    expand = {}
-                                }
+                                align = nobaseline
+                                text = "[Character.GetUINameNoTooltip]"
+                                autoresize = no
+                                fontsize_min = 14
                             }
 
                             hbox = {
-                                datacontext = "[Scope.GetCharacter]"
+                                visible = "[And(Character.HasRelationTo( GetPlayer ), Not(Character.IsPlayer))]"
+                                text_single = {
+                                    text = "•"
+                                    align = nobaseline
+                                    margin = { 5 0 }
+                                }
+
+                                text_single = {
+                                    name = "character_relation"
+                                    text = "[Character.GetRelationToString( GetPlayer )]"
+                                    default_format = "#low"
+                                    align = nobaseline
+                                    fontsize_min = 14
+                                    max_width = 180
+                                }
+                            }
+
+                        }
+
+                        hbox = {
+                            size = { 62 0 }
+                            margin_right = 5
+                            spacing = 2
+                    
+                            text_single = {
+                                text = "[Character.GetAge]"
+                                align = nobaseline
+                                tooltip = "[Character.GetDeathOrBirthDateInfo]"
+                            }
+                            icon = {
+                                visible = "[Not(Character.IsDeadAndValid)]"
+                                size = { 23 23 }
+                                framesize = { 60 60 }
+                                frame = "[Character.GetHealthIconFrame]"
+                                texture = "gfx/interface/icons/character_status/icon_health.dds"
+                                tooltip = "[Character.GetHealthInfo]"
+                            }
+                    
+                            icon = {
+                                name = "is_dead"
+                                visible = "[Character.IsDeadAndValid]"
+                                size = { 23 23 }
+                
+                                texture = "[Character.GetDeathReasonIcon]"
+                                tooltip = "CHARACTER_DEAD_TOOLTIP"
+                            }
+                        }
+
+                        # Skills
+                        acs_hbox_skills_grid = {}
+                        
+                        
+                    }
+
+                    ### BOTTOM ROW ###
+                    hbox = {
+                        layoutpolicy_horizontal = expanding
+                        layoutpolicy_vertical = expanding
+                        
+                        vbox = {
+                            layoutpolicy_horizontal = expanding
+
+                            hbox = {
                                 layoutpolicy_horizontal = expanding
-                                layoutpolicy_vertical = expanding
 
-                                acs_herigate_widget = {}
-                                acs_widget_list_claims = {}
+                                # Dynasty
+                                widget = {
+                                    size = { 45 40 }
 
-                                # Religion and culture
+                                    coa_house_small = {
+                                        datacontext = "[Character.GetHouse]"
+                                        parentanchor = center
+                                        scale = 0.7
+                                    }
+                                }
+
+                                # Traits
                                 hbox = {
-                                    layoutpolicy_horizontal = expanding
                                     layoutpolicy_vertical = expanding
-                                    margin_left = 8
-                                    margin_right = 4
-                                    spacing = 5
+                                    margin = { 10 0 }
+                                    minimumsize = { 140 0 } #### needed for prison view
 
                                     background = {
                                         using = Background_Area_Dark
@@ -947,141 +1000,54 @@ types acs_character_list_types {
                                         margin = { 0 2 }
                                     }
 
-                                    icon = {
-                                        name = "faith_button"
-                                        size = { 38 38 }
-                                        datacontext = "[Character.GetFaith]"
-                                        tooltipwidget = { faith_tooltip = {} }
-                                        using = tooltip_se
-
-                                        texture = "[Faith.GetIcon]"
-                                    }
-
-                                    hbox = {
-                                        datacontext = "[Character.GetCulture]"
+                                    fixedgridbox = { name = "traits_grid"
+                                        datamodel = "[Character.GetTraitIndices]"
+                                        datamodel_reuse_widgets = yes
+                                        flipdirection = yes
                                         layoutpolicy_horizontal = expanding
-                                        spacing = 3
+                                        layoutpolicy_vertical = expanding
+                                        addcolumn = 30
+                                        addrow = 28
 
-                                        tooltipwidget = {
-                                            culture_tooltip = {}
-                                        }
-                                        using = tooltip_se
+                                        min_width = 210
+                                        datamodel_wrap = 7
+                                        maxverticalslots = 2
 
-                                        icon = {
-                                            name = "culture"
-                                            texture = "gfx/interface/icons/icon_culture.dds"
-                                            size = { 24 24 }
-                                        }
+                                        item = {
+                                            icon_trait = {
+                                                datacontext = "[GetTraitForIndex(uint16.GetUint)]"
+                                                visible = "[Trait.IsValid]"
 
-                                        text_single = {
-                                            layoutpolicy_horizontal = expanding
-                                            text = "CULTURE_LISTS_WINDOW"
-                                            autoresize = no
-                                            align = nobaseline
+                                                blockoverride "icon_size"
+                                                {
+                                                    size = { 30 30 }
+                                                }
+
+                                                blockoverride "tooltip_placement"
+                                                {
+                                                    using = tooltip_se
+                                                }
+
+                                                blockoverride "glow_radius"
+                                                {
+                                                    glow_radius = 3
+                                                }
+                                            }
                                         }
                                     }
                                 }
+
+                                expand = {}
                             }
                         }
+
+                        acs_character_buttom_right = {}
                     }
                 }
             }
         }
     }
     
-    type acs_widget_list_claims = widget {
-        datacontext = "[Scope.GetCharacter]"
-        layoutpolicy_vertical = expanding
-            
-        size = { 55 0 }
-
-        datacontext = "[GetScriptedGui('acs_claim')]"
-        
-        coa_title_tiny_crown = {
-            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
-            parentanchor = center
-            position = { -10 0 }
-            scale = 0.8
-
-            tooltipwidget = {
-                acs_claim_tooltip = {}
-            }
-            using = tooltip_ne
-
-
-            blockoverride "coa_button" {
-                datacontext = "[Character.MakeScope.Var( 'acs_best_claim' ).Title]"
-                onclick = "[DefaultOnCoatOfArmsClick(Title.GetID)]"
-                onrightclick = "[DefaultOnCoatOfArmsRightClick(Title.GetID)]"
-                button_ignore = none
-            }
-
-            highlight_icon = {
-                name = "pressed_claim"
-                visible = "[GetScriptedGui( 'acs_top_claim_pressed' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
-                texture = "gfx/interface/icons/title_status/icon_claim_pressed.dds"
-                size = { 24 24 }
-                parentanchor = bottom|right
-            }
-
-            highlight_icon = {
-                name = "unpressed_claim"
-                visible = "[GetScriptedGui( 'acs_top_claim_unpressed' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
-                texture = "gfx/interface/icons/title_status/icon_claim_unpressed.dds"
-                size = { 24 24 }
-                parentanchor = bottom|right
-            }
-
-            highlight_icon = {
-                name = "implicit_claim"
-                visible = "[GetScriptedGui( 'acs_top_claim_implicit' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
-                texture = "gfx/interface/icons/title_status/icon_claim_implicit.dds"
-                size = { 24 24 }
-                parentanchor = bottom|right
-            }
-        }
-
-        text_single = {
-            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
-            parentanchor = center
-            position = { 18 0 }
-            text = "[Character.MakeScope.Var( 'acs_total_claim_value' ).GetValue|0]"
-            default_format = "#high"
-            using = Font_Size_Medium
-            align = center
-        }
-    }
-
-    type acs_herigate_widget = widget {
-        datacontext = "[Scope.GetCharacter]"
-        layoutpolicy_vertical = expanding
-
-        size = { 55 0 }
-
-        datacontext = "[GetScriptedGui('acs_heritage')]"
-        
-        coa_title_tiny_crown = {
-
-            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
-            parentanchor = center
-            position = { -10 0 }
-            scale = 0.8
-
-            tooltipwidget = {
-                acs_heritage_tooltip = {}
-            }
-            using = tooltip_ne
-
-
-            blockoverride "coa_button" {
-                datacontext = "[Character.MakeScope.Var( 'acs_best_heritage' ).Title]"
-                onclick = "[DefaultOnCoatOfArmsClick(Title.GetID)]"
-                onrightclick = "[DefaultOnCoatOfArmsRightClick(Title.GetID)]"
-                button_ignore = none
-            }
-        }
-    }
-
     type acs_button_character_search_small = button_icon {
         name = "acs_button"
         tooltip = "FIND_CHARACTER"
@@ -1126,273 +1092,5 @@ types acs_character_list_types {
         shortcut = "encyclopedia"
     }
 
-    type acs_claim_tooltip = flowcontainer {
-        layoutpolicy_horizontal = expanding
-        layoutpolicy_vertical = expanding
-        alwaystransparent = no
-        using = DefaultTooltipBackground
-        flowcontainer = {
-            
-            layoutpolicy_horizontal = expanding
-            layoutpolicy_vertical = expanding
-            direction = vertical
-            ignoreinvisible = yes
-            margin = { 12 16 }
-            margin_bottom = 16
-            spacing = 4
-        
-            text_single = {
-
-                autoresize = yes
-                margin = { 10 0 }
-                text = "acs_claim_tooltip"
-                #align = center|nobaseline
-                default_format = "#clickable"
-            }
-
-            text_single = {
-
-                autoresize = yes
-                margin = { 10 0 }
-                text = "[pressed_claim|E]"
-                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_pressed_claim_list'))]"
-            }
-
-            flowcontainer = {
-                layoutpolicy_horizontal = expanding
-                layoutpolicy_vertical = expanding
-                direction = vertical
-                parentanchor = top|hcenter
-                datamodel = "[Character.MakeScope.GetList('acs_pressed_claim_list')]"
-                item = {
-                    widget = {
-                        datacontext = "[Scope.Title]"
-                        size = { 300 25 }
-                        text_single = {
-                            autoresize = yes
-                            text = "[pressed_claim_i][Title.GetName]"
-                            default_format = "#clickable"
-                        }
-                    }
-                }
-            }
-
-            text_single = {
-
-                autoresize = yes
-                text = "[unpressed_claim|E]"
-                #align = center|nobaseline
-                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_unpressed_claim_list'))]"
-            }
-
-            flowcontainer = {
-                layoutpolicy_horizontal = expanding
-                layoutpolicy_vertical = expanding
-                direction = vertical
-                parentanchor = top|hcenter
-                datamodel = "[Character.MakeScope.GetList('acs_unpressed_claim_list')]"
-                item = {
-                    widget = {
-                        datacontext = "[Scope.Title]"
-                        size = { 300 25 }
-                        text_single = {
-                            autoresize = yes
-                            text = "[unpressed_claim_i][Title.GetName]"
-                            default_format = "#clickable"
-                        }
-                    }
-                }
-            }
-
-            text_single = {
-
-                autoresize = yes
-                text = "[implicit_claim|E]"
-                #align = center|nobaseline
-                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_implicit_claim_list'))]"
-            }
-
-            flowcontainer = {
-                layoutpolicy_horizontal = expanding
-                layoutpolicy_vertical = expanding
-                direction = vertical
-                parentanchor = top|hcenter
-                datamodel = "[Character.MakeScope.GetList('acs_implicit_claim_list')]"
-                item = {
-                    widget = {
-                        datacontext = "[Scope.Title]"
-                        size = { 300 25 }
-                        text_single = {
-                            autoresize = yes
-                            text = "[implicit_claim_i][Title.GetName]"
-                            default_format = "#clickable"
-                        }
-                    }
-                }
-            }
     
-        } 
-    }
-
-
-    type acs_heritage_tooltip = flowcontainer {
-        layoutpolicy_horizontal = expanding
-        layoutpolicy_vertical = expanding
-        alwaystransparent = no
-        using = DefaultTooltipBackground
-        flowcontainer = {
-            
-            layoutpolicy_horizontal = expanding
-            layoutpolicy_vertical = expanding
-            direction = vertical
-            ignoreinvisible = yes
-            margin = { 12 16 }
-            margin_bottom = 16
-            spacing = 4
-        
-            text_single = {
-
-                autoresize = yes
-                margin = { 10 0 }
-                text = "acs_heritage_tooltip"
-                #align = center|nobaseline
-                default_format = "#clickable"
-            }
-
-            text_single = {
-
-                autoresize = yes
-                margin = { 10 0 }
-                text = "acs_heritage_tooltip.heir"
-                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_heir_to_title_list'))]"
-            }
-
-            flowcontainer = {
-                layoutpolicy_horizontal = expanding
-                layoutpolicy_vertical = expanding
-                direction = vertical
-                parentanchor = top|hcenter
-                datamodel = "[Character.MakeScope.GetList('acs_heir_to_title_list')]"
-                item = {
-                    widget = {
-                        datacontext = "[Scope.Title]"
-                        size = { 300 25 }
-                        text_single = {
-                            autoresize = yes
-                            text = "[Title.GetName]"
-                            default_format = "#clickable"
-                        }
-                    }
-                }
-            }
-
-            text_single = {
-
-                autoresize = yes
-                margin = { 10 0 }
-                text = "acs_heritage_tooltip.2nd"
-                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_2nd_to_title_list'))]"
-            }
-
-            flowcontainer = {
-                layoutpolicy_horizontal = expanding
-                layoutpolicy_vertical = expanding
-                direction = vertical
-                parentanchor = top|hcenter
-                datamodel = "[Character.MakeScope.GetList('acs_2nd_to_title_list')]"
-                item = {
-                    widget = {
-                        datacontext = "[Scope.Title]"
-                        size = { 300 25 }
-                        text_single = {
-                            autoresize = yes
-                            text = "[Title.GetName]"
-                            default_format = "#clickable"
-                        }
-                    }
-                }
-            }
-
-            text_single = {
-
-                autoresize = yes
-                margin = { 10 0 }
-                text = "acs_heritage_tooltip.3rd"
-                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_3rd_to_title_list'))]"
-            }
-
-            flowcontainer = {
-                layoutpolicy_horizontal = expanding
-                layoutpolicy_vertical = expanding
-                direction = vertical
-                parentanchor = top|hcenter
-                datamodel = "[Character.MakeScope.GetList('acs_3rd_to_title_list')]"
-                item = {
-                    widget = {
-                        datacontext = "[Scope.Title]"
-                        size = { 300 25 }
-                        text_single = {
-                            autoresize = yes
-                            text = "[Title.GetName]"
-                            default_format = "#clickable"
-                        }
-                    }
-                }
-            }
-    
-            text_single = {
-
-                autoresize = yes
-                margin = { 10 0 }
-                text = "acs_heritage_tooltip.4th"
-                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_4th_to_title_list'))]"
-            }
-
-            flowcontainer = {
-                layoutpolicy_horizontal = expanding
-                layoutpolicy_vertical = expanding
-                direction = vertical
-                parentanchor = top|hcenter
-                datamodel = "[Character.MakeScope.GetList('acs_4th_to_title_list')]"
-                item = {
-                    widget = {
-                        datacontext = "[Scope.Title]"
-                        size = { 300 25 }
-                        text_single = {
-                            autoresize = yes
-                            text = "[Title.GetName]"
-                            default_format = "#clickable"
-                        }
-                    }
-                }
-            }
-
-            text_single = {
-
-                autoresize = yes
-                margin = { 10 0 }
-                text = "acs_heritage_tooltip.pretender"
-                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_other_heritage_list'))]"
-            }
-
-            flowcontainer = {
-                layoutpolicy_horizontal = expanding
-                layoutpolicy_vertical = expanding
-                direction = vertical
-                parentanchor = top|hcenter
-                datamodel = "[Character.MakeScope.GetList('acs_other_heritage_list')]"
-                item = {
-                    widget = {
-                        datacontext = "[Scope.Title]"
-                        size = { 300 25 }
-                        text_single = {
-                            autoresize = yes
-                            text = "[Title.GetName]"
-                            default_format = "#clickable"
-                        }
-                    }
-                }
-            }
-        } 
-    }
 }
