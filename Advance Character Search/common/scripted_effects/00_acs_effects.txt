@@ -315,8 +315,11 @@ set_claim_data = {
             set_variable = { name = acs_best_claim value = scope:acs_top_claim  } 
         }
 
-        set_variable = { name = acs_total_claim_value value = total_claim_value } 
-
+        set_variable = { name = acs_total_claim_county value = total_claim_county_value } 
+        set_variable = { name = acs_total_claim_duchy value = total_claim_duchy_value } 
+        set_variable = { name = acs_total_claim_kingdom value = total_claim_kingdom_value } 
+        set_variable = { name = acs_total_claim_empire value = total_claim_empire_value } 
+        
         remove_variable = acs_top_claim_value
         remove_variable = acs_top_unpressed_claim_value
         remove_variable = acs_top_pressed_claim_value
@@ -519,7 +522,11 @@ set_index_data = {
 }
 clear_claim_data = {
     remove_variable = acs_best_claim
-    remove_variable = acs_total_claim_value
+    remove_variable = acs_total_claim_county
+    remove_variable = acs_total_claim_duchy
+    remove_variable = acs_total_claim_kingdom
+    remove_variable = acs_total_claim_empire
+    
     clear_variable_list = acs_implicit_claim_list
     clear_variable_list = acs_unpressed_claim_list
     clear_variable_list = acs_pressed_claim_list

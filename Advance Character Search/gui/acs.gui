@@ -1,15 +1,15 @@
 window = {
     name = "acs_window"
-    #size = { 750 90% }
+    size = { 980 88% }
     parentanchor = top|right
-    position = { -500 65 }
+    position = { -300 65 }
     allow_outside = yes
     layer = middle
     visible = yes
 
     using = Window_Background
     using = Window_Decoration_Spike
-    using = Window_Size_CharacterList
+    
 
     state = {
         name = _show
@@ -36,11 +36,9 @@ window = {
             layoutpolicy_vertical = expanding
             spacing = 3
             allow_outside = yes
-            block "sort_buttons"
-            {
-                acs_hbox_list_sort_buttons = {
-                    layoutpolicy_horizontal = expanding
-                }
+
+            acs_hbox_list_sort_buttons = {
+                layoutpolicy_horizontal = expanding
             }
 
             scrollbox = {
@@ -53,7 +51,7 @@ window = {
                     block "container_implementation" {
     
                         fixedgridbox = {
-                            addcolumn = 650
+                            addcolumn = 900
                             addrow = 92
                             name = "characters_grid"
                             datamodel = "[GetGlobalList('acs_list')]"
@@ -62,16 +60,8 @@ window = {
                             item = {
                                 acs_widget_character_list_item_finder = {
                                     datacontext = "[Scope.GetCharacter]"
-                                    block "item_size" {
-                                        layoutpolicy_horizontal = expanding
-                                        size = { 650 94 }
-                                    }
-                                    blockoverride "gridbox_items"
-                                    {
-                                        min_width = 210
-                                        datamodel_wrap = 7
-                                        maxverticalslots = 2
-                                    }
+                                    layoutpolicy_horizontal = expanding
+                                    size = { 900 94 }
                                 }
                             }
                         }

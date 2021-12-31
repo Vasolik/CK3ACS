@@ -6,15 +6,15 @@
     }
     if = {
         limit = { tier = tier_duchy }
-        add = 10
+        add = 6
     }
     if = {
         limit = { tier = tier_kingdom }
-        add = 100
+        add = 216
     }
     if = {
         limit = { tier = tier_empire }
-        add = 1000
+        add = 1296
     }
 }
 
@@ -47,6 +47,48 @@ total_claim_value = {
         add = claim_value
     }
 }
+
+total_claim_county_value = {
+    value = 0
+    every_claim = {
+		if = {
+			limit = { tier < tier_duchy }
+			add = 1
+		}
+    }
+}
+
+total_claim_duchy_value = {
+    value = 0
+    every_claim = {
+		if = {
+			limit = { tier = tier_duchy }
+			add = 1
+		}
+    }
+}
+
+total_claim_kingdom_value = {
+    value = 0
+    every_claim = {
+		if = {
+			limit = { tier = tier_kingdom }
+			add = 1
+		}
+    }
+}
+
+total_claim_empire_value = {
+    value = 0
+    every_claim = {
+		if = {
+			limit = { tier = tier_empire }
+			add = 1
+		}
+    }
+}
+
+
 
 total_claim_value_for_sort = {
     value = 0

@@ -1,0 +1,559 @@
+types acs_character_presentation_buttom_right {
+
+	type acs_widget_list_claims = widget {
+        datacontext = "[Scope.GetCharacter]" 
+        size = { 70 60 }
+
+        datacontext = "[GetScriptedGui('acs_claim')]"
+		background = {
+			using = Background_Area_Dark
+			color = { 0.2 0.2 0.2 0.4 }
+		}
+
+        coa_title_tiny_crown = {
+            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+			parentanchor = vcenter
+            widgetanchor = vcenter
+            
+            scale = 0.8
+
+            tooltipwidget = {
+                acs_claim_tooltip = {}
+            }
+            using = tooltip_nw
+
+
+            blockoverride "coa_button" {
+                datacontext = "[Character.MakeScope.Var( 'acs_best_claim' ).Title]"
+                onclick = "[DefaultOnCoatOfArmsClick(Title.GetID)]"
+                onrightclick = "[DefaultOnCoatOfArmsRightClick(Title.GetID)]"
+                button_ignore = none
+            }
+
+            highlight_icon = {
+                name = "pressed_claim"
+                visible = "[GetScriptedGui( 'acs_top_claim_pressed' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+                texture = "gfx/interface/icons/title_status/icon_claim_pressed.dds"
+                size = { 24 24 }
+                parentanchor = bottom|right
+            }
+
+            highlight_icon = {
+                name = "unpressed_claim"
+                visible = "[GetScriptedGui( 'acs_top_claim_unpressed' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+                texture = "gfx/interface/icons/title_status/icon_claim_unpressed.dds"
+                size = { 24 24 }
+                parentanchor = bottom|right
+            }
+
+            highlight_icon = {
+                name = "implicit_claim"
+                visible = "[GetScriptedGui( 'acs_top_claim_implicit' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+                texture = "gfx/interface/icons/title_status/icon_claim_implicit.dds"
+                size = { 24 24 }
+                parentanchor = bottom|right
+            }
+        }
+		widget = {
+			size = { 40 60 }
+			parentanchor = top|right
+			widgetanchor = top|right
+			
+			widget = {
+				size = { 40 30 }
+				widget = {
+					parentanchor = vcenter|right
+					widgetanchor = vcenter|right
+					size = { 20 30 }
+					text_single = {
+						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+						parentanchor = center
+						widgetanchor = center
+						text = "[Character.MakeScope.Var( 'acs_total_claim_kingdom' ).GetValue|0]"
+						default_format = "#high"
+						using = Font_Size_Medium
+						align = center
+					}
+					using = tooltip_nw
+					tooltipwidget = {
+						acs_claim_tooltip = {
+							blockoverride "acs_tier_visibility" {
+								visible = "[EqualTo_int32(Title.GetTierFrame, '(int32)5')]" #King Rank
+							}
+
+							blockoverride "acs_claim_tooltip_caption" {
+								text = "acs_claim_tooltip_kingdom"
+							}
+						}
+					}
+				}
+
+				widget = {
+					parentanchor = vcenter|left
+					widgetanchor = vcenter|left
+					size = { 20 30 }
+					text_single = {
+						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+						parentanchor = center
+						widgetanchor = center
+						text = "[Character.MakeScope.Var( 'acs_total_claim_empire' ).GetValue|0]"
+						default_format = "#high"
+						using = Font_Size_Medium
+						align = center
+					}
+					using = tooltip_nw
+					tooltipwidget = {
+						acs_claim_tooltip = {
+							blockoverride "acs_tier_visibility" {
+								visible = "[EqualTo_int32(Title.GetTierFrame, '(int32)6')]" #Empire Rank
+							}
+							blockoverride "acs_claim_tooltip_caption" {
+								text = "acs_claim_tooltip_empire"
+							}
+						}
+					}
+				}
+			}
+
+			widget = {
+				size = { 40 30 }
+				parentanchor = bottom|right
+				widgetanchor = bottom|right
+
+				widget = {
+					parentanchor = vcenter|right
+					widgetanchor = vcenter|right
+					size = { 20 30 }
+					text_single = {
+						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+						parentanchor = center
+						widgetanchor = center
+						text = "[Character.MakeScope.Var( 'acs_total_claim_county' ).GetValue|0]"
+						default_format = "#high"
+						using = Font_Size_Medium
+						align = center
+					}
+					using = tooltip_nw
+					tooltipwidget = {
+						acs_claim_tooltip = {
+							blockoverride "acs_tier_visibility" {
+								visible = "[EqualTo_int32(Title.GetTierFrame, '(int32)3')]" #Count Rank
+							}
+							blockoverride "acs_claim_tooltip_caption" {
+								text = "acs_claim_tooltip_county"
+							}
+						}
+					}
+					
+				}
+
+				widget = {
+					parentanchor = vcenter|left
+					widgetanchor = vcenter|left
+					size = { 20 30 }
+					text_single = {
+						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+						parentanchor = center
+						widgetanchor = center
+						text = "[Character.MakeScope.Var( 'acs_total_claim_duchy' ).GetValue|0]"
+						default_format = "#high"
+						using = Font_Size_Medium
+						align = center
+					}
+					using = tooltip_nw
+					tooltipwidget = {
+						acs_claim_tooltip = {
+							blockoverride "acs_tier_visibility" {
+								visible = "[EqualTo_int32(Title.GetTierFrame, '(int32)4')]" #Duke Rank
+							}
+							blockoverride "acs_claim_tooltip_caption" {
+								text = "acs_claim_tooltip_duchy"
+							}
+						}
+					}
+				}
+			}
+		}
+    }
+
+    type acs_herigate_widget = widget {
+        size = { 60 60 }
+		datacontext = "[Scope.GetCharacter]"
+        datacontext = "[GetScriptedGui('acs_heritage')]"
+        
+        coa_title_tiny_crown = {
+
+            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+            parentanchor = center
+            widgetanchor = center
+            scale = 0.8
+
+            tooltipwidget = {
+                acs_heritage_tooltip = {}
+            }
+            using = tooltip_ne
+
+
+            blockoverride "coa_button" {
+                datacontext = "[Character.MakeScope.Var( 'acs_best_heritage' ).Title]"
+                onclick = "[DefaultOnCoatOfArmsClick(Title.GetID)]"
+                onrightclick = "[DefaultOnCoatOfArmsRightClick(Title.GetID)]"
+                button_ignore = none
+            }
+        }
+    }
+
+	type acs_faith = button {
+		size = { 60 60 }
+		onclick = "[DefaultOnFaithClick(Character.GetFaith.GetID)]"
+		button_religion_icon = {
+			datacontext = "[Character.GetFaith]"
+			size = { 35 35 }
+			position = { 10 0 }
+		}
+		widget = {
+			size = { 60 25 }
+			position = { 0 35 }
+			icon = {
+				size = { 25 25 }
+				position = { 0 0 }
+				texture = "[Character.GetPietyLevelTexture]"
+			}
+			text_single = {
+				text = "[Character.GetPiety|0]"
+				fontsize_min = 9.5
+				max_width = 35  
+				size = { 35 25 } 
+				position = { 25 0 }
+			}
+			tooltip = "[Character.GetPietyTooltipWithBalance]"
+		} 	
+	}
+
+	type acs_culture = widget  {
+		
+		size = { 150 60 }
+
+		button_standard_hover = {
+			onclick = "[DefaultOnCultureClick(Culture.GetID)]"
+			datacontext = "[Character.GetCulture]"
+			size = { 150 24 }
+			icon = {
+				name = "culture"
+				texture = "gfx/interface/icons/icon_culture.dds"
+				size = { 24 24 }
+				parentanchor = vcenter|left
+            	widgetanchor = vcenter|left
+			}
+			
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				text = "CULTURE_LISTS_WINDOW"
+				autoresize = yes
+				align = nobaseline
+				position = { 30 0}
+				max_width = 90
+				parentanchor = vcenter|left
+            	widgetanchor = vcenter|left
+			}
+
+			tooltipwidget = {
+				culture_tooltip = {}
+			}
+			using = tooltip_se
+		}
+	
+	}
+
+	type acs_character_buttom_right = widget {
+		datacontext = "[Scope.GetCharacter]"
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		size = { 350 60 }
+
+		acs_herigate_widget = {
+			position = { 0 0 }
+		}
+		acs_widget_list_claims = {
+			position = { 60 0 }
+		}
+
+		# Religion and culture
+		widget = {
+			size= { 220 60 }
+			position = { 130 0 }
+			background = {
+				using = Background_Area_Dark
+				alpha = 0.5
+				margin = { 0 2 }
+			}
+			acs_faith = {
+				position = { 5 0 }
+			}
+			acs_culture = {
+				position = { 70 0 }
+			}
+		}
+	}
+
+
+	type acs_claim_tooltip = flowcontainer {
+        alwaystransparent = no
+		layoutpolicy_horizontal = expanding
+        using = DefaultTooltipBackground
+		direction = vertical
+		margin = { 20 20 }
+		text_single = {
+			autoresize = yes
+			margin = { 10 0 }
+			block "acs_claim_tooltip_caption" {
+				text = "acs_claim_tooltip"
+			}
+			
+			default_format = "#clickable"
+			
+		}
+		
+		
+		flowcontainer = {
+			acs_claim_tooltip_list = {
+				blockoverride "acs_claim_tooltip_list_visibility" {
+					visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_pressed_claim_list'))]"
+				}
+				blockoverride "acs_claim_tooltip_list_caption" {
+					text = "[pressed_claim|E]"
+				}
+				blockoverride "acs_claim_tooltip_list_datamodel" {
+					datamodel = "[Character.MakeScope.GetList('acs_pressed_claim_list')]"
+				}
+				blockoverride "acs_claim_tooltip_list_element_text" {
+					text = "[pressed_claim_i][Title.GetName]"
+				}
+			}
+			acs_claim_tooltip_list = {
+				blockoverride "acs_claim_tooltip_list_visibility" {
+					visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_unpressed_claim_list'))]"
+				}
+				blockoverride "acs_claim_tooltip_list_caption" {
+					text = "[unpressed_claim|E]"
+				}
+				blockoverride "acs_claim_tooltip_list_datamodel" {
+					datamodel = "[Character.MakeScope.GetList('acs_unpressed_claim_list')]"
+				}
+				blockoverride "acs_claim_tooltip_list_element_text" {
+					text = "[unpressed_claim_i][Title.GetName]"
+				}
+			}
+			acs_claim_tooltip_list = {
+				blockoverride "acs_claim_tooltip_list_visibility" {
+					visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_implicit_claim_list'))]"
+				}
+				blockoverride "acs_claim_tooltip_list_caption" {
+					text = "[implicit_claim|E]"
+				}
+				blockoverride "acs_claim_tooltip_list_datamodel" {
+					datamodel = "[Character.MakeScope.GetList('acs_implicit_claim_list')]"
+				}
+				blockoverride "acs_claim_tooltip_list_element_text" {
+					text = "[implicit_claim_i][Title.GetName]"
+				}
+			}
+		}
+    }
+
+	type acs_claim_tooltip_list = flowcontainer  {
+		direction = vertical
+		ignoreinvisible = yes
+		margin = { 20 20 }
+		spacing = 4
+		block "acs_claim_tooltip_list_visibility" {}
+		widget = {
+			size = { 200 25 }
+			text_single = {
+				block "acs_claim_tooltip_list_caption" {}
+			}
+		}
+		
+		flowcontainer = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			direction = vertical
+			ignoreinvisible = yes
+			block "acs_claim_tooltip_list_datamodel" {}
+			item = {
+				widget = {
+					datacontext = "[Scope.Title]"
+					block "acs_tier_visibility" {}
+					size = { 200 25 }
+					text_single = {
+						autoresize = yes
+						block "acs_claim_tooltip_list_element_text" {}
+						default_format = "#clickable"
+					}
+				}
+			}
+		}
+	} 
+
+
+    type acs_heritage_tooltip = flowcontainer {
+        layoutpolicy_horizontal = expanding
+        layoutpolicy_vertical = expanding
+        alwaystransparent = no
+        using = DefaultTooltipBackground
+        flowcontainer = {
+            
+            layoutpolicy_horizontal = expanding
+            layoutpolicy_vertical = expanding
+            direction = vertical
+            ignoreinvisible = yes
+            margin = { 12 16 }
+            margin_bottom = 16
+            spacing = 4
+        
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_heritage_tooltip"
+                #align = center|nobaseline
+                default_format = "#clickable"
+            }
+
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_heritage_tooltip.heir"
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_heir_to_title_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_heir_to_title_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_heritage_tooltip.2nd"
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_2nd_to_title_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_2nd_to_title_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_heritage_tooltip.3rd"
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_3rd_to_title_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_3rd_to_title_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+    
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_heritage_tooltip.4th"
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_4th_to_title_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_4th_to_title_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+
+            text_single = {
+
+                autoresize = yes
+                margin = { 10 0 }
+                text = "acs_heritage_tooltip.pretender"
+                visible = "[DataModelHasItems(Character.MakeScope.GetList('acs_other_heritage_list'))]"
+            }
+
+            flowcontainer = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                parentanchor = top|hcenter
+                datamodel = "[Character.MakeScope.GetList('acs_other_heritage_list')]"
+                item = {
+                    widget = {
+                        datacontext = "[Scope.Title]"
+                        size = { 300 25 }
+                        text_single = {
+                            autoresize = yes
+                            text = "[Title.GetName]"
+                            default_format = "#clickable"
+                        }
+                    }
+                }
+            }
+        } 
+    }
+}

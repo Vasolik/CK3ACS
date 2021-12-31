@@ -28,7 +28,9 @@ acs_claim = {
     scope = character
     
     is_shown = { 
-        var:acs_total_claim_value > 0
+        any_claim = {
+            always = yes
+        }
     }
 
 }
