@@ -88,6 +88,85 @@ total_claim_empire_value = {
     }
 }
 
+total_heritage_barony_value = {
+    value = 0
+    every_pretender_title = {
+		if = {
+			limit = { tier < tier_county }
+			add = 1
+		}
+    }
+	every_heir_to_title = {
+		if = {
+			limit = { tier < tier_county }
+			add = 1
+		}
+	}
+}
+
+total_heritage_county_value = {
+    value = 0
+    every_pretender_title = {
+		if = {
+			limit = { tier = tier_county }
+			add = 1
+		}
+    }
+	every_heir_to_title = {
+		if = {
+			limit = { tier = tier_county }
+			add = 1
+		}
+	}
+}
+
+total_heritage_duchy_value = {
+    value = 0
+    every_pretender_title = {
+		if = {
+			limit = { tier = tier_duchy }
+			add = 1
+		}
+    }
+	every_heir_to_title = {
+		if = {
+			limit = { tier = tier_duchy }
+			add = 1
+		}
+	}
+}
+
+total_heritage_kingdom_value = {
+    value = 0
+    every_pretender_title = {
+		if = {
+			limit = { tier = tier_kingdom }
+			add = 1
+		}
+    }
+	every_heir_to_title = {
+		if = {
+			limit = { tier = tier_kingdom }
+			add = 1
+		}
+	}
+}
+
+total_heritage_empire_value = {
+    value = 0
+    every_pretender_title = {
+		if = {
+			limit = { tier = tier_empire }
+			add = 1
+		}
+    }
+	every_heir_to_title = {
+		if = {
+			limit = { tier = tier_empire }
+			add = 1
+		}
+	}
+}
 
 
 total_claim_value_for_sort = {

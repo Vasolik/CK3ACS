@@ -320,6 +320,12 @@ set_claim_data = {
         set_variable = { name = acs_total_claim_kingdom value = total_claim_kingdom_value } 
         set_variable = { name = acs_total_claim_empire value = total_claim_empire_value } 
         
+        set_variable = { name = acs_total_heritage_county value = total_heritage_county_value } 
+        set_variable = { name = acs_total_heritage_duchy value = total_heritage_duchy_value } 
+        set_variable = { name = acs_total_heritage_kingdom value = total_heritage_kingdom_value } 
+        set_variable = { name = acs_total_heritage_empire value = total_heritage_empire_value } 
+        set_variable = { name = acs_total_heritage_barony value = total_heritage_barony_value } 
+        
         remove_variable = acs_top_claim_value
         remove_variable = acs_top_unpressed_claim_value
         remove_variable = acs_top_pressed_claim_value
@@ -526,6 +532,12 @@ clear_claim_data = {
     remove_variable = acs_total_claim_duchy
     remove_variable = acs_total_claim_kingdom
     remove_variable = acs_total_claim_empire
+
+    remove_variable = acs_total_heritage_county
+    remove_variable = acs_total_heritage_duchy
+    remove_variable = acs_total_heritage_kingdom
+    remove_variable = acs_total_heritage_empire
+    remove_variable = acs_total_heritage_barony
     
     clear_variable_list = acs_implicit_claim_list
     clear_variable_list = acs_unpressed_claim_list
