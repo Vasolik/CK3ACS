@@ -257,3 +257,13 @@ acs_save_12_filters = {
         acs_save_12_filters = yes
     }
 }
+
+acs_select_count = {
+    saved_scopes = {
+        ctrl_value  
+    }
+    effect = {
+        set_global_variable = {  name = acs_select_count value = scope:ctrl_value }
+        acs_auto_apply_sorting_and_filters = yes
+    }
+}

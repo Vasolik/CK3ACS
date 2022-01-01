@@ -1,7 +1,7 @@
 types acs_load_save_types {
     type acs_filter_load_save_other_value = acs_dropdown_other_value {
         blockoverride "size_dropdown" {
-            size = { 100 33 }
+            size = { 155 33 }
         }
     }
 
@@ -11,18 +11,17 @@ types acs_load_save_types {
         }
     }
 
-
     type acs_filter_load_save_item = acs_filter_item {
 
         blockoverride "acs_filter_item_size" {
-            size = { 170 43 }
+            size = { 220 43 }
         }
         blockoverride "acs_dropdown_size" { 
-            size = { 100 33 }
+            size = { 160 33 }
         }
 
         blockoverride "acs_dropdown_scroll_maximumsize" { 
-            maximumsize = { 170 120 }
+            maximumsize = { 230 120 }
         }
 
         blockoverride "acs_dropdown_replace" { 
@@ -58,77 +57,427 @@ types acs_load_save_types {
         blockoverride "acs_dropdown_other_values" { 
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
-                    text = "acs_10"
-                    onclick = "[GetScriptedGui( 'acs_select_count_10' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    text = "10"
+                    onclick = "[GetScriptedGui( 'acs_select_count' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
                 }
             }
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
-                    text = "acs_20"
-                    onclick = "[GetScriptedGui( 'acs_select_count_20' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    text = "20"
+                    onclick = "[GetScriptedGui( 'acs_select_count' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)20' ) ).End )]"
                 }
             }
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
-                    text = "acs_50"
-                    onclick = "[GetScriptedGui( 'acs_select_count_50' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    text = "50"
+                    onclick = "[GetScriptedGui( 'acs_select_count' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)50' ) ).End )]"
                 }
             }
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
-                    text = "acs_100"
-                    onclick = "[GetScriptedGui( 'acs_select_count_100' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    text = "100"
+                    onclick = "[GetScriptedGui( 'acs_select_count' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)100' ) ).End )]"
                 }
             }
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
-                    text = "acs_200"
-                    onclick = "[GetScriptedGui( 'acs_select_count_200' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    text = "200"
+                    onclick = "[GetScriptedGui( 'acs_select_count' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)200' ) ).End )]"
                 }
             }
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
-                    text = "acs_500"
-                    onclick = "[GetScriptedGui( 'acs_select_count_500' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    text = "500"
+                    onclick = "[GetScriptedGui( 'acs_select_count' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)500' ) ).End )]"
                 }
             }
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
-                    text = "acs_1000"
-                    onclick = "[GetScriptedGui( 'acs_select_count_1000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    text = "1 000"
+                    onclick = "[GetScriptedGui( 'acs_select_count' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1000' ) ).End )]"
                 }
             }
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
-                    text = "acs_2000"
-                    onclick = "[GetScriptedGui( 'acs_select_count_2000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    text = "2 000"
+                    onclick = "[GetScriptedGui( 'acs_select_count' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2000' ) ).End )]"
                 }
             }
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
-                    text = "acs_5000"
-                    onclick = "[GetScriptedGui( 'acs_select_count_5000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    text = "5 000"
+                    onclick = "[GetScriptedGui( 'acs_select_count' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)5000' ) ).End )]"
                 }
             }
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
-                    text = "acs_10000"
-                    onclick = "[GetScriptedGui( 'acs_select_count_10000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    text = "10 000"
+                    onclick = "[GetScriptedGui( 'acs_select_count' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)10000' ) ).End )]"
                 }
             }
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
-                    text = "acs_20000"
-                    onclick = "[GetScriptedGui( 'acs_select_count_20000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    text = "20 000"
+                    onclick = "[GetScriptedGui( 'acs_select_count' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)20000' ) ).End )]"
                 }
             }
             acs_filter_load_save_other_value = {
                 blockoverride "text_button_drop" {
-                    text = "acs_100000"
-                    onclick = "[GetScriptedGui( 'acs_select_count_100000' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    text = "100 000"
+                    onclick = "[GetScriptedGui( 'acs_select_count' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)100000' ) ).End )]"
                 }
             }
         }
+    }
 
+    type acs_reset_undo_widget = widget { #reset undo
+        size = { 490 30 }
+        button_standard = {
+            size = { 220 30 }
+            name = "drop_filters"
+            text = "CHARACTER_RESET_FILTERS"
+            focuspolicy = click
+            onclick = "[GetScriptedGui( 'acs_reset_filters_and_sorting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+        }
+        button_standard = {
+            parentanchor = top|right
+            widgetanchor = top|right
+            size = { 220 30 }
+            text = "acs_undo"
+            focuspolicy = click
+            enabled = "[GetGlobalVariable( 'asc_save_slot_undo_0_used' ).IsSet]"
+            onclick = "[GetScriptedGui( 'acs_undo_filters' ).Execute( GuiScope.End )]"
+        }
+    }
+
+    type acs_save_load_widget = widget  { 
+        size = { 490 30 }
+        allow_outside = yes
+        acs_filter_load_save_item = {
+            blockoverride "filter_name" {  
+                text = "acs_load"
+            }
+            blockoverride "acs_dropdown_selected_values" {   
+                acs_filter_load_save_selected_value = {
+                    blockoverride "visibility" {
+                        visible = "[EqualTo_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+                    }
+                    blockoverride "text_button_drop" {
+                        text = "acs_none"
+                    }
+                }
+
+                acs_filter_load_save_selected_value = {
+                    blockoverride "visibility" {
+                        visible = "[EqualTo_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-2')]"
+                    }
+                    blockoverride "text_button_drop" {
+                        text = "acs_default"
+                    }
+                }
+                
+                acs_filter_load_save_selected_value = {
+                    blockoverride "visibility" {
+                        visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+                    }
+                    blockoverride "text_button_drop" {
+                        text = "[EmptyScope.ScriptValue('acs_current_slot_used')|0]"
+                    }
+                }
+            }
+
+            blockoverride "acs_dropdown_other_values" { 
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "0"
+                        onclick = "[GetScriptedGui( 'acs_load_0_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_0_used' ).IsSet]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "1"
+                        onclick = "[GetScriptedGui( 'acs_load_1_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_1_used' ).IsSet]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "2"
+                        onclick = "[GetScriptedGui( 'acs_load_2_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_2_used' ).IsSet]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "3"
+                        onclick = "[GetScriptedGui( 'acs_load_3_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_3_used' ).IsSet]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "4"
+                        onclick = "[GetScriptedGui( 'acs_load_4_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_4_used' ).IsSet]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "5"
+                        onclick = "[GetScriptedGui( 'acs_load_5_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_5_used' ).IsSet]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "6"
+                        onclick = "[GetScriptedGui( 'acs_load_6_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_6_used' ).IsSet]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "7"
+                        onclick = "[GetScriptedGui( 'acs_load_7_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_7_used' ).IsSet]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "8"
+                        onclick = "[GetScriptedGui( 'acs_load_8_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_8_used' ).IsSet]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "9"
+                        onclick = "[GetScriptedGui( 'acs_load_9_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_9_used' ).IsSet]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "10"
+                        onclick = "[GetScriptedGui( 'acs_load_10_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_10_used' ).IsSet]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "11"
+                        onclick = "[GetScriptedGui( 'acs_load_11_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_11_used' ).IsSet]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "12"
+                        onclick = "[GetScriptedGui( 'acs_load_12_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                    block "acs_dropdown_other_value_visible" {
+                        visible = "[GetGlobalVariable( 'asc_save_slot_12_used' ).IsSet]"
+                    }
+                }
+            }
+
+        }
+
+        acs_filter_load_save_item = {
+            parentanchor = top|right
+            widgetanchor = top|right
+            blockoverride "filter_name" {  
+                text = "acs_save"
+            }
+            blockoverride "acs_dropdown_selected_values" {   
+                acs_filter_load_save_selected_value = {
+                    blockoverride "visibility" {
+                        visible = "[EqualTo_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+                    }
+                    blockoverride "text_button_drop" {
+                        text = "acs_none"
+                    }
+                }
+
+                acs_filter_load_save_selected_value = {
+                    blockoverride "visibility" {
+                        visible = "[EqualTo_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-2')]"
+                    }
+                    blockoverride "text_button_drop" {
+                        text = "acs_default"
+                    }
+                }
+                
+                acs_filter_load_save_selected_value = {
+                    blockoverride "visibility" {
+                        visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+                    }
+                    blockoverride "text_button_drop" {
+                        text = "[EmptyScope.ScriptValue('acs_current_slot_used')|0]"
+                    }
+                }
+            }
+
+            blockoverride "acs_dropdown_other_values" { 
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "0"
+                        onclick = "[GetScriptedGui( 'acs_save_0_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "1"
+                        onclick = "[GetScriptedGui( 'acs_save_1_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "2"
+                        onclick = "[GetScriptedGui( 'acs_save_2_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "3"
+                        onclick = "[GetScriptedGui( 'acs_save_3_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "4"
+                        onclick = "[GetScriptedGui( 'acs_save_4_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "5"
+                        onclick = "[GetScriptedGui( 'acs_save_5_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "6"
+                        onclick = "[GetScriptedGui( 'acs_save_6_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "7"
+                        onclick = "[GetScriptedGui( 'acs_save_7_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "8"
+                        onclick = "[GetScriptedGui( 'acs_save_8_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "9"
+                        onclick = "[GetScriptedGui( 'acs_save_9_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        enabled = "[GetScriptedGui( 'acs_save_9_filters' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "10"
+                        onclick = "[GetScriptedGui( 'acs_save_10_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "11"
+                        onclick = "[GetScriptedGui( 'acs_save_11_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+                acs_filter_load_save_other_value = {
+                    blockoverride "text_button_drop" {
+                        text = "12"
+                        onclick = "[GetScriptedGui( 'acs_save_12_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                    }
+                }
+            }
+        }
+    }
+
+    type acs_footer = widget  {
+        allow_outside = yes
+        hbox = {
+           
+            margin = { 15 5 }
+            margin_bottom = 10
+            spacing = 5
+            allow_outside = yes
+
+            button_checkbox_label = {
+                onclick = "[GetScriptedGui( 'acs_auto_apply_sorting_and_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                blockoverride "checkbox"
+                {
+                    checked = "[GetGlobalVariable( 'acs_auto_apply_sorting_and_filters' ).IsSet]"
+                }
+                blockoverride "text"
+                {
+                    text = "auto_apply_sorting"
+                    min_width = 130
+                }
+            }
+            acs_select_count_item = {
+                blockoverride "acs_dropdown_stack_top" { }
+            }
+
+            expand = {}
+
+            text_single = {
+                datacontext = "[CharacterSelectionList]"
+                text = "acs_slot_text"
+                default_format = "#low"
+                visible = "[GreaterThan_CFixedPoint( EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
+            }
+            widget = {
+                size = { 20 15 }
+    
+                icon = {
+                    size = { 20 20 }
+                    visible = "[Not( EqualTo_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-2') )]"
+                    tooltip = "CHARACTER_FINDER_FILTER_SET"
+                    texture = "gfx/interface/icons/symbols/icon_warning.dds"
+                }
+            }
+    
+            text_single = {
+                name = "character_count"
+                datacontext = "[CharacterSelectionList]"
+                text = "acs_character_finder_count"
+                default_format = "#low"
+            }
+        }
+        
     }
 }

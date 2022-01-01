@@ -24,110 +24,67 @@ window = {
         on_start = "[GetScriptedGui('close_acs_window').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
     }
 
-    vbox = {
-        using = Window_Margins
+    widget = {
+        size = { 980 100% }
         allow_outside = yes
-        
-        acs_header_pattern = { }
-         
         vbox = {
             name = "acs_character_list"
             layoutpolicy_horizontal = expanding
             layoutpolicy_vertical = expanding
-            spacing = 3
             allow_outside = yes
-
-            acs_hbox_list_sort_buttons = {
-                layoutpolicy_horizontal = expanding
+            using = Window_Margins
+            widget = {
+                size = { 1  95 }
             }
-
             scrollbox = {
-                name = "acs_characters_scroll_area"
                 layoutpolicy_vertical = expanding
                 layoutpolicy_horizontal = expanding
     
                 blockoverride "scrollbox_content" {
     
-                    block "container_implementation" {
-    
-                        fixedgridbox = {
-                            addcolumn = 900
-                            addrow = 92
-                            name = "characters_grid"
-                            datamodel = "[GetGlobalList('acs_list')]"
-                            visible = "[GetScriptedGui('acs_window').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                            layoutpolicy_horizontal = expanding
-                            item = {
-                                acs_widget_character_list_item_finder = {
-                                    datacontext = "[Scope.GetCharacter]"
-                                    layoutpolicy_horizontal = expanding
-                                    size = { 900 94 }
-                                }
+                    fixedgridbox = {
+                        addcolumn = 900
+                        addrow = 92
+                        name = "characters_grid"
+                        datamodel = "[GetGlobalList('acs_list')]"
+                        visible = "[GetScriptedGui('acs_window').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                        layoutpolicy_horizontal = expanding
+                        item = {
+                            acs_widget_character_list_item_finder = {
+                                datacontext = "[Scope.GetCharacter]"
+                                layoutpolicy_horizontal = expanding
+                                size = { 900 94 }
                             }
                         }
                     }
                 }
             }
+
+            widget = {
+                size = { 2  60 }
+            } 
+        }
     
-            block "character_count"
-            {
-                hbox = {
-                    layoutpolicy_horizontal = growing
-                    margin = { 15 5 }
-                    margin_bottom = 10
-                    spacing = 5
-                    allow_outside = yes
-    
-                    block "bottom_bar" {}
-                    button_checkbox_label = {
-                        
-                        onclick = "[GetScriptedGui( 'acs_auto_apply_sorting_and_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-    
-                        blockoverride "checkbox"
-                        {
-                            checked = "[GetScriptedGui( 'acs_auto_apply_sorting_and_filters' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-                        }
-    
-                        blockoverride "text"
-                        {
-                            text = "auto_apply_sorting"
-                            min_width = 130
-                        }
-                    }
-                    acs_select_count_item = {
-                        blockoverride "acs_dropdown_stack_top" { }
-                    }
-                    expand = {}
-    
-                    text_single = {
-                        datacontext = "[CharacterSelectionList]"
-                        text = "acs_slot_text"
-                        default_format = "#low"
-                        visible = "[GreaterThan_CFixedPoint( EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-1')]"
-                    }
-                    widget = {
-                        size = { 20 15 }
-    
-                        icon = {
-                            size = { 20 20 }
-                            visible = "[Not( EqualTo_CFixedPoint(EmptyScope.ScriptValue('acs_current_slot_used'), '(CFixedPoint)-2') )]"
-                            tooltip = "CHARACTER_FINDER_FILTER_SET"
-                            texture = "gfx/interface/icons/symbols/icon_warning.dds"
-                        }
-                    }
-    
-                    text_single = {
-                        name = "character_count"
-                        datacontext = "[CharacterSelectionList]"
-                        text = "acs_character_finder_count"
-                        default_format = "#low"
-                    }
-                }
-            }
+        acs_header_pattern = { 
+            size = { 910 56 }
+            position = { 35 18 }
+        }
+        acs_hbox_list_sort_buttons = {
+            layoutpolicy_horizontal = expanding
+            position = { 0 56 }
+            size = { 910 56 }
+            parentanchor = top|hcenter
+            widgetanchor = top|hcenter
+            allow_outside = yes
+        }
+        acs_footer = {
+            parentanchor = bottom|hcenter
+            widgetanchor = bottom|hcenter
+            size = { 910 56 }
+            position = { 0 -15 }
         }
     }
-    acs_dropdown_sort_characterlist = {
-        position = { 138 79 }
-    } 
+    
+
     acs_window_character_filter = { }
 }

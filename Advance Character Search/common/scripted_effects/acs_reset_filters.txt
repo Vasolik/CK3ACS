@@ -2,7 +2,7 @@
     if = {
         limit = { 
             NOR = {
-                NOT = { has_global_variable = acs_auto_apply_sorting_and_filters }
+                NOT = { has_global_variable = acs_first_time_setup }
                 acs_current_slot_used = -2 
             }
         }
@@ -21,8 +21,9 @@
     clear_global_variable_list = acs_active_filter_list  
     if = {
         limit = {
-            NOT = { has_global_variable = acs_auto_apply_sorting_and_filters }
+            NOT = { has_global_variable = acs_first_time_setup }
         }
-        set_global_variable = { name = acs_auto_apply_sorting_and_filters value = yes }
+        set_global_variable = acs_auto_apply_sorting_and_filters
+        set_global_variable = acs_first_time_setup
     }
 }

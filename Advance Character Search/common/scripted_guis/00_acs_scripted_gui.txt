@@ -35,28 +35,22 @@ acs_auto_apply_sorting_and_filters = {
     scope = character
          
     is_shown = { 
-        global_var:acs_auto_apply_sorting_and_filters = yes
+        has_global_variable = acs_auto_apply_sorting_and_filters
     }
         
     effect = {
         if = {
-            limit = { global_var:acs_auto_apply_sorting_and_filters = yes }
-            set_global_variable = {  name = acs_auto_apply_sorting_and_filters value = no }
+            limit = { has_global_variable = acs_auto_apply_sorting_and_filters }
+            remove_global_variable = acs_auto_apply_sorting_and_filters
         }
         else = {
-            set_global_variable = {  name = acs_auto_apply_sorting_and_filters value = yes }
+            set_global_variable = acs_auto_apply_sorting_and_filters
         }
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 
 acs_undo_filters = {
-    scope = character
-    
-    is_valid = {
-        has_global_variable = asc_save_slot_undo_0_used
-    }
-        
     effect = {
         acs_load_undo_0_filters = yes
     }
