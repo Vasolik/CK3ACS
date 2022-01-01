@@ -5,10 +5,6 @@
         ctrl_value
         
     }
-    is_shown = { 
-        global_var:acs_sort_by = scope:ctrl_value
-    }
-    
     effect = {
         if = {
             limit = { global_var:acs_sort_by = scope:ctrl_value }
@@ -16,22 +12,16 @@
         }
         else = {
             set_global_variable = {  name = acs_sort_by value = scope:ctrl_value }
-            set_global_variable = {  name = acs_sort_by_ascending value = 0 }
+            remove_global_variable = acs_sort_by_ascending
         }
         acs_auto_apply_sorting_and_filters = yes
     }
 }
 
 
-
-
 acs_change_sort_order = {
     scope = character
-        
-    is_shown = { 
-        global_var:acs_sort_by_ascending = 1
-    }
-        
+ 
     effect = {
         acs_change_sort_order = yes
         acs_auto_apply_sorting_and_filters = yes

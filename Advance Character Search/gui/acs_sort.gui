@@ -1,0 +1,578 @@
+types acs_sort_types {
+    type acs_dropdown_sort_characterlist = acs_dropdown_no_order_change {
+        name = "sort_options"
+        blockoverride "acs_filter_item_size" {
+            size = { 225 33 }
+        }
+        blockoverride "acs_dropdown_size" { 
+            size = { 225 33 }
+        }
+
+        blockoverride "acs_dropdown_scroll_maximumsize" { 
+            maximumsize = { 215 250 }
+        }
+
+        blockoverride "acs_dropdown_stack_top" { }
+        
+        blockoverride "acs_dropdown_selected_values" { 
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)0' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "SORT_HEALTH"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)1' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "CHARACTER_SORT_TITLES"
+                }
+            }
+            
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)2' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "CHARACTER_SORT_AGE"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)3' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "SORT_OPINION"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)4' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "diplomacy"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)5' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "martial"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)6' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "stewardship"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)7' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "intrigue"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)8' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "learning"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)9' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "prowess"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)10' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "CHARACTER_SORT_ALL_SKILLS"
+                }
+            }
+            
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)11' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "acs_sort_by_magic_sauce"
+                }
+            }
+            
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)12' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "game_concept_gold"
+                }
+            }
+                
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)13' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "game_concept_prestige"
+                }
+            }
+            
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)14' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "game_concept_piety"
+                }
+            }
+            
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)15' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "SORT_MILITARY_STRENGTH"
+                }
+            }
+            
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)16' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "game_concept_dread"
+                }
+            }
+            
+                    
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)17' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "progeny"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)18' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "game_concept_claim"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)19' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "acs_invite_to_court"
+                }
+            }
+        }
+
+        blockoverride "acs_dropdown_other_values" {
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "SORT_HEALTH"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "CHARACTER_SORT_TITLES"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "CHARACTER_SORT_AGE"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "SORT_OPINION"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)3' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "diplomacy"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)4' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "martial"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)5' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "stewardship"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)6' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "intrigue"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)7' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "learning"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)8' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "prowess"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)9' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "CHARACTER_SORT_ALL_SKILLS"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)10' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "acs_sort_by_magic_sauce"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)11' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "game_concept_gold"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)12' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "game_concept_prestige"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)13' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "game_concept_piety"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)14' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "SORT_MILITARY_STRENGTH"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)15' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+                                
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "game_concept_dread"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)16' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "progeny"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)17' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+            
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "game_concept_claim"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)18' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "acs_invite_to_court"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)19' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+        }
+        
+    }
+
+	type acs_hbox_list_sort_buttons = hbox {
+        name = "acs_sort_buttons"
+        margin_left = 10
+        margin_right = 20
+        margin_top = 5
+        spacing = 5
+        allow_outside = yes
+        ignoreinvisible = yes
+
+        button_standard = {
+            name = "acs_filters"
+            size = { 25 25 }
+
+            down = "[CharacterSelectionList.FiltersShown]"
+            frame = "[BoolTo1And2(CharacterSelectionList.IsAllDefault)]"
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_toggle' )]"
+
+            tooltip = "TOGGLE_FILTERS"
+            using = tooltip_nw
+
+            button_search = {
+                alwaystransparent = yes
+                parentanchor = center
+                size = { 20 20 }
+            }
+        }
+        
+        divider_light = {
+            size = { 3 20 }
+        }
+
+        text_single = {
+            text = "SORT_BY"
+            align = nobaseline
+        }
+        widget = {
+            size = { 225 33 }
+        }
+
+        button_standard = {
+            name = "sort_order"
+            size = { 25 25 }
+            onclick =  "[GetScriptedGui( 'acs_change_sort_order' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+
+            tooltip = "CHARACTER_SORT_BY"
+            using = tooltip_nw
+
+            button_icon = {
+                alwaystransparent = yes
+                parentanchor = center
+                size = { 25 25 }
+                texture = "gfx/interface/icons/flat_icons/sort_icon.dds"
+                framesize = { 66 66 }
+                frame = "[BoolTo1And2( GetGlobalVariable( 'acs_sort_by_ascending' ).IsSet )]"
+
+                blockoverride "button_frames"
+                {
+                    effectname = "NoHighlight"
+                }
+            }
+        }
+
+        expand = {}
+
+        hbox = {
+            button_standard_hover = {
+                name = "skill_diplomacy"
+                size = { 32 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_skills.dds"
+                    size = { 32 32 }
+                    framesize = { 60 60 }
+                    frame = 1    
+                }
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)4' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                tooltip = "acs_sort_by_diplomacy"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)4' )]"
+                    frame = "[BoolTo1And2( GetGlobalVariable( 'acs_sort_by_ascending' ).IsSet )]"
+                }
+            }
+
+            button_standard_hover = {
+                name = "skill_martial"
+                size = { 32 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_skills.dds"
+                    size = { 32 32 }
+                    framesize = { 60 60 }
+                    frame = 2
+                }
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)5' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                tooltip = "acs_sort_by_martial"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)5' )]"
+                    frame = "[BoolTo1And2( GetGlobalVariable( 'acs_sort_by_ascending' ).IsSet )]"
+                }
+            }
+
+            button_standard_hover = {
+                name = "skill_stewardship"
+                size = { 32 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_skills.dds"
+                    size = { 32 32 }
+                    framesize = { 60 60 }
+                    frame = 3            
+                }
+
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)6' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                tooltip = "acs_sort_by_stewardship"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)6' )]"
+                    frame = "[BoolTo1And2( GetGlobalVariable( 'acs_sort_by_ascending' ).IsSet )]"
+                }
+            }
+
+            button_standard_hover = {
+                name = "skill_intrigue"
+                size = { 32 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_skills.dds"
+                    size = { 32 32 }
+                    framesize = { 60 60 }
+                    frame = 4
+                }
+
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)7' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                tooltip = "acs_sort_by_intrigue"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)7' )]"
+                    frame = "[BoolTo1And2( GetGlobalVariable( 'acs_sort_by_ascending' ).IsSet )]"
+                }
+            }
+
+            button_standard_hover = {
+                name = "skill_learning"
+                size = { 32 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_skills.dds"
+                    size = { 32 32 }
+                    framesize = { 60 60 }
+                    frame = 5
+                }
+
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)8' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                tooltip = "acs_sort_by_learning"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)8' )]"
+                    frame = "[BoolTo1And2( GetGlobalVariable( 'acs_sort_by_ascending' ).IsSet )]"
+                }
+            }
+            
+            button_standard_hover = {
+                name = "skill_prowess"
+                size = { 32 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_skills.dds"
+                    size = { 32 32 }
+                    framesize = { 60 60 }
+                    frame = 6
+                }
+
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)9' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                tooltip = "acs_sort_by_prowess"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)9' )]"
+                    frame = "[BoolTo1And2( GetGlobalVariable( 'acs_sort_by_ascending' ).IsSet )]"
+                }
+            }
+            button_standard_hover = {#gold
+                size = { 34 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/icon_gold.dds"
+                    size = { 32 32 } 
+                }
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)12' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                #tooltip = "acs_sort_by_diplomacy"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)12' )]"
+                    frame = "[BoolTo1And2( GetGlobalVariable( 'acs_sort_by_ascending' ).IsSet )]"
+                }
+            }
+            button_standard_hover = {#prestige
+                size = { 34 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/currencies/icon_prestige_01.dds"
+                    size = { 32 32 } 
+                }
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)13' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                #tooltip = "acs_sort_by_diplomacy"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)13' )]"
+                    frame = "[BoolTo1And2( GetGlobalVariable( 'acs_sort_by_ascending' ).IsSet )]"
+                }
+            }
+            button_standard_hover = {#piety
+                size = { 34 32 }
+                
+                icon = {
+                    texture = "gfx/interface/icons/currencies/icon_piety_pagan_01.dds"
+                    size = { 32 32 } 
+                }
+                onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)14' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                #tooltip = "acs_sort_by_diplomacy"
+                using = tooltip_below
+
+                skillitem_sort_icon = {
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)14' )]"
+                    frame = "[BoolTo1And2( GetGlobalVariable( 'acs_sort_by_ascending' ).IsSet )]"
+                }
+            }
+        }
+    }
+}

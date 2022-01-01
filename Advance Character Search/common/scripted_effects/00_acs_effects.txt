@@ -548,11 +548,11 @@ clear_claim_data = {
 
 acs_change_sort_order = {
     if = {
-        limit = { global_var:acs_sort_by_ascending = 1 }
-        set_global_variable = {  name = acs_sort_by_ascending value = 0 }
+        limit = { has_global_variable = acs_sort_by_ascending }
+        remove_global_variable = acs_sort_by_ascending
     }
     else = {
-        set_global_variable = {  name = acs_sort_by_ascending value = 1 }
+        set_global_variable = acs_sort_by_ascending
     }
 }
 
