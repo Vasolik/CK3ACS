@@ -198,7 +198,6 @@
             check_range_bounds = no
             add_to_global_variable_list = { name = acs_list target = this }
             set_claim_data = yes
-            set_index_data = yes
         }    
         
         remove_global_variable = is_acs_building_list
@@ -232,7 +231,6 @@ clear_acs_list = {
         every_in_global_list = {
             list = acs_list
             clear_claim_data = yes
-            clear_index_data = yes
         }
         clear_global_variable_list = acs_list
     }
@@ -247,13 +245,19 @@ set_claim_data = {
         save_scope_as = target_character
         set_variable = is_acs_building_claim_list
         set_variable = {  name = acs_top_claim_value value = 0  }
-        set_variable = {  name = acs_is_top_claim_explicit value = no }
-        set_variable = {  name = acs_is_top_claim_pressed value = no  }
+
+        remove_variable = acs_is_top_claim_explicit;
+        remove_variable = acs_is_top_claim_pressed;
+        remove_variable = acs_best_claim
+        clear_saved_scope = acs_top_claim
+        clear_saved_scope = acs_top_unpressed_claim
+        clear_saved_scope = acs_top_pressed_claim
+
         ordered_claim = {
             explicit = no
             order_by = claim_value_for_sort
             max = 1
-            save_scope_as = acs_top_claim
+            save_temporary_scope_as = acs_top_claim
             prev = {
                 set_variable = {  name = acs_top_claim_value value = scope:acs_top_claim.claim_value_for_sort } 
             }
@@ -264,7 +268,7 @@ set_claim_data = {
             pressed = no
             order_by = claim_value_for_sort
             max = 1
-            save_scope_as = acs_top_unpressed_claim
+            save_temporary_scope_as = acs_top_unpressed_claim
             prev = {
                 set_variable = {  name = acs_top_unpressed_claim_value value = scope:acs_top_unpressed_claim.claim_value_for_sort  } 
             }
@@ -282,7 +286,7 @@ set_claim_data = {
             }
             
             set_variable = { name = acs_top_claim_value value = var:acs_top_unpressed_claim_value  } 
-            set_variable = {  name = acs_is_top_claim_explicit value = yes   }
+            set_variable = acs_is_top_claim_explicit
         }
         set_variable = { name = acs_top_pressed_claim_value value = 0  }
         ordered_claim = {
@@ -290,7 +294,7 @@ set_claim_data = {
             pressed = yes
             order_by = claim_value_for_sort
             max = 1
-            save_scope_as = acs_top_pressed_claim
+            save_temporary_scope_as = acs_top_pressed_claim
             prev = {
                 set_variable = { name = acs_top_pressed_claim_value value = scope:acs_top_pressed_claim.claim_value_for_sort   } 
             }
@@ -304,12 +308,12 @@ set_claim_data = {
                 }
             }
             scope:acs_top_pressed_claim = {
-                save_scope_as = acs_top_claim
+                save_temporary_scope_as = acs_top_claim
             }
-            
-            set_variable = {  name = acs_is_top_claim_explicit value = yes   }
-            set_variable = {  name = acs_is_top_claim_pressed value = yes   }
+            set_variable = acs_is_top_claim_explicit
+            set_variable = acs_is_top_claim_pressed
         }
+        
         if = {
             limit = { exists = scope:acs_top_claim }
             set_variable = { name = acs_best_claim value = scope:acs_top_claim  } 
@@ -516,16 +520,6 @@ set_claim_data = {
         remove_variable = is_acs_building_claim_list
     } 
 }
-set_index_data = {
-    if = {
-        limit = { exists = global_var:acs_next_even }
-        set_variable = { name = acs_even value = yes }
-        remove_global_variable = acs_next_even
-    }
-    else = {
-        set_global_variable = acs_next_even
-    }
-}
 clear_claim_data = {
     remove_variable = acs_best_claim
     remove_variable = acs_total_claim_county
@@ -550,13 +544,6 @@ clear_claim_data = {
     clear_variable_list = acs_3rd_to_title_list
     clear_variable_list = acs_4th_to_title_list
     clear_variable_list = acs_other_heritage_list
-}
-
-clear_index_data = {
-    if = {
-        limit = { exists = var:acs_even }
-        remove_variable = acs_even
-    }
 }
 
 acs_change_sort_order = {

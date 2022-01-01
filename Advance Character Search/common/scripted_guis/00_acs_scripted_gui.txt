@@ -24,61 +24,6 @@ close_acs_window = {
     }
 }
 
-acs_claim = {
-    scope = character
-    
-    is_shown = { 
-        any_claim = {
-            always = yes
-        }
-    }
-
-}
-
-acs_heritage = {
-    scope = character
-
-    is_shown = { 
-        has_variable = acs_best_heritage
-    }
-}
-
-acs_even_index = {
-    scope = character
-    
-    is_shown = { 
-        exists = var:acs_even
-    }
-
-
-}
-
-acs_top_claim_pressed = {
-    scope = character
-    
-    is_shown = { 
-        var:acs_is_top_claim_pressed = yes
-    }
-}
-acs_top_claim_unpressed = {
-    scope = character
-    
-    is_shown = { 
-        var:acs_is_top_claim_pressed = no
-        var:acs_is_top_claim_explicit = yes
-    }
-}
-
-acs_top_claim_implicit = {
-    scope = character
-    
-    is_shown = { 
-        var:acs_is_top_claim_explicit = no
-    }
-}
-
-
-
 acs_reset_filters_and_sorting = {
     effect = {
         acs_reset_filters_and_sorting = yes

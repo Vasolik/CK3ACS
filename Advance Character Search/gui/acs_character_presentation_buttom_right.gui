@@ -4,14 +4,13 @@ types acs_character_presentation_buttom_right {
         datacontext = "[Scope.GetCharacter]" 
         size = { 70 60 }
 
-        datacontext = "[GetScriptedGui('acs_claim')]"
 		background = {
 			using = Background_Area_Dark
 			color = { 0.2 0.2 0.2 0.4 }
 		}
-
+		visible = "[Character.MakeScope.Var( 'acs_best_claim' ).IsSet]"
+		
         coa_title_tiny_crown = {
-            visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
 			parentanchor = vcenter
             widgetanchor = vcenter
             
@@ -31,7 +30,7 @@ types acs_character_presentation_buttom_right {
 
             highlight_icon = {
                 name = "pressed_claim"
-                visible = "[GetScriptedGui( 'acs_top_claim_pressed' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+				visible = "[Character.MakeScope.Var( 'acs_is_top_claim_pressed' ).IsSet]"
                 texture = "gfx/interface/icons/title_status/icon_claim_pressed.dds"
                 size = { 24 24 }
                 parentanchor = bottom|right
@@ -39,7 +38,7 @@ types acs_character_presentation_buttom_right {
 
             highlight_icon = {
                 name = "unpressed_claim"
-                visible = "[GetScriptedGui( 'acs_top_claim_unpressed' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+				visible = "[And( Not(Character.MakeScope.Var( 'acs_is_top_claim_pressed' ).IsSet), Character.MakeScope.Var( 'acs_is_top_claim_explicit' ).IsSet )]"
                 texture = "gfx/interface/icons/title_status/icon_claim_unpressed.dds"
                 size = { 24 24 }
                 parentanchor = bottom|right
@@ -47,7 +46,7 @@ types acs_character_presentation_buttom_right {
 
             highlight_icon = {
                 name = "implicit_claim"
-                visible = "[GetScriptedGui( 'acs_top_claim_implicit' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+                visible = "[And( Not(Character.MakeScope.Var( 'acs_is_top_claim_pressed' ).IsSet), Not(Character.MakeScope.Var( 'acs_is_top_claim_explicit' ).IsSet) )]"
                 texture = "gfx/interface/icons/title_status/icon_claim_implicit.dds"
                 size = { 24 24 }
                 parentanchor = bottom|right
@@ -65,7 +64,6 @@ types acs_character_presentation_buttom_right {
 					widgetanchor = vcenter|right
 					size = { 20 30 }
 					text_single = {
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
 						parentanchor = center
 						widgetanchor = center
 						text = "[Character.MakeScope.Var( 'acs_total_claim_kingdom' ).GetValue|0]"
@@ -91,7 +89,6 @@ types acs_character_presentation_buttom_right {
 					widgetanchor = vcenter|left
 					size = { 20 30 }
 					text_single = {
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
 						parentanchor = center
 						widgetanchor = center
 						text = "[Character.MakeScope.Var( 'acs_total_claim_empire' ).GetValue|0]"
@@ -123,7 +120,6 @@ types acs_character_presentation_buttom_right {
 					widgetanchor = vcenter|right
 					size = { 20 30 }
 					text_single = {
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
 						parentanchor = center
 						widgetanchor = center
 						text = "[Character.MakeScope.Var( 'acs_total_claim_county' ).GetValue|0]"
@@ -151,7 +147,6 @@ types acs_character_presentation_buttom_right {
 					widgetanchor = vcenter|left
 					size = { 20 30 }
 					text_single = {
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
 						parentanchor = center
 						widgetanchor = center
 						text = "[Character.MakeScope.Var( 'acs_total_claim_duchy' ).GetValue|0]"
@@ -175,11 +170,13 @@ types acs_character_presentation_buttom_right {
 		}
     }
 
-    type acs_heritate_widget = widget {
+    type acs_heritate_widget = widget {	
         size = { 90 60 }
 		parentanchor = vcenter
 		widgetanchor = vcenter
-		visible = "[GetScriptedGui('acs_heritage').IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+
+		visible = "[Character.MakeScope.Var( 'acs_best_heritage' ).IsSet]"
+
         coa_title_tiny_crown = {
             
             parentanchor = vcenter
@@ -213,7 +210,6 @@ types acs_character_presentation_buttom_right {
 					widgetanchor = vcenter|left
 					size = { 20 30 }
 					text_single = {
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
 						parentanchor = center
 						widgetanchor = center
 						text = "[Character.MakeScope.Var( 'acs_total_heritage_empire' ).GetValue|0]"
@@ -313,7 +309,6 @@ types acs_character_presentation_buttom_right {
 							}
 						}
 					}
-					
 				}
 
 				widget = {

@@ -848,15 +848,7 @@ types acs_character_list_types {
     type acs_widget_character_list_item_finder = widget {
         datacontext = "[Scope.GetCharacter]"
         size = { 200 94 }
-
-        background = {
-            visible = "[GetScriptedGui( 'acs_even_index' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End ) ]"
-            using = Background_Area_Dark
-            margin_top = -4
-            margin_bottom = 2
-            alpha = 0.5
-        }
-
+        
         hbox = {
             layoutpolicy_horizontal = expanding
 
@@ -1091,6 +1083,4 @@ types acs_character_list_types {
         tooltip = "OPEN_ENCYCLOPEDIA"
         shortcut = "encyclopedia"
     }
-
-    
 }
