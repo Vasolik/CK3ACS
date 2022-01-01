@@ -284,103 +284,106 @@ magic_souce = {
 acs_sort_value = {
 	value = 0
 	if = {
-		limit = { global_var:acs_sort_by = 0 }
-		add = health
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 1 }
+		limit = { global_var:acs_sort_by < 10 }
 		if = {
-			limit = { is_ruler = yes }
-			add = primary_title.tier
-		}
-		else =	{
+			limit = { global_var:acs_sort_by < 5 }
 			if = {
-				limit = { is_lowborn = yes }
-				add = -1
+				limit = { global_var:acs_sort_by = 0 }
+				add = health
+			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 1 }
+				if = {
+					limit = { is_ruler = yes }
+					add = primary_title.tier
+				}
+				else =	{
+					if = {
+						limit = { is_lowborn = yes }
+						add = -1
+					}
+				}	
+			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 2 }
+				add = age
+			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 3 }
+		
+				if = {
+					limit = {save_temporary_opinion_value_as  = {name = temp_op target = scope:acs_sort_root}}
+					add = scope:temp_op
+				}
+			}
+			else = {
+				#limit = { global_var:acs_sort_by = 4 }
+				add = diplomacy
+			}
+		}
+		else = {
+			if = {
+				limit = { global_var:acs_sort_by = 5 }
+				add = martial
+			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 6 }
+				add = stewardship
+			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 7 }
+				add = intrigue
+			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 8 }
+				add = learning
+			}
+			else = {
+				#limit = { global_var:acs_sort_by = 9 }
+				add = prowess
 			}
 		}	
 	}
-	if = {
-		limit = { global_var:acs_sort_by = 2 }
-		add = age
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 3 }
-
+	else = {
 		if = {
-			limit = {save_temporary_opinion_value_as  = {name = temp_op target = scope:acs_sort_root}}
-			add = scope:temp_op
-		}
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 4 }
-		add = diplomacy
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 5 }
-		add = martial
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 6 }
-		add = stewardship
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 7 }
-		add = intrigue
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 8 }
-		add = learning
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 9 }
-		add = prowess
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 10 }
-		add = diplomacy
-		add = martial
-		add = stewardship
-		add = intrigue
-		add = learning
-		add = prowess
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 11 }
-		add = magic_souce
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 12 }
-		add = gold
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 13 }
-		add = prestige
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 14 }
-		add = piety
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 15 }
-		add = max_military_strength
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 16 }
-		add = dread
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 17 }
-		every_child = {
+			limit = { global_var:acs_sort_by < 15 }
 			if = {
-				limit = {is_alive = yes }
-				add = 1
+				limit = { global_var:acs_sort_by = 10 }
+				add = diplomacy
+				add = martial
+				add = stewardship
+				add = intrigue
+				add = learning
+				add = prowess
 			}
-			every_child = {
-				if = {
-					limit = {is_alive = yes }
-					add = 1
-				}
+			else_if = {
+				limit = { global_var:acs_sort_by = 11 }
+				add = magic_souce
+			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 12 }
+				add = gold
+			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 13 }
+				add = prestige
+			}
+			else = {
+				#limit = { global_var:acs_sort_by = 14 }
+				add = piety
+			}
+		}
+		else = {
+			if = {
+				limit = { global_var:acs_sort_by = 15 }
+				add = max_military_strength
+			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 16 }
+				add = dread
+			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 17 }
 				every_child = {
 					if = {
 						limit = {is_alive = yes }
@@ -396,20 +399,33 @@ acs_sort_value = {
 								limit = {is_alive = yes }
 								add = 1
 							}
+							every_child = {
+								if = {
+									limit = {is_alive = yes }
+									add = 1
+								}
+								every_child = {
+									if = {
+										limit = {is_alive = yes }
+										add = 1
+									}
+								}
+							}
 						}
 					}
 				}
 			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 18 }
+				add = total_claim_value_for_sort
+			}
+			else = {
+				#limit = { global_var:acs_sort_by = 19 }
+				add = acs_invite_to_court_for_sort
+			}
 		}
 	}
-	if = {
-		limit = { global_var:acs_sort_by = 18 }
-		add = total_claim_value_for_sort
-	}
-	if = {
-		limit = { global_var:acs_sort_by = 19 }
-		add = acs_invite_to_court_for_sort
-	}
+	
 	if = {
 		limit = { global_var:acs_sort_by_ascending = 1 }
 		multiply = -1
