@@ -131,6 +131,33 @@ types acs_sort_types {
                     text = "game_concept_gold"
                 }
             }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)20' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "acs_sort_by_balance"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)21' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "SORT_INCOME"
+                }
+            }
+
+            acs_dropdown_selected_value = {
+                blockoverride "visibility" {
+					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)22' )]"
+                }
+                blockoverride "text_button_drop" {
+                    text = "acs_sort_by_expenses"
+                }
+            }
                 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
@@ -282,6 +309,27 @@ types acs_sort_types {
                 blockoverride "text_button_drop" {
                     text = "game_concept_gold"
                     onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)12' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "acs_sort_by_balance"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)20' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "SORT_INCOME"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)21' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
+                }
+            }
+
+            acs_dropdown_other_value = {
+                blockoverride "text_button_drop" {
+                    text = "acs_sort_by_expenses"
+                    onclick = "[GetScriptedGui( 'acs_sort' ).Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)22' ) ).SetRoot( GetPlayer.MakeScope ).End )]"
                 }
             }
             

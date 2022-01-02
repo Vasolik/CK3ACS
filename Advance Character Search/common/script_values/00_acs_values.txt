@@ -344,7 +344,11 @@ acs_sort_value = {
 			}
 		}	
 	}
-	else = {
+	else_if = {
+		limit = { 
+			global_var:acs_sort_by >= 10
+			global_var:acs_sort_by < 20
+		}
 		if = {
 			limit = { global_var:acs_sort_by < 15 }
 			if = {
@@ -423,9 +427,27 @@ acs_sort_value = {
 				#limit = { global_var:acs_sort_by = 19 }
 				add = acs_invite_to_court_for_sort
 			}
-		}
+		}	
 	}
-	
+	else = {
+		if = {
+			limit = { global_var:acs_sort_by < 25 }
+			if = {
+				limit = { global_var:acs_sort_by = 20 }
+				add = monthly_character_balance
+			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 21 }
+				add = monthly_character_income
+			}
+			else_if = {
+				limit = { global_var:acs_sort_by = 22 }
+				add = monthly_character_expenses
+			}
+		}
+		
+	}
+
 	if = {
 		limit = { has_global_variable = acs_sort_by_ascending }
 		multiply = -1
