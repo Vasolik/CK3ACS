@@ -23,19 +23,19 @@ claim_value_for_sort = {
     multiply = 10
     if = {
         limit = {
-			trigger_if = {
-				limit = { tier = tier_county }
-				NOT = { title_capital_county.culture = prev.culture }
-			}
+            trigger_if = {
+                limit = { tier = tier_county }
+                NOT = { title_capital_county.culture = prev.culture }
+            }
         }
         add = -1
     }
     if = {
         limit = {
-			trigger_if = {
-				limit = { tier = tier_county }
-				NOT = { title_capital_county.culture_group = prev.culture_group }
-			}
+            trigger_if = {
+                limit = { tier = tier_county }
+                NOT = { title_capital_county.culture_group = prev.culture_group }
+            }
         }
         add = -2
     }
@@ -51,121 +51,121 @@ total_claim_value = {
 total_claim_county_value = {
     value = 0
     every_claim = {
-		if = {
-			limit = { tier < tier_duchy }
-			add = 1
-		}
+        if = {
+            limit = { tier < tier_duchy }
+            add = 1
+        }
     }
 }
 
 total_claim_duchy_value = {
     value = 0
     every_claim = {
-		if = {
-			limit = { tier = tier_duchy }
-			add = 1
-		}
+        if = {
+            limit = { tier = tier_duchy }
+            add = 1
+        }
     }
 }
 
 total_claim_kingdom_value = {
     value = 0
     every_claim = {
-		if = {
-			limit = { tier = tier_kingdom }
-			add = 1
-		}
+        if = {
+            limit = { tier = tier_kingdom }
+            add = 1
+        }
     }
 }
 
 total_claim_empire_value = {
     value = 0
     every_claim = {
-		if = {
-			limit = { tier = tier_empire }
-			add = 1
-		}
+        if = {
+            limit = { tier = tier_empire }
+            add = 1
+        }
     }
 }
 
 total_heritage_barony_value = {
     value = 0
     every_pretender_title = {
-		if = {
-			limit = { tier < tier_county }
-			add = 1
-		}
+        if = {
+            limit = { tier < tier_county }
+            add = 1
+        }
     }
-	every_heir_to_title = {
-		if = {
-			limit = { tier < tier_county }
-			add = 1
-		}
-	}
+    every_heir_to_title = {
+        if = {
+            limit = { tier < tier_county }
+            add = 1
+        }
+    }
 }
 
 total_heritage_county_value = {
     value = 0
     every_pretender_title = {
-		if = {
-			limit = { tier = tier_county }
-			add = 1
-		}
+        if = {
+            limit = { tier = tier_county }
+            add = 1
+        }
     }
-	every_heir_to_title = {
-		if = {
-			limit = { tier = tier_county }
-			add = 1
-		}
-	}
+    every_heir_to_title = {
+        if = {
+            limit = { tier = tier_county }
+            add = 1
+        }
+    }
 }
 
 total_heritage_duchy_value = {
     value = 0
     every_pretender_title = {
-		if = {
-			limit = { tier = tier_duchy }
-			add = 1
-		}
+        if = {
+            limit = { tier = tier_duchy }
+            add = 1
+        }
     }
-	every_heir_to_title = {
-		if = {
-			limit = { tier = tier_duchy }
-			add = 1
-		}
-	}
+    every_heir_to_title = {
+        if = {
+            limit = { tier = tier_duchy }
+            add = 1
+        }
+    }
 }
 
 total_heritage_kingdom_value = {
     value = 0
     every_pretender_title = {
-		if = {
-			limit = { tier = tier_kingdom }
-			add = 1
-		}
+        if = {
+            limit = { tier = tier_kingdom }
+            add = 1
+        }
     }
-	every_heir_to_title = {
-		if = {
-			limit = { tier = tier_kingdom }
-			add = 1
-		}
-	}
+    every_heir_to_title = {
+        if = {
+            limit = { tier = tier_kingdom }
+            add = 1
+        }
+    }
 }
 
 total_heritage_empire_value = {
     value = 0
     every_pretender_title = {
-		if = {
-			limit = { tier = tier_empire }
-			add = 1
-		}
+        if = {
+            limit = { tier = tier_empire }
+            add = 1
+        }
     }
-	every_heir_to_title = {
-		if = {
-			limit = { tier = tier_empire }
-			add = 1
-		}
-	}
+    every_heir_to_title = {
+        if = {
+            limit = { tier = tier_empire }
+            add = 1
+        }
+    }
 }
 
 
@@ -189,313 +189,313 @@ total_claim_value_for_sort = {
     }
 }
 age_sort_function = {
-	value = 1
-	if = {
-		limit = { age <= 45 }
-		add = {
-			value = -0.31
-			multiply = age
-			multiply = age
-		}
-		add = {
-			value = 15.24
-			multiply = age
-		}
-		add = 1
-		multiply = 0.01
-	}
-	if = {
-		limit = { age > 45 }
-		add = {
-			value = 0.04
-			multiply = age
-			multiply = age
-		}
-		add = {
-			value = -12.94
-			multiply = age
-		}
-		add = 996.93
-		
-		multiply = 0.001
-	}
+    value = 1
+    if = {
+        limit = { age <= 45 }
+        add = {
+            value = -0.31
+            multiply = age
+            multiply = age
+        }
+        add = {
+            value = 15.24
+            multiply = age
+        }
+        add = 1
+        multiply = 0.01
+    }
+    if = {
+        limit = { age > 45 }
+        add = {
+            value = 0.04
+            multiply = age
+            multiply = age
+        }
+        add = {
+            value = -12.94
+            multiply = age
+        }
+        add = 996.93
+        
+        multiply = 0.001
+    }
 }
 health_sort_function = {
-	add = {
-		value = 0.09
-		multiply = health
-		multiply = health
-		multiply = health
-		multiply = health
-	}
-	add = {
-		value = -1.2
-		multiply = health
-		multiply = health
-		multiply = health
-	}
-	add = {
-		value = 7.17
-		multiply = health
-		multiply = health
-	}
-	add = {
-		value = 4.1
-		multiply = health
-	}
-	add = -0.16
+    add = {
+        value = 0.09
+        multiply = health
+        multiply = health
+        multiply = health
+        multiply = health
+    }
+    add = {
+        value = -1.2
+        multiply = health
+        multiply = health
+        multiply = health
+    }
+    add = {
+        value = 7.17
+        multiply = health
+        multiply = health
+    }
+    add = {
+        value = 4.1
+        multiply = health
+    }
+    add = -0.16
 }
 magic_souce = {
-	value = diplomacy
-	multiply = 1.5
-	add = {
-		value = martial
-	}
-	add = {
-		value = stewardship
-		multiply = 3
-	}
-	add = {
-		value = intrigue
-		multiply = 0.75
-	}
-	add = {
-		value = learning
-		multiply = 1.3
-	}
-	add = {
-		value = prowess
-		multiply = 0.9
-	}
-	add = {
-		value = num_of_good_genetic_traits
-		multiply = 3
-	}
-	add = {
-		value = num_of_bad_genetic_traits
-		multiply = -3
-	}
-	add = num_virtuous_traits
-	subtract = num_sinful_traits
-	multiply = age_sort_function
-	multiply = health_sort_function
+    value = diplomacy
+    multiply = 1.5
+    add = {
+        value = martial
+    }
+    add = {
+        value = stewardship
+        multiply = 3
+    }
+    add = {
+        value = intrigue
+        multiply = 0.75
+    }
+    add = {
+        value = learning
+        multiply = 1.3
+    }
+    add = {
+        value = prowess
+        multiply = 0.9
+    }
+    add = {
+        value = num_of_good_genetic_traits
+        multiply = 3
+    }
+    add = {
+        value = num_of_bad_genetic_traits
+        multiply = -3
+    }
+    add = num_virtuous_traits
+    subtract = num_sinful_traits
+    multiply = age_sort_function
+    multiply = health_sort_function
 }
 
 acs_sort_value = {
-	value = 0
-	if = {
-		limit = { global_var:acs_sort_by < 10 }
-		if = {
-			limit = { global_var:acs_sort_by < 5 }
-			if = {
-				limit = { global_var:acs_sort_by = 0 }
-				add = health
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 1 }
-				if = {
-					limit = { is_ruler = yes }
-					add = primary_title.tier
-				}
-				else =	{
-					if = {
-						limit = { is_lowborn = yes }
-						add = -1
-					}
-				}	
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 2 }
-				add = age
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 3 }
-		
-				if = {
-					limit = {save_temporary_opinion_value_as  = {name = temp_op target = scope:acs_sort_root}}
-					add = scope:temp_op
-				}
-			}
-			else = {
-				#limit = { global_var:acs_sort_by = 4 }
-				add = diplomacy
-			}
-		}
-		else = {
-			if = {
-				limit = { global_var:acs_sort_by = 5 }
-				add = martial
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 6 }
-				add = stewardship
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 7 }
-				add = intrigue
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 8 }
-				add = learning
-			}
-			else = {
-				#limit = { global_var:acs_sort_by = 9 }
-				add = prowess
-			}
-		}	
-	}
-	else_if = {
-		limit = { 
-			global_var:acs_sort_by >= 10
-			global_var:acs_sort_by < 20
-		}
-		if = {
-			limit = { global_var:acs_sort_by < 15 }
-			if = {
-				limit = { global_var:acs_sort_by = 10 }
-				add = diplomacy
-				add = martial
-				add = stewardship
-				add = intrigue
-				add = learning
-				add = prowess
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 11 }
-				add = magic_souce
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 12 }
-				add = gold
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 13 }
-				add = prestige
-			}
-			else = {
-				#limit = { global_var:acs_sort_by = 14 }
-				add = piety
-			}
-		}
-		else = {
-			if = {
-				limit = { global_var:acs_sort_by = 15 }
-				add = max_military_strength
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 16 }
-				add = dread
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 17 }
-				every_child = {
-					if = {
-						limit = {is_alive = yes }
-						add = 1
-					}
-					every_child = {
-						if = {
-							limit = {is_alive = yes }
-							add = 1
-						}
-						every_child = {
-							if = {
-								limit = {is_alive = yes }
-								add = 1
-							}
-							every_child = {
-								if = {
-									limit = {is_alive = yes }
-									add = 1
-								}
-								every_child = {
-									if = {
-										limit = {is_alive = yes }
-										add = 1
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 18 }
-				add = total_claim_value_for_sort
-			}
-			else = {
-				#limit = { global_var:acs_sort_by = 19 }
-				add = acs_invite_to_court_for_sort
-			}
-		}	
-	}
-	else = {
-		if = {
-			limit = { global_var:acs_sort_by < 25 }
-			if = {
-				limit = { global_var:acs_sort_by = 20 }
-				add = monthly_character_balance
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 21 }
-				add = monthly_character_income
-			}
-			else_if = {
-				limit = { global_var:acs_sort_by = 22 }
-				add = monthly_character_expenses
-			}
-		}
-		
-	}
+    value = 0
+    if = {
+        limit = { global_var:acs_sort_by < 10 }
+        if = {
+            limit = { global_var:acs_sort_by < 5 }
+            if = {
+                limit = { global_var:acs_sort_by = 0 }
+                add = health
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 1 }
+                if = {
+                    limit = { is_ruler = yes }
+                    add = primary_title.tier
+                }
+                else =    {
+                    if = {
+                        limit = { is_lowborn = yes }
+                        add = -1
+                    }
+                }    
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 2 }
+                add = age
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 3 }
+        
+                if = {
+                    limit = {save_temporary_opinion_value_as  = {name = temp_op target = scope:acs_sort_root}}
+                    add = scope:temp_op
+                }
+            }
+            else = {
+                #limit = { global_var:acs_sort_by = 4 }
+                add = diplomacy
+            }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_sort_by = 5 }
+                add = martial
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 6 }
+                add = stewardship
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 7 }
+                add = intrigue
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 8 }
+                add = learning
+            }
+            else = {
+                #limit = { global_var:acs_sort_by = 9 }
+                add = prowess
+            }
+        }    
+    }
+    else_if = {
+        limit = { 
+            global_var:acs_sort_by >= 10
+            global_var:acs_sort_by < 20
+        }
+        if = {
+            limit = { global_var:acs_sort_by < 15 }
+            if = {
+                limit = { global_var:acs_sort_by = 10 }
+                add = diplomacy
+                add = martial
+                add = stewardship
+                add = intrigue
+                add = learning
+                add = prowess
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 11 }
+                add = magic_souce
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 12 }
+                add = gold
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 13 }
+                add = prestige
+            }
+            else = {
+                #limit = { global_var:acs_sort_by = 14 }
+                add = piety
+            }
+        }
+        else = {
+            if = {
+                limit = { global_var:acs_sort_by = 15 }
+                add = max_military_strength
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 16 }
+                add = dread
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 17 }
+                every_child = {
+                    if = {
+                        limit = {is_alive = yes }
+                        add = 1
+                    }
+                    every_child = {
+                        if = {
+                            limit = {is_alive = yes }
+                            add = 1
+                        }
+                        every_child = {
+                            if = {
+                                limit = {is_alive = yes }
+                                add = 1
+                            }
+                            every_child = {
+                                if = {
+                                    limit = {is_alive = yes }
+                                    add = 1
+                                }
+                                every_child = {
+                                    if = {
+                                        limit = {is_alive = yes }
+                                        add = 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 18 }
+                add = total_claim_value_for_sort
+            }
+            else = {
+                #limit = { global_var:acs_sort_by = 19 }
+                add = acs_invite_to_court_for_sort
+            }
+        }    
+    }
+    else = {
+        if = {
+            limit = { global_var:acs_sort_by < 25 }
+            if = {
+                limit = { global_var:acs_sort_by = 20 }
+                add = monthly_character_balance
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 21 }
+                add = monthly_character_income
+            }
+            else_if = {
+                limit = { global_var:acs_sort_by = 22 }
+                add = monthly_character_expenses
+            }
+        }
+        
+    }
 
-	if = {
-		limit = { has_global_variable = acs_sort_by_ascending }
-		multiply = -1
-	}
+    if = {
+        limit = { has_global_variable = acs_sort_by_ascending }
+        multiply = -1
+    }
 }
 
 acs_total_number_of_characters = {
-	value = 0
-	every_living_character = {
-		add = 1
-	}
+    value = 0
+    every_living_character = {
+        add = 1
+    }
 }
 
 acs_select_count = {
-	value = global_var:acs_select_count
+    value = global_var:acs_select_count
 }
 
 acs_num_of_bad_genetic_traits_modified = {
-	value = num_of_bad_genetic_traits
-	if = {
-		limit = {
-			has_trait = depressed_genetic
-		}
-		add = -1
-	}
-	if = {
-		limit = {
-			has_trait = lunatic_genetic
-		}
-		add = -1
-	}
-	if = {
-		limit = {
-			has_trait = possessed_genetic
-		}
-		add = -1
-	}
-	if = {
-		limit = {
-			has_trait = infertile
-		}
-		add = -1
-	}
+    value = num_of_bad_genetic_traits
+    if = {
+        limit = {
+            has_trait = depressed_genetic
+        }
+        add = -1
+    }
+    if = {
+        limit = {
+            has_trait = lunatic_genetic
+        }
+        add = -1
+    }
+    if = {
+        limit = {
+            has_trait = possessed_genetic
+        }
+        add = -1
+    }
+    if = {
+        limit = {
+            has_trait = infertile
+        }
+        add = -1
+    }
 }
 
 acs_modulo_2 = {
-	value = scope:to_get_modulo
-	modulo = 2
+    value = scope:to_get_modulo
+    modulo = 2
 }
 
 acs_position_value_offset = {
@@ -520,208 +520,208 @@ acs_position_total_count = {
 
 
 acs_distance = {
-	value = var:acs_distance 
-	subtract = local_var:distance
+    value = var:acs_distance 
+    subtract = local_var:distance
 }
 
 acs_invite_to_court_for_sort = {
-	value = acs_invite_to_court
-	if = {
-		limit = {
-			OR = {
-				is_courtier_of = scope:acs_invite_to_court
-				is_foreign_court_guest = yes
-				AND = {
-					exists = host
-					host = scope:acs_invite_to_court
-				}
-			}			
-		}
-		add = -5000
-	}
-	if = {
-		limit = {
-			is_ruler = yes	
-		}
-		add = -10000
-	}
+    value = acs_invite_to_court
+    if = {
+        limit = {
+            OR = {
+                is_courtier_of = scope:acs_invite_to_court
+                is_foreign_court_guest = yes
+                AND = {
+                    exists = host
+                    host = scope:acs_invite_to_court
+                }
+            }            
+        }
+        add = -5000
+    }
+    if = {
+        limit = {
+            is_ruler = yes    
+        }
+        add = -10000
+    }
 }
 
 
 acs_invite_to_court = {
-	value = -50
+    value = -50
 
-	if = {
-		limit = {
-			save_temporary_opinion_value_as  = { name = temp_op target = scope:acs_invite_to_court }
-		}
-		add = {
-			value = scope:temp_op
-			multiply = 0.1 # multiplier 0.5 divide 5
-			if = {
-				limit = { scope:temp_op < 0 }
-				ceiling = yes
-			}
-			else = {
-				floor = yes 
-			} 
-			multiply = 5
-			max = 25
-		} 
-	} 
-	if = {
-		limit = {
-			is_knight = yes
-		}
-		add = -20
-	}  
-	if = {
-		limit = {
-			is_commanding_army = yes
-		}
-		add = -30
-	} 
-	if = {
-		limit = {
-			is_councillor = yes
-		}
-		add = -40
-	} 
-	if = {
-		limit = {
-			has_relation_lover = scope:acs_invite_to_court
-		}
-		add = 100
-	} 
-	if = {
-		limit = {
-			has_relation_friend = scope:acs_invite_to_court
-		}
-		add = 75
-	} 
-	if = {
-		limit = {
-			is_child_of = scope:acs_invite_to_court
-		}
-		add = 160
-	} 
-	if = {
-		limit = {
-			this.dynasty.dynast = scope:acs_invite_to_court
-		}
-		add = 30
-	} 
-	if = {
-		limit = {
-			this.house.house_head = scope:acs_invite_to_court
-		}
-		add = 30
-	} 
-	if = {
-		limit = {
-			NOT = { is_child_of = scope:acs_invite_to_court }
- 			is_close_family_of = scope:acs_invite_to_court
-		}
-		add = 75
-	} 
-	if = {
-		limit = {
-			is_spouse_of = scope:acs_invite_to_court
-		}
-		add = 75
-	} 
-	if = {
-		limit = {
-			exists = liege
-		}
-		if = {
-			limit = {
-				 has_relation_lover = liege
-			}
-			add = -100
-		} 
-		if = {
-			limit = {
-				 has_relation_friend = liege
-			}
-			add = -75
-		} 
-		if = {
-			limit = {
-				is_child_of = liege
-			}
-			add = -100
-		} 
-		if = {
-			limit = {
-				NOT = { is_child_of = liege }
- 				is_close_family_of = liege
-			}
-			add = -75
-		} 
+    if = {
+        limit = {
+            save_temporary_opinion_value_as  = { name = temp_op target = scope:acs_invite_to_court }
+        }
+        add = {
+            value = scope:temp_op
+            multiply = 0.1 # multiplier 0.5 divide 5
+            if = {
+                limit = { scope:temp_op < 0 }
+                ceiling = yes
+            }
+            else = {
+                floor = yes 
+            } 
+            multiply = 5
+            max = 25
+        } 
+    } 
+    if = {
+        limit = {
+            is_knight = yes
+        }
+        add = -20
+    }  
+    if = {
+        limit = {
+            is_commanding_army = yes
+        }
+        add = -30
+    } 
+    if = {
+        limit = {
+            is_councillor = yes
+        }
+        add = -40
+    } 
+    if = {
+        limit = {
+            has_relation_lover = scope:acs_invite_to_court
+        }
+        add = 100
+    } 
+    if = {
+        limit = {
+            has_relation_friend = scope:acs_invite_to_court
+        }
+        add = 75
+    } 
+    if = {
+        limit = {
+            is_child_of = scope:acs_invite_to_court
+        }
+        add = 160
+    } 
+    if = {
+        limit = {
+            this.dynasty.dynast = scope:acs_invite_to_court
+        }
+        add = 30
+    } 
+    if = {
+        limit = {
+            this.house.house_head = scope:acs_invite_to_court
+        }
+        add = 30
+    } 
+    if = {
+        limit = {
+            NOT = { is_child_of = scope:acs_invite_to_court }
+             is_close_family_of = scope:acs_invite_to_court
+        }
+        add = 75
+    } 
+    if = {
+        limit = {
+            is_spouse_of = scope:acs_invite_to_court
+        }
+        add = 75
+    } 
+    if = {
+        limit = {
+            exists = liege
+        }
+        if = {
+            limit = {
+                 has_relation_lover = liege
+            }
+            add = -100
+        } 
+        if = {
+            limit = {
+                 has_relation_friend = liege
+            }
+            add = -75
+        } 
+        if = {
+            limit = {
+                is_child_of = liege
+            }
+            add = -100
+        } 
+        if = {
+            limit = {
+                NOT = { is_child_of = liege }
+                 is_close_family_of = liege
+            }
+            add = -75
+        } 
 
-		if = {
-			limit = {
-				is_courtier_of = liege
-				save_temporary_opinion_value_as  = { name = temp_op target = this.liege }
-			}
-			add = {
-				value = scope:temp_op
-				multiply = -0.1 # multiplier -0.5 divide 5
-				if = {
-					limit = { scope:temp_op > 0 }
-					ceiling = yes
-				}
-				else = {
-					floor = yes 
-				}
-				multiply = 5
-				max = 25
-			} 
-		} 
-	}
-	if = {
-		limit = { exists = location }
-		if = {
-			limit = {
-				any_consort_not_in_traveling_family_trigger = yes
-			}
-			add = -100
-		} 
-		if = {
-			limit = {
-				any_child_not_in_traveling_family_trigger = yes
-			}
-			add = -100
-		} 
-	}
-	if = {
-		limit = {
-			is_married = yes
-			is_male = yes
-			any_spouse = {
-				matrilinear_marriage = yes
-				host = prev.host
-			}
-		}
-		add = -50
-	}
-	if = {
-		limit = {
-			is_married = yes
- 			is_female = yes
- 			any_spouse = {
- 				patrilinear_marriage = yes
- 				host = prev.host
- 			}
-		}
-		add = -50
-	}
-	if = {
-		limit = {
-			is_child_of = scope:acs_invite_to_court
- 			has_character_modifier = lust_for_adventure
-		}
-		add = -500
-	}
+        if = {
+            limit = {
+                is_courtier_of = liege
+                save_temporary_opinion_value_as  = { name = temp_op target = this.liege }
+            }
+            add = {
+                value = scope:temp_op
+                multiply = -0.1 # multiplier -0.5 divide 5
+                if = {
+                    limit = { scope:temp_op > 0 }
+                    ceiling = yes
+                }
+                else = {
+                    floor = yes 
+                }
+                multiply = 5
+                max = 25
+            } 
+        } 
+    }
+    if = {
+        limit = { exists = location }
+        if = {
+            limit = {
+                any_consort_not_in_traveling_family_trigger = yes
+            }
+            add = -100
+        } 
+        if = {
+            limit = {
+                any_child_not_in_traveling_family_trigger = yes
+            }
+            add = -100
+        } 
+    }
+    if = {
+        limit = {
+            is_married = yes
+            is_male = yes
+            any_spouse = {
+                matrilinear_marriage = yes
+                host = prev.host
+            }
+        }
+        add = -50
+    }
+    if = {
+        limit = {
+            is_married = yes
+             is_female = yes
+             any_spouse = {
+                 patrilinear_marriage = yes
+                 host = prev.host
+             }
+        }
+        add = -50
+    }
+    if = {
+        limit = {
+            is_child_of = scope:acs_invite_to_court
+             has_character_modifier = lust_for_adventure
+        }
+        add = -500
+    }
 }

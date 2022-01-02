@@ -1,4 +1,4 @@
-types acs_sort_types {
+﻿types acs_sort_types {
     type acs_sort_dropdown = acs_dropdown_no_order_change {
         name = "sort_options"
         blockoverride "acs_filter_item_size" {
@@ -17,7 +17,7 @@ types acs_sort_types {
         blockoverride "acs_dropdown_selected_values" { 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)0' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)0' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "SORT_HEALTH"
@@ -26,7 +26,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)1' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)1' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "CHARACTER_SORT_TITLES"
@@ -35,7 +35,7 @@ types acs_sort_types {
             
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)2' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)2' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "CHARACTER_SORT_AGE"
@@ -44,7 +44,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)3' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)3' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "SORT_OPINION"
@@ -53,7 +53,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)4' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)4' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "diplomacy"
@@ -62,7 +62,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)5' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)5' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "martial"
@@ -71,7 +71,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)6' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)6' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "stewardship"
@@ -80,7 +80,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)7' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)7' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "intrigue"
@@ -89,7 +89,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)8' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)8' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "learning"
@@ -98,7 +98,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)9' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)9' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "prowess"
@@ -107,7 +107,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)10' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)10' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "CHARACTER_SORT_ALL_SKILLS"
@@ -116,7 +116,7 @@ types acs_sort_types {
             
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)11' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)11' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "acs_sort_by_magic_sauce"
@@ -125,7 +125,7 @@ types acs_sort_types {
             
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)12' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)12' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "game_concept_gold"
@@ -134,7 +134,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)20' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)20' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "acs_sort_by_balance"
@@ -143,7 +143,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)21' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)21' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "SORT_INCOME"
@@ -152,7 +152,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)22' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)22' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "acs_sort_by_expenses"
@@ -161,7 +161,7 @@ types acs_sort_types {
                 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)13' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)13' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "game_concept_prestige"
@@ -170,7 +170,7 @@ types acs_sort_types {
             
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)14' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)14' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "game_concept_piety"
@@ -179,7 +179,7 @@ types acs_sort_types {
             
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)15' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)15' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "SORT_MILITARY_STRENGTH"
@@ -188,7 +188,7 @@ types acs_sort_types {
             
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)16' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)16' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "game_concept_dread"
@@ -198,7 +198,7 @@ types acs_sort_types {
                     
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)17' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)17' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "progeny"
@@ -207,7 +207,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)18' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)18' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "game_concept_claim"
@@ -216,7 +216,7 @@ types acs_sort_types {
 
             acs_dropdown_selected_value = {
                 blockoverride "visibility" {
-					visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)19' )]"
+                    visible = "[EqualTo_CFixedPoint( GetGlobalVariable( 'acs_sort_by' ).GetValue, '(CFixedPoint)19' )]"
                 }
                 blockoverride "text_button_drop" {
                     text = "acs_invite_to_court"
