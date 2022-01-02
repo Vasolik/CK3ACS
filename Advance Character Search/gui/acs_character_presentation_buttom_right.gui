@@ -4,10 +4,6 @@ types acs_character_presentation_buttom_right {
         datacontext = "[Scope.GetCharacter]" 
         size = { 70 60 }
 
-		background = {
-			using = Background_Area_Dark
-			color = { 0.2 0.2 0.2 0.4 }
-		}
 		visible = "[Character.MakeScope.Var( 'acs_best_claim' ).IsSet]"
 		
         coa_title_tiny_crown = {
@@ -339,7 +335,7 @@ types acs_character_presentation_buttom_right {
 		}
     }
 
-	type acs_faith = button {
+	type acs_faith_and_piety = button {
 		size = { 60 60 }
 		onclick = "[DefaultOnFaithClick(Character.GetFaith.GetID)]"
 		button_religion_icon = {
@@ -348,36 +344,36 @@ types acs_character_presentation_buttom_right {
 			position = { 10 0 }
 		}
 		widget = {
-			size = { 60 25 }
+			size = { 55 25 }
 			position = { 0 35 }
 			icon = {
 				size = { 25 25 }
-				position = { 0 0 }
 				texture = "[Character.GetPietyLevelTexture]"
 			}
 			text_single = {
 				text = "[Character.GetPiety|0]"
 				fontsize_min = 9.5
-				max_width = 35  
-				size = { 35 25 } 
-				position = { 25 0 }
+				max_width = 30  
+				size = { 30 25 } 
+				align = nobaseline
+				parentanchor = vcenter|right
+            	widgetanchor = vcenter|right
 			}
 			tooltip = "[Character.GetPietyTooltipWithBalance]"
 		} 	
 	}
 
-	type acs_culture = widget  {
+	type acs_culture_prestige_and_gold = widget  {
 		
-		size = { 150 60 }
+		size = { 170 60 }
 
 		button_standard_hover = {
 			onclick = "[DefaultOnCultureClick(Culture.GetID)]"
 			datacontext = "[Character.GetCulture]"
-			size = { 150 24 }
+			size = { 170 35 }
 			icon = {
-				name = "culture"
 				texture = "gfx/interface/icons/icon_culture.dds"
-				size = { 24 24 }
+				size = { 35 35 }
 				parentanchor = vcenter|left
             	widgetanchor = vcenter|left
 			}
@@ -387,8 +383,8 @@ types acs_character_presentation_buttom_right {
 				text = "CULTURE_LISTS_WINDOW"
 				autoresize = yes
 				align = nobaseline
-				position = { 30 0}
-				max_width = 90
+				position = { 35 0}
+				max_width = 105
 				parentanchor = vcenter|left
             	widgetanchor = vcenter|left
 			}
@@ -398,35 +394,137 @@ types acs_character_presentation_buttom_right {
 			}
 			using = tooltip_se
 		}
-	
+		widget = {
+			size = { 55 25 }
+			position = { 0 35 }
+			icon = {
+				size = { 25 25 }
+				texture = "[Character.GetPrestigeLevelTexture]"
+			}
+			text_single = {
+				text = "[Character.GetPrestige|0]"
+				fontsize_min = 9.5
+				max_width = 30  
+				size = { 30 25 } 
+				align = nobaseline
+				parentanchor = vcenter|right
+            	widgetanchor = vcenter|right
+			}
+			tooltip = "[Character.GetPrestigeTooltipWithBalance]"
+		}
+
+		widget = {
+            size = { 60 25 }
+			position = { 65 35 }
+			icon = {
+				size = { 25 25 }
+				texture = "gfx/interface/icons/icon_gold.dds"
+			}
+			text_single = {
+				text = "[Character.GetGoldTextNoIcon|0]"
+				fontsize_min = 9.5
+				max_width = 30  
+				size = { 30 25 } 
+				align = nobaseline
+				parentanchor = vcenter|right
+            	widgetanchor = vcenter|right
+			}
+			tooltip = "[Character.GetGoldTooltipWithBalance]"            
+        } 
+		widget = {
+            size = { 30 25 }
+			position = { 128 35 }
+            text_single = {
+                text = "[Character.GetBalance|1+=]"
+                align = top
+                fontsize_min = 9.5
+				fontsize = 12.5
+                max_width = 30
+				parentanchor = top|left
+            	widgetanchor = top|left
+				visible = "[NotEqualTo_CFixedPoint(Character.GetBalance, '(CFixedPoint)0')]"
+            }
+			using = tooltip_nw
+			tooltipwidget = {
+				acs_balance_tooltip = {}
+			}
+        } 
+	}
+	type acs_balance_tooltip = container {
+		using = GeneralTooltipSetup
+		
+		ignoreinvisible = yes
+		alwaystransparent = no
+		widget = {
+			name = "background"
+			using = DefaultTooltipBackground
+			size = { 100% 100% }
+			alwaystransparent = no
+		}
+
+		scrollbox = {
+			visible = "[NotEqualTo_CFixedPoint(Character.GetBalance, '(CFixedPoint)0')]"
+			layoutpolicy_vertical = expanding
+			layoutpolicy_horizontal = expanding
+			size = { 420 400 }
+			blockoverride "scrollbox_replace_vbox" {
+				flowcontainer = {
+					margin = { 20 20 }
+					text_multi = {
+						text = "[Character.GetBalanceBreakdown]"
+						align = left
+						autoresize = yes
+						maximumsize = { 400 -1 }
+					}
+					
+				}
+			}
+		}
+		widget = {
+			size = {200 120}
+			text_multi = {
+				position = {20 20 }
+				visible = "[EqualTo_CFixedPoint(Character.GetBalance, '(CFixedPoint)0')]"
+				text = "[Character.GetBalanceBreakdown]"
+				align = left
+				autoresize = yes
+				maximumsize = { 200 -1 }
+			}
+		}
 	}
 
 	type acs_character_buttom_right = widget {
 		datacontext = "[Scope.GetCharacter]"
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
-		size = { 380 60 }
+		size = { 400 60 }
 
-		acs_heritate_widget = {
-			position = { 0 0 }
+		
+		flowcontainer = {
+			background = {
+				using = Background_Area_Dark
+				color = { 0.1 0.1 0.1  0.7 }
+			}
+			acs_heritate_widget = {	}
 		}
+		
 		acs_claims_widget = {
 			position = { 90 0 }
 		}
 
 		# Religion and culture
 		widget = {
-			size= { 220 60 }
+			size= { 240 60 }
 			position = { 160 0 }
 			background = {
 				using = Background_Area_Dark
 				alpha = 0.5
 				margin = { 0 2 }
 			}
-			acs_faith = {
+			acs_faith_and_piety = {
 				position = { 5 0 }
 			}
-			acs_culture = {
+			acs_culture_prestige_and_gold = {
 				position = { 70 0 }
 			}
 		}

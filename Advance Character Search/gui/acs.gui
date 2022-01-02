@@ -10,7 +10,6 @@ window = {
     using = Window_Background
     using = Window_Decoration_Spike
     
-
     state = {
         name = _show
         trigger_on_create = yes
@@ -52,7 +51,6 @@ window = {
                         item = {
                             acs_widget_character_list_item_finder = {
                                 datacontext = "[Scope.GetCharacter]"
-                                layoutpolicy_horizontal = expanding
                                 size = { 900 94 }
                             }
                         }
@@ -65,9 +63,11 @@ window = {
             } 
         }
     
-        acs_header_pattern = { 
+        acs_header_pattern = {
+            parentanchor = top|hcenter
+            widgetanchor = top|hcenter
             size = { 910 56 }
-            position = { 35 18 }
+            position = { 12 18 }
         }
         acs_hbox_list_sort_buttons = {
             layoutpolicy_horizontal = expanding
