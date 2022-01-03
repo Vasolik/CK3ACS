@@ -1,8 +1,8 @@
 version="7.6"
 tags={
-	"Gameplay"
-	"Utilities"
-	"Fixes"
+    "Gameplay"
+    "Utilities"
+    "Fixes"
 }
 name="Advance Character Search"
 supported_version="1.4.*"

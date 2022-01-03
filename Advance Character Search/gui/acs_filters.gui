@@ -19,13 +19,13 @@
         state = {
             name = _hide
             using = Animation_FadeOut_Quick
-		}
-		
+        }
+        
         acs_reset_undo_widget = {
-			parentanchor = bottom|hcenter
+            parentanchor = bottom|hcenter
             widgetanchor = bottom|hcenter
-			position = { 0 -60 }
-		}
+            position = { 0 -60 }
+        }
         
         widget = { # filters
             size = { 600 750 }
@@ -50,21 +50,21 @@
                     {
                         onclick = "[GetVariableSystem.Toggle( 'acs_filter_toggle' )]"
                     }
-					blockoverride "reload_visible" {
-						visible = no
-					}
+                    blockoverride "reload_visible" {
+                        visible = no
+                    }
                 }
 
-				scrollbox = {
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-					maximumsize = { 600 653 }
-					blockoverride "scrollbox_content" {
-						flowcontainer = {
-							layoutpolicy_horizontal = expanding
-							layoutpolicy_vertical = expanding
-							direction = vertical
-							spacing = 5	
+                scrollbox = {
+                    layoutpolicy_horizontal = expanding
+                    layoutpolicy_vertical = expanding
+                    maximumsize = { 600 653 }
+                    blockoverride "scrollbox_content" {
+                        flowcontainer = {
+                            layoutpolicy_horizontal = expanding
+                            layoutpolicy_vertical = expanding
+                            direction = vertical
+                            spacing = 5    
                             
                             state = {
                                 name = idle
@@ -73,15 +73,15 @@
                     
                             state = {
                                 name = acs_sort
-								on_start = "[PdxGuiWidget.FindChild('acs_dropdown_block').StackBottom]"
+                                on_start = "[PdxGuiWidget.FindChild('acs_dropdown_block').StackBottom]"
                                 on_finish = "[PdxGuiWidget.FindChild('acs_jitter').TriggerAnimation('acs_sort')]"
                                 alpha = 1
                                 duration = 0.001
                                 next = idle
                             }
 
-							acs_dropdown_block = { }
-							acs_checkbox_block = { }
+                            acs_dropdown_block = { }
+                            acs_checkbox_block = { }
 
                             widget = {
                                 size = { 1 1 }
@@ -92,13 +92,13 @@
                                     size = { 1 1 }
                                 }
 
-								state = {
+                                state = {
                                     trigger_on_create = yes
-									on_finish = "[GetVariableSystem.Toggle( 'acs_sort_widget' )]"
-									duration = 0.001
+                                    on_finish = "[GetVariableSystem.Toggle( 'acs_sort_widget' )]"
+                                    duration = 0.001
                                     name = start
                                     size = { 1 1 }
-									next = acs_sort
+                                    next = acs_sort
                                 }
 
                                 state = {
@@ -109,28 +109,28 @@
                                     next = idle
                                 }
                             }
-						}
-					}
-				}
+                        }
+                    }
+                }
             }
         }
         
-		acs_save_load_widget = {
-			parentanchor = bottom|hcenter
+        acs_save_load_widget = {
+            parentanchor = bottom|hcenter
             widgetanchor = bottom|hcenter
-			position = { 0 -20 }
-		}
+            position = { 0 -20 }
+        }
     }
 
-	type acs_vbox_filter_group = flowcontainer {
-		direction = vertical
-		ignoreinvisible = yes
-		spacing = 7
-		allow_outside = yes
+    type acs_vbox_filter_group = flowcontainer {
+        direction = vertical
+        ignoreinvisible = yes
+        spacing = 7
+        allow_outside = yes
         widget = {
             size = { 580 26 }
-			block "acs_header_visible" {}
-            hbox = {	
+            block "acs_header_visible" {}
+            hbox = {    
                 position = { 0 0 }
                 button = {
                     name = "show"
@@ -139,10 +139,10 @@
                     framesize = { 36 36 }
                     size = { 18 18 }
                     onclick = "[GetVariableSystem.Toggle( 'acs_sort_widget' )]"
-					block "acs_vbox_filter_group_toggle" {
-						onclick = "[GetVariableSystem.Toggle( 'acs_filter_group' )]"
-						frame = "[Select_int32( GetVariableSystem.Exists( 'acs_filter_group' ), '(int32)1', '(int32)2' )]"
-					}
+                    block "acs_vbox_filter_group_toggle" {
+                        onclick = "[GetVariableSystem.Toggle( 'acs_filter_group' )]"
+                        frame = "[Select_int32( GetVariableSystem.Exists( 'acs_filter_group' ), '(int32)1', '(int32)2' )]"
+                    }
                     
                     using = tooltip_ws
                     tooltip = "EXPAND_FILTER"
@@ -154,45 +154,45 @@
                     layoutpolicy_horizontal = expanding
                     margin_right = 36
                     name = "label"
-					align = center
-					block "acs_vbox_filter_group_name" {
-						text = "game_concept_personality_traits"
-					}
+                    align = center
+                    block "acs_vbox_filter_group_name" {
+                        text = "game_concept_personality_traits"
+                    }
                     
                 }
     
             }
         }
         flowcontainer = {
-			direction = vertical
-			ignoreinvisible = yes
-			spacing = 5
+            direction = vertical
+            ignoreinvisible = yes
+            spacing = 5
 
             allow_outside = yes
             block "acs_filter_visible" {}
-            block "acs_filters" {}	
+            block "acs_filters" {}    
         }
     }
 
-	type acs_vbox_filter_group_no_header = flowcontainer {
-		direction = vertical
-		ignoreinvisible = yes
-		spacing = 7
-		allow_outside = yes
+    type acs_vbox_filter_group_no_header = flowcontainer {
+        direction = vertical
+        ignoreinvisible = yes
+        spacing = 7
+        allow_outside = yes
        
-		block "acs_filters" {}	
-	}
+        block "acs_filters" {}    
+    }
 }
 
 types acs_block_types {
 
     type acs_dropdown_block = flowcontainer {
-		name = "acs_dropdown_block"
+        name = "acs_dropdown_block"
         layoutpolicy_horizontal = expanding
         layoutpolicy_vertical = expanding
         direction = vertical
         spacing = 5
-		allow_outside = yes
+        allow_outside = yes
         state = {
             name = idle
             alpha = 1
@@ -209,7 +209,7 @@ types acs_block_types {
             next = idle
         }
 
-		acs_filter_main_group = { }
+        acs_filter_main_group = { }
         acs_filter_dropdown_authority_and_heritage_group = { }
         acs_filter_dropdown_personal_group = { }
         acs_filter_dropdown_membership_group = { }
@@ -230,7 +230,7 @@ types acs_block_types {
                 duration = 0.001
                 on_start = "[GetVariableSystem.Clear( 'acs_sort_widget' )]"
                 on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_filter_main').StackTop]"
-				on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_filter_dropdown_authority_and_heritage').StackTop]"
+                on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_filter_dropdown_authority_and_heritage').StackTop]"
                 on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_filter_dropdown_personal').StackTop]"
                 on_finish = "[PdxGuiWidget.AccessParent.FindChild('acs_filter_dropdown_membership').StackTop]"     
                 next = idle
@@ -238,26 +238,26 @@ types acs_block_types {
         }
     }
 
-	type acs_checkbox_block = flowcontainer {
-		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = expanding
-		direction = vertical
-		spacing = 5		
+    type acs_checkbox_block = flowcontainer {
+        layoutpolicy_horizontal = expanding
+        layoutpolicy_vertical = expanding
+        direction = vertical
+        spacing = 5        
 
-		acs_filter_trait_any_trait_of_kind_group = { }
-		acs_filter_trait_physical_group = { }
-		acs_filter_trait_personality_group = { }
-		acs_filter_trait_personality_child_group = { }
-		acs_filter_trait_education_group = { }
-		acs_filter_trait_commander_group = { }
-		acs_filter_trait_health_group = { }
-		acs_filter_trait_health_diseases_group = { }
-		acs_filter_trait_stress_group = { }
-		acs_filter_trait_religion_group = { }
-		acs_filter_trait_descentant_group = { }
-		acs_filter_trait_infamous_group = { }
-		acs_filter_trait_fame_other_group = { }
-		acs_filter_trait_lifestyle_group = { }
-		
-	}
+        acs_filter_trait_any_trait_of_kind_group = { }
+        acs_filter_trait_physical_group = { }
+        acs_filter_trait_personality_group = { }
+        acs_filter_trait_personality_child_group = { }
+        acs_filter_trait_education_group = { }
+        acs_filter_trait_commander_group = { }
+        acs_filter_trait_health_group = { }
+        acs_filter_trait_health_diseases_group = { }
+        acs_filter_trait_stress_group = { }
+        acs_filter_trait_religion_group = { }
+        acs_filter_trait_descentant_group = { }
+        acs_filter_trait_infamous_group = { }
+        acs_filter_trait_fame_other_group = { }
+        acs_filter_trait_lifestyle_group = { }
+        
+    }
 }

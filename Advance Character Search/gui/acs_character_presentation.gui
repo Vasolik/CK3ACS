@@ -1,1 +1,99 @@
-﻿
+﻿types acs_character_presentation_types {
+
+    type acs_character_presentation = widget {
+        datacontext = "[Scope.GetCharacter]"
+        size = { 885 94 }
+
+        portrait_head_small_cached = {
+            #size = { 85 90 }
+        }
+
+        widget = {
+            position = { 85 0 }
+            size = { 800 94 }
+
+            # Name and age
+            acs_character_header = {}
+
+            ### BOTTOM ROW ###
+            widget = {
+
+                position = { 0 34 }
+                size = { 800 60 }
+                # Dynasty
+                widget = {
+                    size = { 45 40 }
+                    parentanchor = vcenter|left
+                    widgetanchor = vcenter|left
+                    coa_house_small = {
+                        datacontext = "[Character.GetHouse]"
+                        parentanchor = center
+                        scale = 0.7
+                    }
+                }
+                acs_character_presentation_traits = {
+                    position = { 50 0 }
+                }
+                
+
+                acs_character_buttom_right = {
+                    parentanchor = top|right
+                    widgetanchor = top|right
+                }
+            }
+        }
+    }
+
+    type acs_character_presentation_traits = widget {
+        
+        layoutpolicy_vertical = expanding
+        margin = { 10 0 }
+        size = { 210 60 }
+
+        background = {
+            using = Background_Area_Dark
+            alpha = 0.4
+            margin = { 0 2 }
+        }
+
+        fixedgridbox = { name = "traits_grid"
+            datamodel = "[Character.GetTraitIndices]"
+            datamodel_reuse_widgets = yes
+            flipdirection = yes
+            layoutpolicy_horizontal = expanding
+            layoutpolicy_vertical = expanding
+            addcolumn = 30
+            addrow = 28
+
+            min_width = 210
+            datamodel_wrap = 7
+            maxverticalslots = 2
+
+            parentanchor = vcenter
+            widgetanchor = vcenter
+
+            item = {
+                icon_trait = {
+                    datacontext = "[GetTraitForIndex(uint16.GetUint)]"
+                    visible = "[Trait.IsValid]"
+
+                    blockoverride "icon_size"
+                    {
+                        size = { 30 30 }
+                    }
+
+                    blockoverride "tooltip_placement"
+                    {
+                        using = tooltip_se
+                    }
+
+                    blockoverride "glow_radius"
+                    {
+                        glow_radius = 3
+                    }
+                }
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,46 @@
+﻿types acs_external_integration_types {
+
+    type acs_button_character_search_small = button_icon {
+        name = "acs_button"
+        tooltip = "FIND_CHARACTER"
+        texture = "gfx/interface/icons/flat_icons/character_search.dds"                    
+                     
+        using = tooltip_ne
+        shortcut = "character_finder"
+
+        state = {
+            name = "init_mod_variable"
+            trigger_on_create = yes
+            on_start = "[GetScriptedGui( 'acs_init_global_flag' ).Execute( GuiScope.End )]"
+            on_start = "[GetVariableSystem.Set( 'mod_acs_active', 'enable' )]"
+        }
+        
+        onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
+        onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
+    }
+
+    type acs_button_character_search = button_standard {
+        text = "acs_advance_search"
+        onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
+        onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
+        onclick = "[GetVariableSystem.Toggle( 'extra_buttons_expand' )]"
+        tooltip = "IM_TT_FIND_CHARACTER"
+    }
+
+    type acs_button_character_search_vannila = button_standard {
+        name = "acs_vanilla_find_character_button"
+        text = "acs_vannila_search"
+        onclick = "[ToggleGameView( 'character_finder' )]"
+        onclick = "[GetVariableSystem.Toggle( 'extra_buttons_expand' )]"
+        tooltip = "IM_TT_FIND_CHARACTER"
+    }
+
+    type acs_button_encyclopedia = button_standard {
+        name = "acs_button_encyclopedia"
+        text = "HEADING_ENCYCLOPEDIA"
+        onclick = "[ToggleEncyclopedia]"
+        onclick = "[GetVariableSystem.Toggle( 'extra_buttons_expand' )]"
+        tooltip = "OPEN_ENCYCLOPEDIA"
+        shortcut = "encyclopedia"
+    }
+}
