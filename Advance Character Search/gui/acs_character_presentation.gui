@@ -36,6 +36,9 @@
                 }
                 
 
+                acs_military = {
+                    position = { 260 0 }
+                }
                 acs_character_buttom_right = {
                     parentanchor = top|right
                     widgetanchor = top|right
@@ -44,10 +47,87 @@
         }
     }
 
+    type acs_military  = widget  {
+        
+        size = { 150 60 }
+        tooltip = "acs_military_tooltip"
+        visible = "[Character.HasLandedTitles]"
+        vbox = {
+            spacing = 3
+            margin_left = 10
+            margin_bottom = 3
+            widget = {
+                size = { 140 30 }
+                flowcontainer = {
+                    margin = { 0 0 }
+                    spacing = 5
+
+                    icon = {
+                        name = "icon_soldier"
+                        texture = "gfx/interface/icons/icon_soldier.dds"
+                        size = { 25 25 }
+                    }
+                    widget = {
+                        size = { 95 30 }
+                        text_single = {
+                            parentanchor = top|right
+                            widgetanchor = top|right
+                            text = "[Character.GetMilitaryStrengthText]/[Character.GetMaxMilitaryStrength|0]"
+                            default_format = "#high"
+                            position = { -10 -2 }
+                        }
+                        progressbar_standard = {
+                            parentanchor = bottom|left
+                            widgetanchor = bottom|left
+                            name = "soldiers_max"
+                            size = { 95 10 }
+
+                            min = 0
+                            max = 100
+                            value = "[Character.GetMilitaryStrengthPercentGUI]"
+                        }
+                    }
+                }   
+            }
+            widget = {
+                size = { 140 30 }
+                icon = {
+                    parentanchor = top|left
+                    widgetanchor = top|left
+                    name = "icon_soldier"
+                    texture = "gfx/interface/icons/portraits/knight.dds"
+                    size = { 25 25 }
+                }
+                
+                widget = {
+                    size = { 90 25 }
+                    parentanchor = top|left
+                    widgetanchor = top|left
+                    position = { 40 0 }
+                    flowcontainer = {
+                        text_single = {
+                            text = "[Character.GetKnightCount|V]/[GetKnightLimit( Character.Self )|V]"
+                            default_format = "#high"
+                        }
+                        text_single = {
+                            text = "[Subtract_CFixedPoint(Character.GetKnightEffectiveness, '(CFixedPoint)1')|0%=+]"
+                            default_format = "#high"
+                            visible = "[GreaterThan_CFixedPoint(Subtract_CFixedPoint(Character.GetKnightEffectiveness, '(CFixedPoint)1'), '(CFixedPoint)0')]"
+                            parentanchor = top|left
+                            widgetanchor = top|left
+                            fontsize = 10
+                        }
+                    }
+                }
+                
+            }
+            
+        }
+    }
+
     type acs_character_presentation_traits = widget {
         
         layoutpolicy_vertical = expanding
-        margin = { 10 0 }
         size = { 210 60 }
 
         background = {
