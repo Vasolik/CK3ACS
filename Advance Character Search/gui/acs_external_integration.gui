@@ -20,7 +20,7 @@
     }
 
     type acs_button_character_search = button_standard {
-        text = "acs_advance_search"
+        text = "acs_advanced_search"
         onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
         onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
         onclick = "[GetVariableSystem.Toggle( 'extra_buttons_expand' )]"
