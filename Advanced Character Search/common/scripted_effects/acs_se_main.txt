@@ -4,13 +4,33 @@
             NOT = { has_global_variable = is_acs_building_list }
         }
         set_global_variable = is_acs_building_list
+
+        clear_global_variable_list = acs_abrahamic_list
+        every_religion_global = {
+            limit = { 
+                is_in_family = rf_abrahamic 
+            }
+            add_to_global_variable_list = { name = acs_abrahamic_list target = this }
+
+            every_faith = {
+                save_temporary_scope_as = acs_local_to_add_faith
+                #prev = {
+                #    add_to_variable_list = {
+                #        name = acs_all_faiths_list
+                #        target = scope:acs_local_to_add_faith
+                #    }
+                #}
+            }
+            
+        }
         
         if = {
             limit = {
-                NOT = { has_global_variable = acs_reset_v6 }
+                NOT = { has_global_variable = acs_first_time_setup_v8_1 }
             }
-            set_global_variable = acs_reset_v6
+            
             acs_reset_filters_and_sorting = yes
+            set_global_variable = acs_first_time_setup_v8_1
         }
         clear_acs_list = yes
         random_player = {

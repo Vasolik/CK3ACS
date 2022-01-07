@@ -1,0 +1,164 @@
+﻿types  acs_filter_religion_types {
+    type acs_filter_religion_group = acs_vbox_filter_group {
+        datacontext = "[GetReligionFamily('rf_abrahamic')]"
+        #datacontext = "[GetGlobalList('acs_abrahamic_list')]"
+        blockoverride "acs_vbox_filter_group_name" {
+            text = "[ReligionFamily.GetName]"
+            #text = "[GetGlobalList('acs_list').GetSize]"
+            
+        }
+        
+        blockoverride "acs_vbox_filter_group_toggle" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_rf_abrahamic' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_rf_abrahamic' ) ), '(int32)1', '(int32)2' )]"
+        }
+        
+        blockoverride "acs_filter_visible" {
+            visible = "[GetVariableSystem.Exists( 'acs_filter_rf_abrahamic' )]"
+        }
+        
+        blockoverride "acs_filters" {
+            flowcontainer = {
+                datamodel = "[GetGlobalList('acs_abrahamic_list')]"
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                direction = vertical
+                background = {
+                    using = Background_Area_Dark
+                    color = { 1 0 0.8  0.7 }
+                }
+                minimumsize = { 200 0 }
+                button_group = {
+                    layoutpolicy_horizontal = expanding
+                    block "acs_trait_item_action" {}
+                    parentanchor = top|hcenter
+                    widgetanchor = top|hcenter
+                    flowcontainer = {
+                        background = {
+                            using = Background_Area_Dark
+                            color = { 0.1 1 0.1 0.8  0.7 }
+                        }
+                        spacing = 5
+                        
+                        text_single = {
+                            layoutpolicy_horizontal = expanding
+                            block "acs_filter_name" {  
+                                text = "Any [ReligionFamily.GetName]"
+                            }
+                            default_format = "#medium"
+                            fontsize_min = 8
+                            max_width = 300  
+                            align = vcenter|left
+                        }
+
+                        acs_four_state_checkbox = {}
+                        
+                    }
+                }
+                item = {
+                    flowcontainer  = {
+                        direction = vertical
+                        layoutpolicy_horizontal = growing
+                        layoutpolicy_vertical = growing
+                        margin_bottom = 12
+                        widget = {
+                            datacontext = "[Scope.Religion]"
+                            size = { 300 30 }
+                            background = {
+                                using = Background_Area_Dark
+                                color = { 0.1 1 0.1 0.8  0.7 }
+                            }
+                            button_group = {
+                    
+                                block "acs_trait_item_action" {}
+                                
+                                flowcontainer = {
+                                    spacing = 5
+                                    acs_four_state_checkbox = {}
+                    
+                                    text_single = {
+                                        layoutpolicy_horizontal = expanding
+                                        block "acs_filter_name" {  
+                                            text = "[Religion.GetNameNoTooltip]"
+                                        }
+                                        default_format = "#medium"
+                                        fontsize_min = 8
+                                        max_width = 300  
+                                        align = bottom|left
+                                    }
+                                }
+                            }
+                            
+                            using = tooltip_nw
+                            tooltipwidget = {
+                                using = religion_tooltip
+                            }
+                        }
+                        acs_filter_faith_grid = {}
+
+                    }  
+                }
+            }
+            
+        }
+    }
+
+    type acs_filter_faith_grid = flowcontainer {
+        margin_left = 30
+        fixedgridbox = {
+            datacontext = "[Scope.Religion]"
+            datamodel = "[Religion.GetFaiths]"
+            datamodel_reuse_widgets = no
+            flipdirection = yes
+            layoutpolicy_horizontal = expanding
+            layoutpolicy_vertical = growing
+            addcolumn = 175
+            addrow = 28
+            min_width = 175
+            datamodel_wrap = 3
+            item = {
+                acs_filter_faith = {}
+            }
+        } 
+    }
+
+    type acs_filter_faith = widget {
+        size = { 175 30 }
+        button_group = {
+    
+            block "acs_trait_item_action" {}
+            
+            flowcontainer = {
+                spacing = 5
+                parentanchor = top|left
+                widgetanchor = top|left
+                acs_four_state_checkbox = {}
+    
+                icon = {
+                    size = { 32 32 }
+                    texture = "[Faith.GetIcon]"
+                }
+    
+                text_single = {
+                    layoutpolicy_horizontal = expanding
+                    block "acs_filter_name" {  
+                        text = "[Faith.GetNameNoTooltip]"
+                    }
+                    default_format = "#medium"
+                    fontsize_min = 8
+                    max_width = 95
+                    parentanchor = vcenter|left
+                    widgetanchor = vcenter|left
+                    align = vcenter|nobaseline
+                }
+                
+            }
+        }
+    
+        using = tooltip_nw
+        tooltipwidget = {
+            faith_tooltip = {}
+        }
+    }
+}
+

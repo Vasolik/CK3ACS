@@ -20,9 +20,7 @@
         icon = {
 
             framesize = { 80 80 }
-            block "acs_checkbox_state" {
-                frame = "[Select_int32( GetScriptedGui( 'acs_filter_trait_fame_berserker' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)2', Select_int32( GetScriptedGui( 'acs_filter_trait_fame_berserker_negative' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) , '(int32)3', '(int32)1' ) )]"
-            }
+            block "acs_checkbox_state" { }
             size = { 30 30 }
             texture = "gfx/interface/icons/checkbox_4_state_no_border.dds"
 
@@ -34,11 +32,6 @@
         blockoverride "icon_size"
         {
             size = { 30 30 }
-        }
-
-        blockoverride "tooltip_placement"
-        {
-            using = tooltip_se
         }
 
         blockoverride "glow_radius"
@@ -53,14 +46,10 @@
         }
         button_group = {
 
-            block "acs_trait_item_action" {
-                onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
+            block "acs_trait_item_action" { }
             
             flowcontainer = {
                 spacing = 5
-                parentanchor = top|left
-                widgetanchor = top|left
                 acs_four_state_checkbox = {}
 
                 icon = {
@@ -79,7 +68,7 @@
                     }
                     default_format = "#medium"
 
-                    align = bottom|left
+                    align = vcenter|left
                 }
             }
         }
@@ -93,9 +82,7 @@
             block "acs_trait_item_size2" {  
                 size = { 275 30 }
             }
-            block "acs_trait_item_action" {
-                onclick = "[GetScriptedGui( 'acs_filter_trait_fame_berserker' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-            }
+            block "acs_trait_item_action" { }
             
             hbox = {
                 spacing = 5
@@ -104,12 +91,8 @@
                 expand = {}
                 text_single = {
                     layoutpolicy_horizontal = expanding
-                    block "acs_filter_name" {  
-                        text = "[diplomacy|E]"
-                    }
+                    block "acs_filter_name" { }
                     default_format = "#medium"
-
-                    align = top|right
                 }
                 icon = {
                     size = { 32 32 }
@@ -186,7 +169,7 @@
                 text_single = {
                     layoutpolicy_horizontal = expanding
                     block "acs_filter_name" {  
-                        text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
+                        text = "[Trait.GetNameNoTooltip( GetPlayer )]"
                     }
                     default_format = "#medium"
 
@@ -220,7 +203,7 @@
                 text_single = {
                     layoutpolicy_horizontal = expanding
                     block "acs_filter_name" {  
-                        text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
+                        text = "[Trait.GetNameNoTooltip( GetPlayer )]"
                     }
                     default_format = "#medium"
 
@@ -299,7 +282,7 @@
                     text_single = {
                         layoutpolicy_horizontal = expanding
                         block "acs_filter_name" {  
-                            text = "[Trait.GetNameNoTooltipWithDefault( GetPlayer )]"
+                            text = "[Trait.GetNameNoTooltip( GetPlayer )]"
                         }
                         default_format = "#medium"
     
