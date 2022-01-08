@@ -105,7 +105,7 @@ acs_filter_2_group_checkbox = {
                 NOT = {
                     any_in_global_list = {
                         variable = acs_active_filter_list
-                        this >= acs_position
+                        this >= scope:position
                         save_temporary_scope_value_as = { name = offset value = 7 }
                         this <= acs_position_offset
                     } 
@@ -436,7 +436,7 @@ acs_filter_3_group_checkbox = {
                     any_in_global_list = {
                         variable = acs_active_filter_list
                         AND = {
-                            this >= acs_position
+                            this >= scope:position
                             save_temporary_scope_value_as = { name = offset value = 25 }
                             this <= acs_position_offset
                         }
@@ -1044,7 +1044,7 @@ acs_filter_3_group_checkbox_group = {
                 any_in_global_list = {
                     variable = acs_active_filter_list
                     AND = {
-                        this >= acs_position
+                        this >= scope:position
                         save_temporary_scope_value_as = { name = offset value = 25 }
                         this <= acs_position_offset
                     }
@@ -1078,7 +1078,7 @@ acs_filter_3_group_checkbox_group = {
                     any_in_global_list = {
                         variable = acs_active_filter_list
                         AND = {
-                            this >= acs_position
+                            this >= scope:position
                             save_temporary_scope_value_as = { name = offset value = 25 }
                             this <= acs_position_offset
                         }
@@ -1172,7 +1172,7 @@ acs_filter_simple_dropdown = {
                 variable = acs_active_filter_list
                 count = 0
                 AND = {
-                    this >= acs_position
+                    this >= scope:position
                     this <= acs_position_total_count
                 }
             }     

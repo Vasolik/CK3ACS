@@ -42,7 +42,7 @@ acs_filter_trait_education_general_group = {
                 any_in_global_list = {
                     variable = acs_filter_trait_education_general_list
                     AND = {
-                        this >= acs_position
+                        this >= scope:position
                         save_temporary_scope_value_as = { name = offset value = 7 }
                         this <= acs_position_offset
                     }
@@ -92,7 +92,7 @@ acs_filter_trait_education_general_group = {
                     any_in_global_list = {
                         variable = acs_filter_trait_education_general_list
                         AND = {
-                            this >= acs_position
+                            this >= scope:position
                             save_temporary_scope_value_as = { name = offset value = 7 }
                             this <= acs_position_offset
                         }

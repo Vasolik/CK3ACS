@@ -1,4 +1,19 @@
-﻿types acs_filters_types {
+﻿template acs_t_togle_filter
+{
+    name = "show"
+    alwaystransparent = no
+    texture = "gfx/interface/buttons/button_tree_expand.dds"
+    framesize = { 36 36 }
+    size = { 18 18 }
+
+    using = tooltip_ws
+    tooltip = "EXPAND_FILTER"
+    oversound = "event:/SFX/UI/Generic/sfx_ui_generic_icon_pointer_over"
+    clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_icon_select"
+    onclick = "[GetVariableSystem.Toggle( 'acs_sort_widget' )]"
+}
+
+types acs_filters_types {
     type acs_window_character_filter = window {
         name = "character_filter_window"
         visible = "[Not( GetVariableSystem.Exists( 'acs_filter_toggle' ) ) ]"
