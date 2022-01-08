@@ -4,25 +4,8 @@
             NOT = { has_global_variable = is_acs_building_list }
         }
         set_global_variable = is_acs_building_list
-
-        clear_global_variable_list = acs_abrahamic_list
-        every_religion_global = {
-            limit = { 
-                is_in_family = rf_abrahamic 
-            }
-            add_to_global_variable_list = { name = acs_abrahamic_list target = this }
-
-            every_faith = {
-                save_temporary_scope_as = acs_local_to_add_faith
-                #prev = {
-                #    add_to_variable_list = {
-                #        name = acs_all_faiths_list
-                #        target = scope:acs_local_to_add_faith
-                #    }
-                #}
-            }
-            
-        }
+        
+        acs_se_create_religion_lists = yes
         
         if = {
             limit = {
@@ -576,9 +559,9 @@ acs_change_sort_order = {
     }
 }
 
-acs_auto_apply_sorting_and_filters = {
+acs_se_auto_apply_sorting_and_filters = {
     if = {
-        limit = { has_global_variable = acs_auto_apply_sorting_and_filters }
+        limit = { has_global_variable = acs_gv_auto_apply_sorting_and_filters }
         create_searched_character_list = yes
     }
 }

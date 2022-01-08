@@ -439,10 +439,10 @@ types acs_footer_main_types {
             allow_outside = yes
 
             button_checkbox_label = {
-                onclick = "[GetScriptedGui( 'acs_auto_apply_sorting_and_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                onclick = "[GetScriptedGui( 'acs_sg_auto_apply_sorting_and_filters' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
                 blockoverride "checkbox"
                 {
-                    checked = "[GetGlobalVariable( 'acs_auto_apply_sorting_and_filters' ).IsSet]"
+                    checked = "[GetGlobalVariable( 'acs_gv_auto_apply_sorting_and_filters' ).IsSet]"
                 }
                 blockoverride "text"
                 {

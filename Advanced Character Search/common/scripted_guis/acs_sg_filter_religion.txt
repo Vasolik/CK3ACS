@@ -1,0 +1,98 @@
+﻿acs_sg_religion = {
+    scope = religion
+
+    effect = {
+		if = {
+			limit = {
+				NOT = { has_variable = acs_v_selected }
+			}
+			every_faith = {
+				set_variable = { name = acs_v_selected value = 1 }
+			}
+			set_variable = { name = acs_v_selected value = 1 }
+		}
+		else_if = {
+			limit = {
+				trigger_if = {
+					limit = { has_variable = acs_v_selected }
+					var:acs_v_selected = 1
+				}
+				trigger_else ={
+					always = no
+				}
+			}
+			every_faith = {
+				set_variable = { name = acs_v_selected value = 2 }
+			}
+			set_variable = { name = acs_v_selected value = 2 }
+		}
+		else = {
+			every_faith = {
+				remove_variable = acs_v_selected
+			}
+			remove_variable = acs_v_selected
+		}
+		acs_se_update_rf = yes
+		acs_se_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sg_faith = {
+    scope = faith
+
+    effect = {
+		if = {
+			limit = {
+				NOT = { has_variable = acs_v_selected }
+			}
+			set_variable = { name = acs_v_selected value = 1 }
+		}
+		else_if = {
+			limit = {
+				trigger_if = {
+					limit = { has_variable = acs_v_selected }
+					var:acs_v_selected = 1
+				}
+				trigger_else = {
+					always = no
+				}
+			}
+			set_variable = { name = acs_v_selected value = 2 }
+		}
+		else = {
+			remove_variable = acs_v_selected
+		}
+		acs_se_update_religion = yes
+		acs_se_auto_apply_sorting_and_filters = yes
+    }
+}
+
+acs_sg_rf_abrahamic = {
+    effect = {
+		acs_set_togle_relion_family_selection = { FAMILY = abrahamic }
+	}
+}
+
+acs_sg_rf_pagan = {
+    effect = {
+		acs_set_togle_relion_family_selection = { FAMILY = pagan }
+	}
+}
+
+acs_sg_rf_eastern = {
+    effect = {
+		acs_set_togle_relion_family_selection = { FAMILY = eastern }
+    }
+}
+
+acs_sg_rf_other = {
+	is_shown = {
+		any_in_global_list = { 
+			variable = acs_gvl_rf_other
+			always = yes
+		}
+	}
+    effect = {
+		acs_set_togle_relion_family_selection = { FAMILY = other }
+	}
+}

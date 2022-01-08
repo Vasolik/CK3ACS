@@ -1,0 +1,195 @@
+﻿acs_se_update_rf = {
+	if = {
+		limit = {
+			is_in_family = rf_pagan
+		}
+		acs_set_update_rf = { FAMILY = pagan }
+	}
+	else_if = {
+		limit = {
+			is_in_family = rf_abrahamic
+		}
+		acs_set_update_rf = { FAMILY = abrahamic }
+	}
+	else_if = {
+		limit = {
+			is_in_family = rf_eastern
+		}
+		acs_set_update_rf = { FAMILY = eastern }
+	}
+	else = {
+		acs_set_update_rf = { FAMILY = other }
+	}
+}
+
+acs_set_update_rf = {
+	if = {
+		limit = {
+			any_in_global_list = { 
+				variable = acs_gvl_rf_$FAMILY$
+				trigger_if = {
+					limit = { has_variable = acs_v_selected }
+					var:acs_v_selected = 1
+				}
+				trigger_else ={
+					always = no
+				}
+				count = all
+			}
+		}
+		set_global_variable = { name = acs_gv_rf_$FAMILY$_selected value = 1 }
+	}
+	else_if = {
+		limit = {
+			any_in_global_list = { 
+				variable = acs_gvl_rf_$FAMILY$
+				trigger_if = {
+					limit = { has_variable = acs_v_selected }
+					var:acs_v_selected = 2
+				}
+				trigger_else ={
+					always = no
+				}
+				count = all
+			}
+		}
+		set_global_variable = { name = acs_gv_rf_$FAMILY$_selected value = 2 }
+	}
+	else_if = {
+		limit = {
+			any_in_global_list = { 
+				variable = acs_gvl_rf_$FAMILY$
+				NOT = { has_variable = acs_v_selected }
+				count = all
+			}
+		}
+		remove_global_variable = acs_gv_rf_$FAMILY$_selected
+	}
+	else = {
+		set_global_variable = { name = acs_gv_rf_$FAMILY$_selected value = 3 }
+	}
+}
+
+acs_se_update_religion = {
+	religion = {
+		if = {
+			limit = {
+				any_faith = {
+					trigger_if = {
+						limit = { has_variable = acs_v_selected }
+						var:acs_v_selected = 1
+					}
+					trigger_else ={
+						always = no
+					}
+					count = all
+				}
+			}
+			set_variable = { name = acs_v_selected value = 1 }
+		}
+		else_if = {
+			limit = {
+				any_faith = {
+					trigger_if = {
+						limit = { has_variable = acs_v_selected }
+						var:acs_v_selected = 2
+					}
+					trigger_else ={
+						always = no
+					}
+					count = all
+				}
+			}
+			set_variable = { name = acs_v_selected value = 2 }
+		}
+		else_if = {
+			limit = {
+				any_faith = {
+					NOT = { has_variable = acs_v_selected }
+					count = all
+				}
+			}
+			remove_variable = acs_v_selected
+		}
+		else = {
+			set_variable = { name = acs_v_selected value = 3 }
+		}
+		acs_se_update_rf = yes
+	}
+}
+
+acs_se_create_religion_lists = {
+	every_religion_global = {
+		limit = { 
+			is_in_family = rf_abrahamic 
+		}
+		add_to_global_variable_list = { name = acs_gvl_rf_abrahamic target = this }   
+	}
+	every_religion_global = {
+		limit = { 
+			is_in_family = rf_eastern
+		}
+		add_to_global_variable_list = { name = acs_gvl_rf_eastern target = this }   
+	}
+	every_religion_global = {
+		limit = { 
+			is_in_family = rf_pagan 
+		}
+		add_to_global_variable_list = { name = acs_gvl_rf_pagan target = this }
+	}
+	every_religion_global = {
+		limit = { 
+			NOR = { 
+				is_in_family = rf_eastern
+				is_in_family = rf_abrahamic
+				is_in_family = rf_pagan
+			}
+		}
+		add_to_global_variable_list = { name = acs_gvl_rf_other target = this }
+	}
+}
+
+acs_set_togle_relion_family_selection = {
+	if = {
+		limit = {
+			NOT = { has_global_variable = acs_gv_rf_$FAMILY$_selected }
+		}
+		every_in_global_list = {
+			variable = acs_gvl_rf_$FAMILY$
+			every_faith = {
+				set_variable = { name = acs_v_selected value = 1 }
+			}
+			set_variable = { name = acs_v_selected value = 1 }	
+		}
+		set_global_variable = { name = acs_gv_rf_$FAMILY$_selected value = 1 }
+	}
+	else_if = {
+		limit = {
+			trigger_if = {
+				limit = { has_global_variable = acs_gv_rf_$FAMILY$_selected }
+				global_var:acs_gv_rf_$FAMILY$_selected = 1
+			}
+			trigger_else ={
+				always = no
+			}	
+		}
+		every_in_global_list = {
+			variable = acs_gvl_rf_$FAMILY$
+			every_faith = {
+				set_variable = { name = acs_v_selected value = 2 }
+			}
+			set_variable = { name = acs_v_selected value = 2 }	
+		}
+		set_global_variable = { name = acs_gv_rf_$FAMILY$_selected value = 2 }
+	}
+	else = {
+		every_in_global_list = {
+			variable = acs_gvl_rf_$FAMILY$
+			every_faith = {
+				remove_variable = acs_v_selected
+			}
+			remove_variable = acs_v_selected	
+		}
+		remove_global_variable = acs_gv_rf_$FAMILY$_selected
+	}
+}

@@ -132,21 +132,12 @@
             hbox = {    
                 position = { 0 0 }
                 button = {
-                    name = "show"
-                    alwaystransparent = no
-                    texture = "gfx/interface/buttons/button_tree_expand.dds"
-                    framesize = { 36 36 }
-                    size = { 18 18 }
-                    onclick = "[GetVariableSystem.Toggle( 'acs_sort_widget' )]"
+                    using = acs_t_togle_filter
+                
                     block "acs_vbox_filter_group_toggle" {
                         onclick = "[GetVariableSystem.Toggle( 'acs_filter_group' )]"
                         frame = "[Select_int32( GetVariableSystem.Exists( 'acs_filter_group' ), '(int32)1', '(int32)2' )]"
                     }
-                    
-                    using = tooltip_ws
-                    tooltip = "EXPAND_FILTER"
-                    oversound = "event:/SFX/UI/Generic/sfx_ui_generic_icon_pointer_over"
-                    clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_icon_select"
                 }
     
                 text_label_center = {
@@ -243,7 +234,7 @@ types acs_block_types {
         direction = vertical
         spacing = 5        
 
-        acs_filter_religion_group = {}
+        acs_w_filter_all_religions = {}
         acs_filter_trait_any_trait_of_kind_group = { }
         acs_filter_trait_physical_group = { }
         acs_filter_trait_personality_group = { }

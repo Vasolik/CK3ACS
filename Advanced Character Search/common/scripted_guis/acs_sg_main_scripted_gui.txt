@@ -27,26 +27,26 @@ close_acs_window = {
 acs_reset_filters_and_sorting = {
     effect = {
         acs_reset_filters_and_sorting = yes
-        acs_auto_apply_sorting_and_filters = yes
+        acs_se_auto_apply_sorting_and_filters = yes
     }
 }
 
-acs_auto_apply_sorting_and_filters = {
+acs_sg_auto_apply_sorting_and_filters = {
     scope = character
          
     is_shown = { 
-        has_global_variable = acs_auto_apply_sorting_and_filters
+        has_global_variable = acs_gv_auto_apply_sorting_and_filters
     }
         
     effect = {
         if = {
-            limit = { has_global_variable = acs_auto_apply_sorting_and_filters }
-            remove_global_variable = acs_auto_apply_sorting_and_filters
+            limit = { has_global_variable = acs_gv_auto_apply_sorting_and_filters }
+            remove_global_variable = acs_gv_auto_apply_sorting_and_filters
         }
         else = {
-            set_global_variable = acs_auto_apply_sorting_and_filters
+            set_global_variable = acs_gv_auto_apply_sorting_and_filters
         }
-        acs_auto_apply_sorting_and_filters = yes
+        acs_se_auto_apply_sorting_and_filters = yes
     }
 }
 
