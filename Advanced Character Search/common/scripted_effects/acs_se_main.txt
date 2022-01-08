@@ -594,3 +594,32 @@ acs_simple_checkbox = {
         }
     }
 }
+
+
+acs_set_new_empty_object = {
+    if = {
+        limit = {
+            any_in_global_list = {
+                variable = acs_gl_empty_objects
+                always = yes
+            }
+        }
+        random_in_global_list = {
+            variable = acs_gl_empty_objects
+            save_scope_as = $OBJECT_NAME$
+        }
+        remove_list_global_variable = { name = acs_gl_empty_objects target = scope:$OBJECT_NAME$ }
+    }
+    else = {
+        random_independent_ruler = {
+            create_story = {
+                type = acs_sc_empty_object
+                save_scope_as = $OBJECT_NAME$
+            }
+        }
+    }
+}
+
+acs_set_delete_empty_object = {
+    add_to_global_variable_list = { name = acs_list target = $OBJECT_NAME$ }
+}

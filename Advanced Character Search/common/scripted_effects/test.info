@@ -1,3 +1,213 @@
 ﻿acs_set_togle_relion_family_selection = { FAMILY = pagan }
 
 set_variable = { name = test value = global_var:acs_gv_rf_pagan_selected }
+
+global_var:asc_gv_undo_first = { 
+	save_scope_as = used_slot
+	if = {
+		limit = { has_variable = acs_v_next }
+		var:acs_v_next = {
+			save_scope_as = next_scope
+			set_global_variable = { name = asc_gv_undo_first value = scope:next_scope }
+			remove_variable = acs_v_prev
+		}
+	}
+	else = {
+		remove_global_variable = asc_gv_undo_first
+		remove_global_variable = asc_gv_undo_last
+		remove_global_variable = asc_save_slot_undo_0_used
+	}
+}
+scope:used_slot = {
+	set_global_variable = { name = acs_filter_relation value = var:acs_filter_relation }
+	clear_global_variable_list = acs_filter_trait_education_general_list
+	if = {
+		limit = { has_variable_list = acs_vl_filter_trait_education_general }
+		every_in_list = {
+			variable = acs_vl_filter_trait_education_general
+			save_temporary_scope_as = slot_value
+			add_to_global_variable_list = { name = acs_filter_trait_education_general_list target = scope:slot_value }
+		}
+	}
+	clear_global_variable_list = acs_filter_trait_education_martial_list
+	if = {
+		limit = { has_variable_list = acs_vl_filter_trait_education_martial }
+		every_in_list = {
+			variable = acs_vl_filter_trait_education_martial
+			save_temporary_scope_as = slot_value
+			add_to_global_variable_list = { name = acs_filter_trait_education_martial_list target = scope:slot_value }
+		}
+	}
+	clear_global_variable_list = acs_filter_trait_fame_born_status_list
+	if = {
+		limit = { has_variable_list = acs_vl_filter_trait_fame_born_status }
+		every_in_list = {
+			variable = acs_vl_filter_trait_fame_born_status
+			save_temporary_scope_as = slot_value
+			add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list target = scope:slot_value }
+		}
+	}
+
+	clear_global_variable_list = acs_filter_trait_physical_beauty_list
+	if = {
+		limit = { has_variable_list = acs_vl_filter_trait_physical_beauty }
+		every_in_list = {
+			variable = acs_vl_filter_trait_physical_beauty
+			save_temporary_scope_as = slot_value
+			add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list target = scope:slot_value }
+		}
+	}
+
+	clear_global_variable_list = acs_filter_trait_physical_intellect_list
+	if = {
+		limit = { has_variable_list = acs_vl_filter_trait_physical_intellect }
+		every_in_list = {
+			variable = acs_vl_filter_trait_physical_intellect
+			save_temporary_scope_as = slot_value
+			add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list target = scope:slot_value }
+		}
+	}
+
+	clear_global_variable_list = acs_filter_trait_physical_physique_list
+	if = {
+		limit = { has_variable_list = acs_vl_filter_trait_physical_physique }
+		every_in_list = {
+			variable = acs_vl_filter_trait_physical_physique
+			save_temporary_scope_as = slot_value
+			add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list target = scope:slot_value }
+		}
+	}
+	
+	every_in_list = acs_active_filter_list
+	if = {
+		limit = { has_variable_list = acs_vl_active_filter }
+		every_in_list = {
+			variable = acs_vl_active_filter
+			save_temporary_scope_as = slot_value
+			add_to_global_variable_list = { name = acs_active_filter_list target = scope:slot_value }
+		}
+	}
+	
+}
+
+acs_save_undo_0_filters = {
+    acs_set_new_empty_object = { OBJECT_NAME = new_undo }
+    scope:new_undo = {
+        set_variable = { name = acs_v_filter_relation value = global_var:acs_filter_relation }
+        every_in_global_list = {
+            variable = acs_filter_trait_education_general_list
+            save_temporary_scope_as = slot_value
+            scope:new_undo = {
+                add_to_variable_list = { name = acs_vl_filter_trait_education_general target = scope:slot_value } 
+            }  
+        }
+        every_in_global_list = {
+            variable = acs_filter_trait_education_martial_list
+            save_temporary_scope_as = slot_value
+            scope:new_undo = {
+                add_to_variable_list = { name = acs_vl_filter_trait_education_martial target = scope:slot_value } 
+            }  
+        }
+        every_in_global_list = {
+            variable = acs_filter_trait_fame_born_status_list
+            save_temporary_scope_as = slot_value
+            scope:new_undo = {
+                add_to_variable_list = { name = acs_vl_filter_trait_fame_born_status target = scope:slot_value } 
+            }  
+        }
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_beauty_list
+            save_temporary_scope_as = slot_value
+            scope:new_undo = {
+                add_to_variable_list = { name = acs_vl_filter_trait_physical_beauty target = scope:slot_value } 
+            }  
+        }
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_intellect_list
+            save_temporary_scope_as = slot_value
+            scope:new_undo = {
+                add_to_variable_list = { name = acs_vl_filter_trait_physical_intellect target = scope:slot_value } 
+            }  
+        }
+        every_in_global_list = {
+            variable = acs_filter_trait_physical_physique_list
+            save_temporary_scope_as = slot_value
+            scope:new_undo = {
+                add_to_variable_list = { name = acs_vl_filter_trait_physical_physique target = scope:slot_value } 
+            }  
+        }
+        every_in_global_list = {
+            variable = acs_active_filter_list
+            save_temporary_scope_as = slot_value
+            scope:new_undo = {
+                add_to_variable_list = { name = acs_vl_active_filter target = scope:slot_value } 
+            }  
+        }
+        if = {
+            limit = {
+                has_global_variable = asc_gv_undo_first
+            }
+            set_variable = { name = acs_v_next value = global_var:asc_gv_undo_first }
+            global_var:asc_gv_undo_first = {
+                set_variable = { name = acs_v_prev value = scope:new_undo }
+            }
+        }
+        else = {
+            set_global_variable = { name = asc_gv_undo_last value = scope:new_undo}
+        }
+        set_global_variable = { name = asc_gv_undo_first value = scope:new_undo }
+        if = {
+            limit = { has_global_variable = acs_gv_undo_count }
+            change_global_variable = { name = acs_gv_undo_count add = 1 } 
+        }
+        else = {
+            set_global_variable = { name = acs_gv_undo_count value = 1 }
+        }
+        while = {
+            limit = {
+                global_var:acs_gv_undo_count > 50
+            }
+            global_var:asc_gv_undo_last = { 
+                save_scope_as = to_remove
+                var:acs_v_prev = { 
+                    save_scope_as = prev_slot 
+                    remove_variable = acs_v_next
+                }
+            }
+            set_global_variable = { name = asc_gv_undo_last value = scope:prev_slot }
+            acs_set_clear_undo_slot = { SLOT = scope:to_remove }
+            acs_set_delete_empty_object = {OBJECT_NAME = scope:to_remove }
+            change_global_variable = { name = acs_gv_undo_count add = -1 } 
+        }
+        
+    }
+    
+    set_global_variable = asc_save_slot_undo_0_used
+}
+
+
+
+
+global_var:asc_gv_undo_first = { 
+	save_scope_as = used_slot
+}
+
+set_variable = { name = test value = scope:used_slot.var:acs_filter_relation }
+
+global_var:asc_gv_undo_first = { 
+	save_scope_as = used_slot
+	has_variable = acs_filter_relation
+}
+
+acs_set_new_empty_object = { OBJECT_NAME = new_undo }
+set_global_variable = { name = acs_filter_relation value = 15 }
+scope:new_undo = {
+	set_variable = { name = acs_v_filter_relation value = global_var:acs_filter_relation }
+}
+set_variable = { name = acs_v_filter_relation value = global_var:acs_filter_relation }
+set_variable = { name = acs_v_filter_relation_new value = scope:new_undo.var:acs_v_filter_relation }
+
+
+set_variable = { name = acs_v_filter_relation_new value = scope:used_slot.var:acs_v_filter_relation }
+
+save_scope_as = help
