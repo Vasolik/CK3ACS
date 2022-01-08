@@ -1,109 +1,205 @@
-﻿types  acs_filter_religion_types {
-    type acs_filter_religion_group = acs_vbox_filter_group {
-        datacontext = "[GetReligionFamily('rf_abrahamic')]"
-        #datacontext = "[GetGlobalList('acs_abrahamic_list')]"
+﻿types acs_filter_religion_types {
+
+    type acs_w_filter_all_religions = acs_vbox_filter_group {
         blockoverride "acs_vbox_filter_group_name" {
-            text = "[ReligionFamily.GetName]"
-            #text = "[GetGlobalList('acs_list').GetSize]"
-            
+            text = "Religion" 
         }
         
         blockoverride "acs_vbox_filter_group_toggle" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_rf_abrahamic' )]"
-            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_rf_abrahamic' ) ), '(int32)1', '(int32)2' )]"
+            onclick = "[GetVariableSystem.Toggle( 'acs_vsv_filter_religion' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_vsv_filter_religion' ) ), '(int32)1', '(int32)2' )]"
         }
         
         blockoverride "acs_filter_visible" {
-            visible = "[GetVariableSystem.Exists( 'acs_filter_rf_abrahamic' )]"
+            visible = "[GetVariableSystem.Exists( 'acs_vsv_filter_religion' )]"
         }
         
         blockoverride "acs_filters" {
-            flowcontainer = {
-                datamodel = "[GetGlobalList('acs_abrahamic_list')]"
-                layoutpolicy_horizontal = expanding
-                layoutpolicy_vertical = expanding
-                direction = vertical
-                background = {
-                    using = Background_Area_Dark
-                    color = { 1 0 0.8  0.7 }
+            margin_left = 20
+            
+            acs_w_filter_rf = {
+                blockoverride "acs_wbk_filter_rf_selector" {
+                    datacontext = "[GetReligionFamily('rf_pagan')]"
+                    datacontext = "[GetScriptedGui( 'acs_sg_rf_pagan' )]" 
                 }
-                minimumsize = { 200 0 }
-                button_group = {
-                    layoutpolicy_horizontal = expanding
-                    block "acs_trait_item_action" {}
-                    parentanchor = top|hcenter
-                    widgetanchor = top|hcenter
-                    flowcontainer = {
-                        background = {
-                            using = Background_Area_Dark
-                            color = { 0.1 1 0.1 0.8  0.7 }
-                        }
-                        spacing = 5
-                        
-                        text_single = {
-                            layoutpolicy_horizontal = expanding
-                            block "acs_filter_name" {  
-                                text = "Any [ReligionFamily.GetName]"
-                            }
-                            default_format = "#medium"
-                            fontsize_min = 8
-                            max_width = 300  
-                            align = vcenter|left
-                        }
-
-                        acs_four_state_checkbox = {}
-                        
-                    }
+                blockoverride "acs_wbk_filter_rf_list" {
+                    datamodel = "[GetGlobalList('acs_gvl_rf_pagan')]"
+                    visible = "[GetVariableSystem.Exists( 'acs_vsv_filter_rf_pagan' )]"
                 }
-                item = {
-                    flowcontainer  = {
-                        direction = vertical
-                        layoutpolicy_horizontal = growing
-                        layoutpolicy_vertical = growing
-                        margin_bottom = 12
-                        widget = {
-                            datacontext = "[Scope.Religion]"
-                            size = { 300 30 }
-                            background = {
-                                using = Background_Area_Dark
-                                color = { 0.1 1 0.1 0.8  0.7 }
-                            }
-                            button_group = {
-                    
-                                block "acs_trait_item_action" {}
-                                
-                                flowcontainer = {
-                                    spacing = 5
-                                    acs_four_state_checkbox = {}
-                    
-                                    text_single = {
-                                        layoutpolicy_horizontal = expanding
-                                        block "acs_filter_name" {  
-                                            text = "[Religion.GetNameNoTooltip]"
-                                        }
-                                        default_format = "#medium"
-                                        fontsize_min = 8
-                                        max_width = 300  
-                                        align = bottom|left
-                                    }
-                                }
-                            }
-                            
-                            using = tooltip_nw
-                            tooltipwidget = {
-                                using = religion_tooltip
-                            }
-                        }
-                        acs_filter_faith_grid = {}
-
-                    }  
+                blockoverride "acs_wbk_filter_rf_toggle" {
+                    onclick = "[GetVariableSystem.Toggle( 'acs_vsv_filter_rf_pagan' )]"
+                    frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_vsv_filter_rf_pagan' ) ), '(int32)1', '(int32)2' )]"
                 }
+                blockoverride "acs_wbk_filter_rf_checkbox" { 
+                    frame = "[FixedPointToInt( EmptyScope.ScriptValue('acs_sv_rf_pagan_frame') )]"
+                } 
+            }
+            acs_w_filter_rf = {
+                blockoverride "acs_wbk_filter_rf_selector" {
+                    datacontext = "[GetReligionFamily('rf_eastern')]"
+                    datacontext = "[GetScriptedGui( 'acs_sg_rf_eastern' )]" 
+                }
+                blockoverride "acs_wbk_filter_rf_list" {
+                    datamodel = "[GetGlobalList('acs_gvl_rf_eastern')]"
+                    visible = "[GetVariableSystem.Exists( 'acs_vsv_filter_rf_eastern' )]"
+                }
+                blockoverride "acs_wbk_filter_rf_toggle" {
+                    onclick = "[GetVariableSystem.Toggle( 'acs_vsv_filter_rf_eastern' )]"
+                    frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_vsv_filter_rf_eastern' ) ), '(int32)1', '(int32)2' )]"
+                }
+                blockoverride "acs_wbk_filter_rf_checkbox" { 
+                    frame = "[FixedPointToInt( EmptyScope.ScriptValue('acs_sv_rf_eastern_frame') )]"
+                } 
+            }
+            acs_w_filter_rf = {
+                blockoverride "acs_wbk_filter_rf_selector" {
+                    datacontext = "[GetReligionFamily('rf_abrahamic')]"
+                    datacontext = "[GetScriptedGui( 'acs_sg_rf_abrahamic' )]" 
+                }
+                blockoverride "acs_wbk_filter_rf_list" {
+                    datamodel = "[GetGlobalList('acs_gvl_rf_abrahamic')]"
+                    visible = "[GetVariableSystem.Exists( 'acs_vsv_filter_rf_abrahamic' )]"
+                }
+                blockoverride "acs_wbk_filter_rf_toggle" {
+                    onclick = "[GetVariableSystem.Toggle( 'acs_vsv_filter_rf_abrahamic' )]"
+                    frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_vsv_filter_rf_abrahamic' ) ), '(int32)1', '(int32)2' )]"
+                }
+                blockoverride "acs_wbk_filter_rf_checkbox" { 
+                    frame = "[FixedPointToInt( EmptyScope.ScriptValue('acs_sv_rf_abrahamic_frame') )]"
+                }     
+            }
+            acs_w_filter_rf = {
+                blockoverride "acs_wbk_filter_rf_selector" {
+                    datacontext = "[GetScriptedGui( 'acs_sg_rf_other' )]"
+                    visible = "[DataModelHasItems(GetGlobalList('acs_gvl_rf_other'))]"
+                }
+                blockoverride "acs_wbk_filter_rf_name" { 
+                    text = "acs_l_filter_rf_other" 
+                } 
+                blockoverride "acs_wbk_filter_rf_name_any" { 
+                    text = "acs_l_filter_rf_other_any" 
+                } 
+                blockoverride "acs_wbk_filter_rf_list" {
+                    datamodel = "[GetGlobalList('acs_gvl_rf_other')]"
+                    visible = "[GetVariableSystem.Exists( 'acs_vsv_filter_rf_other' )]"
+                }
+                blockoverride "acs_wbk_filter_rf_toggle" {
+                    onclick = "[GetVariableSystem.Toggle( 'acs_vsv_filter_rf_other' )]"
+                    frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_vsv_filter_rf_other' ) ), '(int32)1', '(int32)2' )]"
+                }
+                blockoverride "acs_wbk_filter_rf_checkbox" { 
+                    frame = "[FixedPointToInt( EmptyScope.ScriptValue('acs_sv_rf_other_frame') )]"
+                } 
             }
             
         }
     }
 
-    type acs_filter_faith_grid = flowcontainer {
+    type acs_w_filter_rf = flowcontainer {
+        layoutpolicy_horizontal = expanding
+        layoutpolicy_vertical = expanding
+        direction = vertical
+        ignoreinvisible = yes
+        spacing = 7
+        block "acs_wbk_filter_rf_selector" {}
+
+        widget = {
+            size = { 560 26 }
+            hbox = {    
+                position = { 0 0 }
+                button = {
+                    using = acs_t_togle_filter
+                    using = tooltip_ws
+                    block "acs_wbk_filter_rf_toggle" { }
+                }
+                text_label_center = {
+                    layoutpolicy_horizontal = expanding
+                    margin_right = 36
+                    align = center
+                    block "acs_wbk_filter_rf_name" { 
+                        text = "[ReligionFamily.GetName]" 
+                    } 
+                }
+            }
+        }
+        flowcontainer = {
+            layoutpolicy_horizontal = expanding
+            layoutpolicy_vertical = expanding
+            direction = vertical
+            ignoreinvisible = yes
+            spacing = 5
+            block "acs_wbk_filter_rf_list" { }
+            button_group = {
+                layoutpolicy_horizontal = expanding
+                parentanchor = top|hcenter
+                widgetanchor = top|hcenter
+                onclick = "[ScriptedGui.Execute( GuiScope.End )]"
+                flowcontainer = {
+                    spacing = 5
+                    text_single = {
+                        layoutpolicy_horizontal = expanding
+                        block "acs_wbk_filter_rf_name_any" { 
+                            text = "acs_l_filter_rf_any"
+                        } 
+                        default_format = "#medium"
+                        fontsize_min = 8
+                        max_width = 300  
+                        align = vcenter|left
+                    }
+                    acs_four_state_checkbox = {
+                        blockoverride "acs_checkbox_state" {
+                            block "acs_wbk_filter_rf_checkbox" { }
+                        }
+                    }
+                }
+            }
+            item = {
+                acs_w_filter_religion = {} 
+            }
+        }
+        
+    }
+
+    type acs_w_filter_religion = flowcontainer {
+        direction = vertical
+        layoutpolicy_horizontal = growing
+        layoutpolicy_vertical = growing
+        margin_bottom = 12
+        widget = {
+            datacontext = "[Scope.Religion]"
+            size = { 300 30 }
+            button_group = {
+    
+                datacontext = "[GetScriptedGui( 'acs_sg_religion' )]"  
+                onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Religion.MakeScope ).End )]"
+                
+                flowcontainer = {
+                    spacing = 5
+                    acs_four_state_checkbox = {
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[FixedPointToInt( Religion.MakeScope.ScriptValue('acs_sv_religion_frame') )]"
+                        }
+                    }
+                    text_single = {
+                        layoutpolicy_horizontal = expanding
+                        text = "[Religion.GetNameNoTooltip]"
+                        default_format = "#medium"
+                        fontsize_min = 8
+                        max_width = 300  
+                        align = bottom|left
+
+                        using = tooltip_nw
+                        tooltipwidget = {
+                            using = religion_tooltip
+                        }
+                    }
+                }
+            }
+        }
+        acs_w_filter_faith_grid = {}
+    }  
+
+    type acs_w_filter_faith_grid = flowcontainer {
         margin_left = 30
         fixedgridbox = {
             datacontext = "[Scope.Religion]"
@@ -117,33 +213,41 @@
             min_width = 175
             datamodel_wrap = 3
             item = {
-                acs_filter_faith = {}
+                acs_w_filter_faith = {}
             }
         } 
     }
 
-    type acs_filter_faith = widget {
+    type acs_w_filter_faith = widget {
         size = { 175 30 }
         button_group = {
     
-            block "acs_trait_item_action" {}
+            datacontext = "[GetScriptedGui( 'acs_sg_faith' )]"  
+            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Faith.MakeScope ).End )]"
             
             flowcontainer = {
                 spacing = 5
                 parentanchor = top|left
                 widgetanchor = top|left
-                acs_four_state_checkbox = {}
+                acs_four_state_checkbox = {
+                    blockoverride "acs_checkbox_state" {
+                        frame = "[FixedPointToInt( Faith.MakeScope.ScriptValue('acs_sv_faith_frame') )]"
+                    }
+                }
     
                 icon = {
                     size = { 32 32 }
                     texture = "[Faith.GetIcon]"
+
+                    using = tooltip_nw
+                    tooltipwidget = {
+                        faith_tooltip = {}
+                    }
                 }
     
                 text_single = {
                     layoutpolicy_horizontal = expanding
-                    block "acs_filter_name" {  
-                        text = "[Faith.GetNameNoTooltip]"
-                    }
+                    text = "[Faith.GetNameNoTooltip]"
                     default_format = "#medium"
                     fontsize_min = 8
                     max_width = 95
@@ -155,10 +259,7 @@
             }
         }
     
-        using = tooltip_nw
-        tooltipwidget = {
-            faith_tooltip = {}
-        }
+        
     }
 }
 
