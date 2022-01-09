@@ -78,13 +78,13 @@ scope:used_slot = {
 		}
 	}
 	
-	every_in_list = acs_active_filter_list
+	every_in_list = acs_vl_filter_active
 	if = {
-		limit = { has_variable_list = acs_vl_active_filter }
+		limit = { has_variable_list = acs_vl_filter_active }
 		every_in_list = {
-			variable = acs_vl_active_filter
+			variable = acs_vl_filter_active
 			save_temporary_scope_as = slot_value
-			add_to_global_variable_list = { name = acs_active_filter_list target = scope:slot_value }
+			add_to_global_variable_list = { name = acs_vl_filter_active target = scope:slot_value }
 		}
 	}
 	
@@ -137,10 +137,10 @@ acs_save_undo_0_filters = {
             }  
         }
         every_in_global_list = {
-            variable = acs_active_filter_list
+            variable = acs_vl_filter_active
             save_temporary_scope_as = slot_value
             scope:new_undo = {
-                add_to_variable_list = { name = acs_vl_active_filter target = scope:slot_value } 
+                add_to_variable_list = { name = acs_vl_filter_active target = scope:slot_value } 
             }  
         }
         if = {
@@ -218,7 +218,7 @@ global_var:acs_gv_main_filters = {
 
 has_global_variable = acs_gv_main_filters
 save_scope_as = help
-acs_set_copy_save_slots = { FROM = global_var:acs_gv_main_filters TO = scppe:help }
+acs_set_copy_save_slots = { FROM = global_var:acs_gv_main_filters TO = scope:help }
 global_var:acs_gv_main_filters = {
     var:acs_v_filter_relation = { 
         save_scope_as = temp
@@ -258,5 +258,47 @@ acs_filter_relation = {
         }
         
         acs_se_auto_apply_sorting_and_filters = yes
+    }
+}
+global_var:acs_gv_main_filters = {
+    acs_set_copy_list = { TO = scope:help LIST_NAME = acs_vl_filter_active }
+}
+
+global_var:acs_gv_main_filters = {
+    scope:help = { clear_variable_list = acs_vl_filter_active }
+    every_in_list = {
+        variable = acs_vl_filter_active
+        save_temporary_scope_as = slot_value
+        scope:help = {
+            add_to_variable_list = { name = acs_vl_filter_active target = scope:slot_value } 
+        }  
+    }
+}
+global_var:acs_gv_main_filters = {
+    has_variable_list = acs_vl_filter_active
+}
+acs_set_copy_save_slots = { # FROM : scope, TO : scope
+    $FROM$ = {
+        if = {
+            limit = { has_variable = acs_v_filter_relation }
+            $TO$ = { set_variable = { name = acs_v_filter_relation value = $FROM$.var:acs_v_filter_relation } }
+        }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_education_general }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_education_martial }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_fame_born_status }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_physical_beauty }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_physical_intellect }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_physical_physique }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_active }
+    } 
+}
+
+save_temporary_scope_as = candidate
+global_var:acs_gv_main_filters = {
+    any_in_list = {
+        variable = acs_vl_filter_active
+        save_temporary_scope_as = tag
+        acs_switch_filter = { FILTER = scope:tag CANDIDATE = scope:candidate }
+        count = all
     }
 }

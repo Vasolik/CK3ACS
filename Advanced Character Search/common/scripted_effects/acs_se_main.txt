@@ -211,7 +211,7 @@ acs_add_to_sort_list = {
             save_temporary_scope_as = candidate
             global_var:acs_gv_main_filters = {
                 any_in_list = {
-                    variable = acs_vl_active_filter
+                    variable = acs_vl_filter_active
                     save_temporary_scope_as = tag
                     acs_switch_filter = { FILTER = scope:tag CANDIDATE = scope:candidate }
                     count = all
