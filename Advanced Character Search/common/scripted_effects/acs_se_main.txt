@@ -595,6 +595,32 @@ acs_simple_checkbox = {
     }
 }
 
+acs_set_load_filters = {
+    if = {
+        limit = {
+            has_global_variable = acs_gv_save_slot_$SLOT$
+        }
+        if = {
+            limit = {  NOT = { acs_current_slot_used = $SLOT$ } }
+            acs_save_undo_0_filters = yes
+        }
+        set_global_variable = { name = acs_gv_main_filters value = global_var:acs_gv_save_slot_$SLOT$ }
+        acs_se_auto_apply_sorting_and_filters = yes
+    }  
+}
+
+acs_set_save_filters = {
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
+        }
+        set_global_variable = { name = acs_gv_save_slot_$SLOT$ value = global_var:acs_gv_main_filters }
+    }
+    else = {
+        remove_global_variable = acs_gv_save_slot_$SLOT$
+    }
+}
+
 
 acs_set_new_empty_object = {
     if = {

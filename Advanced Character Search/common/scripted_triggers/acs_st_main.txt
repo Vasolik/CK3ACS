@@ -1,0 +1,23 @@
+﻿
+acs_stt_are_list_equal = {
+	$SLOT1$ = {
+		any_in_list = {
+			variable = $LIST_NAME$
+			save_temporary_scope_as = slot_value
+			$SLOT2$ = {
+				any_in_list = { variable = $LIST_NAME$ this = scope:slot_value }
+			}
+			count = all
+		}
+	}
+	$SLOT2$ = {
+		any_in_list = {
+			variable = $LIST_NAME$
+			save_temporary_scope_as = slot_value
+			$SLOT1$ = {
+				any_in_list = { variable = $LIST_NAME$ this = scope:slot_value }
+			}
+			count = all
+		}
+	}
+}
