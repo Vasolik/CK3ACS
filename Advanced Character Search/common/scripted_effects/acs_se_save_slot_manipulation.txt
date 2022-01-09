@@ -1,4 +1,4 @@
-﻿acs_save_undo_0_filters = {
+﻿acs_se_save_undo = {
     acs_set_new_empty_object = { OBJECT_NAME = new_undo }
     acs_set_copy_save_slots = { FROM = global_var:acs_gv_main_filters TO = scope:new_undo }
     scope:new_undo = {
@@ -45,40 +45,8 @@
 }
 
 acs_set_clear_undo_slot = {
+    acs_set_clear_save_slot = {  SLOT = $SLOT$ }
     $SLOT$ = {
-        if = {
-            limit = { has_variable = acs_v_filter_relation }
-            remove_variable = acs_v_filter_relation
-        }
-        if = {
-            limit = { has_variable_list = acs_vl_filter_trait_education_general }
-            clear_variable_list = acs_vl_filter_trait_education_general
-        }
-        if = {
-            limit = { has_variable_list = acs_vl_filter_trait_education_martial }
-            clear_variable_list = acs_vl_filter_trait_education_martial
-        }
-        if = {
-            limit = { has_variable_list = acs_vl_filter_trait_fame_born_status }
-            clear_variable_list = acs_vl_filter_trait_fame_born_status
-        }
-        if = {
-            limit = { has_variable_list = acs_vl_filter_trait_physical_beauty }
-            clear_variable_list = acs_vl_filter_trait_physical_beauty
-        }
-        if = {
-            limit = { has_variable_list = acs_vl_filter_trait_physical_intellect }
-            clear_variable_list = acs_vl_filter_trait_physical_intellect
-        }
-        if = {
-            limit = { has_variable_list = acs_vl_filter_trait_physical_physique }
-            clear_variable_list = acs_vl_filter_trait_physical_physique
-        }
-        if = {
-            limit = { has_variable_list = acs_vl_filter_active }
-            clear_variable_list = acs_vl_filter_active
-        }
-
         if = {
             limit = {
                 has_variable = acs_v_prev
@@ -94,7 +62,7 @@ acs_set_clear_undo_slot = {
     }
 }
 
-acs_load_undo_0_filters = {
+acs_se_load_undo = {
     if = {
         limit = {
             global_var:acs_gv_undo_count > 0
@@ -117,9 +85,48 @@ acs_load_undo_0_filters = {
         }
         acs_set_copy_save_slots = { FROM = scope:used_slot TO = global_var:acs_gv_main_filters }
         acs_set_clear_undo_slot = { SLOT = scope:used_slot }
-        acs_set_delete_empty_object = {OBJECT_NAME = scope:used_slot }
+        acs_set_delete_empty_object = { OBJECT_NAME = scope:used_slot }
         change_global_variable = { name = acs_gv_undo_count add = -1 }
         acs_se_auto_apply_sorting_and_filters = yes
     }
    
+}
+
+acs_set_load_filters = {
+    if = {
+        limit = {
+            has_global_variable = acs_gv_save_slot_$SLOT$
+        }
+        if = {
+            limit = {  NOT = { acs_current_slot_used = $SLOT$ } }
+            acs_se_save_undo = yes
+        }
+        acs_set_copy_save_slots = { FROM = global_var:acs_gv_save_slot_$SLOT$ TO = global_var:acs_gv_main_filters }
+        acs_se_auto_apply_sorting_and_filters = yes
+    }  
+}
+
+acs_set_save_filters = {
+    if = {
+        limit = {
+            NOT = { acs_current_slot_used = -2 }
+        }
+        acs_set_copy_save_slots = { FROM = global_var:acs_gv_main_filters TO = global_var:acs_gv_save_slot_$SLOT$ }
+    }
+    else = {
+        remove_global_variable = acs_gv_save_slot_$SLOT$
+    }
+}
+
+acs_reset_filters_and_sorting = {
+    if = {
+        limit = { 
+            acs_current_slot_used = -2 
+        }
+        acs_se_save_undo = yes
+    }
+    set_global_variable = { name = acs_sort_by value = 0  }
+    set_global_variable = acs_sort_by_ascending
+    set_global_variable = { name = acs_select_count value = 100 }
+    acs_set_reset_save_slot_to_default = { SLOT = global_var:acs_gv_main_filters }
 }

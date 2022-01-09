@@ -90,7 +90,7 @@ scope:used_slot = {
 	
 }
 
-acs_save_undo_0_filters = {
+acs_se_save_undo = {
     acs_set_new_empty_object = { OBJECT_NAME = new_undo }
     scope:new_undo = {
         set_variable = { name = acs_v_filter_relation value = global_var:acs_gv_main_filters.var:acs_v_filter_relation }
@@ -252,7 +252,7 @@ acs_filter_relation = {
     }
         
     effect = {
-        acs_save_undo_0_filters = yes
+        acs_se_save_undo = yes
         global_var:acs_gv_main_filters = {
             set_variable = {  name = acs_v_filter_relation value = scope:ctrl_value }
         }

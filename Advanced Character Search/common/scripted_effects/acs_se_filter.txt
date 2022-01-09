@@ -1,0 +1,30 @@
+﻿acs_simple_checkbox = { # LIST : VariableListName, START : int
+    global_var:acs_gv_main_filters = {
+        acs_se_save_undo = yes
+        set_local_variable = { name = acs_lv_positive value = $START$ }
+        set_local_variable = { name = acs_lv_negative value = { value = local_var:acs_lv_positive add = 1 } }
+        if = {
+            limit = {
+                NOT = {
+                    any_in_list = {
+                        variable = $LIST$
+                        OR = {
+                            this = local_var:acs_lv_positive
+                            this = local_var:acs_lv_negative
+                        }
+                    } 
+                } 
+            }
+            add_to_variable_list = { name = $LIST$ target = local_var:acs_lv_positive }
+        }
+        else = {
+            if = { limit = { any_in_list = { variable = $LIST$ this = local_var:acs_lv_positive } }
+                remove_list_variable = { name = $LIST$ target = local_var:acs_lv_positive }
+                add_to_variable_list = { name = $LIST$ target = local_var:acs_lv_negative }
+            }
+            else = {
+                remove_list_variable = { name = $LIST$ target = local_var:acs_lv_negative }
+            }
+        }
+    }
+}

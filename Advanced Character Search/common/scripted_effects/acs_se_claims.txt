@@ -1,0 +1,310 @@
+﻿set_claim_data = {
+    if = {
+        limit = {
+            NOT = { has_variable = is_acs_building_claim_list }
+        }
+        
+        save_scope_as = target_character
+        set_variable = is_acs_building_claim_list
+        set_variable = {  name = acs_top_claim_value value = 0  }
+
+        remove_variable = acs_is_top_claim_explicit;
+        remove_variable = acs_is_top_claim_pressed;
+        remove_variable = acs_best_claim
+        clear_saved_scope = acs_top_claim
+        clear_saved_scope = acs_top_unpressed_claim
+        clear_saved_scope = acs_top_pressed_claim
+
+        ordered_claim = {
+            explicit = no
+            order_by = claim_value_for_sort
+            max = 1
+            save_temporary_scope_as = acs_top_claim
+            prev = {
+                set_variable = {  name = acs_top_claim_value value = scope:acs_top_claim.claim_value_for_sort } 
+            }
+        }
+        set_variable = { name = acs_top_unpressed_claim_value value = 0  }
+        ordered_claim = {
+            explicit = yes
+            pressed = no
+            order_by = claim_value_for_sort
+            max = 1
+            save_temporary_scope_as = acs_top_unpressed_claim
+            prev = {
+                set_variable = {  name = acs_top_unpressed_claim_value value = scope:acs_top_unpressed_claim.claim_value_for_sort  } 
+            }
+        }
+        set_local_variable = {name  = help value = { value = var:acs_top_unpressed_claim_value subtract = var:acs_top_claim_value }}
+        if = {
+            limit = {
+                AND = {
+                    local_var:help >= 0
+                    var:acs_top_unpressed_claim_value > 0
+                }
+            }
+            scope:acs_top_unpressed_claim = {
+                save_scope_as = acs_top_claim
+            }
+            
+            set_variable = { name = acs_top_claim_value value = var:acs_top_unpressed_claim_value  } 
+            set_variable = acs_is_top_claim_explicit
+        }
+        set_variable = { name = acs_top_pressed_claim_value value = 0  }
+        ordered_claim = {
+            explicit = yes
+            pressed = yes
+            order_by = claim_value_for_sort
+            max = 1
+            save_temporary_scope_as = acs_top_pressed_claim
+            prev = {
+                set_variable = { name = acs_top_pressed_claim_value value = scope:acs_top_pressed_claim.claim_value_for_sort   } 
+            }
+        }
+        set_local_variable = {name  = help value = { value = var:acs_top_pressed_claim_value subtract = var:acs_top_claim_value }}
+        if = {
+            limit = {
+                AND = {
+                    local_var:help >= 0
+                    var:acs_top_pressed_claim_value > 0
+                }
+            }
+            scope:acs_top_pressed_claim = {
+                save_temporary_scope_as = acs_top_claim
+            }
+            set_variable = acs_is_top_claim_explicit
+            set_variable = acs_is_top_claim_pressed
+        }
+        
+        if = {
+            limit = { exists = scope:acs_top_claim }
+            set_variable = { name = acs_best_claim value = scope:acs_top_claim  } 
+        }
+
+        set_variable = { name = acs_total_claim_county value = total_claim_county_value } 
+        set_variable = { name = acs_total_claim_duchy value = total_claim_duchy_value } 
+        set_variable = { name = acs_total_claim_kingdom value = total_claim_kingdom_value } 
+        set_variable = { name = acs_total_claim_empire value = total_claim_empire_value } 
+        
+        set_variable = { name = acs_total_heritage_county value = total_heritage_county_value } 
+        set_variable = { name = acs_total_heritage_duchy value = total_heritage_duchy_value } 
+        set_variable = { name = acs_total_heritage_kingdom value = total_heritage_kingdom_value } 
+        set_variable = { name = acs_total_heritage_empire value = total_heritage_empire_value } 
+        set_variable = { name = acs_total_heritage_barony value = total_heritage_barony_value } 
+        
+        remove_variable = acs_top_claim_value
+        remove_variable = acs_top_unpressed_claim_value
+        remove_variable = acs_top_pressed_claim_value
+
+        clear_variable_list = acs_implicit_claim_list
+        every_claim = {
+            explicit = no
+            save_scope_as = to_add
+            scope:target_character = {
+                add_to_variable_list = {
+                    name = acs_implicit_claim_list
+                    target = scope:to_add
+                }
+            }
+        }
+        clear_variable_list = acs_unpressed_claim_list
+        every_claim = {
+            explicit = yes
+            pressed = no
+            save_scope_as = to_add
+            scope:target_character = {
+                add_to_variable_list = {
+                    name = acs_unpressed_claim_list
+                    target = prev
+                }
+            }
+        }
+        clear_variable_list = acs_pressed_claim_list
+        every_claim = {
+            explicit = yes
+            pressed = yes
+            scope:target_character = {
+                add_to_variable_list = {
+                    name = acs_pressed_claim_list
+                    target = prev
+                }
+            }
+        }
+        remove_variable = acs_best_heritage
+        clear_variable_list = acs_heir_to_title_list
+        ordered_heir_to_title = {
+            order_by = tier
+            max = 20
+            check_range_bounds = no
+            if = {
+                limit = { 
+                    scope:target_character = {
+                        NOT = { has_variable = acs_best_heritage }
+                    }
+                    
+                }
+                scope:target_character = {
+                    set_variable = { name = acs_best_heritage value = prev }
+                }
+            }
+            scope:target_character = {
+                add_to_variable_list = {
+                    name = acs_heir_to_title_list
+                    target = prev
+                }
+            }
+        }
+
+        clear_variable_list = acs_2nd_to_title_list
+        ordered_pretender_title = {
+            order_by = tier
+            max = 20
+            check_range_bounds = no
+            if = {
+                limit = {
+                    place_in_line_of_succession = {
+                        target = scope:target_character
+                        value == 2
+                    }
+                }
+                if = {
+                    limit = { 
+                        scope:target_character = {
+                            NOT = { has_variable = acs_best_heritage }
+                        }   
+                    }
+                    scope:target_character = {
+                        set_variable = { name = acs_best_heritage value = prev }
+                    }
+                }
+                scope:target_character = {
+                    add_to_variable_list = {
+                        name = acs_2nd_to_title_list
+                        target = prev
+                    }
+                }
+            }  
+        }
+
+        clear_variable_list = acs_3rd_to_title_list
+        ordered_pretender_title = {
+            order_by = tier
+            max = 20
+            check_range_bounds = no
+            if = {
+                limit = {
+                    place_in_line_of_succession = {
+                        target = scope:target_character
+                        value == 3
+                    }
+                }
+                if = {
+                    limit = { 
+                        scope:target_character = {
+                            NOT = { has_variable = acs_best_heritage }
+                        }   
+                    }
+                    scope:target_character = {
+                        set_variable = { name = acs_best_heritage value = prev }
+                    }
+                }
+                scope:target_character = {
+                    add_to_variable_list = {
+                        name = acs_3rd_to_title_list
+                        target = prev
+                    }
+                }
+            }  
+        }
+
+        clear_variable_list = acs_4th_to_title_list
+        ordered_pretender_title = {
+            order_by = tier
+            max = 20
+            check_range_bounds = no
+            if = {
+                limit = {
+                    place_in_line_of_succession = {
+                        target = scope:target_character
+                        value == 4
+                    }
+                }
+                if = {
+                    limit = { 
+                        scope:target_character = {
+                            NOT = { has_variable = acs_best_heritage }
+                        }   
+                    }
+                    scope:target_character = {
+                        set_variable = { name = acs_best_heritage value = prev }
+                    }
+                }
+                scope:target_character = {
+                    add_to_variable_list = {
+                        name = acs_4th_to_title_list
+                        target = prev
+                    }
+                }
+            }  
+        }
+
+        clear_variable_list = acs_other_heritage_list
+        ordered_pretender_title = {
+            order_by = tier
+            max = 20
+            check_range_bounds = no
+            if = {
+                limit = {
+                    place_in_line_of_succession = {
+                        target = scope:target_character
+                        value > 4
+                    }
+                }
+                if = {
+                    limit = { 
+                        scope:target_character = {
+                            NOT = { has_variable = acs_best_heritage }
+                        }   
+                    }
+                    scope:target_character = {
+                        set_variable = { name = acs_best_heritage value = prev }
+                    }
+                }
+                scope:target_character = {
+                    add_to_variable_list = {
+                        name = acs_other_heritage_list
+                        target = prev
+                    }
+                }
+            }  
+        }
+
+        remove_variable = is_acs_building_claim_list
+    } 
+}
+
+clear_claim_data = {
+    remove_variable = acs_best_claim
+    remove_variable = acs_total_claim_county
+    remove_variable = acs_total_claim_duchy
+    remove_variable = acs_total_claim_kingdom
+    remove_variable = acs_total_claim_empire
+
+    remove_variable = acs_total_heritage_county
+    remove_variable = acs_total_heritage_duchy
+    remove_variable = acs_total_heritage_kingdom
+    remove_variable = acs_total_heritage_empire
+    remove_variable = acs_total_heritage_barony
+    
+    clear_variable_list = acs_implicit_claim_list
+    clear_variable_list = acs_unpressed_claim_list
+    clear_variable_list = acs_pressed_claim_list
+    remove_variable = acs_is_top_claim_explicit
+    remove_variable = acs_is_top_claim_pressed
+    remove_variable = acs_best_heritage
+    clear_variable_list = acs_heir_to_title_list
+    clear_variable_list = acs_2nd_to_title_list
+    clear_variable_list = acs_3rd_to_title_list
+    clear_variable_list = acs_4th_to_title_list
+    clear_variable_list = acs_other_heritage_list
+}

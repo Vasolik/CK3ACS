@@ -104,7 +104,7 @@ acs_filter_2_group_checkbox = {
     }  
         
     effect = {
-        acs_save_undo_0_filters = yes
+        acs_se_save_undo = yes
         global_var:acs_gv_main_filters = { 
             if = {
                 limit = {
@@ -438,7 +438,7 @@ acs_filter_3_group_checkbox = {
     }  
         
     effect = {
-        acs_save_undo_0_filters = yes
+        acs_se_save_undo = yes
         global_var:acs_gv_main_filters = {
             if = {
                 limit = {
@@ -1084,7 +1084,7 @@ acs_filter_3_group_checkbox_group = {
     }
 
     effect = {
-        acs_save_undo_0_filters = yes
+        acs_se_save_undo = yes
         global_var:acs_gv_main_filters = {
             if = {
                 limit = {
@@ -1204,7 +1204,7 @@ acs_filter_simple_dropdown = {
     }
 
     effect = {
-        acs_save_undo_0_filters = yes
+        acs_se_save_undo = yes
         set_local_variable = { name  = acs_counter value = scope:total_element_count }
         global_var:acs_gv_main_filters = {
 
@@ -1234,7 +1234,7 @@ acs_sg_filter_relation = {
     }
         
     effect = {
-        acs_save_undo_0_filters = yes
+        acs_se_save_undo = yes
         global_var:acs_gv_main_filters = {
             set_variable = {  name = acs_v_filter_relation value = scope:ctrl_value }
         }
