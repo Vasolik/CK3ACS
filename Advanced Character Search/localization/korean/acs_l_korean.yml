@@ -21,7 +21,7 @@
  acs_none:0 "없음"
  acs_undo:0 "되돌리기"
  acs_default:0 "기본값"
- acs_slot_text:0 "슬롯[EmptyScope.ScriptValue('acs_current_slot_used')|0]을 사용한다."
+ acs_slot_text:0 "슬롯[GetGlobalVariable( 'acs_gv_main_filters' ).Var('acs_v_current_slot').GetValue|0]을 사용한다."
  acs_character_finder_count:0 "[Select_CString( LessThan_CFixedPoint( GetGlobalVariable( 'acs_selected_count' ).GetValue, GetGlobalVariable('acs_total_number_of_characters').GetValue ), '#high', '#low' )] [GetGlobalVariable( 'acs_selected_count' ).GetValue|0] #!명 / [GetGlobalVariable('acs_total_number_of_characters').GetValue|0]명"
  acs_show:0 "나타내기"
  acs_reload_tooltip:0 "새로 고침"

@@ -1,4 +1,4 @@
-﻿acs_current_slot_used = {
+﻿acs_sv_curent_slot_used = {
     value = -1
     if = {
         limit = {
@@ -10,7 +10,7 @@
     else_if = {
         ordered_in_global_list = {
             variable = acs_gvl_save_slot
-            order_by = var:acs_v_index
+            order_by = acs_sv_reverse_index
             max = 1
             limit = { 
                 has_variable = acs_v_is_used
@@ -21,4 +21,9 @@
             add = 1
         }
     }
+}
+
+acs_sv_reverse_index = {
+    value = var:acs_v_index
+    multiply = -1
 }

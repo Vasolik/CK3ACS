@@ -100,49 +100,10 @@ acs_st_find_save_slot = { # SLOT : int, RESULT : string -> scope:RESULT
 	}
 }
 
-acs_set_load_filters = {
-    acs_st_find_save_slot = { SLOT = $SLOT$ RESULT = to_load }
-    if = {
-        limit = {
-            scope:to_load = {
-                has_variable = acs_v_is_used
-            }
-        }
-        if = {
-            limit = {  
-                NOT = { 
-                    acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = scope:to_load }
-                } 
-            }
-            acs_se_save_undo = yes
-
-            acs_set_copy_save_slots = { FROM = scope:to_load TO = global_var:acs_gv_main_filters }
-            acs_se_auto_apply_sorting_and_filters = yes
-        }
-    }  
-}
-
-acs_set_save_filters = {
-    acs_st_find_save_slot = { SLOT = $SLOT$ RESULT = to_save }
-    scope:to_save = {
-        if = {
-            limit = {
-                NOT = { acs_stt_is_slot_default = {  SLOT = global_var:acs_gv_main_filters } }
-            }
-            acs_set_copy_save_slots = { FROM = global_var:acs_gv_main_filters TO = scope:to_save }
-            set_variable = acs_v_is_used
-            acs_se_set_current_slot = yes
-        }
-        else = {
-            remove_variable = acs_v_is_used
-        }
-    }
-}
-
 acs_reset_filters_and_sorting = {
     if = {
         limit = { 
-            acs_current_slot_used = -2 
+            global_var:acs_gv_main_filters.var:acs_v_current_slot = -2 
         }
         acs_se_save_undo = yes
     }
@@ -154,6 +115,6 @@ acs_reset_filters_and_sorting = {
 
 acs_se_set_current_slot = {
     global_var:acs_gv_main_filters = {
-        set_variable = { name = acs_v_current_slot value = acs_current_slot_used }
+        set_variable = { name = acs_v_current_slot value = acs_sv_curent_slot_used }
     }
 }

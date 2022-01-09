@@ -21,7 +21,7 @@
  acs_none:0 "无"
  acs_undo:0 "撤销"
  acs_default:0 "默认"
- acs_slot_text:0 "使用栏位[EmptyScope.ScriptValue('acs_current_slot_used')|0]"
+ acs_slot_text:0 "使用栏位[GetGlobalVariable( 'acs_gv_main_filters' ).Var('acs_v_current_slot').GetValue|0]"
  acs_character_finder_count:0 "[Select_CString( LessThan_CFixedPoint( GetGlobalVariable( 'acs_selected_count' ).GetValue, GetGlobalVariable('acs_total_number_of_characters').GetValue ), '#high', '#low' )][GetGlobalVariable( 'acs_selected_count' ).GetValue|0] #! 的 [GetGlobalVariable('acs_total_number_of_characters').GetValue|0] 角色"
  acs_show:0 "显示"
  acs_reload_tooltip:0 "刷新"
