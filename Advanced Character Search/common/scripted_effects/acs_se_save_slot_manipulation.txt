@@ -1,0 +1,39 @@
+﻿acs_set_copy_save_slots = { # FROM : scope, TO : scope
+    $FROM$ = {
+        if = {
+            limit = { has_variable = acs_v_filter_relation }
+            $TO$ = { set_variable = { name = acs_v_filter_relation value = $FROM$.var:acs_v_filter_relation } }
+        }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_education_general }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_education_martial }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_fame_born_status }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_physical_beauty }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_physical_intellect }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_physical_physique }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_active }
+    } 
+}
+acs_set_reset_save_slot_to_default = { # SLOT : scope
+    $SLOT$ = { 
+        set_variable = { name = acs_v_filter_relation value = 4 }
+        clear_variable_list = acs_vl_filter_trait_education_general
+        clear_variable_list = acs_vl_filter_trait_education_martial
+        clear_variable_list = acs_vl_filter_trait_fame_born_status
+        clear_variable_list = acs_vl_filter_trait_physical_beauty
+        clear_variable_list = acs_vl_filter_trait_physical_intellect
+        clear_variable_list = acs_vl_filter_trait_physical_physique
+        clear_variable_list = acs_vl_filter_active  
+    }
+}
+acs_set_clear_save_slot = { # SLOT : scope
+    $SLOT$ = {
+        remove_variable = acs_v_filter_relation
+        clear_variable_list = acs_vl_filter_trait_education_general
+        clear_variable_list = acs_vl_filter_trait_education_martial
+        clear_variable_list = acs_vl_filter_trait_fame_born_status
+        clear_variable_list = acs_vl_filter_trait_physical_beauty
+        clear_variable_list = acs_vl_filter_trait_physical_intellect
+        clear_variable_list = acs_vl_filter_trait_physical_physique
+        clear_variable_list = acs_vl_filter_active
+    } 
+}

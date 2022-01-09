@@ -1,187 +1,199 @@
-﻿acs_make_reduced_and_count = {
-    clear_global_variable_list = acs_filter_trait_education_general_list_reduced
-    set_global_variable = { name = acs_filter_trait_education_general_count value = 0  } 
-    every_in_global_list = {
-        variable = acs_filter_trait_education_general_list
-        save_temporary_scope_value_as = { name = to_get_modulo value = this }
-        if = {
-            limit = { acs_modulo_2 = 0 }
-            add_to_global_variable_list = { name = acs_filter_trait_education_general_list_reduced target = scope:to_get_modulo }
-            change_global_variable = { name = acs_filter_trait_education_general_count add = 1 } 
-        }
-    }
-    if = {
-        limit = {
-            global_var:acs_filter_trait_education_general_count > 0
-        }
-        set_global_variable = { name = acs_filter_trait_education_general_count value = 1 } 
-    }
-    if = {
-        limit = {
-            global_var:acs_filter_trait_education_general_count = 0
-        }
-        every_in_global_list = {
-            variable = acs_filter_trait_education_general_list
+﻿acs_make_reduced_and_count = { 
+    clear_global_variable_list = acs_gvl_filter_trait_education_general_reduced
+    set_global_variable = { name = acs_gv_filter_trait_education_general_count value = 0  }
+    global_var:acs_gv_main_filters = {
+        every_in_list = {
+            variable = acs_vl_filter_trait_education_general
             save_temporary_scope_value_as = { name = to_get_modulo value = this }
             if = {
-                limit = { acs_modulo_2 = 1 }
-                add_to_global_variable_list = { name = acs_filter_trait_education_general_list_reduced target = scope:to_get_modulo }
-                change_global_variable = { name = acs_filter_trait_education_general_count add = 1 } 
+                limit = { acs_modulo_2 = 0 }
+                add_to_global_variable_list = { name = acs_gvl_filter_trait_education_general_reduced target = scope:to_get_modulo }
+                change_global_variable = { name = acs_gv_filter_trait_education_general_count add = 1 } 
+            }
+        }
+        if = {
+            limit = {
+                global_var:acs_gv_filter_trait_education_general_count > 0
+            }
+            set_global_variable = { name = acs_gv_filter_trait_education_general_count value = 1 } 
+        }
+        if = {
+            limit = {
+                global_var:acs_gv_filter_trait_education_general_count = 0
+            }
+            every_in_list = {
+                variable = acs_vl_filter_trait_education_general
+                save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                if = {
+                    limit = { acs_modulo_2 = 1 }
+                    add_to_global_variable_list = { name = acs_gvl_filter_trait_education_general_reduced target = scope:to_get_modulo }
+                    change_global_variable = { name = acs_gv_filter_trait_education_general_count add = 1 } 
+                }
             }
         }
     }
-    clear_global_variable_list = acs_filter_trait_education_martial_list_reduced
-    set_global_variable = { name = acs_filter_trait_education_martial_count value = 0  } 
-    every_in_global_list = {
-        variable = acs_filter_trait_education_martial_list
-        save_temporary_scope_value_as = { name = to_get_modulo value = this }
-        if = {
-            limit = { acs_modulo_2 = 0 }
-            add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_reduced target = scope:to_get_modulo }
-            change_global_variable = { name = acs_filter_trait_education_martial_count add = 1 } 
-        }
-    }
-    if = {
-        limit = {
-            global_var:acs_filter_trait_education_martial_count > 0
-        }
-        set_global_variable = { name = acs_filter_trait_education_martial_count value = 1 } 
-    }
-    if = {
-        limit = {
-            global_var:acs_filter_trait_education_martial_count = 0
-        }
-        every_in_global_list = {
-            variable = acs_filter_trait_education_martial_list
+    clear_global_variable_list = acs_gvl_filter_trait_education_martial_reduced
+    set_global_variable = { name = acs_gv_filter_trait_education_martial_count value = 0  }
+    global_var:acs_gv_main_filters = {
+        every_in_list = {
+            variable = acs_vl_filter_trait_education_martial
             save_temporary_scope_value_as = { name = to_get_modulo value = this }
             if = {
-                limit = { acs_modulo_2 = 1 }
-                add_to_global_variable_list = { name = acs_filter_trait_education_martial_list_reduced target = scope:to_get_modulo }
-                change_global_variable = { name = acs_filter_trait_education_martial_count add = 1 } 
+                limit = { acs_modulo_2 = 0 }
+                add_to_global_variable_list = { name = acs_gvl_filter_trait_education_martial_reduced target = scope:to_get_modulo }
+                change_global_variable = { name = acs_gv_filter_trait_education_martial_count add = 1 } 
+            }
+        }
+        if = {
+            limit = {
+                global_var:acs_gv_filter_trait_education_martial_count > 0
+            }
+            set_global_variable = { name = acs_gv_filter_trait_education_martial_count value = 1 } 
+        }
+        if = {
+            limit = {
+                global_var:acs_gv_filter_trait_education_martial_count = 0
+            }
+            every_in_list = {
+                variable = acs_vl_filter_trait_education_martial
+                save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                if = {
+                    limit = { acs_modulo_2 = 1 }
+                    add_to_global_variable_list = { name = acs_gvl_filter_trait_education_martial_reduced target = scope:to_get_modulo }
+                    change_global_variable = { name = acs_gv_filter_trait_education_martial_count add = 1 } 
+                }
             }
         }
     }
-    clear_global_variable_list = acs_filter_trait_fame_born_status_list_reduced
-    set_global_variable = { name = acs_filter_trait_fame_born_status_count value = 0  } 
-    every_in_global_list = {
-        variable = acs_filter_trait_fame_born_status_list
-        save_temporary_scope_value_as = { name = to_get_modulo value = this }
-        if = {
-            limit = { acs_modulo_2 = 0 }
-            add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_reduced target = scope:to_get_modulo }
-            change_global_variable = { name = acs_filter_trait_fame_born_status_count add = 1 } 
-        }
-    }
-    if = {
-        limit = {
-            global_var:acs_filter_trait_fame_born_status_count > 0
-        }
-        set_global_variable = { name = acs_filter_trait_fame_born_status_count value = 1 } 
-    }
-    if = {
-        limit = {
-            global_var:acs_filter_trait_fame_born_status_count = 0
-        }
-        every_in_global_list = {
-            variable = acs_filter_trait_fame_born_status_list
+    clear_global_variable_list = acs_gvl_filter_trait_fame_born_status_reduced
+    set_global_variable = { name = acs_gv_filter_trait_fame_born_status_count value = 0  }
+    global_var:acs_gv_main_filters = {
+        every_in_list = {
+            variable = acs_vl_filter_trait_fame_born_status
             save_temporary_scope_value_as = { name = to_get_modulo value = this }
             if = {
-                limit = { acs_modulo_2 = 1 }
-                add_to_global_variable_list = { name = acs_filter_trait_fame_born_status_list_reduced target = scope:to_get_modulo }
-                change_global_variable = { name = acs_filter_trait_fame_born_status_count add = 1 } 
+                limit = { acs_modulo_2 = 0 }
+                add_to_global_variable_list = { name = acs_gvl_filter_trait_fame_born_status_reduced target = scope:to_get_modulo }
+                change_global_variable = { name = acs_gv_filter_trait_fame_born_status_count add = 1 } 
+            }
+        }
+        if = {
+            limit = {
+                global_var:acs_gv_filter_trait_fame_born_status_count > 0
+            }
+            set_global_variable = { name = acs_gv_filter_trait_fame_born_status_count value = 1 } 
+        }
+        if = {
+            limit = {
+                global_var:acs_gv_filter_trait_fame_born_status_count = 0
+            }
+            every_in_list = {
+                variable = acs_vl_filter_trait_fame_born_status
+                save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                if = {
+                    limit = { acs_modulo_2 = 1 }
+                    add_to_global_variable_list = { name = acs_gvl_filter_trait_fame_born_status_reduced target = scope:to_get_modulo }
+                    change_global_variable = { name = acs_gv_filter_trait_fame_born_status_count add = 1 } 
+                }
             }
         }
     }
-    clear_global_variable_list = acs_filter_trait_physical_beauty_list_reduced
-    set_global_variable = { name = acs_filter_trait_physical_beauty_count value = 0  } 
-    every_in_global_list = {
-        variable = acs_filter_trait_physical_beauty_list
-        save_temporary_scope_value_as = { name = to_get_modulo value = this }
-        if = {
-            limit = { acs_modulo_2 = 0 }
-            add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_reduced target = scope:to_get_modulo }
-            change_global_variable = { name = acs_filter_trait_physical_beauty_count add = 1 } 
-        }
-    }
-    if = {
-        limit = {
-            global_var:acs_filter_trait_physical_beauty_count > 0
-        }
-        set_global_variable = { name = acs_filter_trait_physical_beauty_count value = 1 } 
-    }
-    if = {
-        limit = {
-            global_var:acs_filter_trait_physical_beauty_count = 0
-        }
-        every_in_global_list = {
-            variable = acs_filter_trait_physical_beauty_list
+    clear_global_variable_list = acs_gvl_filter_trait_physical_beauty_reduced
+    set_global_variable = { name = acs_gv_filter_trait_physical_beauty_count value = 0  }
+    global_var:acs_gv_main_filters = {
+        every_in_list = {
+            variable = acs_vl_filter_trait_physical_beauty
             save_temporary_scope_value_as = { name = to_get_modulo value = this }
             if = {
-                limit = { acs_modulo_2 = 1 }
-                add_to_global_variable_list = { name = acs_filter_trait_physical_beauty_list_reduced target = scope:to_get_modulo }
-                change_global_variable = { name = acs_filter_trait_physical_beauty_count add = 1 } 
+                limit = { acs_modulo_2 = 0 }
+                add_to_global_variable_list = { name = acs_gvl_filter_trait_physical_beauty_reduced target = scope:to_get_modulo }
+                change_global_variable = { name = acs_gv_filter_trait_physical_beauty_count add = 1 } 
+            }
+        }
+        if = {
+            limit = {
+                global_var:acs_gv_filter_trait_physical_beauty_count > 0
+            }
+            set_global_variable = { name = acs_gv_filter_trait_physical_beauty_count value = 1 } 
+        }
+        if = {
+            limit = {
+                global_var:acs_gv_filter_trait_physical_beauty_count = 0
+            }
+            every_in_list = {
+                variable = acs_vl_filter_trait_physical_beauty
+                save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                if = {
+                    limit = { acs_modulo_2 = 1 }
+                    add_to_global_variable_list = { name = acs_gvl_filter_trait_physical_beauty_reduced target = scope:to_get_modulo }
+                    change_global_variable = { name = acs_gv_filter_trait_physical_beauty_count add = 1 } 
+                }
             }
         }
     }
-    clear_global_variable_list = acs_filter_trait_physical_intellect_list_reduced
-    set_global_variable = { name = acs_filter_trait_physical_intellect_count value = 0  } 
-    every_in_global_list = {
-        variable = acs_filter_trait_physical_intellect_list
-        save_temporary_scope_value_as = { name = to_get_modulo value = this }
-        if = {
-            limit = { acs_modulo_2 = 0 }
-            add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_reduced target = scope:to_get_modulo }
-            change_global_variable = { name = acs_filter_trait_physical_intellect_count add = 1 } 
-        }
-    }
-    if = {
-        limit = {
-            global_var:acs_filter_trait_physical_intellect_count > 0
-        }
-        set_global_variable = { name = acs_filter_trait_physical_intellect_count value = 1 } 
-    }
-    if = {
-        limit = {
-            global_var:acs_filter_trait_physical_intellect_count = 0
-        }
-        every_in_global_list = {
-            variable = acs_filter_trait_physical_intellect_list
+    clear_global_variable_list = acs_gvl_filter_trait_physical_intellect_reduced
+    set_global_variable = { name = acs_gv_filter_trait_physical_intellect_count value = 0  }
+    global_var:acs_gv_main_filters = {
+        every_in_list = {
+            variable = acs_vl_filter_trait_physical_intellect
             save_temporary_scope_value_as = { name = to_get_modulo value = this }
             if = {
-                limit = { acs_modulo_2 = 1 }
-                add_to_global_variable_list = { name = acs_filter_trait_physical_intellect_list_reduced target = scope:to_get_modulo }
-                change_global_variable = { name = acs_filter_trait_physical_intellect_count add = 1 } 
+                limit = { acs_modulo_2 = 0 }
+                add_to_global_variable_list = { name = acs_gvl_filter_trait_physical_intellect_reduced target = scope:to_get_modulo }
+                change_global_variable = { name = acs_gv_filter_trait_physical_intellect_count add = 1 } 
+            }
+        }
+        if = {
+            limit = {
+                global_var:acs_gv_filter_trait_physical_intellect_count > 0
+            }
+            set_global_variable = { name = acs_gv_filter_trait_physical_intellect_count value = 1 } 
+        }
+        if = {
+            limit = {
+                global_var:acs_gv_filter_trait_physical_intellect_count = 0
+            }
+            every_in_list = {
+                variable = acs_vl_filter_trait_physical_intellect
+                save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                if = {
+                    limit = { acs_modulo_2 = 1 }
+                    add_to_global_variable_list = { name = acs_gvl_filter_trait_physical_intellect_reduced target = scope:to_get_modulo }
+                    change_global_variable = { name = acs_gv_filter_trait_physical_intellect_count add = 1 } 
+                }
             }
         }
     }
-    clear_global_variable_list = acs_filter_trait_physical_physique_list_reduced
-    set_global_variable = { name = acs_filter_trait_physical_physique_count value = 0  } 
-    every_in_global_list = {
-        variable = acs_filter_trait_physical_physique_list
-        save_temporary_scope_value_as = { name = to_get_modulo value = this }
-        if = {
-            limit = { acs_modulo_2 = 0 }
-            add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_reduced target = scope:to_get_modulo }
-            change_global_variable = { name = acs_filter_trait_physical_physique_count add = 1 } 
-        }
-    }
-    if = {
-        limit = {
-            global_var:acs_filter_trait_physical_physique_count > 0
-        }
-        set_global_variable = { name = acs_filter_trait_physical_physique_count value = 1 } 
-    }
-    if = {
-        limit = {
-            global_var:acs_filter_trait_physical_physique_count = 0
-        }
-        every_in_global_list = {
-            variable = acs_filter_trait_physical_physique_list
+    clear_global_variable_list = acs_gvl_filter_trait_physical_physique_reduced
+    set_global_variable = { name = acs_gv_filter_trait_physical_physique_count value = 0  }
+    global_var:acs_gv_main_filters = {
+        every_in_list = {
+            variable = acs_vl_filter_trait_physical_physique
             save_temporary_scope_value_as = { name = to_get_modulo value = this }
             if = {
-                limit = { acs_modulo_2 = 1 }
-                add_to_global_variable_list = { name = acs_filter_trait_physical_physique_list_reduced target = scope:to_get_modulo }
-                change_global_variable = { name = acs_filter_trait_physical_physique_count add = 1 } 
+                limit = { acs_modulo_2 = 0 }
+                add_to_global_variable_list = { name = acs_gvl_filter_trait_physical_physique_reduced target = scope:to_get_modulo }
+                change_global_variable = { name = acs_gv_filter_trait_physical_physique_count add = 1 } 
+            }
+        }
+        if = {
+            limit = {
+                global_var:acs_gv_filter_trait_physical_physique_count > 0
+            }
+            set_global_variable = { name = acs_gv_filter_trait_physical_physique_count value = 1 } 
+        }
+        if = {
+            limit = {
+                global_var:acs_gv_filter_trait_physical_physique_count = 0
+            }
+            every_in_list = {
+                variable = acs_vl_filter_trait_physical_physique
+                save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                if = {
+                    limit = { acs_modulo_2 = 1 }
+                    add_to_global_variable_list = { name = acs_gvl_filter_trait_physical_physique_reduced target = scope:to_get_modulo }
+                    change_global_variable = { name = acs_gv_filter_trait_physical_physique_count add = 1 } 
+                }
             }
         }
     }

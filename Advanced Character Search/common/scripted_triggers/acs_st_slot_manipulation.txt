@@ -1,0 +1,24 @@
+﻿acs_stt_is_slot_default = { # SLOT : scope
+    $SLOT$ = {
+        var:acs_v_filter_relation = 4
+        any_in_list = { variable = acs_vl_filter_trait_education_general always = yes count = 0 }
+        any_in_list = { variable = acs_vl_filter_trait_education_martial always = yes count = 0 }
+        any_in_list = { variable = acs_vl_filter_trait_fame_born_status always = yes count = 0 }
+        any_in_list = { variable = acs_vl_filter_trait_physical_beauty always = yes count = 0 }
+        any_in_list = { variable = acs_vl_filter_trait_physical_intellect always = yes count = 0 }
+        any_in_list = { variable = acs_vl_filter_trait_physical_physique always = yes count = 0 }
+        any_in_list = { variable = acs_vl_filter_active always = yes count = 0 }
+    }
+}
+acs_stt_equal_slots = { # SLOT1 : scope, SLOT2 : scope
+    $SLOT1$ = {
+        var:acs_v_filter_relation = $SLOT2$.var:acs_v_filter_relation
+        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_education_general }
+        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_education_martial }
+        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_fame_born_status }
+        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_physical_beauty }
+        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_physical_intellect }
+        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_physical_physique }
+        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_active }
+    }
+}

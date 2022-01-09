@@ -93,7 +93,7 @@ scope:used_slot = {
 acs_save_undo_0_filters = {
     acs_set_new_empty_object = { OBJECT_NAME = new_undo }
     scope:new_undo = {
-        set_variable = { name = acs_v_filter_relation value = global_var:acs_filter_relation }
+        set_variable = { name = acs_v_filter_relation value = global_var:acs_gv_main_filters.var:acs_v_filter_relation }
         every_in_global_list = {
             variable = acs_filter_trait_education_general_list
             save_temporary_scope_as = slot_value
@@ -202,12 +202,61 @@ global_var:asc_gv_undo_first = {
 acs_set_new_empty_object = { OBJECT_NAME = new_undo }
 set_global_variable = { name = acs_filter_relation value = 15 }
 scope:new_undo = {
-	set_variable = { name = acs_v_filter_relation value = global_var:acs_filter_relation }
+	set_variable = { name = acs_v_filter_relation value = global_var:acs_gv_main_filters.var:acs_v_filter_relation }
 }
-set_variable = { name = acs_v_filter_relation value = global_var:acs_filter_relation }
+set_variable = { name = acs_v_filter_relation value = global_var:acs_gv_main_filters.var:acs_v_filter_relation }
 set_variable = { name = acs_v_filter_relation_new value = scope:new_undo.var:acs_v_filter_relation }
 
 
 set_variable = { name = acs_v_filter_relation_new value = scope:used_slot.var:acs_v_filter_relation }
 
+
+
+global_var:acs_gv_main_filters = {
+    has_variable = 
+}
+
+has_global_variable = acs_gv_main_filters
 save_scope_as = help
+acs_set_copy_save_slots = { FROM = global_var:acs_gv_main_filters TO = scppe:help }
+global_var:acs_gv_main_filters = {
+    var:acs_v_filter_relation = { 
+        save_scope_as = temp
+    }
+}
+global_var:acs_gv_main_filters = {
+    set_variable = {name = acs_v_filter_relation value = 4 }
+}
+global_var:acs_gv_main_filters = {
+    has_variable = acs_v_filter_relation
+}
+scope:help = { 
+    set_variable = { 
+        name = acs_v_filter_relation
+        value = scope:temp
+    } 
+}
+
+set_variable = { 
+    name = acs_v_filter_relation
+    value =  global_var:acs_gv_main_filters.var:acs_v_filter_relation
+} 
+
+4 = { save_scope_as = ctrl_value }
+acs_filter_relation = {
+    saved_scopes = {
+        ctrl_value
+    }
+    is_shown = {
+        global_var:acs_gv_main_filters.var:acs_v_filter_relation = scope:ctrl_value
+    }
+        
+    effect = {
+        acs_save_undo_0_filters = yes
+        global_var:acs_gv_main_filters = {
+            set_variable = {  name = acs_v_filter_relation value = scope:ctrl_value }
+        }
+        
+        acs_se_auto_apply_sorting_and_filters = yes
+    }
+}

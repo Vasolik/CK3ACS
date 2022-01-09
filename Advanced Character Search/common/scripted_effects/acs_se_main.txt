@@ -7,14 +7,6 @@
         
         acs_se_create_religion_lists = yes
         
-        if = {
-            limit = {
-                NOT = { has_global_variable = acs_first_time_setup_v8_1 }
-            }
-            
-            acs_reset_filters_and_sorting = yes
-            set_global_variable = acs_first_time_setup_v8_1
-        }
         clear_acs_list = yes
         random_player = {
             save_scope_as = acs_filter_diplomatic_range_root
@@ -27,23 +19,23 @@
             save_scope_as = acs_invite_to_court
             acs_make_reduced_and_count = yes
             if = {
-                limit = { global_var:acs_filter_relation = 0 }
+                limit = { global_var:acs_gv_main_filters.var:acs_v_filter_relation = 0 }
                 every_living_character = { acs_add_to_sort_list = yes }
             }
             else_if = {
                 limit = { 
                     NOR = { 
-                        global_var:acs_filter_relation = 6
-                        global_var:acs_filter_relation = 7
+                        global_var:acs_gv_main_filters.var:acs_v_filter_relation = 6
+                        global_var:acs_gv_main_filters.var:acs_v_filter_relation = 7
                     }
                 }
                 if = {
                     limit = { 
                         OR = { 
-                            global_var:acs_filter_relation = 1
-                            global_var:acs_filter_relation = 2
-                            global_var:acs_filter_relation = 3
-                            global_var:acs_filter_relation = 4
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 1
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 2
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 3
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 4
                         }
                     }
                     top_liege = { add_to_temporary_list = acs_to_sort_courts }
@@ -52,9 +44,9 @@
                 if = {
                     limit = {
                         OR = { 
-                            global_var:acs_filter_relation = 1
-                            global_var:acs_filter_relation = 8
-                            global_var:acs_filter_relation = 12
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 1
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 8
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 12
                         }
                     }
                     top_liege = { #close realms
@@ -102,9 +94,9 @@
                 else_if = {
                     limit = {
                         OR = { 
-                            global_var:acs_filter_relation = 2
-                            global_var:acs_filter_relation = 9
-                            global_var:acs_filter_relation = 13
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 2
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 9
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 13
                         }
                     }
                     top_liege = { 
@@ -116,9 +108,9 @@
                 else_if = {
                     limit = {
                         OR = { 
-                            global_var:acs_filter_relation = 3
-                            global_var:acs_filter_relation = 10
-                            global_var:acs_filter_relation = 14
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 3
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 10
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 14
                         }
                     }
                     top_liege = { 
@@ -129,7 +121,7 @@
                 }
                 else_if = {
                     limit = {
-                        global_var:acs_filter_relation = 11
+                        global_var:acs_gv_main_filters.var:acs_v_filter_relation = 11
                     }
                    
                     top_liege = { 
@@ -140,21 +132,21 @@
                 }
                 else_if = {
                     limit = { 
-                        global_var:acs_filter_relation = 5
+                        global_var:acs_gv_main_filters.var:acs_v_filter_relation = 5
                     }
                     add_to_temporary_list = acs_to_sort_courts
                 }
                 if = {
                     limit = {
                         OR = { 
-                            global_var:acs_filter_relation = 1
-                            global_var:acs_filter_relation = 2
-                            global_var:acs_filter_relation = 3
-                            global_var:acs_filter_relation = 4
-                            global_var:acs_filter_relation = 5
-                            global_var:acs_filter_relation = 8
-                            global_var:acs_filter_relation = 9
-                            global_var:acs_filter_relation = 10
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 1
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 2
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 3
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 4
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 5
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 8
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 9
+                            global_var:acs_gv_main_filters.var:acs_v_filter_relation = 10
                         }
                     }
                     every_in_list = {
@@ -174,7 +166,7 @@
                 
             }
             else_if = {
-                limit = { global_var:acs_filter_relation = 6 }
+                limit = { global_var:acs_gv_main_filters.var:acs_v_filter_relation = 6 }
                 every_vassal = { acs_add_court_to_list = yes }
             }
             else = {
@@ -217,12 +209,15 @@ acs_add_to_sort_list = {
     if = { 
         limit = { 
             save_temporary_scope_as = candidate
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_as = tag
-                acs_switch_filter = { FILTER = scope:tag CANDIDATE = scope:candidate }
-                count = all
+            global_var:acs_gv_main_filters = {
+                any_in_list = {
+                    variable = acs_vl_active_filter
+                    save_temporary_scope_as = tag
+                    acs_switch_filter = { FILTER = scope:tag CANDIDATE = scope:candidate }
+                    count = all
+                }
             }
+            
         }
         add_to_temporary_list = acs_to_sort
     }
@@ -566,31 +561,33 @@ acs_se_auto_apply_sorting_and_filters = {
     }
 }
 
-acs_simple_checkbox = {
-    acs_save_undo_0_filters = yes
-    set_local_variable = { name = acs_positive value = $START$ }
-    set_local_variable = { name = acs_negative value = { value = local_var:acs_positive add = 1 } }
-    if = {
-        limit = {
-            NOT = {
-                any_in_global_list = {
-                    variable = $LIST$
-                    OR = {
-                        this = local_var:acs_positive
-                        this = local_var:acs_negative
-                    }
+acs_simple_checkbox = { # LIST : VariableListName, START : int
+    global_var:acs_gv_main_filters = {
+        acs_save_undo_0_filters = yes
+        set_local_variable = { name = acs_lv_positive value = $START$ }
+        set_local_variable = { name = acs_lv_negative value = { value = local_var:acs_lv_positive add = 1 } }
+        if = {
+            limit = {
+                NOT = {
+                    any_in_list = {
+                        variable = $LIST$
+                        OR = {
+                            this = local_var:acs_lv_positive
+                            this = local_var:acs_lv_negative
+                        }
+                    } 
                 } 
-            } 
-        }
-        add_to_global_variable_list = { name = $LIST$ target = local_var:acs_positive }
-    }
-    else = {
-        if = { limit = { any_in_global_list = { variable = $LIST$ this = local_var:acs_positive } }
-            remove_list_global_variable = { name = $LIST$ target = local_var:acs_positive }
-            add_to_global_variable_list = { name = $LIST$ target = local_var:acs_negative }
+            }
+            add_to_variable_list = { name = $LIST$ target = local_var:acs_lv_positive }
         }
         else = {
-            remove_list_global_variable = { name = $LIST$ target = local_var:acs_negative }
+            if = { limit = { any_in_list = { variable = $LIST$ this = local_var:acs_lv_positive } }
+                remove_list_variable = { name = $LIST$ target = local_var:acs_lv_positive }
+                add_to_variable_list = { name = $LIST$ target = local_var:acs_lv_negative }
+            }
+            else = {
+                remove_list_variable = { name = $LIST$ target = local_var:acs_lv_negative }
+            }
         }
     }
 }
@@ -604,7 +601,7 @@ acs_set_load_filters = {
             limit = {  NOT = { acs_current_slot_used = $SLOT$ } }
             acs_save_undo_0_filters = yes
         }
-        set_global_variable = { name = acs_gv_main_filters value = global_var:acs_gv_save_slot_$SLOT$ }
+        acs_set_copy_save_slots = { FROM = global_var:acs_gv_save_slot_$SLOT$ TO = global_var:acs_gv_main_filters }
         acs_se_auto_apply_sorting_and_filters = yes
     }  
 }
@@ -614,15 +611,25 @@ acs_set_save_filters = {
         limit = {
             NOT = { acs_current_slot_used = -2 }
         }
-        set_global_variable = { name = acs_gv_save_slot_$SLOT$ value = global_var:acs_gv_main_filters }
+        acs_set_copy_save_slots = { FROM = global_var:aglobal_var:acs_gv_main_filters TO = global_var:acs_gv_save_slot_$SLOT$ }
     }
     else = {
         remove_global_variable = acs_gv_save_slot_$SLOT$
     }
 }
 
+acs_set_copy_list = {
+    $TO$ = { clear_variable_list = $LIST_NAME$ }
+    every_in_list = {
+        variable = $LIST_NAME$
+        save_temporary_scope_as = slot_value
+        $TO$ = {
+            add_to_variable_list = { name = $LIST_NAME$ target = scope:slot_value } 
+        }  
+    }
+}
 
-acs_set_new_empty_object = {
+acs_set_new_empty_object = { # OBJECT_NAME : string -> scope:$OBJECT_NAME$ -> StoryCycle
     if = {
         limit = {
             any_in_global_list = {

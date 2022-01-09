@@ -24,7 +24,7 @@
                         direction = vertical
                         spacing = 5
                         acs_trait_item_custom_left = {
-                                datacontext = "[GetScriptedGui( 'acs_filter_trait_fame_born_status_group' )]"  
+                                datacontext = "[GetScriptedGui( 'acs_sg_filter_trait_fame_born_status_group' )]"  
                             blockoverride "acs_trait_item_action" {
                                 onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
                             }
@@ -39,7 +39,7 @@
                             }
                         }
                         acs_trait_item_left_moved = {
-                            datacontext = "[GetScriptedGui( 'acs_filter_trait_fame_born_status' )]"
+                            datacontext = "[GetScriptedGui( 'acs_sg_filter_trait_fame_born_status' )]"
                             blockoverride "acs_trait_item_action" {
                                 datacontext = "[GetTrait( 'bastard' )]"
                                 onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
@@ -50,7 +50,7 @@
                             }
                         }
                         acs_trait_item_left_moved = {
-                            datacontext = "[GetScriptedGui( 'acs_filter_trait_fame_born_status' )]"
+                            datacontext = "[GetScriptedGui( 'acs_sg_filter_trait_fame_born_status' )]"
                             blockoverride "acs_trait_item_action" {
                                 datacontext = "[GetTrait( 'legitimized_bastard' )]"
                                 onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
@@ -61,7 +61,7 @@
                             }
                         }
                         acs_trait_item_left_moved = {
-                            datacontext = "[GetScriptedGui( 'acs_filter_trait_fame_born_status' )]"
+                            datacontext = "[GetScriptedGui( 'acs_sg_filter_trait_fame_born_status' )]"
                             blockoverride "acs_trait_item_action" {
                                 datacontext = "[GetTrait( 'disputed_heritage' )]"
                                 onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
@@ -72,7 +72,7 @@
                             }
                         }
                         acs_trait_item_left_moved = {
-                            datacontext = "[GetScriptedGui( 'acs_filter_trait_fame_born_status' )]"
+                            datacontext = "[GetScriptedGui( 'acs_sg_filter_trait_fame_born_status' )]"
                             blockoverride "acs_trait_item_action" {
                                 datacontext = "[GetTrait( 'child_of_concubine_female' )]"
                                 onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
@@ -83,7 +83,7 @@
                             }
                         }
                         acs_trait_item_left_moved = {
-                            datacontext = "[GetScriptedGui( 'acs_filter_trait_fame_born_status' )]"
+                            datacontext = "[GetScriptedGui( 'acs_sg_filter_trait_fame_born_status' )]"
                             blockoverride "acs_trait_item_action" {
                                 datacontext = "[GetTrait( 'child_of_concubine_male' )]"
                                 onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
@@ -94,7 +94,7 @@
                             }
                         }
                         acs_trait_item_left_moved = {
-                            datacontext = "[GetScriptedGui( 'acs_filter_trait_fame_born_status' )]"
+                            datacontext = "[GetScriptedGui( 'acs_sg_filter_trait_fame_born_status' )]"
                             blockoverride "acs_trait_item_action" {
                                 datacontext = "[GetTrait( 'wild_oat' )]"
                                 onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
@@ -105,7 +105,7 @@
                             }
                         }
                         acs_trait_item_left_moved = {
-                            datacontext = "[GetScriptedGui( 'acs_filter_trait_fame_born_status' )]"
+                            datacontext = "[GetScriptedGui( 'acs_sg_filter_trait_fame_born_status' )]"
                             blockoverride "acs_trait_item_action" {
                                 datacontext = "[GetTrait( 'bastard_founder' )]"
                                 onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)12' ) ).End )]"

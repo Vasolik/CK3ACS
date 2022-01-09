@@ -11,7 +11,7 @@
         state = {
             name = "init_mod_variable"
             trigger_on_create = yes
-            on_start = "[GetScriptedGui( 'acs_init_global_flag' ).Execute( GuiScope.End )]"
+            on_start = "[GetScriptedGui( 'acs_sg_init' ).Execute( GuiScope.End )]"
             on_start = "[GetVariableSystem.Set( 'mod_acs_active', 'enable' )]"
         }
         

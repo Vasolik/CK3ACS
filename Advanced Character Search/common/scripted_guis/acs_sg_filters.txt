@@ -4,11 +4,14 @@
         position
     }
     is_shown = {
-        any_in_global_list = {
-            variable = acs_active_filter_list
-            save_temporary_scope_value_as = {name = offset value = -1 }
-            this = acs_position_value_offset
+        global_var:acs_gv_main_filters = {
+            any_in_list = {
+                variable = acs_active_filter_list
+                save_temporary_scope_value_as = { name = offset value = -1 }
+                this = acs_position_value_offset
+            }
         }
+        
     }     
     effect = {
         acs_simple_checkbox = { LIST = acs_active_filter_list START = scope:position }
@@ -33,66 +36,68 @@ acs_filter_2_group_checkbox = {
         element_in_group
     }
     is_shown = {
-        trigger_if = {
-            limit = { 
-                scope:element_in_group = 0
-                scope:ctrl_value = 1
-            }
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                OR = {
-                    save_temporary_scope_value_as = {name = offset value = 2 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = {name = offset value = 3 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = {name = offset value = 4 }
-                    this = acs_position_offset
+        global_var:acs_gv_main_filters = {
+            trigger_if = {
+                limit = { 
+                    scope:element_in_group = 0
+                    scope:ctrl_value = 1
+                }
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    OR = {
+                        save_temporary_scope_value_as = {name = offset value = 2 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = {name = offset value = 3 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = {name = offset value = 4 }
+                        this = acs_position_offset
+                    }
                 }
             }
-        }
-        trigger_else_if = {
-            limit = { 
-                scope:element_in_group = 0
-                scope:ctrl_value = 2
-            }
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                OR = {
-                    save_temporary_scope_value_as = {name = offset value = 5 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = {name = offset value = 6 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = {name = offset value = 7 }
-                    this = acs_position_offset
+            trigger_else_if = {
+                limit = { 
+                    scope:element_in_group = 0
+                    scope:ctrl_value = 2
+                }
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    OR = {
+                        save_temporary_scope_value_as = {name = offset value = 5 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = {name = offset value = 6 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = {name = offset value = 7 }
+                        this = acs_position_offset
+                    }
                 }
             }
-        }
-        trigger_else_if = {
-            limit = { 
-                scope:element_in_group = 1
-                scope:ctrl_value = 1
-            }
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                OR = {
-                    this = scope:position
-                    save_temporary_scope_value_as = {name = offset value = 3 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = {name = offset value = 6 }
-                    this = acs_position_offset
+            trigger_else_if = {
+                limit = { 
+                    scope:element_in_group = 1
+                    scope:ctrl_value = 1
+                }
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    OR = {
+                        this = scope:position
+                        save_temporary_scope_value_as = {name = offset value = 3 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = {name = offset value = 6 }
+                        this = acs_position_offset
+                    }
                 }
             }
-        }
-        trigger_else = {
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                OR = {
-                    save_temporary_scope_value_as = {name = offset value = 1 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = {name = offset value = 4 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = {name = offset value = 7 }
-                    this = acs_position_offset
+            trigger_else = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    OR = {
+                        save_temporary_scope_value_as = {name = offset value = 1 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = {name = offset value = 4 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = {name = offset value = 7 }
+                        this = acs_position_offset
+                    }
                 }
             }
         }
@@ -100,151 +105,153 @@ acs_filter_2_group_checkbox = {
         
     effect = {
         acs_save_undo_0_filters = yes
-        if = {
-            limit = {
-                NOT = {
-                    any_in_global_list = {
-                        variable = acs_active_filter_list
-                        this >= scope:position
-                        save_temporary_scope_value_as = { name = offset value = 7 }
-                        this <= acs_position_offset
+        global_var:acs_gv_main_filters = { 
+            if = {
+                limit = {
+                    NOT = {
+                        any_in_list = {
+                            variable = acs_active_filter_list
+                            this >= scope:position
+                            save_temporary_scope_value_as = { name = offset value = 7 }
+                            this <= acs_position_offset
+                        } 
                     } 
-                } 
-            }
-            if = { limit = {  scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 2 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = scope:position }
-            }
-        }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = scope:position } }
-            remove_list_global_variable = { name = acs_active_filter_list target = scope:position }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 3 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = { 
-            limit = {
-                any_in_global_list = {
-                    save_temporary_scope_value_as = { name = offset value = 1 }
-                    variable = acs_active_filter_list
-                    this = acs_position_offset
-                } 
-            }
-            save_temporary_scope_value_as = { name = offset value = 1 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset  }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 4 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
+                }
+                if = { limit = {  scope:element_in_group = 0 }
                     save_temporary_scope_value_as = { name = offset value = 2 }
-                    variable = acs_active_filter_list
-                    this = acs_position_offset
-                } 
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    add_to_variable_list = { name = acs_active_filter_list target = scope:position }
+                }
             }
-            save_temporary_scope_value_as = { name = offset value = 2 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset  }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 5 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 3 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
+            else_if = { limit = { any_in_list = { variable = acs_active_filter_list  this = scope:position } }
+                remove_list_variable = { name = acs_active_filter_list target = scope:position }
+                if = { limit = { scope:element_in_group = 0 }
                     save_temporary_scope_value_as = { name = offset value = 3 }
-                    variable = acs_active_filter_list
-                    this = acs_position_offset
-                } 
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 1 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
             }
-            save_temporary_scope_value_as = { name = offset value = 3 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 6 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 4 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = { 
-            limit = {
-                any_in_global_list = {
-                    save_temporary_scope_value_as = { name = offset value = 4 }
-                    variable = acs_active_filter_list
-                    this = acs_position_offset
-                } 
-            }
-            save_temporary_scope_value_as = { name = offset value = 4 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 7 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 2 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    save_temporary_scope_value_as = { name = offset value = 5 }
-                    variable = acs_active_filter_list
-                    this = acs_position_offset
-                } 
-            }
-            save_temporary_scope_value_as = { name = offset value = 5 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 6 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = { 
-            limit = {
-                any_in_global_list = {
-                    save_temporary_scope_value_as = { name = offset value = 6 }
-                    variable = acs_active_filter_list
-                    this = acs_position_offset
-                } 
-            }
-            save_temporary_scope_value_as = { name = offset value = 6 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset  }
-            if = { limit = { scope:element_in_group = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = scope:position }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 7 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else = {
-            save_temporary_scope_value_as = { name = offset value = 7 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset  }
-            if = { limit = { scope:element_in_group = 0 }
+            else_if = { 
+                limit = {
+                    any_in_list = {
+                        save_temporary_scope_value_as = { name = offset value = 1 }
+                        variable = acs_active_filter_list
+                        this = acs_position_offset
+                    } 
+                }
                 save_temporary_scope_value_as = { name = offset value = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset  }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 4 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        save_temporary_scope_value_as = { name = offset value = 2 }
+                        variable = acs_active_filter_list
+                        this = acs_position_offset
+                    } 
+                }
+                save_temporary_scope_value_as = { name = offset value = 2 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset  }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 5 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 3 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in__list = {
+                        save_temporary_scope_value_as = { name = offset value = 3 }
+                        variable = acs_active_filter_list
+                        this = acs_position_offset
+                    } 
+                }
+                save_temporary_scope_value_as = { name = offset value = 3 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 6 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 4 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = { 
+                limit = {
+                    any_in_list = {
+                        save_temporary_scope_value_as = { name = offset value = 4 }
+                        variable = acs_active_filter_list
+                        this = acs_position_offset
+                    } 
+                }
+                save_temporary_scope_value_as = { name = offset value = 4 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 7 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 2 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        save_temporary_scope_value_as = { name = offset value = 5 }
+                        variable = acs_active_filter_list
+                        this = acs_position_offset
+                    } 
+                }
+                save_temporary_scope_value_as = { name = offset value = 5 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 6 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = { 
+                limit = {
+                    any_in_list = {
+                        save_temporary_scope_value_as = { name = offset value = 6 }
+                        variable = acs_active_filter_list
+                        this = acs_position_offset
+                    } 
+                }
+                save_temporary_scope_value_as = { name = offset value = 6 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset  }
+                if = { limit = { scope:element_in_group = 0 }
+                    add_to_variable_list = { name = acs_active_filter_list target = scope:position }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 7 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
             }
             else = {
-                save_temporary_scope_value_as = { name = offset value = 5 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 7 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset  }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 1 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 5 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
             }
         }
         acs_se_auto_apply_sorting_and_filters = yes
@@ -284,145 +291,147 @@ acs_filter_3_group_checkbox = {
         element_in_group
     }
     is_shown = {
-        trigger_if = {
-            limit = { 
-                scope:element_in_group = 0
-                scope:ctrl_value = 1
-            }
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                AND = {
-                    save_temporary_scope_value_as = { name = offset value = 8 }
-                    this >= acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 16 }
-                    this <= acs_position_offset
+        global_var:acs_gv_main_filters = {
+            trigger_if = {
+                limit = { 
+                    scope:element_in_group = 0
+                    scope:ctrl_value = 1
+                }
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    AND = {
+                        save_temporary_scope_value_as = { name = offset value = 8 }
+                        this >= acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 16 }
+                        this <= acs_position_offset
+                    }
                 }
             }
-        }
-        trigger_else_if = {
-            limit = { 
-                scope:element_in_group = 0
-                scope:ctrl_value = 2
-            }
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                AND = {
-                    
-                    save_temporary_scope_value_as = { name = offset value = 17 }
-                    this >= acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 25 }
-                    this <= acs_position_offset
+            trigger_else_if = {
+                limit = { 
+                    scope:element_in_group = 0
+                    scope:ctrl_value = 2
+                }
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    AND = {
+                        
+                        save_temporary_scope_value_as = { name = offset value = 17 }
+                        this >= acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 25 }
+                        this <= acs_position_offset
+                    }
                 }
             }
-        }
-        trigger_else_if = {
-            limit = { 
-                scope:element_in_group = 1
-                scope:ctrl_value = 1
-            }
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                OR = {
-                    save_temporary_scope_value_as = { name = offset value = 2 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 3 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 4 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 11 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 12 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 13 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 20 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 21 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 22 }
-                    this = acs_position_offset
+            trigger_else_if = {
+                limit = { 
+                    scope:element_in_group = 1
+                    scope:ctrl_value = 1
+                }
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    OR = {
+                        save_temporary_scope_value_as = { name = offset value = 2 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 3 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 4 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 11 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 12 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 13 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 20 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 21 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 22 }
+                        this = acs_position_offset
+                    }
                 }
             }
-        }
-        trigger_else_if = {
-            limit = { 
-                scope:element_in_group = 1
-                scope:ctrl_value = 2
-            }
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                OR = {
-                    save_temporary_scope_value_as = { name = offset value = 5 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 6 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 7 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 14 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 15 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 16 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 23 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 24 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 25 }
-                    this = acs_position_offset
+            trigger_else_if = {
+                limit = { 
+                    scope:element_in_group = 1
+                    scope:ctrl_value = 2
+                }
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    OR = {
+                        save_temporary_scope_value_as = { name = offset value = 5 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 6 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 7 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 14 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 15 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 16 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 23 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 24 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 25 }
+                        this = acs_position_offset
+                    }
                 }
             }
-        }
-        trigger_else_if = {
-            limit = { 
-                scope:element_in_group = 2
-                scope:ctrl_value = 1
-            }
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                OR = {
-                    this = scope:position
-                    save_temporary_scope_value_as = { name = offset value = 3 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 6 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 9 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 12 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 15 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 18 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 21 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 24 }
-                    this = acs_position_offset
+            trigger_else_if = {
+                limit = { 
+                    scope:element_in_group = 2
+                    scope:ctrl_value = 1
+                }
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    OR = {
+                        this = scope:position
+                        save_temporary_scope_value_as = { name = offset value = 3 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 6 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 9 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 12 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 15 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 18 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 21 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 24 }
+                        this = acs_position_offset
+                    }
                 }
             }
-        }
-        trigger_else = {
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                OR = {
-                    save_temporary_scope_value_as = { name = offset value = 1 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 4 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 7 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 10 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 13 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 16 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 19 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 22 }
-                    this = acs_position_offset
-                    save_temporary_scope_value_as = { name = offset value = 25 }
-                    this = acs_position_offset
+            trigger_else = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    OR = {
+                        save_temporary_scope_value_as = { name = offset value = 1 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 4 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 7 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 10 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 13 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 16 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 19 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 22 }
+                        this = acs_position_offset
+                        save_temporary_scope_value_as = { name = offset value = 25 }
+                        this = acs_position_offset
+                    }
                 }
             }
         }
@@ -430,598 +439,600 @@ acs_filter_3_group_checkbox = {
         
     effect = {
         acs_save_undo_0_filters = yes
-        if = {
-            limit = {
-                NOT = {
-                    any_in_global_list = {
-                        variable = acs_active_filter_list
-                        AND = {
-                            this >= scope:position
-                            save_temporary_scope_value_as = { name = offset value = 25 }
-                            this <= acs_position_offset
-                        }
+        global_var:acs_gv_main_filters = {
+            if = {
+                limit = {
+                    NOT = {
+                        any_in_list = {
+                            variable = acs_active_filter_list
+                            AND = {
+                                this >= scope:position
+                                save_temporary_scope_value_as = { name = offset value = 25 }
+                                this <= acs_position_offset
+                            }
+                        } 
                     } 
-                } 
-            }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 8 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 2 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                add_to_global_variable_list = { name = acs_active_filter_list target = scope:position }
-            }
-        }
-        else_if = { limit = { any_in_global_list = { variable = acs_active_filter_list  this = scope:position } }
-            remove_list_global_variable = { name = acs_active_filter_list target = scope:position }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 9 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 3 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 1 }
-                    this = acs_position_offset
                 }
-            }
-            save_temporary_scope_value_as = { name = offset value = 1 } 
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 10 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 4 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 2 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 2 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 11 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 5 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 3 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 3 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 3 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 12 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 6 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 4 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 4 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 4 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 13 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 7 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 2 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 5 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 5 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 14 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 2 }
-                save_temporary_scope_value_as = { name = offset value = 6 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 6 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 6 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 15 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = scope:position }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 7 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 7 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 7 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 16 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 5 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
+                if = { limit = { scope:element_in_group = 0 }
                     save_temporary_scope_value_as = { name = offset value = 8 }
-                    this = acs_position_offset
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 2 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    add_to_variable_list = { name = acs_active_filter_list target = scope:position }
                 }
             }
-            save_temporary_scope_value_as = { name = offset value = 8 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 17 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 11 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 9 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
+            else_if = { limit = { any_in_list = { variable = acs_active_filter_list  this = scope:position } }
+                remove_list_variable = { name = acs_active_filter_list target = scope:position }
+                if = { limit = { scope:element_in_group = 0 }
                     save_temporary_scope_value_as = { name = offset value = 9 }
-                    this = acs_position_offset
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 3 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 1 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
                 }
             }
-            save_temporary_scope_value_as = { name = offset value = 9 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 18 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 12 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 10 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 1 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 1 } 
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
                     save_temporary_scope_value_as = { name = offset value = 10 }
-                    this = acs_position_offset
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 4 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
                 }
             }
-            save_temporary_scope_value_as = { name = offset value = 10 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 19 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 13 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 8 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 11 }
-                    this = acs_position_offset
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 2 }
+                        this = acs_position_offset
+                    }
                 }
-            }
-            save_temporary_scope_value_as = { name = offset value = 11 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 20 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 14 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 12 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 12 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 12 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 21 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 15 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 13 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 13 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 13 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 22 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 16 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 11 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 14 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 14 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 23 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 8 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 15 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 15 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 15 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 24 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 9 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 16 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 16 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 16 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 25 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 10 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 14 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 17 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 17 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 20 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 2 }
-                save_temporary_scope_value_as = { name = offset value = 18 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 18 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 18 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = scope:position }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 21 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 19 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 19 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 19 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 1 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 22 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 17 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 20 }
-                    this = acs_position_offset
-                }
-            }
-            save_temporary_scope_value_as = { name = offset value = 20 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
                 save_temporary_scope_value_as = { name = offset value = 2 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 23 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 21 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 21 }
-                    this = acs_position_offset
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 11 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 5 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 3 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
                 }
             }
-            save_temporary_scope_value_as = { name = offset value = 21 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 3 }
+                        this = acs_position_offset
+                    }
+                }
                 save_temporary_scope_value_as = { name = offset value = 3 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 24 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 22 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 22 }
-                    this = acs_position_offset
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 12 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 6 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 4 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
                 }
             }
-            save_temporary_scope_value_as = { name = offset value = 22 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 4 }
+                        this = acs_position_offset
+                    }
+                }
                 save_temporary_scope_value_as = { name = offset value = 4 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 25 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 20 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 23 }
-                    this = acs_position_offset
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 13 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 7 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 2 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
                 }
             }
-            save_temporary_scope_value_as = { name = offset value = 23 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 5 }
+                        this = acs_position_offset
+                    }
+                }
                 save_temporary_scope_value_as = { name = offset value = 5 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 17 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 24 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    save_temporary_scope_value_as = { name = offset value = 24 }
-                    this = acs_position_offset
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 14 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 2 }
+                    save_temporary_scope_value_as = { name = offset value = 6 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
                 }
             }
-            save_temporary_scope_value_as = { name = offset value = 24 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 6 }
+                        this = acs_position_offset
+                    }
+                }
                 save_temporary_scope_value_as = { name = offset value = 6 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 15 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    add_to_variable_list = { name = acs_active_filter_list target = scope:position }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 7 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
             }
-            else_if = { limit = {  scope:element_in_group = 1 }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 7 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 7 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 16 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 1 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 5 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 8 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 8 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 17 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 11 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 9 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 9 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 9 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 18 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 12 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 10 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 10 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 10 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 19 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 13 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 8 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 11 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 11 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 20 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 14 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 12 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 12 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 12 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 21 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 15 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 13 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 13 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 13 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 22 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 16 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 11 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 14 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 14 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 23 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 8 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 15 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 15 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 15 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 24 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 9 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 16 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 16 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 16 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 25 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 10 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 14 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 17 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 17 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 20 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 2 }
+                    save_temporary_scope_value_as = { name = offset value = 18 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 18 }
+                        this = acs_position_offset
+                    }
+                }
                 save_temporary_scope_value_as = { name = offset value = 18 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    add_to_variable_list = { name = acs_active_filter_list target = scope:position }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 21 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 19 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 19 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 19 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 1 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 22 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 17 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 20 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 20 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 2 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 23 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 21 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 21 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 21 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 3 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 24 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 22 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 22 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 22 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 4 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 25 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 20 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 23 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 23 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 5 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 17 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 24 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 24 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 24 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 6 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 18 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 25 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
             }
             else = {
                 save_temporary_scope_value_as = { name = offset value = 25 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-        }
-        else = {
-            save_temporary_scope_value_as = { name = offset value = 25 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            if = { limit = { scope:element_in_group = 0 }
-                save_temporary_scope_value_as = { name = offset value = 7 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else_if = { limit = {  scope:element_in_group = 1 }
-                save_temporary_scope_value_as = { name = offset value = 19 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-            }
-            else = {
-                save_temporary_scope_value_as = { name = offset value = 23 }
-                add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                if = { limit = { scope:element_in_group = 0 }
+                    save_temporary_scope_value_as = { name = offset value = 7 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else_if = { limit = {  scope:element_in_group = 1 }
+                    save_temporary_scope_value_as = { name = offset value = 19 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
+                else = {
+                    save_temporary_scope_value_as = { name = offset value = 23 }
+                    add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+                }
             }
         }
         acs_se_auto_apply_sorting_and_filters = yes
@@ -1036,123 +1047,127 @@ acs_filter_3_group_checkbox_group = {
         element_in_group
     }
     is_shown = {
-        trigger_if = {
-            limit = { 
-                scope:ctrl_value = 0
-            }
-            NOT = {
-                any_in_global_list = {
-                    variable = acs_active_filter_list
-                    AND = {
-                        this >= scope:position
-                        save_temporary_scope_value_as = { name = offset value = 25 }
-                        this <= acs_position_offset
-                    }
+        global_var:acs_gv_main_filters = {
+            trigger_if = {
+                limit = { 
+                    scope:ctrl_value = 0
                 }
-            }    
-        } 
-        trigger_else_if = {
-            limit = { 
-                scope:ctrl_value = 1
-            }
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_value_as = { name = offset value = 12 }
-                this = acs_position_offset
-            }
-        }
-        trigger_else = {
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_value_as = { name = offset value = 25 }
-                this = acs_position_offset
-            }
-        }
-    }
-
-    effect = {
-        acs_save_undo_0_filters = yes
-        if = {
-            limit = {
                 NOT = {
-                    any_in_global_list = {
+                    any_in_list = {
                         variable = acs_active_filter_list
                         AND = {
                             this >= scope:position
                             save_temporary_scope_value_as = { name = offset value = 25 }
                             this <= acs_position_offset
                         }
-                    } 
-                } 
-            }
-            save_temporary_scope_value_as = { name = offset value = 12 }
-            add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
-        }
-        else_if = {
-            limit = {
-                any_in_global_list = {
+                    }
+                }    
+            } 
+            trigger_else_if = {
+                limit = { 
+                    scope:ctrl_value = 1
+                }
+                any_in_list = {
                     variable = acs_active_filter_list
                     save_temporary_scope_value_as = { name = offset value = 12 }
                     this = acs_position_offset
                 }
             }
-            save_temporary_scope_value_as = { name = offset value = 12 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 25 }
-            add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+            trigger_else = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = 25 }
+                    this = acs_position_offset
+                }
+            }
         }
-        else = {
-            remove_list_global_variable = { name = acs_active_filter_list target = scope:position }
-            save_temporary_scope_value_as = { name = offset value = 1 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 2 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 3 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 4 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 5 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 6 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 7 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 8 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 9 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 10 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 11 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 12 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 13 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 14 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 15 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 16 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 17 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 18 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 19 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 20 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 21 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 22 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 23 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 24 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            save_temporary_scope_value_as = { name = offset value = 25 }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
+    }
+
+    effect = {
+        acs_save_undo_0_filters = yes
+        global_var:acs_gv_main_filters = {
+            if = {
+                limit = {
+                    NOT = {
+                        any_in_list = {
+                            variable = acs_active_filter_list
+                            AND = {
+                                this >= scope:position
+                                save_temporary_scope_value_as = { name = offset value = 25 }
+                                this <= acs_position_offset
+                            }
+                        } 
+                    } 
+                }
+                save_temporary_scope_value_as = { name = offset value = 12 }
+                add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_active_filter_list
+                        save_temporary_scope_value_as = { name = offset value = 12 }
+                        this = acs_position_offset
+                    }
+                }
+                save_temporary_scope_value_as = { name = offset value = 12 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 25 }
+                add_to_variable_list = { name = acs_active_filter_list target = acs_position_offset }
+            }
+            else = {
+                remove_list_variable = { name = acs_active_filter_list target = scope:position }
+                save_temporary_scope_value_as = { name = offset value = 1 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 2 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 3 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 4 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 5 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 6 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 7 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 8 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 9 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 10 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 11 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 12 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 13 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 14 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 15 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 16 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 17 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 18 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 19 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 20 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 21 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 22 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 23 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 24 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                save_temporary_scope_value_as = { name = offset value = 25 }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+            }
         }
         acs_se_auto_apply_sorting_and_filters = yes
     }
@@ -1166,22 +1181,24 @@ acs_filter_simple_dropdown = {
         total_element_count
     }
     is_shown = {
-        trigger_if = {
-            limit = { scope:ctrl_value = 0 }
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                count = 0
-                AND = {
-                    this >= scope:position
-                    this <= acs_position_total_count
+        global_var:acs_gv_main_filters = {
+            trigger_if = {
+                limit = { scope:ctrl_value = 0 }
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    count = 0
+                    AND = {
+                        this >= scope:position
+                        this <= acs_position_total_count
+                    }
+                }     
+            } 
+            trigger_else = {
+                any_in_list = {
+                    variable = acs_active_filter_list
+                    save_temporary_scope_value_as = { name = offset value = -1 }
+                    this = acs_position_value_offset
                 }
-            }     
-        } 
-        trigger_else = {
-            any_in_global_list = {
-                variable = acs_active_filter_list
-                save_temporary_scope_value_as = { name = offset value = -1 }
-                this = acs_position_value_offset
             }
         }
     }
@@ -1189,33 +1206,39 @@ acs_filter_simple_dropdown = {
     effect = {
         acs_save_undo_0_filters = yes
         set_local_variable = { name  = acs_counter value = scope:total_element_count }
-        while = { 
-            limit = { local_var:acs_counter >= 0 }
-            save_temporary_scope_value_as = { name = offset value = local_var:acs_counter }
-            remove_list_global_variable = { name = acs_active_filter_list target = acs_position_offset }
-            change_local_variable = { name = acs_counter add = -1 }
+        global_var:acs_gv_main_filters = {
+
+            while = { 
+                limit = { local_var:acs_counter >= 0 }
+                save_temporary_scope_value_as = { name = offset value = local_var:acs_counter }
+                remove_list_variable = { name = acs_active_filter_list target = acs_position_offset }
+                change_local_variable = { name = acs_counter add = -1 }
+            }
+            remove_local_variable = acs_counter
+            if = {
+                limit = { scope:ctrl_value > 0 }
+                save_temporary_scope_value_as = { name = offset value = -1 }
+                add_to_variable_list = { name = acs_active_filter_list target = acs_position_value_offset } 
+            } 
         }
-        remove_local_variable = acs_counter
-        if = {
-            limit = { scope:ctrl_value > 0 }
-            save_temporary_scope_value_as = { name = offset value = -1 }
-            add_to_global_variable_list = { name = acs_active_filter_list target = acs_position_value_offset } 
-        } 
         acs_se_auto_apply_sorting_and_filters = yes     
     }
 }
 
-acs_filter_relation = {
+acs_sg_filter_relation = {
     saved_scopes = {
         ctrl_value
     }
     is_shown = {
-        global_var:acs_filter_relation = scope:ctrl_value
+        global_var:acs_gv_main_filters.var:acs_v_filter_relation = scope:ctrl_value
     }
         
     effect = {
         acs_save_undo_0_filters = yes
-        set_global_variable = {  name = acs_filter_relation value = scope:ctrl_value }
+        global_var:acs_gv_main_filters = {
+            set_variable = {  name = acs_v_filter_relation value = scope:ctrl_value }
+        }
+        
         acs_se_auto_apply_sorting_and_filters = yes
     }
 }

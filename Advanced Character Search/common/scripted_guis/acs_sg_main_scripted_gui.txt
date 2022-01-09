@@ -1,6 +1,51 @@
-﻿acs_init_global_flag = {
+﻿acs_sg_init = {
     effect = {
         set_global_variable = { name = mod_acs_active value = yes }
+
+        if = {
+            limit = {
+                NOT = { has_global_variable = acs_first_time_setup_v9 }
+            }
+            
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_main_filters value = scope:temp }
+
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_0 value = scope:temp }
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_1 value = scope:temp }
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_2 value = scope:temp }
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_3 value = scope:temp }
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_4 value = scope:temp }
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_5 value = scope:temp }
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_6 value = scope:temp }
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_7 value = scope:temp }
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_8 value = scope:temp }
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_9 value = scope:temp }
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_10 value = scope:temp }
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_11 value = scope:temp }
+            acs_set_new_empty_object = { OBJECT_NAME = temp }
+            set_global_variable = { name = acs_gv_save_slot_12 value = scope:temp }
+
+
+            set_global_variable = { name = acs_sort_by value = 0  }
+            set_global_variable = acs_sort_by_ascending
+            set_global_variable = { name = acs_select_count value = 100 }
+            acs_set_reset_save_slot_to_default = { SLOT = global_var:acs_gv_main_filters }
+            set_global_variable = acs_gv_auto_apply_sorting_and_filters
+
+            set_global_variable = acs_first_time_setup_v9
+        }
     }
 }
 
