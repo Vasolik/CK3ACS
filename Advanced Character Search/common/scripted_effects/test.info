@@ -302,3 +302,70 @@ global_var:acs_gv_main_filters = {
         count = all
     }
 }
+
+any_in_global_list = {
+    variable = acs_gvl_save_slot
+    var:acs_v_index = 0
+    has_variable = acs_v_is_used
+}
+
+
+acs_set_clear_save_slot = {  SLOT = $SLOT$ }
+acs_set_save_filters = { SLOT = 0 }
+
+
+acs_st_find_save_slot = { SLOT = 0 RESULT = to_save }
+scope:to_save = {
+    if = {
+        limit = {
+            NOT = { acs_stt_is_slot_default = {  SLOT = global_var:acs_gv_main_filters } }
+        }
+        acs_set_copy_save_slots = { FROM = global_var:acs_gv_main_filters TO = scope:to_save }
+        set_variable = acs_v_is_used
+    }
+    else = {
+        remove_variable = acs_v_is_used
+    }
+}
+acs_st_find_save_slot = { SLOT = 0 RESULT = to_load }
+
+
+save_scope_as = help
+acs_set_copy_save_slots = { FROM = scope:to_load TO = scope:help }
+
+set_variable = { name = is_used value = scope:to_load.var:acs_v_is_used }
+
+acs_current_slot_used = {
+    value = -1
+    if = {
+        limit = {
+            acs_stt_is_slot_default = { SLOT = global_var:acs_gv_main_filters }
+        }
+        add = -1
+    }
+  
+    else_if = {
+        ordered_child = {
+            order_by = var:acs_v_index
+            max = 1
+            limit = { 
+                has_variable = acs_v_is_used
+                save_temporary_scope_as = temp_scope
+                acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = scope:temp_scope }
+            }
+            add = var:acs_v_index
+            add = 1
+        }
+    }
+}
+ordered_child = {
+    order_by = var:acs_v_index
+    max = 13
+    save_scope_as = temp_scope
+    limit = { 
+        has_variable = acs_v_is_used
+        
+        acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = scope:temp_scope }
+    }
+}
+

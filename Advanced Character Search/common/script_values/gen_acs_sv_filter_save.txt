@@ -6,95 +6,19 @@
         }
         add = -1
     }
+  
     else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_0_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_0 }
+        ordered_in_global_list = {
+            variable = acs_gvl_save_slot
+            order_by = var:acs_v_index
+            max = 1
+            limit = { 
+                has_variable = acs_v_is_used
+                save_temporary_scope_as = temp_scope
+                acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = scope:temp_scope }
+            }
+            add = var:acs_v_index
+            add = 1
         }
-        add = 1
-    }
-    else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_1_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_1 }
-        }
-        add = 2
-    }
-    else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_2_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_2 }
-        }
-        add = 3
-    }
-    else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_3_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_3 }
-        }
-        add = 4
-    }
-    else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_4_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_4 }
-        }
-        add = 5
-    }
-    else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_5_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_5 }
-        }
-        add = 6
-    }
-    else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_6_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_6 }
-        }
-        add = 7
-    }
-    else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_7_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_7 }
-        }
-        add = 8
-    }
-    else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_8_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_8 }
-        }
-        add = 9
-    }
-    else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_9_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_9 }
-        }
-        add = 10
-    }
-    else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_10_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_10 }
-        }
-        add = 11
-    }
-    else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_11_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_11 }
-        }
-        add = 12
-    }
-    else_if = {
-        limit = {
-            has_global_variable = asc_save_slot_12_used
-            acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = global_var:acs_gv_save_slot_12 }
-        }
-        add = 13
     }
 }
