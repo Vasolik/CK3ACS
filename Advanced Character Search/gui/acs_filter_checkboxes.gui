@@ -40,71 +40,75 @@
         }
     }
 
-    type acs_trait_item_custom_left = widget {
-        block "acs_trait_item_size" {  
-            size = { 275 30 }
-        }
-        button_group = {
-
-            block "acs_trait_item_action" { }
-            
-            flowcontainer = {
-                spacing = 5
-                acs_four_state_checkbox = {}
-
-                icon = {
-                    size = { 32 32 }
-                    block "acs_custom_image" {  
-                        frame = 1
-                        texture = "gfx/interface/icons/icon_skills.dds"
-                        framesize = { 60 60 }
-                    }
+    type acs_trait_item_custom_left = button_group {
+        block "acs_trait_item_action" { }
+        widget = {
+            block "acs_trait_item_size" {  
+                size = { 275 30 }
+            }
+            acs_four_state_checkbox = {}
+            icon = {
+                size = { 30 30 }
+                position = { 35 0 }
+                block "acs_custom_image" {  
+                    frame = 1
+                    texture = "gfx/interface/icons/icon_skills.dds"
+                    framesize = { 60 60 }
                 }
-    
-                text_single = {
-                    layoutpolicy_horizontal = expanding
-                    block "acs_filter_name" {  
-                        text = "[diplomacy|E]"
-                    }
-                    default_format = "#medium"
+            }
 
-                    align = vcenter|left
+            text_single = {
+                block "acs_filter_name" {  
+                    text = "[diplomacy|E]"
                 }
+                default_format = "#medium"
+
+                align = vcenter|left
+                fontsize_min = 9
+                block "acs_bk_text_size" {  
+                    max_width = 200 
+                }
+                position = { 70 0 }
+                
             }
         }
     }
 
-    type acs_trait_item_custom_right = widget {
-        block "acs_trait_item_size" {  
-            size = { 275 30 }
-        }
-        button_group = {
-            block "acs_trait_item_size2" {  
+    type acs_trait_item_custom_right = button_group {
+        block "acs_trait_item_action" { }
+        widget = {
+            block "acs_trait_item_size" {  
                 size = { 275 30 }
             }
-            block "acs_trait_item_action" { }
-            
-            hbox = {
-                spacing = 5
-                parentanchor = top|left
-                widgetanchor = top|left
-                expand = {}
-                text_single = {
-                    layoutpolicy_horizontal = expanding
-                    block "acs_filter_name" { }
-                    default_format = "#medium"
-                }
-                icon = {
-                    size = { 32 32 }
-                    block "acs_custom_image" {  
-                        frame = 1
-                        texture = "gfx/interface/icons/icon_skills.dds"
-                        framesize = { 60 60 }
-                    }
-                }
-                acs_four_state_checkbox = {}
+
+            acs_four_state_checkbox = {
+                parentanchor = top|right
+                widgetanchor = top|right
+            }
+
+            icon = {
+                size = { 30 30 }
+                parentanchor = top|right
+                widgetanchor = top|right
+                position = { -35 0 }
+                block "acs_custom_image" { }
+            }
+
+            text_single = {
+                parentanchor = top|right
+                widgetanchor = top|right
+                position = { -70 0 }
+                block "acs_filter_name" { }
+                default_format = "#medium"
+                fontsize_min = 9
+                block "acs_bk_text_size" {  
+                    max_width = 200 
+                } 
+                align = right
+
             }
         }
+        
     }
 
     type acs_trait_item_custom_left_third = acs_trait_item_custom_left {
@@ -117,8 +121,8 @@
         blockoverride "acs_trait_item_size" {
             size = { 183 30 }
         }
-        blockoverride "acs_trait_item_size2" {
-            size = { 183 30 }
+        blockoverride "acs_bk_text_size" {  
+            max_width = 108 
         }
     }
 
@@ -133,7 +137,6 @@
     }
 
     type acs_trait_item_skill_right = acs_trait_item_custom_right {
-
         blockoverride "acs_custom_image" {
             texture = "gfx/interface/icons/icon_skills.dds"
             framesize = { 60 60 }
@@ -142,63 +145,25 @@
             }
         }
     }
-
-    
-    type acs_trait_item_left = widget {
-        block "acs_trait_item_size" {  
-            size = { 275 30 }
-        }
-        button_group = {
-            datacontext = "[GetPlayer]"
-
-            block "acs_trait_item_action" {
-
-            }
-            
-            flowcontainer = {
-                spacing = 5
-                parentanchor = top|left
-                widgetanchor = top|left
-                block "acs_trait_item_moved" {  
-                    
-                }
-                acs_four_state_checkbox = {}
-
-                acs_trait_icon = {}
-    
-                text_single = {
-                    layoutpolicy_horizontal = expanding
-                    block "acs_filter_name" {  
-                        text = "[Trait.GetNameNoTooltip( GetPlayer )]"
-                    }
-                    default_format = "#medium"
-
-                    align = bottom|left
-                }
-            }
-        }
-    }
-
-    type acs_trait_item_right = widget {
-        block "acs_trait_item_size" {  
-            size = { 275 30 }
-        }
-        button_group = {
-            block "acs_trait_item_size2" {  
+    type acs_trait_item_left = button_group {
+        block "acs_trait_item_action" { }
+       
+        widget = {
+            block "acs_trait_item_size" {  
                 size = { 275 30 }
             }
             datacontext = "[GetPlayer]"
-            block "acs_trait_item_action" {
-
-            }
-            
-            hbox = {
-                spacing = 5
+            widget = {
                 parentanchor = top|left
                 widgetanchor = top|left
-                layoutpolicy_horizontal = expanding
-                expand = {}
-                
+                block "acs_bk_moved_position" { }
+                acs_four_state_checkbox = {}
+
+                acs_trait_icon = {
+                    parentanchor = top|left
+                    widgetanchor = top|left
+                    position = { 35 0 }
+                }
     
                 text_single = {
                     layoutpolicy_horizontal = expanding
@@ -206,31 +171,80 @@
                         text = "[Trait.GetNameNoTooltip( GetPlayer )]"
                     }
                     default_format = "#medium"
-
-                    align = top|right
+    
+                    align = left
+                    fontsize_min = 9.5
+                    block "acs_bk_text_size" {  
+                        max_width = 200 
+                    }
+    
+                    parentanchor = top|left
+                    widgetanchor = top|left
+                    position = { 70 0 }
                 }
-                acs_trait_icon = {}
-                acs_four_state_checkbox = {}
-                block "acs_trait_item_moved" {  
-                    
-                }
-            }
+            }  
         }
     }
 
-    type acs_trait_item_left_moved = acs_trait_item_left {
-        blockoverride "acs_trait_item_moved" {
-            widget = {
-                size = { 30 30 }
+    type acs_trait_item_right = button_group {
+        block "acs_trait_item_action" { }
+       
+        widget = {
+
+            block "acs_trait_item_size" {  
+                size = { 275 30 }
             }
+            datacontext = "[GetPlayer]"
+            widget = {
+                parentanchor = top|right
+                widgetanchor = top|right
+                block "acs_bk_moved_position" { }
+                acs_four_state_checkbox = {
+                    parentanchor = top|right
+                    widgetanchor = top|right
+                }
+
+                acs_trait_icon = {
+                    parentanchor = top|right
+                    widgetanchor = top|right
+                    position = { -35 0 }
+                }
+    
+                text_single = {
+                    layoutpolicy_horizontal = expanding
+                    block "acs_filter_name" {  
+                        text = "[Trait.GetNameNoTooltip( GetPlayer )]"
+                    }
+                    default_format = "#medium"
+    
+                    align = right
+                    fontsize_min = 9.5
+                    block "acs_bk_text_size" {  
+                        max_width = 200 
+                    }
+    
+                    parentanchor = top|right
+                    widgetanchor = top|right
+                    position = { -70 0 }
+                }
+            }  
+        }
+    }
+    type acs_trait_item_left_moved = acs_trait_item_left {
+        blockoverride "acs_bk_moved_position" {  
+            position = { 30 0 }
+        }
+        blockoverride "acs_bk_text_size" {  
+            max_width = 170 
         }
     }
 
     type acs_trait_item_right_moved = acs_trait_item_right { 
-        blockoverride "acs_trait_item_moved" {
-            widget = {
-                size = { 30 30 }
-            }
+        blockoverride "acs_bk_moved_position" {  
+            position = { -30 0 }
+        }
+        blockoverride "acs_bk_text_size" {  
+            max_width = 170 
         }
     }
 
@@ -238,9 +252,10 @@
         blockoverride "acs_trait_item_size" {
             size = { 159 30 }
         }
-        blockoverride "acs_trait_item_size2" {
-            size = { 159 30 }
+        blockoverride "acs_bk_text_size" {  
+            max_width = 89 
         }
+
     }
 
     
@@ -248,14 +263,17 @@
         blockoverride "acs_trait_item_size" {
             size = { 183 30 }
         }
+        blockoverride "acs_bk_text_size" {  
+            max_width = 89 
+        }
     }
 
     type acs_trait_item_right_third = acs_trait_item_right {
         blockoverride "acs_trait_item_size" {
             size = { 183 30 }
         }
-        blockoverride "acs_trait_item_size2" {
-            size = { 183 30 }
+        blockoverride "acs_bk_text_size" {  
+            max_width = 89 
         }
     }
 
@@ -287,6 +305,7 @@
                         default_format = "#medium"
     
                         align = vcenter|center
+                        fontsize_min = 9.5
                     }
                     
                     acs_trait_icon = {}
