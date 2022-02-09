@@ -15,13 +15,11 @@
             on_start = "[GetVariableSystem.Set( 'mod_acs_active', 'enable' )]"
         }
         
-        onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
         onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
     }
 
     type acs_button_character_search = button_standard {
         text = "acs_advanced_search"
-        onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
         onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
         onclick = "[GetVariableSystem.Toggle( 'extra_buttons_expand' )]"
         tooltip = "IM_TT_FIND_CHARACTER"
@@ -44,3 +42,20 @@
         shortcut = "encyclopedia"
     }
 }
+widget = {
+    name = "acs_button_large"
+    parentanchor = bottom|hcenter
+    widgetanchor = bottom|hcenter
+    position = { 0 0 }
+    size = { 55 55 }
+    visible = yes
+    layer = bottom
+
+    acs_button_character_search_small = {
+        size = { 55 55 }
+        visible = yes
+    
+        
+    }
+}
+

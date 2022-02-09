@@ -37,7 +37,9 @@ acs_set_update_rf = {
 				count = all
 			}
 		}
-		set_global_variable = { name = acs_gv_rf_$FAMILY$_selected value = 1 }
+		global_var:acs_gv_main_filters = {
+			set_variable = { name = acs_v_rf_$FAMILY$_selected value = 1 }
+		}
 	}
 	else_if = {
 		limit = {
@@ -53,7 +55,9 @@ acs_set_update_rf = {
 				count = all
 			}
 		}
-		set_global_variable = { name = acs_gv_rf_$FAMILY$_selected value = 2 }
+		global_var:acs_gv_main_filters = {
+			set_variable = { name = acs_v_rf_$FAMILY$_selected value = 2 }
+		}
 	}
 	else_if = {
 		limit = {
@@ -63,10 +67,16 @@ acs_set_update_rf = {
 				count = all
 			}
 		}
-		remove_global_variable = acs_gv_rf_$FAMILY$_selected
+		global_var:acs_gv_main_filters = {
+			remove_variable = acs_v_rf_$FAMILY$_selected
+		}
+		
 	}
 	else = {
-		set_global_variable = { name = acs_gv_rf_$FAMILY$_selected value = 3 }
+		global_var:acs_gv_main_filters = {
+			set_variable = { name = acs_v_rf_$FAMILY$_selected value = 3 }
+		}
+		
 	}
 }
 
@@ -149,10 +159,14 @@ acs_se_create_religion_lists = {
 	}
 }
 
-acs_set_togle_relion_family_selection = {
+acs_set_togle_religion_family_selection = {
 	if = {
 		limit = {
-			NOT = { has_global_variable = acs_gv_rf_$FAMILY$_selected }
+			NOT = { 
+				global_var:acs_gv_main_filters = {
+					has_variable = acs_v_rf_$FAMILY$_selected
+				}
+			}
 		}
 		every_in_global_list = {
 			variable = acs_gvl_rf_$FAMILY$
@@ -161,13 +175,19 @@ acs_set_togle_relion_family_selection = {
 			}
 			set_variable = { name = acs_v_selected value = 1 }	
 		}
-		set_global_variable = { name = acs_gv_rf_$FAMILY$_selected value = 1 }
+		global_var:acs_gv_main_filters = {
+			set_variable = { name = acs_v_rf_$FAMILY$_selected value = 1 }
+		}
 	}
 	else_if = {
 		limit = {
 			trigger_if = {
-				limit = { has_global_variable = acs_gv_rf_$FAMILY$_selected }
-				global_var:acs_gv_rf_$FAMILY$_selected = 1
+				limit = { 
+					global_var:acs_gv_main_filters = {
+						has_variable = acs_v_rf_$FAMILY$_selected
+					} 
+				}
+				global_var:acs_gv_main_filters.var:acs_v_rf_$FAMILY$_selected = 1
 			}
 			trigger_else ={
 				always = no
@@ -180,7 +200,9 @@ acs_set_togle_relion_family_selection = {
 			}
 			set_variable = { name = acs_v_selected value = 2 }	
 		}
-		set_global_variable = { name = acs_gv_rf_$FAMILY$_selected value = 2 }
+		global_var:acs_gv_main_filters = {
+			set_variable = { name = acs_v_rf_$FAMILY$_selected value = 2 }
+		}
 	}
 	else = {
 		every_in_global_list = {
@@ -190,6 +212,9 @@ acs_set_togle_relion_family_selection = {
 			}
 			remove_variable = acs_v_selected	
 		}
-		remove_global_variable = acs_gv_rf_$FAMILY$_selected
+		global_var:acs_gv_main_filters = {
+			remove_variable = acs_v_rf_$FAMILY$_selected
+		}
+		
 	}
 }

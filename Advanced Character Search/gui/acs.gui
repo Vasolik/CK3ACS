@@ -5,7 +5,7 @@
     position = { -300 65 }
     allow_outside = yes
     layer = middle
-    visible = yes
+    visible = "[GetVariableSystem.Exists('acs_window_toggle')]"
 
     using = Window_Background
     using = Window_Decoration_Spike

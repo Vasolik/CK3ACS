@@ -3424,13 +3424,13 @@
                 NOT = { religion = scope:acs_filter_religion }
             }
             750 = {
-                culture_group = scope:acs_filter_culture_root.culture_group
+                culture = { has_same_culture_heritage = scope:acs_filter_culture_root.culture }
             }
             751 = {
                 culture = scope:acs_filter_culture_root.culture
             }
             752 = {
-                NOT = { culture_group = scope:acs_filter_culture_root.culture_group }
+                NOT = { culture = { has_same_culture_heritage = scope:acs_filter_culture_root.culture } }
             }
             753 = {
                 NOT = { culture = scope:acs_filter_culture_root.culture }
@@ -3456,6 +3456,72 @@
             761 = {
                 is_lowborn = no
                 NOT = { dynasty = scope:acs_filter_dynasty_root.dynasty }
+            }
+            763 = {
+                religion = { is_in_family = rf_pagan }
+            }
+            764 = {
+                NOT = { religion = { is_in_family = rf_pagan } }
+            }
+            765 = {
+                religion = { is_in_family = rf_eastern }
+            }
+            766 = {
+                NOT = { religion = { is_in_family = rf_eastern } }
+            }
+            767 = {
+                religion = { is_in_family = rf_abrahamic }
+            }
+            768 = {
+                NOT = { religion = { is_in_family = rf_abrahamic } }
+            }
+            769 = {
+                NOR = {
+                    religion = { is_in_family = rf_other }
+                    religion = { is_in_family = rf_other }
+                    religion = { is_in_family = rf_other }
+                }
+            }
+            770 = { 
+                AND = {
+                    religion = { is_in_family = rf_other }
+                    religion = { is_in_family = rf_other }
+                    religion = { is_in_family = rf_other }
+                }    
+            }
+            771 = {
+                religion = { save_temporary_scope_as = acs_ts_current_religion }
+                any_in_list = {
+                    variable = acs_gvl_filter_religion_reduced
+                    save_temporary_scope_as = acs_ts_this_religion
+                    scope:acs_ts_current_religion = scope:acs_ts_this_religion
+                }
+            }
+            772 = { 
+                religion = { save_temporary_scope_as = acs_ts_current_religion }
+                any_in_list = {
+                    variable = acs_gvl_filter_no_religion_reduced
+                    save_temporary_scope_as = acs_ts_this_religion
+                    scope:acs_ts_current_religion = scope:acs_ts_this_religion
+                    count = 0
+                }
+            }
+            773 = {
+                faith = { save_temporary_scope_as = acs_ts_current_faith }
+                any_in_list = {
+                    variable = acs_gvl_filter_faith_reduced
+                    save_temporary_scope_as = acs_ts_this_faith
+                    scope:acs_ts_current_faith = scope:acs_ts_this_faith
+                }
+            }
+            774 = { 
+                religion = { save_temporary_scope_as = acs_ts_current_faith }
+                any_in_list = {
+                    variable = acs_gvl_filter_no_faith_reduced
+                    save_temporary_scope_as = acs_ts_this_faith
+                    scope:acs_ts_current_faith = scope:acs_ts_this_faith
+                    count = 0
+                }
             }
         }
     }

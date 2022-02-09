@@ -22,9 +22,11 @@ acs_sv_rf_pagan_frame = {
 	value = 1 # counting from 1
 	if = {
 		limit = {
-			has_global_variable = acs_gv_rf_pagan_selected
+			global_var:acs_gv_main_filters = {
+				has_variable = acs_v_rf_pagan_selected
+			}
 		}
-		add = global_var:acs_gv_rf_pagan_selected
+		add = global_var:acs_gv_main_filters.var:acs_v_rf_pagan_selected
 	}
 }
 
@@ -32,29 +34,31 @@ acs_sv_rf_abrahamic_frame = {
 	value = 1 # counting from 1
 	if = {
 		limit = {
-			has_global_variable = acs_gv_rf_abrahamic_selected
+			global_var:acs_gv_main_filters = {
+				has_variable = acs_v_rf_abrahamic_selected
+			}
 		}
-		add = global_var:acs_gv_rf_abrahamic_selected
+		add = global_var:acs_gv_main_filters.var:acs_v_rf_abrahamic_selected
 	}
 }
 
 acs_sv_rf_eastern_frame = {
 	value = 1 # counting from 1
-	if = {
-		limit = {
-			has_global_variable = acs_gv_rf_eastern_selected
+	limit = {
+		global_var:acs_gv_main_filters = {
+			has_variable = acs_v_rf_eastern_selected
 		}
-		add = global_var:acs_gv_rf_eastern_selected
 	}
+	add = global_var:acs_gv_main_filters.var:acs_v_rf_eastern_selected
 }
 
 acs_sv_rf_other_frame = {
 	value = 1 # counting from 1
-	if = {
-		limit = {
-			has_global_variable = acs_gv_rf_other_selected
+	limit = {
+		global_var:acs_gv_main_filters = {
+			has_variable = acs_v_rf_other_selected
 		}
-		add = global_var:acs_gv_rf_other_selected
 	}
+	add = global_var:acs_gv_main_filters.var:acs_v_rf_other_selected
 }
 
