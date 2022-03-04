@@ -331,6 +331,40 @@ acs_st_find_save_slot = { SLOT = 0 RESULT = to_load }
 
 
 save_scope_as = help
+
+acs_set_copy_from_all_rf_to_save_slot = {SLOT = scope:help }
+
+global_var:acs_gv_main_filters = {
+    trigger_if = {
+        limit = { has_variable = acs_v_rf_abrahamic_selected	}
+        var:acs_v_rf_abrahamic_selected = 3
+    }
+    trigger_else ={ always = no	}
+}
+save_temporary_scope_as = acs_ts_faith_to_update
+acs_set_copy_from_religion_to_save_slot = {  }
+
+every_faith = {
+    save_temporary_scope_as = acs_ts_faith_to_update
+    acs_set_copy_from_faith_to_save_slot = { FAITH = scope:acs_ts_faith_to_update SLOT_FAITH = global_var:acs_gv_main_filters }
+}
+
+save_temporary_scope_as = acs_ts_religion_to_update
+acs_set_copy_from_religion_to_save_slot = { RELIGION = scope:acs_ts_religion_to_update SLOT_RELIGION = global_var:acs_gv_main_filters }
+
+save_temporary_scope_as = acs_ts_faith
+if = {
+    limit = { NOT = { has_variable = acs_v_selected } }
+    $SLOT_FAITH$ = {
+        remove_list_variable = { name = acs_vl_has_faith target = scope:acs_ts_faith }
+        remove_list_variable = { name = acs_vl_dont_have_faith target = scope:acs_ts_faith }
+    }	
+}
+save_temporary_scope_as = acs_ts_faith
+global_var:acs_gv_main_filters = { 
+    remove_list_variable = { name = acs_vl_dont_have_faith target = scope:acs_ts_faith }
+    add_to_variable_list = { name = acs_vl_has_faith target = scope:acs_ts_faith }
+}
 acs_set_copy_save_slots = { FROM = scope:to_load TO = scope:help }
 
 set_variable = { name = is_used value = scope:to_load.var:acs_v_is_used }

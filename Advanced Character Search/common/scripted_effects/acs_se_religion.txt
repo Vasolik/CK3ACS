@@ -1,4 +1,35 @@
-﻿acs_se_update_rf = {
+﻿acs_se_create_religion_lists = {
+	every_religion_global = {
+		limit = { 
+			is_in_family = rf_abrahamic 
+		}
+		add_to_global_variable_list = { name = acs_gvl_rf_abrahamic target = this }   
+	}
+	every_religion_global = {
+		limit = { 
+			is_in_family = rf_eastern
+		}
+		add_to_global_variable_list = { name = acs_gvl_rf_eastern target = this }   
+	}
+	every_religion_global = {
+		limit = { 
+			is_in_family = rf_pagan 
+		}
+		add_to_global_variable_list = { name = acs_gvl_rf_pagan target = this }
+	}
+	every_religion_global = {
+		limit = { 
+			NOR = { 
+				is_in_family = rf_eastern
+				is_in_family = rf_abrahamic
+				is_in_family = rf_pagan
+			}
+		}
+		add_to_global_variable_list = { name = acs_gvl_rf_other target = this }
+	}
+}
+
+acs_se_update_rf = {
 	if = {
 		limit = {
 			is_in_family = rf_pagan
@@ -128,37 +159,6 @@ acs_se_update_religion = {
 	}
 }
 
-acs_se_create_religion_lists = {
-	every_religion_global = {
-		limit = { 
-			is_in_family = rf_abrahamic 
-		}
-		add_to_global_variable_list = { name = acs_gvl_rf_abrahamic target = this }   
-	}
-	every_religion_global = {
-		limit = { 
-			is_in_family = rf_eastern
-		}
-		add_to_global_variable_list = { name = acs_gvl_rf_eastern target = this }   
-	}
-	every_religion_global = {
-		limit = { 
-			is_in_family = rf_pagan 
-		}
-		add_to_global_variable_list = { name = acs_gvl_rf_pagan target = this }
-	}
-	every_religion_global = {
-		limit = { 
-			NOR = { 
-				is_in_family = rf_eastern
-				is_in_family = rf_abrahamic
-				is_in_family = rf_pagan
-			}
-		}
-		add_to_global_variable_list = { name = acs_gvl_rf_other target = this }
-	}
-}
-
 acs_set_togle_religion_family_selection = {
 	if = {
 		limit = {
@@ -216,5 +216,149 @@ acs_set_togle_religion_family_selection = {
 			remove_variable = acs_v_rf_$FAMILY$_selected
 		}
 		
+	}
+	acs_set_copy_from_all_rf_to_save_slot = { SLOT = global_var:acs_gv_main_filters }
+}
+
+acs_set_copy_from_all_rf_to_save_slot = {
+	acs_set_copy_from_rf_to_save_slot = { SLOT_RF = $SLOT$ FAMILY = pagan }
+	acs_set_copy_from_rf_to_save_slot = { SLOT_RF = $SLOT$ FAMILY = abrahamic }
+	acs_set_copy_from_rf_to_save_slot = { SLOT_RF = $SLOT$ FAMILY = eastern }
+	acs_set_copy_from_rf_to_save_slot = { SLOT_RF = $SLOT$ FAMILY = other }
+}
+
+acs_set_copy_from_rf_to_save_slot = {
+	if = {
+		limit = {
+			global_var:acs_gv_main_filters = {
+				trigger_if = {
+					limit = { has_variable = acs_v_rf_$FAMILY$_selected	}
+					var:acs_v_rf_$FAMILY$_selected = 3
+				}
+				trigger_else ={ always = no	}
+			}
+		}
+		every_in_global_list = {
+			variable = acs_gvl_rf_$FAMILY$
+			save_temporary_scope_as = acs_ts_religion_to_update
+			acs_set_copy_from_religion_to_save_slot = { RELIGION = scope:acs_ts_religion_to_update SLOT_RELIGION = $SLOT_RF$ }
+		}
+	}
+	else = {
+		every_in_global_list = {
+			variable = acs_gvl_rf_$FAMILY$
+			every_faith = {
+				save_temporary_scope_as = acs_ts_faith_to_update
+				$SLOT_RF$ = {
+					remove_list_variable = { name = acs_vl_has_faith target = scope:acs_ts_faith_to_update }
+					remove_list_variable = { name = acs_vl_dont_have_faith target = scope:acs_ts_faith_to_update }
+				}	
+			}
+			save_temporary_scope_as = acs_ts_religion_to_update
+			$SLOT_RF$ = {
+				remove_list_variable = { name = acs_vl_has_religion target = scope:acs_ts_religion_to_update }
+				remove_list_variable = { name = acs_vl_dont_have_religion target = scope:acs_ts_religion_to_update }
+			}	
+		}	
+	}
+}
+
+acs_set_copy_from_religion_to_save_slot = {
+	$RELIGION$ = {
+		save_temporary_scope_as = acs_ts_religion
+		if = {
+			limit = {
+				trigger_if = {
+					limit = { has_variable = acs_v_selected	}
+					var:acs_v_selected = 3
+				}
+				trigger_else ={ always = no	}
+			}
+			every_faith = {
+				save_temporary_scope_as = acs_ts_faith_to_update
+				acs_set_copy_from_faith_to_save_slot = { FAITH = scope:acs_ts_faith_to_update SLOT_FAITH = $SLOT_RELIGION$ }
+			}
+			$SLOT_RELIGION$ = {
+				remove_list_variable = { name = acs_vl_has_religion target = scope:acs_ts_religion }
+				remove_list_variable = { name = acs_vl_dont_have_religion target = scope:acs_ts_religion }
+			}	
+		}
+		else = {
+			every_faith = {
+				save_temporary_scope_as = acs_ts_faith_to_update
+				$SLOT_RELIGION$ = {
+					remove_list_variable = { name = acs_vl_has_faith target = scope:acs_ts_faith_to_update }
+					remove_list_variable = { name = acs_vl_dont_have_faith target = scope:acs_ts_faith_to_update }
+				}	
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = { has_variable = acs_v_selected	}
+						var:acs_v_selected = 1
+					}
+					trigger_else ={ always = no	}
+				}
+				$SLOT_RELIGION$ = { 
+					remove_list_variable = { name = acs_vl_dont_have_religion target = scope:acs_ts_religion }
+					add_to_variable_list = { name = acs_vl_has_religion target = scope:acs_ts_religion }
+				}
+			}
+			else_if = {
+				limit = {
+					trigger_if = {
+						limit = { has_variable = acs_v_selected	}
+						var:acs_v_selected = 2
+					}
+					trigger_else ={ always = no	}
+				}
+				$SLOT_RELIGION$ = { 
+					remove_list_variable = { name = acs_vl_has_religion target = scope:acs_ts_religion }
+					add_to_variable_list = { name = acs_vl_dont_have_religion target = scope:acs_ts_religion }
+				}
+			}
+			else = {
+				$SLOT_RELIGION$ = { 
+					remove_list_variable = { name = acs_vl_has_religion target = scope:acs_ts_religion }
+					remove_list_variable = { name = acs_vl_dont_have_religion target = scope:acs_ts_religion }
+				}
+			}
+		}
+	}
+}
+
+acs_set_copy_from_faith_to_save_slot = {
+	$FAITH$ = {
+		save_temporary_scope_as = acs_ts_faith
+		if = {
+			limit = { NOT = { has_variable = acs_v_selected } }
+			$SLOT_FAITH$ = {
+				remove_list_variable = { name = acs_vl_has_faith target = scope:acs_ts_faith }
+				remove_list_variable = { name = acs_vl_dont_have_faith target = scope:acs_ts_faith }
+			}	
+		}
+		else_if = {
+			limit = {
+				trigger_if = {
+					limit = { 
+						has_variable = acs_v_selected
+					}
+					var:acs_v_selected = 1
+				}
+				trigger_else ={
+					always = no
+				}
+			}
+			$SLOT_FAITH$ = { 
+				remove_list_variable = { name = acs_vl_dont_have_faith target = scope:acs_ts_faith }
+				add_to_variable_list = { name = acs_vl_has_faith target = scope:acs_ts_faith }
+			}
+		}
+		else = {
+			$SLOT_FAITH$ = { 
+				remove_list_variable = { name = acs_vl_has_faith target = scope:acs_ts_faith }
+				add_to_variable_list = { name = acs_vl_dont_have_faith target = scope:acs_ts_faith }
+			}
+		}
 	}
 }
