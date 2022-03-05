@@ -320,9 +320,9 @@ acs_se_update_religion_filter = {
         }  
         if = {
             limit = { 
-                any_in_list = { variable = acs_vl_religion_filter always = yes count = 0 }
+                var:acs_v_religion_filter_count > 0
             }
-             add_to_variable_list = { name = acs_vl_filter_active target = 763 } 
+            add_to_variable_list = { name = acs_vl_filter_active target = 763 } 
         }  
     }
     

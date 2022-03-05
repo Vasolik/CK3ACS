@@ -11,6 +11,15 @@
         NOT = { has_variable = acs_v_rf_eastern_selected }
         NOT = { has_variable = acs_v_rf_abrahamic_selected }
         NOT = { has_variable = acs_v_rf_other_selected }
+        any_in_list = { variable = acs_vl_has_faith always = yes count = 0 }
+        any_in_list = { variable = acs_vl_has_religion always = yes count = 0 }
+        any_in_list = { variable = acs_vl_dont_have_faith always = yes count = 0 }
+        any_in_list = { variable = acs_vl_dont_have_religion always = yes count = 0 }
+        OR = {
+            NOT = { has_variable = acs_v_religion_filter_count }
+            var:acs_v_religion_filter_count = 0
+        }
+        any_in_list = { variable = acs_vl_religion_filter  always = yes count = 0 }
         any_in_list = { variable = acs_vl_filter_active always = yes count = 0 }
     }
 }
@@ -67,6 +76,28 @@ acs_stt_equal_slots = { # SLOT1 : scope, SLOT2 : scope
         trigger_else = {
             var:acs_v_rf_other_selected = $SLOT2$.var:acs_v_rf_other_selected
         }
+        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_has_faith }
+        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_has_religion }
+        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_dont_have_faith }
+        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_dont_have_religion }
+        trigger_if = {
+            limit = { NOT = { has_variable = acs_v_religion_filter_count } }
+            $SLOT2$ = {
+                trigger_if = {
+                    limit = { has_variable = acs_v_religion_filter_count }
+                    var:acs_v_religion_filter_count = 0
+                }
+                trigger_else = { always = yes }
+            }
+        }
+        trigger_else_if = {
+            limit = { $SLOT2$ = { NOT = { has_variable = acs_v_religion_filter_count } } }
+            var:acs_v_religion_filter_count = 0
+        }
+        trigger_else = {
+            var:acs_v_religion_filter_count = $SLOT2$.var:acs_v_religion_filter_count
+        }
+        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_religion_filter }
         acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_active }
     }
 }

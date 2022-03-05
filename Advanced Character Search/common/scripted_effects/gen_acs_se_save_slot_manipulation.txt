@@ -14,18 +14,42 @@
             limit = { has_variable = acs_v_rf_pagan_selected }
             $TO$ = { set_variable = { name = acs_v_rf_pagan_selected value = $FROM$.var:acs_v_rf_pagan_selected } }
         }
+        else = {
+            $TO$ = { remove_variable = acs_v_rf_pagan_selected }
+        }
         if = {
             limit = { has_variable = acs_v_rf_eastern_selected }
             $TO$ = { set_variable = { name = acs_v_rf_eastern_selected value = $FROM$.var:acs_v_rf_eastern_selected } }
+        }
+        else = {
+            $TO$ = { remove_variable = acs_v_rf_eastern_selected }
         }
         if = {
             limit = { has_variable = acs_v_rf_abrahamic_selected }
             $TO$ = { set_variable = { name = acs_v_rf_abrahamic_selected value = $FROM$.var:acs_v_rf_abrahamic_selected } }
         }
+        else = {
+            $TO$ = { remove_variable = acs_v_rf_abrahamic_selected }
+        }
         if = {
             limit = { has_variable = acs_v_rf_other_selected }
             $TO$ = { set_variable = { name = acs_v_rf_other_selected value = $FROM$.var:acs_v_rf_other_selected } }
         }
+        else = {
+            $TO$ = { remove_variable = acs_v_rf_other_selected }
+        }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_has_faith }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_has_religion }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_dont_have_faith }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_dont_have_religion }
+        if = {
+            limit = { has_variable = acs_v_religion_filter_count }
+            $TO$ = { set_variable = { name = acs_v_religion_filter_count value = $FROM$.var:acs_v_religion_filter_count } }
+        }
+        else = {
+            $TO$ = { set_variable = { name = acs_v_religion_filter_count value = 0 } }
+        }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_religion_filter }
         acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_active }
     } 
 }
@@ -42,6 +66,12 @@ acs_set_reset_save_slot_to_default = { # SLOT : scope
         remove_variable = acs_v_rf_eastern_selected
         remove_variable = acs_v_rf_abrahamic_selected
         remove_variable = acs_v_rf_other_selected
+        clear_variable_list = acs_vl_has_faith
+        clear_variable_list = acs_vl_has_religion
+        clear_variable_list = acs_vl_dont_have_faith
+        clear_variable_list = acs_vl_dont_have_religion
+        remove_variable = acs_v_religion_filter_count
+        clear_variable_list = acs_vl_religion_filter
         clear_variable_list = acs_vl_filter_active  
     }
 }
@@ -58,6 +88,12 @@ acs_set_clear_save_slot = { # SLOT : scope
         remove_variable = acs_v_rf_eastern_selected
         remove_variable = acs_v_rf_abrahamic_selected
         remove_variable = acs_v_rf_other_selected
+        clear_variable_list = acs_vl_has_faith
+        clear_variable_list = acs_vl_has_religion
+        clear_variable_list = acs_vl_dont_have_faith
+        clear_variable_list = acs_vl_dont_have_religion
+        remove_variable = acs_v_religion_filter_count
+        clear_variable_list = acs_vl_religion_filter
         clear_variable_list = acs_vl_filter_active
     } 
 }

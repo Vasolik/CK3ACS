@@ -87,6 +87,7 @@ acs_se_load_undo = {
         acs_set_clear_undo_slot = { SLOT = scope:used_slot }
         acs_set_delete_empty_object = { OBJECT_NAME = scope:used_slot }
         change_global_variable = { name = acs_gv_undo_count add = -1 }
+        acs_set_copy_from_save_slot_to_all_rf = yes
         acs_se_auto_apply_sorting_and_filters = yes
     }
    
@@ -111,6 +112,7 @@ acs_reset_filters_and_sorting = {
     set_global_variable = acs_sort_by_ascending
     set_global_variable = { name = acs_select_count value = 100 }
     acs_set_reset_save_slot_to_default = { SLOT = global_var:acs_gv_main_filters }
+    acs_set_copy_from_save_slot_to_all_rf = yes
 }
 
 acs_se_set_current_slot = {
