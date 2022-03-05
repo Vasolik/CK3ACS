@@ -199,3 +199,131 @@
     }
     
 }
+acs_se_update_religion_filter = {
+    global_var:acs_gv_main_filters = {
+        set_variable = { name = acs_v_religion_filter_count value = 0  }
+        clear_variable_list = acs_vl_religion_filter
+        if = {
+            limit = { 
+                trigger_if = {
+                    limit = { has_variable = acs_v_rf_pagan_selected  }
+                    var:acs_v_rf_pagan_selected = 1
+                }
+                trigger_else = { always = no }
+            }
+            add_to_variable_list = { name = acs_vl_religion_filter target = 0 } 
+        }
+        if = {
+            limit = { 
+                trigger_if = {
+                    limit = { has_variable = acs_v_rf_eastern_selected  }
+                    var:acs_v_rf_eastern_selected = 1
+                }
+                trigger_else = { always = no }
+            }
+            add_to_variable_list = { name = acs_vl_religion_filter target = 2 } 
+        }
+        if = {
+            limit = { 
+                trigger_if = {
+                    limit = { has_variable = acs_v_rf_abrahamic_selected  }
+                    var:acs_v_rf_abrahamic_selected = 1
+                }
+                trigger_else = { always = no }
+            }
+            add_to_variable_list = { name = acs_vl_religion_filter target = 4 } 
+        }
+        if = {
+            limit = { 
+                trigger_if = {
+                    limit = { has_variable = acs_v_rf_other_selected  }
+                    var:acs_v_rf_other_selected = 1
+                }
+                trigger_else = { always = no }
+            }
+            add_to_variable_list = { name = acs_vl_religion_filter target = 6 } 
+        }
+        if = {
+            limit = { any_in_list = { variable = acs_vl_has_faith always = yes count > 0 } }
+            add_to_variable_list = { name = acs_vl_religion_filter target = 8 } 
+        }
+        if = {
+            limit = { any_in_list = { variable = acs_vl_has_religion always = yes count > 0 } }
+            add_to_variable_list = { name = acs_vl_religion_filter target = 9 } 
+        }     
+        if = {
+            limit = { 
+                any_in_list = { variable = acs_vl_religion_filter always = yes count = 0 }
+            }
+            if = {
+                limit = { 
+                    trigger_if = {
+                        limit = { has_variable = acs_v_rf_pagan_selected  }
+                        var:acs_v_rf_pagan_selected = 2
+                    }
+                    trigger_else = { always = no }
+                    
+                }
+                add_to_variable_list = { name = acs_vl_religion_filter target = 1 } 
+                change_variable = { name = acs_v_religion_filter_count add = 1 } 
+            }
+            if = {
+                limit = { 
+                    trigger_if = {
+                        limit = { has_variable = acs_v_rf_eastern_selected  }
+                        var:acs_v_rf_eastern_selected = 2
+                    }
+                    trigger_else = { always = no }
+                    
+                }
+                add_to_variable_list = { name = acs_vl_religion_filter target = 3 } 
+                change_variable = { name = acs_v_religion_filter_count add = 1 } 
+            }
+            if = {
+                limit = { 
+                    trigger_if = {
+                        limit = { has_variable = acs_v_rf_abrahamic_selected  }
+                        var:acs_v_rf_abrahamic_selected = 2
+                    }
+                    trigger_else = { always = no }
+                    
+                }
+                add_to_variable_list = { name = acs_vl_religion_filter target = 5 } 
+                change_variable = { name = acs_v_religion_filter_count add = 1 } 
+            }
+            if = {
+                limit = { 
+                    trigger_if = {
+                        limit = { has_variable = acs_v_rf_other_selected  }
+                        var:acs_v_rf_other_selected = 2
+                    }
+                    trigger_else = { always = no }
+                    
+                }
+                add_to_variable_list = { name = acs_vl_religion_filter target = 7 } 
+                change_variable = { name = acs_v_religion_filter_count add = 1 } 
+            }
+            if = {
+                limit = { any_in_list = { variable = acs_vl_dont_have_faith always = yes count > 0 } }
+                add_to_variable_list = { name = acs_vl_religion_filter target = 10 } 
+                change_variable = { name = acs_v_religion_filter_count add = 1 } 
+            }
+            if = {
+                limit = { any_in_list = { variable = acs_vl_dont_have_religion always = yes count > 0 } }
+                add_to_variable_list = { name = acs_vl_religion_filter target = 11 } 
+                change_variable = { name = acs_v_religion_filter_count add = 1 } 
+            }
+            
+        }
+        else = {
+            change_variable = { name = acs_v_religion_filter_count add = 1 } 
+        }  
+        if = {
+            limit = { 
+                any_in_list = { variable = acs_vl_religion_filter always = yes count = 0 }
+            }
+             add_to_variable_list = { name = acs_vl_filter_active target = 763 } 
+        }  
+    }
+    
+}

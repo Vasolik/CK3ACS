@@ -10,6 +10,22 @@
         acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_physical_beauty }
         acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_physical_intellect }
         acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_trait_physical_physique }
+        if = {
+            limit = { has_variable = acs_v_rf_pagan_selected }
+            $TO$ = { set_variable = { name = acs_v_rf_pagan_selected value = $FROM$.var:acs_v_rf_pagan_selected } }
+        }
+        if = {
+            limit = { has_variable = acs_v_rf_eastern_selected }
+            $TO$ = { set_variable = { name = acs_v_rf_eastern_selected value = $FROM$.var:acs_v_rf_eastern_selected } }
+        }
+        if = {
+            limit = { has_variable = acs_v_rf_abrahamic_selected }
+            $TO$ = { set_variable = { name = acs_v_rf_abrahamic_selected value = $FROM$.var:acs_v_rf_abrahamic_selected } }
+        }
+        if = {
+            limit = { has_variable = acs_v_rf_other_selected }
+            $TO$ = { set_variable = { name = acs_v_rf_other_selected value = $FROM$.var:acs_v_rf_other_selected } }
+        }
         acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_active }
     } 
 }
@@ -22,6 +38,10 @@ acs_set_reset_save_slot_to_default = { # SLOT : scope
         clear_variable_list = acs_vl_filter_trait_physical_beauty
         clear_variable_list = acs_vl_filter_trait_physical_intellect
         clear_variable_list = acs_vl_filter_trait_physical_physique
+        remove_variable = acs_v_rf_pagan_selected
+        remove_variable = acs_v_rf_eastern_selected
+        remove_variable = acs_v_rf_abrahamic_selected
+        remove_variable = acs_v_rf_other_selected
         clear_variable_list = acs_vl_filter_active  
     }
 }
@@ -34,6 +54,10 @@ acs_set_clear_save_slot = { # SLOT : scope
         clear_variable_list = acs_vl_filter_trait_physical_beauty
         clear_variable_list = acs_vl_filter_trait_physical_intellect
         clear_variable_list = acs_vl_filter_trait_physical_physique
+        remove_variable = acs_v_rf_pagan_selected
+        remove_variable = acs_v_rf_eastern_selected
+        remove_variable = acs_v_rf_abrahamic_selected
+        remove_variable = acs_v_rf_other_selected
         clear_variable_list = acs_vl_filter_active
     } 
 }

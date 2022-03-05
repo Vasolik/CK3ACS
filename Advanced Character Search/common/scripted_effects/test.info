@@ -360,6 +360,88 @@ if = {
         remove_list_variable = { name = acs_vl_dont_have_faith target = scope:acs_ts_faith }
     }	
 }
+save_temporary_scope_as = help
+global_var:acs_gv_main_filters = {
+    any_in_list = {
+        variable = acs_vl_religion_filter
+        save_temporary_scope_as = filter2
+        scope:help = {
+            switch = {
+                trigger = scope:filter2
+                0 = {
+                    religion = { is_in_family = rf_pagan }
+                }
+                1 = {
+                    NOT = { religion = { is_in_family = rf_pagan } }
+                }
+                2 = {
+                    religion = { is_in_family = rf_eastern }
+                }
+                3 = {
+                    NOT = { religion = { is_in_family = rf_eastern } }
+                }
+                4 = {
+                    religion = { is_in_family = rf_abrahamic }
+                }
+                5 = {
+                    NOT = { religion = { is_in_family = rf_abrahamic } }
+                }
+                6 = {
+                    NOR = {
+                        religion = { is_in_family = rf_pagan }
+                        religion = { is_in_family = rf_eastern }
+                        religion = { is_in_family = rf_abrahamic }
+                    }
+                }
+                7 = { 
+                    AND = {
+                        religion = { is_in_family = rf_pagan }
+                        religion = { is_in_family = rf_eastern }
+                        religion = { is_in_family = rf_abrahamic }
+                    }    
+                }
+                8 = {
+                    faith = { 
+                        save_temporary_scope_as = acs_ts_faith
+                        any_in_list = { variable = acs_vl_has_faith this = scope:acs_ts_faith count > 0 }
+                    }
+                }
+                9 = {
+                    religion = { 
+                        save_temporary_scope_as = acs_ts_religion
+                        any_in_list = { variable = acs_vl_has_religion this = scope:acs_ts_religion count > 0 }
+                    }
+                }
+                10 = {
+                    faith = { 
+                        save_temporary_scope_as = acs_ts_faith
+                        any_in_list = { variable = acs_vl_dont_have_faith this = scope:acs_ts_faith count = 0 }
+                    }
+                }
+                11 = {
+                    religion = { 
+                        save_temporary_scope_as = acs_ts_religion
+                        any_in_list = { variable = acs_vl_dont_have_religion this = scope:acs_ts_religion count = 0 }
+                    }
+                }
+            }
+        }
+        count = global_var:acs_gv_main_filters.var:acs_v_religion_filter_count
+    }
+}
+
+
+trigger_if = {
+    limit = { NOT = { has_variable = acs_v_rf_pagan_selected } }
+    global_var:acs_gv_main_filters = { NOT = { has_variable = acs_v_rf_pagan_selected } }
+}
+trigger_else_if = {
+    limit = { global_var:acs_gv_main_filters = { NOT = { has_variable = acs_v_rf_pagan_selected } } }
+    always = no
+}
+trigger_else = {
+    var:acs_v_rf_pagan_selected = global_var:acs_gv_main_filters.var:acs_v_rf_pagan_selected
+}
 save_temporary_scope_as = acs_ts_faith
 global_var:acs_gv_main_filters = { 
     remove_list_variable = { name = acs_vl_dont_have_faith target = scope:acs_ts_faith }

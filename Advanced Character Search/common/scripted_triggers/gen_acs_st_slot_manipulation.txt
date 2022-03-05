@@ -7,6 +7,10 @@
         any_in_list = { variable = acs_vl_filter_trait_physical_beauty always = yes count = 0 }
         any_in_list = { variable = acs_vl_filter_trait_physical_intellect always = yes count = 0 }
         any_in_list = { variable = acs_vl_filter_trait_physical_physique always = yes count = 0 }
+        NOT = { has_variable = acs_v_rf_pagan_selected }
+        NOT = { has_variable = acs_v_rf_eastern_selected }
+        NOT = { has_variable = acs_v_rf_abrahamic_selected }
+        NOT = { has_variable = acs_v_rf_other_selected }
         any_in_list = { variable = acs_vl_filter_active always = yes count = 0 }
     }
 }
@@ -19,6 +23,50 @@ acs_stt_equal_slots = { # SLOT1 : scope, SLOT2 : scope
         acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_physical_beauty }
         acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_physical_intellect }
         acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_physical_physique }
+        trigger_if = {
+            limit = { NOT = { has_variable = acs_v_rf_pagan_selected } }
+            $SLOT2$ = { NOT = { has_variable = acs_v_rf_pagan_selected } }
+        }
+        trigger_else_if = {
+            limit = { $SLOT2$ = { NOT = { has_variable = acs_v_rf_pagan_selected } } }
+            always = no
+        }
+        trigger_else = {
+            var:acs_v_rf_pagan_selected = $SLOT2$.var:acs_v_rf_pagan_selected
+        }
+        trigger_if = {
+            limit = { NOT = { has_variable = acs_v_rf_eastern_selected } }
+            $SLOT2$ = { NOT = { has_variable = acs_v_rf_eastern_selected } }
+        }
+        trigger_else_if = {
+            limit = { $SLOT2$ = { NOT = { has_variable = acs_v_rf_eastern_selected } } }
+            always = no
+        }
+        trigger_else = {
+            var:acs_v_rf_eastern_selected = $SLOT2$.var:acs_v_rf_eastern_selected
+        }
+        trigger_if = {
+            limit = { NOT = { has_variable = acs_v_rf_abrahamic_selected } }
+            $SLOT2$ = { NOT = { has_variable = acs_v_rf_abrahamic_selected } }
+        }
+        trigger_else_if = {
+            limit = { $SLOT2$ = { NOT = { has_variable = acs_v_rf_abrahamic_selected } } }
+            always = no
+        }
+        trigger_else = {
+            var:acs_v_rf_abrahamic_selected = $SLOT2$.var:acs_v_rf_abrahamic_selected
+        }
+        trigger_if = {
+            limit = { NOT = { has_variable = acs_v_rf_other_selected } }
+            $SLOT2$ = { NOT = { has_variable = acs_v_rf_other_selected } }
+        }
+        trigger_else_if = {
+            limit = { $SLOT2$ = { NOT = { has_variable = acs_v_rf_other_selected } } }
+            always = no
+        }
+        trigger_else = {
+            var:acs_v_rf_other_selected = $SLOT2$.var:acs_v_rf_other_selected
+        }
         acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_active }
     }
 }
