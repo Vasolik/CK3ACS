@@ -3343,85 +3343,97 @@
             }
             717 = {
                 AND = {
+                    exists = father
+                    exists = mother
+                }
+            }
+            718 = {
+                OR = {
+                    AND = {
+                        NOT = { exists = father }
+                        exists = mother
+                    }
+                    AND = {
+                        NOT = { exists = mother }
+                        exists = father
+                    }
+                }
+            }
+            719 = {
+                OR = {
+                    exists = father
+                    exists = mother
+                }
+            }
+            720 = {
+                AND = {
                     NOT = { exists = father }
                     NOT = { exists = mother }
                 }
             }
-            719 = {
+            722 = {
                 is_adult = no
             }
-            720 = {
+            723 = {
                 is_adult = yes
             }
-            721 = {
+            724 = {
                 is_adult = yes
                 age < 35
             }
-            722 = {
+            725 = {
                 is_adult = yes
                 age >= 35
             }
-            724 = {
+            727 = {
                 is_male = no
             }
-            725 = {
+            728 = {
                 is_male = yes
             }
-            727 = {
+            730 = {
                 is_married = yes
             }
-            728 = {
-                is_married = no
-            }
-            729 = {
-                is_betrothed = yes
-            }
-            730 = {
-                is_betrothed = no
+            731 = {
                 is_married = no
             }
             732 = {
-                is_imprisoned = yes
+                is_betrothed = yes
             }
             733 = {
-                is_imprisoned = no
+                is_betrothed = no
+                is_married = no
             }
             735 = {
-                scope:acs_filter_hooks_root = { has_hook = prev }
+                is_imprisoned = yes
             }
             736 = {
-                NOT = { scope:acs_filter_hooks_root = { has_hook = prev } }
-            }
-            737 = {
-                any_secret_knower = { this = scope:acs_filter_hooks_root }
+                is_imprisoned = no
             }
             738 = {
+                scope:acs_filter_hooks_root = { has_hook = prev }
+            }
+            739 = {
+                NOT = { scope:acs_filter_hooks_root = { has_hook = prev } }
+            }
+            740 = {
+                any_secret_knower = { this = scope:acs_filter_hooks_root }
+            }
+            741 = {
                 NOT = { scope:acs_filter_hooks_root = { has_hook = prev } }
                 NOT = { any_secret_knower = { this = scope:acs_filter_hooks_root } }
             }
-            740 = {
+            743 = {
                 has_sexuality = heterosexual
             }
-            741 = {
+            744 = {
                 has_sexuality = homosexual
             }
-            742 = {
+            745 = {
                 has_sexuality = bisexual
             }
-            743 = {
-                has_sexuality = asexual
-            }
-            745 = {
-                faith = scope:acs_filter_faith
-            }
             746 = {
-                religion = scope:acs_filter_religion
-            }
-            747 = {
-                NOT = { faith = scope:acs_filter_faith }
-            }
-            748 = {
-                NOT = { religion = scope:acs_filter_religion }
+                has_sexuality = asexual
             }
             750 = {
                 culture = { has_same_culture_heritage = scope:acs_filter_culture_root.culture }
