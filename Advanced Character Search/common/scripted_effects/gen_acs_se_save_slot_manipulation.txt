@@ -50,6 +50,7 @@
             $TO$ = { set_variable = { name = acs_v_religion_filter_count value = 0 } }
         }
         acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_religion_filter }
+        acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_inspiration }
         acs_set_copy_list = { TO = $TO$ LIST_NAME = acs_vl_filter_active }
     } 
 }
@@ -72,6 +73,7 @@ acs_set_reset_save_slot_to_default = { # SLOT : scope
         clear_variable_list = acs_vl_dont_have_religion
         remove_variable = acs_v_religion_filter_count
         clear_variable_list = acs_vl_religion_filter
+        clear_variable_list = acs_vl_filter_inspiration
         clear_variable_list = acs_vl_filter_active  
     }
 }
@@ -94,6 +96,7 @@ acs_set_clear_save_slot = { # SLOT : scope
         clear_variable_list = acs_vl_dont_have_religion
         remove_variable = acs_v_religion_filter_count
         clear_variable_list = acs_vl_religion_filter
+        clear_variable_list = acs_vl_filter_inspiration
         clear_variable_list = acs_vl_filter_active
     } 
 }

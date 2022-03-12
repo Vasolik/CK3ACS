@@ -540,3 +540,135 @@ acs_sg_filter_trait_physical_physique = {
         acs_se_auto_apply_sorting_and_filters = yes
     }
 }
+acs_sg_filter_inspiration = {
+    saved_scopes = {
+        ctrl_value
+        position
+    }
+    is_shown = {
+        global_var:acs_gv_main_filters = {
+            any_in_list = {
+                variable = acs_vl_filter_inspiration
+                save_temporary_scope_value_as = { name = offset value = -1 }
+                this = acs_position_value_offset
+            }
+        }
+    }     
+    effect = {
+        set_local_variable = { name = acs_lv_start value = scope:position }
+        acs_simple_checkbox = { LIST = acs_vl_filter_inspiration START = local_var:acs_lv_start }
+        global_var:acs_gv_main_filters = {
+            if = {
+                limit = {
+                    any_in_list = {
+                        variable = acs_vl_filter_inspiration
+                        always = yes
+                    }
+                }
+                add_to_variable_list = { name = acs_vl_filter_active target = 1000 }
+            }
+            else = {
+                remove_list_variable = { name = acs_vl_filter_active target = 1000 }
+            }
+        }
+        acs_se_auto_apply_sorting_and_filters = yes
+    }
+}
+acs_sg_filter_inspiration_group = {
+        saved_scopes = {
+        ctrl_value
+    }
+    is_shown = {
+        global_var:acs_gv_main_filters = {
+            trigger_if = {
+                limit = { 
+                    scope:ctrl_value = 0
+                }
+                NOT = {
+                    any_in_list = {
+                        variable = acs_vl_filter_inspiration
+                        always = yes
+                    }
+                }    
+            } 
+            trigger_else_if = {
+                limit = { 
+                    scope:ctrl_value = 1
+                }
+                any_in_list = {
+                    variable =  acs_vl_filter_inspiration
+                    save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                    save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                    scope:to_test = 0
+                    count = 8
+                }
+            }
+            trigger_else = {
+                 any_in_list = {
+                    variable =  acs_vl_filter_inspiration
+                    save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                    save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                    scope:to_test = 1
+                    count = 8
+                }
+            }
+        }
+    }     
+    effect = {
+        acs_se_save_undo = yes
+        global_var:acs_gv_main_filters = {
+            if = {
+                limit = {
+                    NOT = {
+                        any_in_list = {
+                            variable = acs_vl_filter_inspiration
+                            always = yes
+                        }
+                    }
+                }
+                set_local_variable = { name = acs_lv_counter value = 0 }
+                while = {
+                    limit = {
+                        local_var:acs_lv_counter < 16
+                    }
+                    add_to_variable_list = { name =  acs_vl_filter_inspiration target = local_var:acs_lv_counter }
+                    change_local_variable = { name = acs_lv_counter add = 2 }
+                }
+                add_to_variable_list = { name = acs_vl_filter_active target = 1000 }
+            }
+            else_if = {
+                limit = {
+                    any_in_list = {
+                        variable =  acs_vl_filter_inspiration
+                        save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                        save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                        scope:to_test = 0
+                        count = 8
+                    }
+                }
+                set_local_variable = { name = acs_lv_counter value = 0 }
+                while = {
+                    limit = {
+                        local_var:acs_lv_counter < 16
+                    }
+                    remove_list_variable = { name = acs_vl_filter_inspiration target = local_var:acs_lv_counter }
+                    change_local_variable = { name = acs_lv_counter add = 1 }
+                    add_to_variable_list = { name =  acs_vl_filter_inspiration target = local_var:acs_lv_counter }
+                    change_local_variable = { name = acs_lv_counter add = 1 }
+                }
+            }
+            else = {
+                set_local_variable = { name = acs_lv_counter value = 0 }
+                while = {
+                    limit = {
+                        local_var:acs_lv_counter < 16
+                    }
+                    remove_list_variable = { name = acs_vl_filter_inspiration target = local_var:acs_lv_counter }
+                    change_local_variable = { name = acs_lv_counter add = 1 }
+                }
+                remove_list_global_variable = { name = acs_vl_filter_active target = 1000 }
+            }
+        }
+        acs_se_auto_apply_sorting_and_filters = yes
+    } 
+}

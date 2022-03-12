@@ -4,33 +4,68 @@
 
         if = {
             limit = {
-                NOT = { has_global_variable = acs_first_time_setup_v9 }
+                NOT = { has_global_variable = acs_first_time_setup_v9_2 }
             }
-            
-            acs_set_new_empty_object = { OBJECT_NAME = temp }
-            set_global_variable = { name = acs_gv_main_filters value = scope:temp }
-
-            set_local_variable = { name = acs_lv_counter value = 0 }
-            while = {
-                limit = {
-                    local_var:acs_lv_counter < 13
+            if = {
+                limit = { has_global_variable = acs_first_time_setup_v9 }
+                acs_set_reset_save_slot_to_default = { SLOT = global_var:acs_gv_main_filters }
+                global_var:acs_gv_main_filters = {
+                    remove_variable = acs_v_current_slot
                 }
+                every_in_global_list = {
+                    list = acs_gvl_save_slot
+                    remove_variable = acs_v_is_used 
+                }
+                while = { 
+                    limit = { has_global_variable = asc_gv_undo_first }
+                    global_var:asc_gv_undo_first = { 
+                        save_scope_as = used_slot
+                        if = {
+                            limit = { has_variable = acs_v_next }
+                            var:acs_v_next = {
+                                save_scope_as = next_scope
+                                set_global_variable = { name = asc_gv_undo_first value = scope:next_scope }
+                                remove_variable = acs_v_prev
+                            }
+                        }
+                        else = {
+                            remove_global_variable = asc_gv_undo_first
+                            remove_global_variable = asc_gv_undo_last
+                            remove_global_variable = asc_save_slot_undo_0_used
+                        }
+                    }
+                    acs_set_clear_undo_slot = { SLOT = scope:used_slot }
+                    acs_set_delete_empty_object = { OBJECT_NAME = scope:used_slot }
+                }
+                acs_se_set_current_slot = yes
+            }
+            else = {
                 acs_set_new_empty_object = { OBJECT_NAME = temp }
-                scope:temp = {
-                    set_variable = { name = acs_v_index value = local_var:acs_lv_counter }
+                set_global_variable = { name = acs_gv_main_filters value = scope:temp }
+    
+                set_local_variable = { name = acs_lv_counter value = 0 }
+                
+                while = {
+                    limit = {
+                        local_var:acs_lv_counter < 13
+                    }
+                    acs_set_new_empty_object = { OBJECT_NAME = temp }
+                    scope:temp = {
+                        set_variable = { name = acs_v_index value = local_var:acs_lv_counter }
+                    }
+                    add_to_global_variable_list = { name = acs_gvl_save_slot target = scope:temp }
+                    change_local_variable = { name = acs_lv_counter add = 1 }
                 }
-                add_to_global_variable_list = { name = acs_gvl_save_slot target = scope:temp }
-                change_local_variable = { name = acs_lv_counter add = 1 }
+    
+                set_global_variable = { name = acs_sort_by value = 0  }
+                set_global_variable = acs_sort_by_ascending
+                set_global_variable = { name = acs_select_count value = 100 }
+                acs_set_reset_save_slot_to_default = { SLOT = global_var:acs_gv_main_filters }
+                acs_set_copy_from_save_slot_to_all_rf = yes
+                set_global_variable = acs_gv_auto_apply_sorting_and_filters
+                acs_se_set_current_slot = yes
             }
-
-            set_global_variable = { name = acs_sort_by value = 0  }
-            set_global_variable = acs_sort_by_ascending
-            set_global_variable = { name = acs_select_count value = 100 }
-            acs_set_reset_save_slot_to_default = { SLOT = global_var:acs_gv_main_filters }
-            acs_set_copy_from_save_slot_to_all_rf = yes
-            set_global_variable = acs_gv_auto_apply_sorting_and_filters
-            acs_se_set_current_slot = yes
-            set_global_variable = acs_first_time_setup_v9
+            set_global_variable = acs_first_time_setup_v9_2
         }
     }
 }

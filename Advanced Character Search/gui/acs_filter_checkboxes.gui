@@ -46,30 +46,35 @@
             block "acs_trait_item_size" {  
                 size = { 275 30 }
             }
-            acs_four_state_checkbox = {}
-            icon = {
-                size = { 30 30 }
-                position = { 35 0 }
-                block "acs_custom_image" {  
-                    frame = 1
-                    texture = "gfx/interface/icons/icon_skills.dds"
-                    framesize = { 60 60 }
+            widget = {
+                parentanchor = top|left
+                widgetanchor = top|left
+                block "acs_bk_moved_position" { }
+                acs_four_state_checkbox = {}
+                icon = {
+                    size = { 30 30 }
+                    position = { 35 0 }
+                    block "acs_custom_image" {  
+                        frame = 1
+                        texture = "gfx/interface/icons/icon_skills.dds"
+                        framesize = { 60 60 }
+                    }
                 }
-            }
 
-            text_single = {
-                block "acs_filter_name" {  
-                    text = "[diplomacy|E]"
-                }
-                default_format = "#medium"
+                text_single = {
+                    block "acs_filter_name" {  
+                        text = "[diplomacy|E]"
+                    }
+                    default_format = "#medium"
 
-                align = vcenter|left
-                fontsize_min = 9
-                block "acs_bk_text_size" {  
-                    max_width = 200 
+                    align = vcenter|left
+                    fontsize_min = 9
+                    block "acs_bk_text_size" {  
+                        max_width = 200 
+                    }
+                    position = { 70 0 }
+                    
                 }
-                position = { 70 0 }
-                
             }
         }
     }
@@ -80,35 +85,59 @@
             block "acs_trait_item_size" {  
                 size = { 275 30 }
             }
-
-            acs_four_state_checkbox = {
+            widget = {
                 parentanchor = top|right
                 widgetanchor = top|right
-            }
+                block "acs_bk_moved_position" { }
 
-            icon = {
-                size = { 30 30 }
-                parentanchor = top|right
-                widgetanchor = top|right
-                position = { -35 0 }
-                block "acs_custom_image" { }
+                acs_four_state_checkbox = {
+                    parentanchor = top|right
+                    widgetanchor = top|right
+                }
+    
+                icon = {
+                    size = { 30 30 }
+                    parentanchor = top|right
+                    widgetanchor = top|right
+                    position = { -35 0 }
+                    block "acs_custom_image" { }
+                }
+    
+                text_single = {
+                    parentanchor = top|right
+                    widgetanchor = top|right
+                    position = { -70 0 }
+                    block "acs_filter_name" { }
+                    default_format = "#medium"
+                    fontsize_min = 9
+                    block "acs_bk_text_size" {  
+                        max_width = 200 
+                    } 
+                    align = right
+    
+                }
             }
-
-            text_single = {
-                parentanchor = top|right
-                widgetanchor = top|right
-                position = { -70 0 }
-                block "acs_filter_name" { }
-                default_format = "#medium"
-                fontsize_min = 9
-                block "acs_bk_text_size" {  
-                    max_width = 200 
-                } 
-                align = right
-
-            }
+            
         }
         
+    }
+
+    type acs_trait_item_custom_left_moved = acs_trait_item_custom_left {
+        blockoverride "acs_bk_moved_position" {  
+            position = { 30 0 }
+        }
+        blockoverride "acs_bk_text_size" {  
+            max_width = 170 
+        }
+    }
+
+    type acs_trait_item_custom_right_moved = acs_trait_item_custom_right { 
+        blockoverride "acs_bk_moved_position" {  
+            position = { -30 0 }
+        }
+        blockoverride "acs_bk_text_size" {  
+            max_width = 170 
+        }
     }
 
     type acs_trait_item_custom_left_third = acs_trait_item_custom_left {

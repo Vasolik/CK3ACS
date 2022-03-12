@@ -1,0 +1,185 @@
+﻿types  acs_filter_trait_inspiration_and_artifacts_group_types {
+    type acs_filter_trait_inspiration_and_artifacts_group = acs_vbox_filter_group {
+        name = "acs_filter_trait_inspiration_and_artifacts"
+        
+        blockoverride "acs_vbox_filter_group_name" {
+            text = "acs_filter_trait_group_inspiration_and_artifacts"
+        }
+        
+        blockoverride "acs_vbox_filter_group_toggle" {
+            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_inspiration_and_artifacts' )]"
+            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_inspiration_and_artifacts' ) ), '(int32)1', '(int32)2' )]"
+        }
+        
+        blockoverride "acs_filter_visible" {
+            visible = "[GetVariableSystem.Exists( 'acs_filter_trait_inspiration_and_artifacts' )]"
+        }
+        
+        blockoverride "acs_filters" {
+            flowcontainer = {
+                flowcontainer = { 
+                    direction = vertical
+                    spacing = 5
+                    flowcontainer = { 
+                        direction = vertical
+                        spacing = 5
+                        acs_trait_item_custom_left = {
+                                datacontext = "[GetScriptedGui( 'acs_sg_filter_inspiration_group' )]"  
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).End ), '(int32)2' , Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).End ) , '(int32)3', Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).End )  , '(int32)1', '(int32)4' ) ) )]"
+                            }
+                            blockoverride "acs_filter_name" {  
+                                text = "acs_filter_inspiration"
+                            }
+                            blockoverride "acs_custom_image" {  
+                                texture = "gfx/interface/icons/inspirations/_default.dds"
+                            }
+                        }
+                        acs_trait_item_custom_left_moved = {
+                                datacontext = "[GetScriptedGui( 'acs_sg_filter_inspiration' )]"  
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)0' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)0' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+                            }
+                            blockoverride "acs_filter_name" {  
+                                text = "acs_filter_inspiration_weapon"
+                            }
+                            blockoverride "acs_custom_image" {  
+                                texture = "gfx/interface/icons/inspirations/weapon_inspiration.dds"
+                            }
+                        }
+                        acs_trait_item_custom_left_moved = {
+                                datacontext = "[GetScriptedGui( 'acs_sg_filter_inspiration' )]"  
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)2' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)2' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+                            }
+                            blockoverride "acs_filter_name" {  
+                                text = "acs_filter_inspiration_armor"
+                            }
+                            blockoverride "acs_custom_image" {  
+                                texture = "gfx/interface/icons/inspirations/armor_inspiration.dds"
+                            }
+                        }
+                        acs_trait_item_custom_left_moved = {
+                                datacontext = "[GetScriptedGui( 'acs_sg_filter_inspiration' )]"  
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)4' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)4' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+                            }
+                            blockoverride "acs_filter_name" {  
+                                text = "acs_filter_inspiration_book"
+                            }
+                            blockoverride "acs_custom_image" {  
+                                texture = "gfx/interface/icons/inspirations/book_inspiration.dds"
+                            }
+                        }
+                        acs_trait_item_custom_left_moved = {
+                                datacontext = "[GetScriptedGui( 'acs_sg_filter_inspiration' )]"  
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)6' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)6' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+                            }
+                            blockoverride "acs_filter_name" {  
+                                text = "acs_filter_inspiration_weaver"
+                            }
+                            blockoverride "acs_custom_image" {  
+                                texture = "gfx/interface/icons/inspirations/weaver_inspiration.dds"
+                            }
+                        }
+                        acs_trait_item_custom_left_moved = {
+                                datacontext = "[GetScriptedGui( 'acs_sg_filter_inspiration' )]"  
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)8' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)8' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+                            }
+                            blockoverride "acs_filter_name" {  
+                                text = "acs_filter_inspiration_adventure"
+                            }
+                            blockoverride "acs_custom_image" {  
+                                texture = "gfx/interface/icons/inspirations/adventure_inspiration.dds"
+                            }
+                        }
+                        acs_trait_item_custom_left_moved = {
+                                datacontext = "[GetScriptedGui( 'acs_sg_filter_inspiration' )]"  
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)10' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)10' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+                            }
+                            blockoverride "acs_filter_name" {  
+                                text = "acs_filter_inspiration_artisan"
+                            }
+                            blockoverride "acs_custom_image" {  
+                                texture = "gfx/interface/icons/inspirations/artisan_inspiration.dds"
+                            }
+                        }
+                        acs_trait_item_custom_left_moved = {
+                                datacontext = "[GetScriptedGui( 'acs_sg_filter_inspiration' )]"  
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)12' ) ).End )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)12' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)12' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+                            }
+                            blockoverride "acs_filter_name" {  
+                                text = "acs_filter_inspiration_smith"
+                            }
+                            blockoverride "acs_custom_image" {  
+                                texture = "gfx/interface/icons/inspirations/smith_inspiration.dds"
+                            }
+                        }
+                        acs_trait_item_custom_left_moved = {
+                                datacontext = "[GetScriptedGui( 'acs_sg_filter_inspiration' )]"  
+                            blockoverride "acs_trait_item_action" {
+                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)14' ) ).End )]"
+                            }
+                            blockoverride "acs_checkbox_state" {
+                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)14' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)14' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+                            }
+                            blockoverride "acs_filter_name" {  
+                                text = "acs_filter_inspiration_alchemy"
+                            }
+                            blockoverride "acs_custom_image" {  
+                                texture = "gfx/interface/icons/inspirations/alchemy_inspiration.dds"
+                            }
+                        }
+                    }
+                }
+                flowcontainer = { 
+                    direction = vertical
+                    spacing = 5
+                    acs_trait_item_custom_right = {
+                            datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"  
+                        blockoverride "acs_trait_item_action" {
+                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1001' ) ).End )]"
+                        }
+                        blockoverride "acs_checkbox_state" {
+                            frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1001' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1001' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+                        }
+                        blockoverride "acs_filter_name" {  
+                            text = "acs_filter_inspiration_completed"
+                        }
+                        blockoverride "acs_custom_image" {  
+                            texture = "gfx/interface/icons/portraits/inspiration_complete.dds"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

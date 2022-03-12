@@ -20,7 +20,23 @@
             acs_make_reduced_and_count = yes
             if = {
                 limit = { global_var:acs_gv_main_filters.var:acs_v_filter_relation = 0 }
-                every_living_character = { acs_add_to_sort_list = yes }
+                if = {
+                    limit = {
+                        any_in_list = {
+                            variable =  acs_vl_filter_inspiration
+                            save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                            save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                            scope:to_test = 0
+                            count > 0
+                        }
+                    }
+                    every_inspired_character = {
+                        acs_add_to_sort_list = yes
+                    }
+                }
+                else = {
+                    every_living_character = { acs_add_to_sort_list = yes }
+                }          
             }
             else_if = {
                 limit = { 
@@ -149,25 +165,143 @@
                             global_var:acs_gv_main_filters.var:acs_v_filter_relation = 10
                         }
                     }
-                    every_in_list = {
-                        list = acs_to_sort_courts
-                        every_vassal_or_below = {
+                    if = {
+                        limit = {
+                            any_in_list = {
+                                variable =  acs_vl_filter_inspiration
+                                save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                                save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                                scope:to_test = 0
+                                count > 0
+                            }
+                        }
+                        every_inspired_character = {
+                            save_temporary_scope_as = acs_ts_inspired_candidate
+                            if = {
+                                limit = {
+                                    any_in_list = {
+                                        list = acs_to_sort_courts
+                                        OR = {
+                                            any_vassal_or_below = {
+                                                save_temporary_scope_as = acs_ts_candidate_owner
+                                                OR = {
+                                                    scope:acs_ts_candidate_owner = scope:acs_ts_inspired_candidate.court_owner
+                                                    trigger_if = {
+                                                        limit = { scope:acs_ts_inspired_candidate = { exist = imprisoner } }
+                                                        scope:acs_ts_candidate_owner = scope:acs_ts_inspired_candidate.court_owner
+                                                    }
+                                                    trigger_else = { always = now }
+                                                }
+                                            }
+                                            save_temporary_scope_as = acs_ts_candidate_owner
+                                            OR = {
+                                                scope:acs_ts_candidate_owner = scope:acs_ts_inspired_candidate.court_owner
+                                                trigger_if = {
+                                                    limit = { scope:acs_ts_inspired_candidate = { exist = imprisoner } }
+                                                    scope:acs_ts_candidate_owner = scope:acs_ts_inspired_candidate.court_owner
+                                                }
+                                                trigger_else = { always = now }
+                                            }
+                                        }
+                                    }
+                                }
+                                acs_add_to_sort_list = yes
+                            }
+                        }
+                
+                    }
+                    else = {
+                        every_in_list = {
+                            list = acs_to_sort_courts
+                            every_vassal_or_below = {
+                                acs_add_court_to_list = yes
+                            }
                             acs_add_court_to_list = yes
                         }
-                        acs_add_court_to_list = yes
-                    }
+                    }  
                 }
                 else = {
-                    every_in_list = {
-                        list = acs_to_sort_courts
-                        acs_add_court_to_list = yes
+                    if = {
+                        limit = {
+                            any_in_list = {
+                                variable =  acs_vl_filter_inspiration
+                                save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                                save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                                scope:to_test = 0
+                                count > 0
+                            }
+                        }
+                        every_inspired_character = {
+                            save_temporary_scope_as = acs_ts_inspired_candidate
+                            if = {
+                                limit = {
+                                    any_in_list = {
+                                        list = acs_to_sort_courts
+                                        OR = {
+                                            save_temporary_scope_as = acs_ts_candidate_owner
+                                            OR = {
+                                                scope:acs_ts_candidate_owner = scope:acs_ts_inspired_candidate.court_owner
+                                                trigger_if = {
+                                                    limit = { scope:acs_ts_inspired_candidate = { exist = imprisoner } }
+                                                    scope:acs_ts_candidate_owner = scope:acs_ts_inspired_candidate.court_owner
+                                                }
+                                                trigger_else = { always = now }
+                                            }
+                                        }
+                                    }
+                                }
+                                acs_add_to_sort_list = yes
+                            }
+                        }
                     }
+                    else = {
+                        every_in_list = {
+                            list = acs_to_sort_courts
+                            acs_add_court_to_list = yes
+                        }
+                    } 
+                    
                 }
                 
             }
             else_if = {
                 limit = { global_var:acs_gv_main_filters.var:acs_v_filter_relation = 6 }
-                every_vassal = { acs_add_court_to_list = yes }
+                if = {
+                    limit = {
+                        any_in_list = {
+                            variable =  acs_vl_filter_inspiration
+                            save_temporary_scope_value_as = { name = to_get_modulo value = this }
+                            save_temporary_scope_value_as = { name = to_test value = acs_modulo_2 }
+                            scope:to_test = 0
+                            count > 0
+                        }
+                    }
+                    every_inspired_character = {
+                        save_temporary_scope_as = acs_ts_inspired_candidate
+                        if = {
+                            limit = {
+                                any_vassal = {
+                                    OR = {
+                                        save_temporary_scope_as = acs_ts_candidate_owner
+                                        OR = {
+                                            scope:acs_ts_candidate_owner = scope:acs_ts_inspired_candidate.court_owner
+                                            trigger_if = {
+                                                limit = { scope:acs_ts_inspired_candidate = { exist = imprisoner } }
+                                                scope:acs_ts_candidate_owner = scope:acs_ts_inspired_candidate.court_owner
+                                            }
+                                            trigger_else = { always = now }
+                                        }
+                                    }
+                                }
+                            }
+                            acs_add_to_sort_list = yes
+                        }
+                    }
+                }
+                else = {
+                    every_vassal = { acs_add_court_to_list = yes }
+                } 
+                
             }
             else = {
                 acs_add_court_to_list = yes
@@ -196,13 +330,13 @@
         }    
         
         remove_global_variable = is_acs_building_list
-    }  
+    }
 }
 
 acs_add_court_to_list = {
     every_courtier_or_guest = { acs_add_to_sort_list = yes }
     every_prisoner = { acs_add_to_sort_list = yes }
-    acs_add_to_sort_list = yes
+    acs_add_to_sort_list = yes   
 }
 
 acs_add_to_sort_list = {

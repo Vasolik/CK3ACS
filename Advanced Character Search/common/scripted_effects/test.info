@@ -1,1 +1,68 @@
 ﻿
+save_temporary_scope_as = temp
+global_var:acs_gv_main_filters = {
+    any_in_global_list = {
+        variable = acs_gvl_filter_inspiration_reduced
+        save_temporary_scope_as = filter2
+        scope:temp = {
+            switch = {
+                trigger = scope:filter2
+                0 = {
+                    any_inspiration = { has_inspiration_type = weapon_inspiration } 
+                }
+                1 = { 
+                    any_inspiration = { NOT = { has_inspiration_type = weapon_inspiration } }   
+                }
+                2 = {
+                    any_inspiration = { has_inspiration_type = armor_inspiration } 
+                }
+                3 = { 
+                    any_inspiration = { NOT = { has_inspiration_type = armor_inspiration } }   
+                }
+                4 = {
+                    any_inspiration = { has_inspiration_type = book_inspiration } 
+                }
+                5 = { 
+                    any_inspiration = { NOT = { has_inspiration_type = book_inspiration } }   
+                }
+                6 = {
+                    any_inspiration = { has_inspiration_type = weaver_inspiration } 
+                }
+                7 = { 
+                    any_inspiration = { NOT = { has_inspiration_type = weaver_inspiration } }   
+                }
+                8 = {
+                    any_inspiration = { has_inspiration_type = adventure_inspiration } 
+                }
+                9 = { 
+                    any_inspiration = { NOT = { has_inspiration_type = adventure_inspiration } }   
+                }
+                10 = {
+                    any_inspiration = { has_inspiration_type = artisan_inspiration } 
+                }
+                11 = { 
+                    any_inspiration = { NOT = { has_inspiration_type = artisan_inspiration } }   
+                }
+                12 = {
+                    any_inspiration = { has_inspiration_type = smith_inspiration } 
+                }
+                13 = { 
+                    any_inspiration = { NOT = { has_inspiration_type = smith_inspiration } }   
+                }
+                14 = {
+                    any_inspiration = { has_inspiration_type = alchemy_inspiration } 
+                }
+                15 = { 
+                    any_inspiration = { NOT = { has_inspiration_type = alchemy_inspiration } }   
+                }
+                26 = {
+                    any_inspiration = {} 
+                }
+                27 = { 
+                    NOT = { any_inspiration = {} }   
+                }
+            }
+        }
+        count = global_var:acs_gv_filter_inspiration_count
+    }
+}
