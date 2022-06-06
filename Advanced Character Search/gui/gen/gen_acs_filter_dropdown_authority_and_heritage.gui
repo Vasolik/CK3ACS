@@ -1121,7 +1121,7 @@
                             visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
                         }
                         blockoverride "text_button_drop" {
-                            text = "acs_filter_both_parents"
+                            text = "acs_filter_only_one_parents"
                         }
                     }
                     acs_dropdown_selected_value = {
@@ -1228,7 +1228,7 @@
                     }
                     acs_filter_dropdown_other_value = {
                         blockoverride "text_button_drop" {
-                            text = "acs_filter_both_parents"
+                            text = "acs_filter_only_one_parents"
                             onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
                         }
                     }
