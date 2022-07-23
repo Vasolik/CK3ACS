@@ -1,4 +1,4 @@
-version="9.5"
+version="9.6"
 tags={
 	"Gameplay"
 	"Utilities"

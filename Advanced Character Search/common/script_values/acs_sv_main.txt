@@ -18,29 +18,6 @@
     }
 }
 
-claim_value_for_sort = {
-    value = claim_value
-    multiply = 10
-    if = {
-        limit = {
-            trigger_if = {
-                limit = { tier = tier_county }
-                NOT = { title_capital_county.culture = prev.culture }
-            }
-        }
-        add = -1
-    }
-    if = {
-        limit = {
-            trigger_if = {
-                limit = { tier = tier_county }
-                NOT = { title_capital_county.culture_group = prev.culture_group }
-            }
-        }
-        add = -2
-    }
-}
-
 total_claim_value = {
     value = 0
     every_claim = {
@@ -173,17 +150,17 @@ total_claim_value_for_sort = {
     every_claim = {
         explicit = yes
         pressed = yes
-        add = claim_value_for_sort
+        add = claim_value
     }
     every_claim = {
         explicit = yes
         pressed = no
-        add = claim_value_for_sort
+        add = claim_value
         add = -3
     }
     every_claim = {
         explicit = no
-        add = claim_value_for_sort
+        add = claim_value
         add = -4
     }
 }
