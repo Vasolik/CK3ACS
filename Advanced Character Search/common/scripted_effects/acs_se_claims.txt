@@ -17,22 +17,22 @@
 
         ordered_claim = {
             explicit = no
-            order_by = claim_value_for_sort
+            order_by = acs_sv_claim_value
             max = 1
             save_temporary_scope_as = acs_top_claim
             prev = {
-                set_variable = {  name = acs_top_claim_value value = scope:acs_top_claim.claim_value_for_sort } 
+                set_variable = {  name = acs_top_claim_value value = scope:acs_top_claim.acs_sv_claim_value } 
             }
         }
         set_variable = { name = acs_top_unpressed_claim_value value = 0  }
         ordered_claim = {
             explicit = yes
             pressed = no
-            order_by = claim_value_for_sort
+            order_by = acs_sv_claim_value
             max = 1
             save_temporary_scope_as = acs_top_unpressed_claim
             prev = {
-                set_variable = {  name = acs_top_unpressed_claim_value value = scope:acs_top_unpressed_claim.claim_value_for_sort  } 
+                set_variable = {  name = acs_top_unpressed_claim_value value = scope:acs_top_unpressed_claim.acs_sv_claim_value  } 
             }
         }
         set_local_variable = {name  = help value = { value = var:acs_top_unpressed_claim_value subtract = var:acs_top_claim_value }}
@@ -54,11 +54,11 @@
         ordered_claim = {
             explicit = yes
             pressed = yes
-            order_by = claim_value_for_sort
+            order_by = acs_sv_claim_value
             max = 1
             save_temporary_scope_as = acs_top_pressed_claim
             prev = {
-                set_variable = { name = acs_top_pressed_claim_value value = scope:acs_top_pressed_claim.claim_value_for_sort   } 
+                set_variable = { name = acs_top_pressed_claim_value value = scope:acs_top_pressed_claim.acs_sv_claim_value   } 
             }
         }
         set_local_variable = {name  = help value = { value = var:acs_top_pressed_claim_value subtract = var:acs_top_claim_value }}
