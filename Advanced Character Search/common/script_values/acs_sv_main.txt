@@ -523,6 +523,27 @@ acs_invite_to_court_for_sort = {
 acs_invite_to_court = {
     value = -50
 
+    #Opinions
+    if = {
+        limit = {
+            exists = liege
+            is_courtier_of = liege
+            save_temporary_opinion_value_as  = { name = temp_op target = this.liege }
+        }
+        add = {
+            value = scope:temp_op
+            multiply = -0.1 # multiplier -0.5 divide 5
+            if = {
+                limit = { scope:temp_op > 0 }
+                ceiling = yes
+            }
+            else = {
+                floor = yes
+            }
+            multiply = 5
+            max = 25
+        }
+    }
     if = {
         limit = {
             save_temporary_opinion_value_as  = { name = temp_op target = scope:acs_invite_to_court }
@@ -541,6 +562,8 @@ acs_invite_to_court = {
             max = 25
         } 
     } 
+
+    #Current roles
     if = {
         limit = {
             is_knight = yes
@@ -559,6 +582,14 @@ acs_invite_to_court = {
         }
         add = -40
     } 
+    if = {
+        limit = {
+            has_court_position = court_physician_court_position
+        }
+        add = -20
+    }
+
+    #Relations & relatives (with actor)
     if = {
         limit = {
             has_relation_lover = scope:acs_invite_to_court
@@ -600,8 +631,10 @@ acs_invite_to_court = {
         limit = {
             is_spouse_of = scope:acs_invite_to_court
         }
-        add = 75
+        add = 160
     } 
+
+    #Relations & relatives (with host)
     if = {
         limit = {
             exists = liege
@@ -631,27 +664,9 @@ acs_invite_to_court = {
             }
             add = -75
         } 
-
-        if = {
-            limit = {
-                is_courtier_of = liege
-                save_temporary_opinion_value_as  = { name = temp_op target = this.liege }
-            }
-            add = {
-                value = scope:temp_op
-                multiply = -0.1 # multiplier -0.5 divide 5
-                if = {
-                    limit = { scope:temp_op > 0 }
-                    ceiling = yes
-                }
-                else = {
-                    floor = yes 
-                }
-                multiply = 5
-                max = 25
-            } 
-        } 
     }
+
+    #Family (at location)
     if = {
         limit = { exists = location }
         if = {
@@ -689,12 +704,177 @@ acs_invite_to_court = {
         }
         add = -50
     }
+
+    if = {
+        limit = { exists = inspiration }
+        if = {
+            limit = {
+                inspiration = {
+                    NOT = { exists = inspiration_sponsor }
+                }
+            }
+            add = -50
+        }
+        else = {
+            add = -500
+        }
+    }
+
     if = {
         limit = {
             is_child_of = scope:acs_invite_to_court
              has_character_modifier = lust_for_adventure
         }
         add = -500
+    }
+
+    #Wandering characters (who aren't doing anything else)
+    if = {
+        limit = {
+            is_pool_guest = no
+            exists = location
+            location = {
+                exists = province_owner
+                province_owner = {
+                    OR = {
+                        any_liege_or_above = { this = scope:acs_invite_to_court }
+                        this = scope:acs_invite_to_court
+                    }
+                }
+            }
+            NOR = {
+                has_relation_rival = scope:acs_invite_to_court
+                exists = liege
+                is_child_of = scope:acs_invite_to_court
+                has_character_modifier = lust_for_adventure
+            }
+        }
+        add = {
+            value = 10
+            add = scope:acs_invite_to_court.diplomacy
+
+            if = {
+                limit = {
+                    faith = scope:acs_invite_to_court.faith
+                }
+                add = 10
+            }
+            else_if = {
+                limit = {
+                    faith = { #Same religion - But faith should not be considered Hostile or Evil
+                        religion = scope:acs_invite_to_court.faith.religion
+                        faith_hostility_level = {
+                            target = scope:acs_invite_to_court.faith
+                            value < 2
+                        }
+                    }
+                }
+                add = 5
+            }
+            if = {
+                limit = {
+                    culture = scope:acs_invite_to_court.culture
+                }
+                add = 10
+            }
+            else_if = {
+                limit = {
+                    culture = {
+                        has_same_culture_heritage = scope:acs_invite_to_court.culture
+                    }
+                }
+                add = 5
+            }
+            if = {
+                limit = {
+                    OR = {
+                        has_trait = content
+                        has_trait = lazy
+                        has_trait = trusting
+                    }
+                }
+                add = 10
+            }
+        }
+    }
+
+    # Skip scope:cover_travel_expenses as it cannot be check here and impact is small anyway
+
+    # Amenities impact
+    ## Actor's amenities increases acceptance
+    if = {
+        limit = {
+            scope:acs_invite_to_court = {
+                has_royal_court = yes
+                amenity_level = { type = court_lodging_standards value >=  medium_amenity_level }
+            }
+        }
+        add = {
+            value = 10
+            if = {
+                limit = {
+                    scope:acs_invite_to_court = {
+                        has_royal_court = yes
+                        amenity_level = { type = court_lodging_standards value >=  high_amenity_level }
+                    }
+                }
+                add = 10
+            }
+            if = {
+                limit = {
+                    scope:acs_invite_to_court = {
+                        amenity_level = { type = court_lodging_standards value >=  very_high_amenity_level }
+                    }
+                }
+                add = 10
+            }
+            if = {
+                limit = {
+                    scope:acs_invite_to_court = {
+                        amenity_level = { type = court_lodging_standards value >=  max_amenity_level }
+                    }
+                }
+                add = 20
+            }
+        }
+    }
+    ## Target's liege amenities decreases acceptance
+    if = {
+        limit = {
+            exists = liege
+            is_courtier_of = liege
+            liege = {
+                has_royal_court = yes
+                amenity_level = { type = court_lodging_standards value >=  medium_amenity_level }
+            }
+        }
+        add = {
+            value = -10
+            if = {
+                limit = {
+                    liege = {
+                        amenity_level = { type = court_lodging_standards value >=  high_amenity_level }
+                    }
+                }
+                add = -10
+            }
+            if = {
+                limit = {
+                    liege = {
+                        amenity_level = { type = court_lodging_standards value >=  very_high_amenity_level }
+                    }
+                }
+                add = -10
+            }
+            if = {
+                limit = {
+                    liege = {
+                        amenity_level = { type = court_lodging_standards value >=  max_amenity_level }
+                    }
+                }
+                add = -20
+            }
+        }
     }
 }
 
