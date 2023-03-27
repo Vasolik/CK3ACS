@@ -44,21 +44,24 @@ acs_sv_rf_abrahamic_frame = {
 
 acs_sv_rf_eastern_frame = {
 	value = 1 # counting from 1
-	limit = {
-		global_var:acs_gv_main_filters = {
-			has_variable = acs_v_rf_eastern_selected
+	if = {
+		limit = {
+			global_var:acs_gv_main_filters = {
+				has_variable = acs_v_rf_eastern_selected
+			}
 		}
+		add = global_var:acs_gv_main_filters.var:acs_v_rf_eastern_selected
 	}
-	add = global_var:acs_gv_main_filters.var:acs_v_rf_eastern_selected
 }
 
 acs_sv_rf_other_frame = {
 	value = 1 # counting from 1
-	limit = {
-		global_var:acs_gv_main_filters = {
-			has_variable = acs_v_rf_other_selected
+	if = {
+		limit = {
+			global_var:acs_gv_main_filters = {
+				has_variable = acs_v_rf_other_selected
+			}
 		}
+		add = global_var:acs_gv_main_filters.var:acs_v_rf_other_selected
 	}
-	add = global_var:acs_gv_main_filters.var:acs_v_rf_other_selected
 }
-
