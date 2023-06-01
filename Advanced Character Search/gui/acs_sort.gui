@@ -679,7 +679,6 @@ types acs_headers_types {
                 using = Animation_ShowHide_Standard
                 block "button_close" {
                     shortcut = "close_window"
-                    # onclick = "[ExecuteConsoleCommand( Select_CString( GetVariableSystem.Exists('acs_window_toggle'), 'gui.clearwidgets acs_window', 'gui.createwidget gui/acs.gui acs_window' ) )]"
                     onclick = "[GetVariableSystem.Toggle( 'acs_window_toggle' )]"
                 }
 
