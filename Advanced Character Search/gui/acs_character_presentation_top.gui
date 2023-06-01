@@ -146,7 +146,7 @@ types acs_character_presentation_top_types {
         hbox = {
             text_single = {
                 name = "value"
-                text = "[Concatenate(Character.GetDomainSize, Concatenate('/', Concatenate(Character.GetDomainLimit, Concatenate(' (', Concatenate(Character.RealmSize, ')') ) ) ) )]"
+                text = "[Character.GetDomainSize]/[Character.GetDomainLimit] ([Character.RealmSize])"
                 align = nobaseline
                 margin_bottom = 1
 
