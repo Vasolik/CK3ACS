@@ -242,10 +242,10 @@
                                             OR = {
                                                 scope:acs_ts_candidate_owner = scope:acs_ts_inspired_candidate.court_owner
                                                 trigger_if = {
-                                                    limit = { scope:acs_ts_inspired_candidate = { exist = imprisoner } }
+                                                    limit = { scope:acs_ts_inspired_candidate = { exists = imprisoner } }
                                                     scope:acs_ts_candidate_owner = scope:acs_ts_inspired_candidate.court_owner
                                                 }
-                                                trigger_else = { always = now }
+                                                trigger_else = { always = no }
                                             }
                                         }
                                     }
@@ -286,10 +286,10 @@
                                         OR = {
                                             scope:acs_ts_candidate_owner = scope:acs_ts_inspired_candidate.court_owner
                                             trigger_if = {
-                                                limit = { scope:acs_ts_inspired_candidate = { exist = imprisoner } }
+                                                limit = { scope:acs_ts_inspired_candidate = { exists = imprisoner } }
                                                 scope:acs_ts_candidate_owner = scope:acs_ts_inspired_candidate.court_owner
                                             }
-                                            trigger_else = { always = now }
+                                            trigger_else = { always = no }
                                         }
                                     }
                                 }
