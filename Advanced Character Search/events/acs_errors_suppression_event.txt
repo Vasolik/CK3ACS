@@ -1,0 +1,17 @@
+﻿namespace = acs_errors_suppression_event
+
+acs_errors_suppression_event.0001 = {
+	hidden = yes
+	orphan = yes
+
+	immediate = {
+		hidden_effect = {
+			acs_suppress_error_effect = { ERROR = acs_first_time_setup_v9 }
+			acs_suppress_error_effect = { ERROR = acs_selected_count }
+			acs_suppress_error_effect = { ERROR = mod_acs_active }
+			acs_suppress_error_effect = { ERROR = acs_total_number_of_characters }
+			acs_suppress_error_effect = { ERROR = acs_list }
+			acs_suppress_error_effect = { ERROR = acs_gvl_save_slot }
+		}
+	}
+}
