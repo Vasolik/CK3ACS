@@ -337,7 +337,7 @@
 
     type acs_faith_and_piety = button {
         size = { 60 60 }
-        onclick = "[DefaultOnFaithClick(Character.GetFaith.GetID)]"
+        onclick = "[OpenGameViewData( 'faith', Faith.GetID )]"
         button_religion_icon = {
             datacontext = "[Character.GetFaith]"
             size = { 35 35 }
@@ -368,7 +368,7 @@
         size = { 170 60 }
 
         button_standard_hover = {
-            onclick = "[DefaultOnCultureClick(Culture.GetID)]"
+            onclick = "[OpenGameViewData( 'culture_window', Culture.GetID )]"
             datacontext = "[Character.GetCulture]"
             size = { 170 35 }
             icon = {
