@@ -14,8 +14,13 @@
         name = _show
         trigger_on_create = yes
         using = Animation_FadeIn_Quick
+        # init_mod_variable
+        on_start = "[GetScriptedGui( 'acs_sg_init' ).Execute( GuiScope.End )]"
+        on_start = "[GetVariableSystem.Set( 'mod_acs_active', 'enable' )]"
+        # build character search list
         on_start = "[GetScriptedGui('acs_window').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
     }
+    
 
     state = {
         name = _hide
