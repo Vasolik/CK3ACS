@@ -1,9 +1,10 @@
-version="10.3"
+version="11.0"
 tags={
 	"Gameplay"
 	"Utilities"
 	"Fixes"
 }
 name="Advanced Character Search"
-supported_version="1.9.*"
-remote_file_id="2346680183"
+picture="thumbnail.png"
+supported_version="1.11.*"
+remote_file_id="3084203091"
