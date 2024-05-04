@@ -6,5 +6,6 @@ tags={
 }
 name="Advanced Character Search"
 picture="thumbnail.png"
-supported_version="1.11.*"
+supported_version="1.12.*"
+path="J:/Documenten/Paradox Interactive/Crusader Kings III/mod/Advanced_Character_Search"
 remote_file_id="3084203091"
