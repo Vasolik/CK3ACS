@@ -3047,7 +3047,7 @@
                     }
                 }
             }
-            767 = {
+            767 = {   #Blademaster Accolade Requirements
                 has_trait = tourney_participant
                     OR = {
                         has_trait_xp = {
@@ -3128,6 +3128,58 @@
                         has_trait = brave
                         has_trait = berserker
                         has_trait = reckless
+                    }
+                }
+            }
+            785 = {   #Contender Accolade Requirements
+                OR = {
+                    prowess >= 20
+                    has_trait_xp = {
+                        trait = tourney_participant
+                        track = bow
+                        value >= 50
+                    }
+                    has_trait_xp = {
+                        trait = tourney_participant
+                        track = horse
+                        value >= 50
+                    }
+                    has_trait_xp = {
+                        trait = tourney_participant
+                        track = foot
+                        value >= 50
+                    }
+                    has_trait_xp = {
+                        trait = tourney_participant
+                        track = wit
+                        value >= 50
+                    }
+                }
+            }
+            786 = {
+                NOT = {
+                    OR = {
+                        prowess >= 20
+                        has_trait_xp = {
+                            trait = tourney_participant
+                            track = bow
+                            value >= 50
+                        }
+                        has_trait_xp = {
+                            trait = tourney_participant
+                            track = horse
+                            value >= 50
+                        }
+                        has_trait_xp = {
+                            trait = tourney_participant
+                            track = foot
+                            value >= 50
+                        }
+                        has_trait_xp = {
+                            trait = tourney_participant
+                            track = wit
+                            value >= 50
+                        }
                     }
                 }
             }
