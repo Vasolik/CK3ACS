@@ -27,12 +27,12 @@ acs_set_delete_empty_object = {
 }
 
 acs_set_copy_list = {
-    $TO$ = { clear_variable_list = $LIST_NAME$ }
-    every_in_list = {
-        variable = $LIST_NAME$
-        save_temporary_scope_as = slot_value
-        $TO$ = {
-            add_to_variable_list = { name = $LIST_NAME$ target = scope:slot_value } 
-        }  
-    }
+	$TO$ = { clear_variable_list = $LIST_NAME$ }
+	every_in_list = {
+		variable = $LIST_NAME$
+		save_temporary_scope_as = slot_value
+		$TO$ = {
+			add_to_variable_list = { name = $LIST_NAME$ target = scope:slot_value } 
+		}  
+	}
 }

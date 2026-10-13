@@ -1,0 +1,83 @@
+window = {
+	name = "acs_save_name_event"
+
+	parentanchor = center
+	widgetanchor = center
+	size = { 540 220 }
+	layer = events
+	alpha = 1
+	allow_outside = yes
+
+	datacontext = "[EventWindow.AccessEventWindowData]"
+
+	state = {
+		name = show
+		trigger_on_create = yes
+		using = Animation_FadeIn_Standard
+		duration = 0.3
+	}
+
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Standard
+	}
+
+	# Contour only, no background
+	widget = {
+		size = { 100% 100% }
+		using = Window_Background
+		using = Window_Decoration_Frontend_Flat
+	}
+
+	vbox = {
+		margin = { 20 30 }
+		spacing = 6
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			name = "dynamic_birth_name"
+		}
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			name = "custom_widgets_container"
+		}
+
+		fixedgridbox = {
+			name = "option_grid"
+			addcolumn = 250
+			addrow = 42
+			datamodel = "[EventWindowData.GetOptions]"
+
+			item = {
+				widget = {
+					size = { 245 36 }
+
+					# Save (every option except Cancel)
+					button_eventoption = {
+						visible = "[Not( EqualTo_string( EventOption.GetText, Localize( 'acs_evt_save_name_cancel' ) ) )]"
+						blockoverride "button_size" {
+							size = { 245 36 }
+						}
+					}
+
+					# Cancel: hovering it fills the default name first, so the (otherwise rejected) click is accepted by the empty-text check
+					button_eventoption = {
+						visible = "[EqualTo_string( EventOption.GetText, Localize( 'acs_evt_save_name_cancel' ) )]"
+						blockoverride "button_size" {
+							size = { 245 36 }
+						}
+						blockoverride "onmousehierarchy_callbacks" {
+							onmousehierarchyenter = "[EventOption.OnEnter]"
+							onmousehierarchyenter = "[GetVariableSystem.Set( 'acs_fill_default', 'yes' )]"
+							onmousehierarchyleave = "[EventOption.OnLeave]"
+						}
+						enabled = yes
+					}
+				}
+			}
+		}
+
+		expand = {}
+	}
+}

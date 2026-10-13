@@ -1,0 +1,54 @@
+vbox = {
+	name = "acs_evt_save_name_enter_text"
+	layoutpolicy_horizontal = expanding
+	spacing = 4
+
+	text_single = {
+		layoutpolicy_horizontal = expanding
+		align = center|nobaseline
+		text = acs_enter_save_name
+	}
+
+	margin_widget = {
+		size = { 460 36 }
+		margin_left = 5
+		margin_right = 5
+		margin_top = 5
+
+		background = {
+			texture = "gfx/interface/component_tiles/tile_editbox.dds"
+			spriteType = Corneredtiled
+			spriteborder = { 16 16 }
+		}
+
+		editbox = {
+			name = "enter_text" # name referenced in code
+			ontextedited = "[EventWindowWidgetEnterText.OnEdit]"
+			align = center|nobaseline
+			size = { 100% 100% }
+			alwaystransparent = no
+			focuspolicy = all
+			default_format = "#high"
+		}
+	}
+
+	# Hidden list used to preselect the default name (on creation, and when the Cancel button asks for it)
+	vbox = {
+		name = "default_entries"
+		datamodel = "[EventWindowWidgetEnterText.AccessDefaultEntries]"
+
+		item = {
+			widget = {
+				size = { 0 0 }
+				oncreate = "[EventWindowWidgetEnterTextDefaultEntry.Select]"
+
+				state = {
+					name = acs_fill_default
+					trigger_when = "[GetVariableSystem.HasValue( 'acs_fill_default', 'yes' )]"
+					on_start = "[EventWindowWidgetEnterTextDefaultEntry.Select]"
+					on_start = "[GetVariableSystem.Clear( 'acs_fill_default' )]"
+				}
+			}
+		}
+	}
+}

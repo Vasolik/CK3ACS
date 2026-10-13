@@ -1,0 +1,85 @@
+﻿types  acs_filter_vassal_group_types {
+	type acs_filter_vassal_group = acs_vbox_filter_group {
+		name = "acs_filter_vassal"
+		
+		blockoverride "acs_vbox_filter_group_name" {
+			text = "acs_filter_group_vassal"
+		}
+		
+		blockoverride "acs_vbox_filter_group_toggle" {
+			onclick = "[GetVariableSystem.Toggle( 'acs_filter_vassal' )]"
+			frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_vassal' ) ), '(int32)1', '(int32)2' )]"
+		}
+		
+		blockoverride "acs_filter_visible" {
+			visible = "[GetVariableSystem.Exists( 'acs_filter_vassal' )]"
+		}
+		
+		blockoverride "acs_filters" {
+			flowcontainer = { 
+				acs_trait_item_custom_left = {
+						datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"  
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1350' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1350' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1350' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_can_modify_vassal_contract"
+					}
+					blockoverride "acs_custom_image" {  
+						texture = "gfx/interface/icons/character_interactions/icon_contract_modification_single.dds"
+					}
+				}
+				acs_trait_item_custom_right = {
+						datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"  
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1352' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1352' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1352' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_vassal_contract_blocked"
+					}
+					blockoverride "acs_custom_image" {  
+						texture = "gfx/interface/icons/vassal_directives/refusal.dds"
+					}
+				} 
+			}
+			flowcontainer = { 
+				acs_trait_item_custom_left = {
+						datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"  
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1354' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1354' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1354' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_free_council_slot"
+					}
+					blockoverride "acs_custom_image" {  
+						texture = "gfx/interface/icons/character_interactions/council.dds"
+					}
+				}
+				acs_trait_item_custom_right = {
+						datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"  
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1356' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1356' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1356' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_powerful_vassal"
+					}
+					blockoverride "acs_custom_image" {  
+						texture = "gfx/interface/icons/powerful_vassal_icon.dds"
+					}
+				} 
+			}
+		}
+	}
+}

@@ -1,245 +1,317 @@
 ﻿types  acs_filter_trait_health_group_types {
-    type acs_filter_trait_health_group = acs_vbox_filter_group {
-        name = "acs_filter_trait_health"
-        
-        blockoverride "acs_vbox_filter_group_name" {
-            text = "acs_filter_trait_group_health"
-        }
-        
-        blockoverride "acs_vbox_filter_group_toggle" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_health' )]"
-            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_health' ) ), '(int32)1', '(int32)2' )]"
-        }
-        
-        blockoverride "acs_filter_visible" {
-            visible = "[GetVariableSystem.Exists( 'acs_filter_trait_health' )]"
-        }
-        
-        blockoverride "acs_filters" {
-            flowcontainer = {
-                flowcontainer = { 
-                    direction = vertical
-                    spacing = 5
-                    flowcontainer = { 
-                        direction = vertical
-                        spacing = 5
-                        acs_trait_item_custom_left = {
-                                datacontext = "[GetScriptedGui( 'acs_filter_3_group_checkbox_group' )]"  
-                            blockoverride "acs_trait_item_action" {
-                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).End )]"
-                            }
-                            blockoverride "acs_checkbox_state" {
-                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).End ), '(int32)2' , Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).End ) , '(int32)3', Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).End )  , '(int32)1', '(int32)4' ) ) )]"
-                            }
-                            blockoverride "acs_filter_name" {  
-                                text = "acs_filter_trait_health_wounded"
-                            }
-                            blockoverride "acs_custom_image" {  
-                                texture = "gfx/interface/icons/traits/wounded_2.dds"
-                            }
-                        }
-                        acs_trait_item_left_moved = {
-                            datacontext = "[GetScriptedGui( 'acs_filter_3_group_checkbox' )]"
-                            blockoverride "acs_trait_item_action" {
-                                datacontext = "[GetTrait( 'wounded_1' )]"
-                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
-                                
-                            }
-                            blockoverride "acs_checkbox_state" {
-                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)0' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)0' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                            }
-                        }
-                        acs_trait_item_left_moved = {
-                            datacontext = "[GetScriptedGui( 'acs_filter_3_group_checkbox' )]"
-                            blockoverride "acs_trait_item_action" {
-                                datacontext = "[GetTrait( 'wounded_2' )]"
-                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)1' ) ).End )]"
-                                
-                            }
-                            blockoverride "acs_checkbox_state" {
-                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)1' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)1' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                            }
-                        }
-                        acs_trait_item_left_moved = {
-                            datacontext = "[GetScriptedGui( 'acs_filter_3_group_checkbox' )]"
-                            blockoverride "acs_trait_item_action" {
-                                datacontext = "[GetTrait( 'wounded_3' )]"
-                                onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                                
-                            }
-                            blockoverride "acs_checkbox_state" {
-                                frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)2' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)2' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                            }
-                        }
-                    }
-                }
-                flowcontainer = { 
-                    direction = vertical
-                    spacing = 5
-                    acs_trait_item_right = {
-                        datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                        blockoverride "acs_trait_item_action" {
-                            datacontext = "[GetTrait( 'depressed_1' )]"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)491' ) ).End )]"
-                            
-                        }
-                        blockoverride "acs_checkbox_state" {
-                            frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)491' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)491' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                        }
-                    }
-                    acs_trait_item_right = {
-                        datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                        blockoverride "acs_trait_item_action" {
-                            datacontext = "[GetTrait( 'lunatic_1' )]"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)493' ) ).End )]"
-                            
-                        }
-                        blockoverride "acs_checkbox_state" {
-                            frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)493' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)493' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                        }
-                    }
-                    acs_trait_item_right = {
-                        datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                        blockoverride "acs_trait_item_action" {
-                            datacontext = "[GetTrait( 'possessed_1' )]"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)495' ) ).End )]"
-                            
-                        }
-                        blockoverride "acs_checkbox_state" {
-                            frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)495' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)495' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                        }
-                    }
-                }
-            }
-            flowcontainer = {
-                acs_trait_item_left_third = {
-                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                    blockoverride "acs_trait_item_action" {
-                        datacontext = "[GetTrait( 'maimed' )]"
-                        onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)507' ) ).End )]"
-                        
-                    }
-                    blockoverride "acs_checkbox_state" {
-                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)507' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)507' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                    }
-                }
-                acs_trait_item_left_third = {
-                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                    blockoverride "acs_trait_item_action" {
-                        datacontext = "[GetTrait( 'infirm' )]"
-                        onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)515' ) ).End )]"
-                        
-                    }
-                    blockoverride "acs_checkbox_state" {
-                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)515' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)515' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                    }
-                }
-                acs_trait_item_right_third = {
-                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                    blockoverride "acs_trait_item_action" {
-                        datacontext = "[GetTrait( 'incapable' )]"
-                        onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)517' ) ).End )]"
-                        
-                    }
-                    blockoverride "acs_checkbox_state" {
-                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)517' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)517' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                    }
-                }
-            }
-            flowcontainer = {
-                acs_trait_item_left_third = {
-                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                    blockoverride "acs_trait_item_action" {
-                        datacontext = "[GetTrait( 'one_eyed' )]"
-                        onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)509' ) ).End )]"
-                        
-                    }
-                    blockoverride "acs_checkbox_state" {
-                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)509' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)509' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                    }
-                }
-                acs_trait_item_left_third = {
-                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                    blockoverride "acs_trait_item_action" {
-                        datacontext = "[GetTrait( 'one_legged' )]"
-                        onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)511' ) ).End )]"
-                        
-                    }
-                    blockoverride "acs_checkbox_state" {
-                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)511' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)511' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                    }
-                }
-                acs_trait_item_right_third = {
-                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                    blockoverride "acs_trait_item_action" {
-                        datacontext = "[GetTrait( 'disfigured' )]"
-                        onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)513' ) ).End )]"
-                        
-                    }
-                    blockoverride "acs_checkbox_state" {
-                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)513' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)513' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                    }
-                }
-            }
-            flowcontainer = {
-                acs_trait_item_left_third = {
-                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                    blockoverride "acs_trait_item_action" {
-                        datacontext = "[GetTrait( 'sickly' )]"
-                        onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)531' ) ).End )]"
-                        
-                    }
-                    blockoverride "acs_checkbox_state" {
-                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)531' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)531' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                    }
-                }
-                acs_trait_item_left_third = {
-                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                    blockoverride "acs_trait_item_action" {
-                        datacontext = "[GetTrait( 'scarred' )]"
-                        onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)533' ) ).End )]"
-                        
-                    }
-                    blockoverride "acs_checkbox_state" {
-                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)533' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)533' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                    }
-                }
-                acs_trait_item_right_third = {
-                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                    blockoverride "acs_trait_item_action" {
-                        datacontext = "[GetTrait( 'eunuch' )]"
-                        onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)535' ) ).End )]"
-                        
-                    }
-                    blockoverride "acs_checkbox_state" {
-                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)535' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)535' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                    }
-                }
-            }
-            flowcontainer = { 
-                acs_trait_item_left = {
-                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                    blockoverride "acs_trait_item_action" {
-                        datacontext = "[GetTrait( 'blind' )]"
-                        onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)537' ) ).End )]"
-                        
-                    }
-                    blockoverride "acs_checkbox_state" {
-                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)537' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)537' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                    }
-                }
-                acs_trait_item_right = {
-                    datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-                    blockoverride "acs_trait_item_action" {
-                        datacontext = "[GetTrait( 'pregnant' )]"
-                        onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)580' ) ).End )]"
-                        
-                    }
-                    blockoverride "acs_checkbox_state" {
-                        frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)580' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)580' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-                    }
-                } 
-            }
-        }
-    }
+	type acs_filter_trait_health_group = acs_vbox_filter_group {
+		name = "acs_filter_trait_health"
+		
+		blockoverride "acs_vbox_filter_group_name" {
+			text = "acs_filter_trait_group_health"
+		}
+		
+		blockoverride "acs_vbox_filter_group_toggle" {
+			onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_health' )]"
+			frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_health' ) ), '(int32)1', '(int32)2' )]"
+		}
+		
+		blockoverride "acs_filter_visible" {
+			visible = "[GetVariableSystem.Exists( 'acs_filter_trait_health' )]"
+		}
+		
+		blockoverride "acs_filters" {
+			flowcontainer = {
+				flowcontainer = { 
+					direction = horizontal
+					spacing = 5
+					flowcontainer = { 
+						direction = vertical
+						spacing = 5
+						text_single = {
+							text = "acs_non_genetic_traits"
+							default_format = "#italic"
+						}
+						flowcontainer = { 
+							direction = vertical
+							spacing = 5
+							acs_trait_item_mental_health_left = {
+								datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+								blockoverride "acs_trait_item_action" {
+									datacontext = "[GetTrait( 'depressed_1' )]"
+									onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)491' ) ).End )]"
+									
+								}
+								blockoverride "acs_checkbox_state" {
+									frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)491' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)491' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+								}
+							}
+							acs_trait_item_mental_health_left = {
+								datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+								blockoverride "acs_trait_item_action" {
+									datacontext = "[GetTrait( 'lunatic_1' )]"
+									onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)493' ) ).End )]"
+									
+								}
+								blockoverride "acs_checkbox_state" {
+									frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)493' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)493' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+								}
+							}
+							acs_trait_item_mental_health_left = {
+								datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+								blockoverride "acs_trait_item_action" {
+									datacontext = "[GetTrait( 'possessed_1' )]"
+									onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)495' ) ).End )]"
+									
+								}
+								blockoverride "acs_checkbox_state" {
+									frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)495' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)495' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+								}
+							}
+						}
+					}
+					flowcontainer = { 
+						direction = vertical
+						spacing = 5
+						text_single = {
+							text = "acs_genetic_traits"
+							default_format = "#italic"
+						}
+						flowcontainer = { 
+							direction = vertical
+							spacing = 5
+							acs_trait_item_mental_health_center = {
+								datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+								blockoverride "acs_trait_item_action" {
+									datacontext = "[GetTrait( 'depressed_genetic' )]"
+									onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)260' ) ).End )]"
+									
+								}
+								blockoverride "acs_checkbox_state" {
+									frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)260' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)260' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+								}
+							}
+							acs_trait_item_mental_health_center = {
+								datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+								blockoverride "acs_trait_item_action" {
+									datacontext = "[GetTrait( 'lunatic_genetic' )]"
+									onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)262' ) ).End )]"
+									
+								}
+								blockoverride "acs_checkbox_state" {
+									frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)262' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)262' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+								}
+							}
+							acs_trait_item_mental_health_center = {
+								datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+								blockoverride "acs_trait_item_action" {
+									datacontext = "[GetTrait( 'possessed_genetic' )]"
+									onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)264' ) ).End )]"
+									
+								}
+								blockoverride "acs_checkbox_state" {
+									frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)264' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)264' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+								}
+							}
+						}
+					}
+					flowcontainer = { 
+						direction = vertical
+						spacing = 5
+						text_single = {
+							text = "acs_filter_trait_health_wounded"
+							default_format = "#italic"
+						}
+						flowcontainer = { 
+							direction = vertical
+							spacing = 5
+							acs_trait_item_custom_left = {
+									datacontext = "[GetScriptedGui( 'acs_filter_3_group_checkbox_group' )]"  
+								blockoverride "acs_trait_item_action" {
+									onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).End )]"
+								}
+								blockoverride "acs_checkbox_state" {
+									frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).End ), '(int32)2' , Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).End ) , '(int32)3', Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).End )  , '(int32)1', '(int32)4' ) ) )]"
+								}
+								blockoverride "acs_filter_name" {  
+									text = "acs_filter_trait_health_wounded"
+								}
+								blockoverride "acs_custom_image" {  
+									texture = "gfx/interface/icons/traits/wounded_2.dds"
+								}
+							}
+							acs_trait_item_left_moved = {
+								datacontext = "[GetScriptedGui( 'acs_filter_3_group_checkbox' )]"
+								blockoverride "acs_trait_item_action" {
+									datacontext = "[GetTrait( 'wounded_1' )]"
+									onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
+									
+								}
+								blockoverride "acs_checkbox_state" {
+									frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)0' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)0' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+								}
+							}
+							acs_trait_item_left_moved = {
+								datacontext = "[GetScriptedGui( 'acs_filter_3_group_checkbox' )]"
+								blockoverride "acs_trait_item_action" {
+									datacontext = "[GetTrait( 'wounded_2' )]"
+									onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)1' ) ).End )]"
+									
+								}
+								blockoverride "acs_checkbox_state" {
+									frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)1' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)1' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+								}
+							}
+							acs_trait_item_left_moved = {
+								datacontext = "[GetScriptedGui( 'acs_filter_3_group_checkbox' )]"
+								blockoverride "acs_trait_item_action" {
+									datacontext = "[GetTrait( 'wounded_3' )]"
+									onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+									
+								}
+								blockoverride "acs_checkbox_state" {
+									frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)2' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)465' ) ).AddScope( 'element_in_group' , MakeScopeValue( '(CFixedPoint)2' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+								}
+							}
+						}
+					}
+				}
+			}
+			flowcontainer = {
+				acs_trait_item_left_third = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						datacontext = "[GetTrait( 'maimed' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)507' ) ).End )]"
+						
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)507' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)507' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+				}
+				acs_trait_item_left_third = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						datacontext = "[GetTrait( 'infirm' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)515' ) ).End )]"
+						
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)515' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)515' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+				}
+				acs_trait_item_right_third = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						datacontext = "[GetTrait( 'incapable' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)517' ) ).End )]"
+						
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)517' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)517' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+				}
+			}
+			flowcontainer = {
+				acs_trait_item_left_third = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						datacontext = "[GetTrait( 'one_eyed' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)509' ) ).End )]"
+						
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)509' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)509' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+				}
+				acs_trait_item_left_third = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						datacontext = "[GetTrait( 'one_legged' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)511' ) ).End )]"
+						
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)511' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)511' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+				}
+				acs_trait_item_right_third = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						datacontext = "[GetTrait( 'disfigured' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)513' ) ).End )]"
+						
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)513' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)513' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+				}
+			}
+			flowcontainer = {
+				acs_trait_item_left_third = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						datacontext = "[GetTrait( 'sickly' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)531' ) ).End )]"
+						
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)531' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)531' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+				}
+				acs_trait_item_left_third = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						datacontext = "[GetTrait( 'eunuch_1' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)535' ) ).End )]"
+						
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)535' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)535' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+				}
+				acs_trait_item_right_third = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						datacontext = "[GetTrait( 'beardless_eunuch' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)998' ) ).End )]"
+						
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)998' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)998' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+				}
+			}
+			flowcontainer = { 
+				acs_trait_item_left_third = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						datacontext = "[GetTrait( 'blind' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)537' ) ).End )]"
+						
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)537' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)537' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+				}
+				acs_trait_item_left_third = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						datacontext = "[GetTrait( 'scarred' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)3300' ) ).End )]"
+						
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)3300' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)3300' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+				}
+				acs_trait_item_right_third = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						datacontext = "[GetTrait( 'pregnant' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)580' ) ).End )]"
+						
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)580' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)580' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+				}
+			}
+		}
+	}
 }

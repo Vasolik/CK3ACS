@@ -1,105 +1,109 @@
 ﻿acs_stt_is_slot_default = { # SLOT : scope
-    $SLOT$ = {
-        var:acs_v_filter_relation = 4
-        any_in_list = { variable = acs_vl_filter_trait_education_general always = yes count = 0 }
-        any_in_list = { variable = acs_vl_filter_trait_education_martial always = yes count = 0 }
-        any_in_list = { variable = acs_vl_filter_trait_fame_born_status always = yes count = 0 }
-        any_in_list = { variable = acs_vl_filter_trait_physical_beauty always = yes count = 0 }
-        any_in_list = { variable = acs_vl_filter_trait_physical_intellect always = yes count = 0 }
-        any_in_list = { variable = acs_vl_filter_trait_physical_physique always = yes count = 0 }
-        NOT = { has_variable = acs_v_rf_pagan_selected }
-        NOT = { has_variable = acs_v_rf_eastern_selected }
-        NOT = { has_variable = acs_v_rf_abrahamic_selected }
-        NOT = { has_variable = acs_v_rf_other_selected }
-        any_in_list = { variable = acs_vl_has_faith always = yes count = 0 }
-        any_in_list = { variable = acs_vl_has_religion always = yes count = 0 }
-        any_in_list = { variable = acs_vl_dont_have_faith always = yes count = 0 }
-        any_in_list = { variable = acs_vl_dont_have_religion always = yes count = 0 }
-        OR = {
-            NOT = { has_variable = acs_v_religion_filter_count }
-            var:acs_v_religion_filter_count = 0
-        }
-        any_in_list = { variable = acs_vl_religion_filter  always = yes count = 0 }
-        any_in_list = { variable = acs_vl_filter_inspiration always = yes count = 0 }
-        any_in_list = { variable = acs_vl_filter_active always = yes count = 0 }
-    }
+	$SLOT$ = {
+		var:acs_v_filter_relation = 4
+		any_in_list = { variable = acs_vl_filter_trait_education_general always = yes count = 0 }
+		any_in_list = { variable = acs_vl_filter_trait_education_martial always = yes count = 0 }
+		any_in_list = { variable = acs_vl_filter_trait_fame_born_status always = yes count = 0 }
+		any_in_list = { variable = acs_vl_filter_trait_physical_beauty always = yes count = 0 }
+		any_in_list = { variable = acs_vl_filter_trait_physical_intellect always = yes count = 0 }
+		any_in_list = { variable = acs_vl_filter_trait_physical_physique always = yes count = 0 }
+		NOT = { has_variable = acs_v_rf_pagan_selected }
+		NOT = { has_variable = acs_v_rf_eastern_selected }
+		NOT = { has_variable = acs_v_rf_abrahamic_selected }
+		NOT = { has_variable = acs_v_rf_other_selected }
+		any_in_list = { variable = acs_vl_has_faith always = yes count = 0 }
+		any_in_list = { variable = acs_vl_has_religion always = yes count = 0 }
+		any_in_list = { variable = acs_vl_dont_have_faith always = yes count = 0 }
+		any_in_list = { variable = acs_vl_dont_have_religion always = yes count = 0 }
+		OR = {
+			NOT = { has_variable = acs_v_religion_filter_count }
+			var:acs_v_religion_filter_count = 0
+		}
+		any_in_list = { variable = acs_vl_religion_filter  always = yes count = 0 }
+		any_in_list = { variable = acs_vl_has_mod_trait always = yes count = 0 }
+		any_in_list = { variable = acs_vl_dont_have_mod_trait always = yes count = 0 }
+		any_in_list = { variable = acs_vl_filter_inspiration always = yes count = 0 }
+		any_in_list = { variable = acs_vl_filter_active always = yes count = 0 }
+	}
 }
 acs_stt_equal_slots = { # SLOT1 : scope, SLOT2 : scope
-    $SLOT1$ = {
-        var:acs_v_filter_relation = $SLOT2$.var:acs_v_filter_relation
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_education_general }
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_education_martial }
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_fame_born_status }
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_physical_beauty }
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_physical_intellect }
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_physical_physique }
-        trigger_if = {
-            limit = { NOT = { has_variable = acs_v_rf_pagan_selected } }
-            $SLOT2$ = { NOT = { has_variable = acs_v_rf_pagan_selected } }
-        }
-        trigger_else_if = {
-            limit = { $SLOT2$ = { NOT = { has_variable = acs_v_rf_pagan_selected } } }
-            always = no
-        }
-        trigger_else = {
-            var:acs_v_rf_pagan_selected = $SLOT2$.var:acs_v_rf_pagan_selected
-        }
-        trigger_if = {
-            limit = { NOT = { has_variable = acs_v_rf_eastern_selected } }
-            $SLOT2$ = { NOT = { has_variable = acs_v_rf_eastern_selected } }
-        }
-        trigger_else_if = {
-            limit = { $SLOT2$ = { NOT = { has_variable = acs_v_rf_eastern_selected } } }
-            always = no
-        }
-        trigger_else = {
-            var:acs_v_rf_eastern_selected = $SLOT2$.var:acs_v_rf_eastern_selected
-        }
-        trigger_if = {
-            limit = { NOT = { has_variable = acs_v_rf_abrahamic_selected } }
-            $SLOT2$ = { NOT = { has_variable = acs_v_rf_abrahamic_selected } }
-        }
-        trigger_else_if = {
-            limit = { $SLOT2$ = { NOT = { has_variable = acs_v_rf_abrahamic_selected } } }
-            always = no
-        }
-        trigger_else = {
-            var:acs_v_rf_abrahamic_selected = $SLOT2$.var:acs_v_rf_abrahamic_selected
-        }
-        trigger_if = {
-            limit = { NOT = { has_variable = acs_v_rf_other_selected } }
-            $SLOT2$ = { NOT = { has_variable = acs_v_rf_other_selected } }
-        }
-        trigger_else_if = {
-            limit = { $SLOT2$ = { NOT = { has_variable = acs_v_rf_other_selected } } }
-            always = no
-        }
-        trigger_else = {
-            var:acs_v_rf_other_selected = $SLOT2$.var:acs_v_rf_other_selected
-        }
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_has_faith }
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_has_religion }
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_dont_have_faith }
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_dont_have_religion }
-        trigger_if = {
-            limit = { NOT = { has_variable = acs_v_religion_filter_count } }
-            $SLOT2$ = {
-                trigger_if = {
-                    limit = { has_variable = acs_v_religion_filter_count }
-                    var:acs_v_religion_filter_count = 0
-                }
-                trigger_else = { always = yes }
-            }
-        }
-        trigger_else_if = {
-            limit = { $SLOT2$ = { NOT = { has_variable = acs_v_religion_filter_count } } }
-            var:acs_v_religion_filter_count = 0
-        }
-        trigger_else = {
-            var:acs_v_religion_filter_count = $SLOT2$.var:acs_v_religion_filter_count
-        }
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_religion_filter }
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_inspiration }
-        acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_active }
-    }
+	$SLOT1$ = {
+		var:acs_v_filter_relation = $SLOT2$.var:acs_v_filter_relation
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_education_general }
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_education_martial }
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_fame_born_status }
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_physical_beauty }
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_physical_intellect }
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_trait_physical_physique }
+		trigger_if = {
+			limit = { NOT = { has_variable = acs_v_rf_pagan_selected } }
+			$SLOT2$ = { NOT = { has_variable = acs_v_rf_pagan_selected } }
+		}
+		trigger_else_if = {
+			limit = { $SLOT2$ = { NOT = { has_variable = acs_v_rf_pagan_selected } } }
+			always = no
+		}
+		trigger_else = {
+			var:acs_v_rf_pagan_selected = $SLOT2$.var:acs_v_rf_pagan_selected
+		}
+		trigger_if = {
+			limit = { NOT = { has_variable = acs_v_rf_eastern_selected } }
+			$SLOT2$ = { NOT = { has_variable = acs_v_rf_eastern_selected } }
+		}
+		trigger_else_if = {
+			limit = { $SLOT2$ = { NOT = { has_variable = acs_v_rf_eastern_selected } } }
+			always = no
+		}
+		trigger_else = {
+			var:acs_v_rf_eastern_selected = $SLOT2$.var:acs_v_rf_eastern_selected
+		}
+		trigger_if = {
+			limit = { NOT = { has_variable = acs_v_rf_abrahamic_selected } }
+			$SLOT2$ = { NOT = { has_variable = acs_v_rf_abrahamic_selected } }
+		}
+		trigger_else_if = {
+			limit = { $SLOT2$ = { NOT = { has_variable = acs_v_rf_abrahamic_selected } } }
+			always = no
+		}
+		trigger_else = {
+			var:acs_v_rf_abrahamic_selected = $SLOT2$.var:acs_v_rf_abrahamic_selected
+		}
+		trigger_if = {
+			limit = { NOT = { has_variable = acs_v_rf_other_selected } }
+			$SLOT2$ = { NOT = { has_variable = acs_v_rf_other_selected } }
+		}
+		trigger_else_if = {
+			limit = { $SLOT2$ = { NOT = { has_variable = acs_v_rf_other_selected } } }
+			always = no
+		}
+		trigger_else = {
+			var:acs_v_rf_other_selected = $SLOT2$.var:acs_v_rf_other_selected
+		}
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_has_faith }
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_has_religion }
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_dont_have_faith }
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_dont_have_religion }
+		trigger_if = {
+			limit = { NOT = { has_variable = acs_v_religion_filter_count } }
+			$SLOT2$ = {
+				trigger_if = {
+					limit = { has_variable = acs_v_religion_filter_count }
+					var:acs_v_religion_filter_count = 0
+				}
+				trigger_else = { always = yes }
+			}
+		}
+		trigger_else_if = {
+			limit = { $SLOT2$ = { NOT = { has_variable = acs_v_religion_filter_count } } }
+			var:acs_v_religion_filter_count = 0
+		}
+		trigger_else = {
+			var:acs_v_religion_filter_count = $SLOT2$.var:acs_v_religion_filter_count
+		}
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_religion_filter }
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_has_mod_trait }
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_dont_have_mod_trait }
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_inspiration }
+		acs_stt_are_list_equal = { SLOT1 = $SLOT1$ SLOT2 = $SLOT2$ LIST_NAME = acs_vl_filter_active }
+	}
 }

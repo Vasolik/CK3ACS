@@ -1,29 +1,29 @@
 ﻿acs_sv_curent_slot_used = {
-    value = -1
-    if = {
-        limit = {
-            acs_stt_is_slot_default = { SLOT = global_var:acs_gv_main_filters }
-        }
-        add = -1
-    }
+	value = -1
+	if = {
+		limit = {
+			acs_stt_is_slot_default = { SLOT = global_var:acs_gv_main_filters }
+		}
+		add = -1
+	}
   
-    else_if = {
-        ordered_in_global_list = {
-            variable = acs_gvl_save_slot
-            order_by = acs_sv_reverse_index
-            max = 1
-            limit = { 
-                has_variable = acs_v_is_used
-                save_temporary_scope_as = temp_scope
-                acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = scope:temp_scope }
-            }
-            add = var:acs_v_index
-            add = 1
-        }
-    }
+	else_if = {
+		ordered_in_global_list = {
+			variable = acs_gvl_save_slot
+			order_by = acs_sv_reverse_index
+			max = 1
+			limit = { 
+				has_variable = acs_v_is_used
+				save_temporary_scope_as = temp_scope
+				acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = scope:temp_scope }
+			}
+			add = var:acs_v_index
+			add = 1
+		}
+	}
 }
 
 acs_sv_reverse_index = {
-    value = var:acs_v_index
-    multiply = -1
+	value = var:acs_v_index
+	multiply = -1
 }

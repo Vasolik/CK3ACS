@@ -1,50 +1,50 @@
 ﻿types acs_filters_dropdown_types {
-    
-    
-    type acs_filter_dropdown_other_value = acs_dropdown_other_value {
-        blockoverride "size_dropdown" {
-            size = { 300 33 }
-        }
-    }
-            
+	
+	
+	type acs_filter_dropdown_other_value = acs_dropdown_other_value {
+		blockoverride "size_dropdown" {
+			size = { 300 33 }
+		}
+	}
+			
 }
 
 types acs_filters_items_types {
 
-    type acs_filter_item = widget {
-        block "acs_filter_item_size" { 
-            size = { 560 43 }
-        }
-        allow_outside = yes
-        hbox = {
-            layoutpolicy_horizontal = expanding
-            layoutpolicy_vertical = fixed
-            
-            spacing = 10
-            margin_bottom = 10
-            allow_outside = yes
-    
-            text_single = {
-                layoutpolicy_horizontal = expanding
-                block "filter_name" {  
-                    text = "relation_filter"
-                }
-                default_format = "#medium"
-                autoresize = no
-                align = nobaseline
-            }
-            block "acs_filter_item_expand" { 
-                expand = {}
-            }
-            
-    
-            block "acs_dropdown_replace" { 
-                acs_dropdown = {}
-            }
-            
-        }
+	type acs_filter_item = widget {
+		block "acs_filter_item_size" { 
+			size = { 560 43 }
+		}
+		allow_outside = yes
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = fixed
+			
+			spacing = 10
+			margin_bottom = 10
+			allow_outside = yes
+	
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				block "filter_name" {  
+					text = "relation_filter"
+				}
+				default_format = "#medium"
+				autoresize = no
+				align = nobaseline
+			}
+			block "acs_filter_item_expand" { 
+				expand = {}
+			}
+			
+	
+			block "acs_dropdown_replace" { 
+				acs_dropdown = {}
+			}
+			
+		}
 
-    }
+	}
 }
 
 

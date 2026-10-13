@@ -1,0 +1,847 @@
+﻿# Scripted triggers for leveled traits and trait tracks.
+# Parameter: TRAIT (e.g. logistician, military_engineer, aggressive_attacker)
+# Parameter: TRACK (e.g. venator, falconer)
+# Usage example: is_level_0_of_3 = { TRAIT = logistician }
+# Usage example: is_track_level_0_of_2 = { TRAIT = lifestyle_hunter TRACK = venator}
+
+# 2‑level (0‑49 / 50‑99 / 100)
+is_level_0_of_2 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 49
+	}
+}
+
+is_level_1_of_2 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 49
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 99
+	}
+}
+
+is_level_2_of_2 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value >= 100
+	}
+}
+
+is_not_level_0_of_2 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 49
+	}
+}
+
+is_not_level_1_of_2 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			value <= 49
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			value > 99
+		}
+	}
+}
+
+is_not_level_2_of_2 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value < 100
+	}
+}
+
+# 3‑level (0‑32 / 33‑65 / 66‑99 / 100)
+is_level_0_of_3 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 32
+	}
+}
+
+is_level_1_of_3 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 32
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 65
+	}
+}
+
+is_level_2_of_3 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 65
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 99
+	}
+}
+
+is_level_3_of_3 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value >= 100
+	}
+}
+
+is_not_level_0_of_3 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 32
+	}
+}
+
+is_not_level_1_of_3 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			value <= 32
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			value > 65
+		}
+	}
+}
+
+is_not_level_2_of_3 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			value <= 65
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			value > 99
+		}
+	}
+}
+
+is_not_level_3_of_3 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value < 100
+	}
+}
+
+
+# 4‑level (0‑24 / 25‑49 / 50‑74 / 75‑99 / 100)
+is_level_0_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 24
+	}
+}
+
+is_level_1_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 24
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 49
+	}
+}
+
+is_level_2_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 49
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 74
+	}
+}
+
+is_level_3_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 74
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 99
+	}
+}
+
+is_level_4_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value >= 100
+	}
+}
+
+is_not_level_0_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 24
+	}
+}
+
+is_not_level_1_of_4 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			value <= 24
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			value > 49
+		}
+	}
+}
+
+is_not_level_2_of_4 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			value <= 49
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			value > 74
+		}
+	}
+}
+
+is_not_level_3_of_4 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			value <= 74
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			value > 99
+		}
+	}
+}
+
+is_not_level_4_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value < 100
+	}
+}
+
+# 5‑level (0‑19 / 20‑39 / 40‑59 / 60‑79 / 80‑99 / 100)
+is_level_0_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 19
+	}
+}
+
+is_level_1_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 19
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 39
+	}
+}
+
+is_level_2_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 39
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 59
+	}
+}
+
+is_level_3_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 59
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 79
+	}
+}
+
+is_level_4_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 79
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		value <= 99
+	}
+}
+
+is_level_5_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value >= 100
+	}
+}
+
+is_not_level_0_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value > 19
+	}
+}
+
+is_not_level_1_of_5 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			value <= 19
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			value > 39
+		}
+	}
+}
+
+is_not_level_2_of_5 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			value <= 39
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			value > 59
+		}
+	}
+}
+
+is_not_level_3_of_5 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			value <= 59
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			value > 79
+		}
+	}
+}
+
+is_not_level_4_of_5 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			value <= 79
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			value > 99
+		}
+	}
+}
+
+is_not_level_5_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		value < 100
+	}
+}
+
+# Track level
+# 2‑level (0‑49 / 50‑99 / 100)
+is_track_level_0_of_2 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 49
+	}
+}
+
+is_track_level_1_of_2 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 49
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 99
+	}
+}
+
+is_track_level_2_of_2 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value >= 100
+	}
+}
+
+is_not_track_level_0_of_2 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 49
+	}
+}
+
+is_not_track_level_1_of_2 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value <= 49
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value > 99
+		}
+	}
+}
+
+is_not_track_level_2_of_2 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value < 100
+	}
+}
+
+# 3‑level (0‑32 / 33‑65 / 66‑99 / 100)
+is_track_level_0_of_3 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 32
+	}
+}
+
+is_track_level_1_of_3 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 32
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 65
+	}
+}
+
+is_track_level_2_of_3 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 65
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 99
+	}
+}
+
+is_track_level_3_of_3 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value >= 100
+	}
+}
+
+is_not_track_level_0_of_3 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 32
+	}
+}
+
+is_not_track_level_1_of_3 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value <= 32
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value > 65
+		}
+	}
+}
+
+is_not_track_level_2_of_3 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value <= 65
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value > 99
+		}
+	}
+}
+
+is_not_track_level_3_of_3 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value < 100
+	}
+}
+
+# 4‑level (0‑24 / 25‑49 / 50‑74 / 75‑99 / 100)
+is_track_level_0_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 24
+	}
+}
+
+is_track_level_1_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 24
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 49
+	}
+}
+
+is_track_level_2_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 49
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 74
+	}
+}
+
+is_track_level_3_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 74
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 99
+	}
+}
+
+is_track_level_4_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value >= 100
+	}
+}
+
+is_not_track_level_0_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 24
+	}
+}
+
+is_not_track_level_1_of_4 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value <= 24
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value > 49
+		}
+	}
+}
+
+is_not_track_level_2_of_4 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value <= 49
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value > 74
+		}
+	}
+}
+
+is_not_track_level_3_of_4 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value <= 74
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value > 99
+		}
+	}
+}
+
+is_not_track_level_4_of_4 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value < 100
+	}
+}
+
+# 5‑level (0‑19 / 20‑39 / 40‑59 / 60‑79 / 80‑99 / 100)
+is_track_level_0_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 19
+	}
+}
+
+is_track_level_1_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 19
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 39
+	}
+}
+
+is_track_level_2_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 39
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 59
+	}
+}
+
+is_track_level_3_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 59
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 79
+	}
+}
+
+is_track_level_4_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 79
+	}
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value <= 99
+	}
+}
+
+is_track_level_5_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value >= 100
+	}
+}
+
+is_not_track_level_0_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value > 19
+	}
+}
+
+is_not_track_level_1_of_5 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value <= 19
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value > 39
+		}
+	}
+}
+
+is_not_track_level_2_of_5 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value <= 39
+		}
+			has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value > 59
+		}
+	}
+}
+
+is_not_track_level_3_of_5 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value <= 59
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value > 79
+		}
+	}
+}
+
+is_not_track_level_4_of_5 = {
+	has_trait = $TRAIT$
+	OR = {
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value <= 79
+		}
+		has_trait_xp = {
+			trait = $TRAIT$
+			track = $TRACK$
+			value > 99
+		}
+	}
+}
+
+is_not_track_level_5_of_5 = {
+	has_trait = $TRAIT$
+	has_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value < 100
+	}
+}

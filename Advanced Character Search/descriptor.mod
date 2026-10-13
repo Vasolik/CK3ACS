@@ -1,4 +1,4 @@
-version="11.11"
+version="18.1"
 tags={
 	"Gameplay"
 	"Utilities"
@@ -6,6 +6,6 @@ tags={
 }
 name="Advanced Character Search"
 picture="thumbnail.png"
-supported_version="1.16.*"
-path="J:/Documenten/Paradox Interactive/Crusader Kings III/mod/Advanced_Character_Search"
+supported_version="1.20.*"
+path="C:/Users/Hugues/Documents/Paradox Interactive/Crusader Kings III/mod/Advanced Character Search"
 remote_file_id="3084203091"

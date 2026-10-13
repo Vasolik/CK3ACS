@@ -1,0 +1,79 @@
+﻿# Wraps the generated acs_switch_filter so the "Traits from mods" filter ids (9000, 9001) do not have to live in the generated big switch.
+# Scope: the list value scope of acs_vl_filter_active. FILTER : filter id, CANDIDATE : character scope
+acs_st_switch_filter_ext = {
+	trigger_if = {
+		limit = { $FILTER$ = 9000 }
+		global_var:acs_gv_main_filters = {
+			any_in_list = {
+				variable = acs_vl_has_mod_trait
+				save_temporary_scope_as = acs_ts_mod_trait_check
+				$CANDIDATE$ = { has_trait = scope:acs_ts_mod_trait_check }
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = { $FILTER$ = 9001 }
+		NOT = {
+			global_var:acs_gv_main_filters = {
+				any_in_list = {
+					variable = acs_vl_dont_have_mod_trait
+					save_temporary_scope_as = acs_ts_mod_trait_check
+					$CANDIDATE$ = { has_trait = scope:acs_ts_mod_trait_check }
+				}
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			$FILTER$ >= 2100
+			$FILTER$ <= 2159
+		}
+		acs_st_switch_resources_filter = { FILTER = $FILTER$ CANDIDATE = $CANDIDATE$ }
+	}
+	trigger_else = {
+		acs_switch_filter = { FILTER = $FILTER$ CANDIDATE = $CANDIDATE$ }
+	}
+}
+
+acs_st_switch_resources_filter = {
+	$CANDIDATE$ = {
+		switch = {
+			trigger = $FILTER$
+			2100 = { gold < 0 }
+			2101 = { gold >= 0 }
+			2110 = { treasury < 0 }
+			2111 = { treasury >= 0 }
+			2120 = { piety_level = 0 }
+			2121 = { piety_level = 1 }
+			2122 = { piety_level = 2 }
+			2123 = { piety_level = 3 }
+			2124 = { piety_level = 4 }
+			2125 = { piety_level = 5 }
+			2126 = { piety_level = 6 }
+			2127 = { piety_level = 7 }
+			2128 = { piety_level = 8 }
+			2130 = { prestige_level = 0 }
+			2131 = { prestige_level = 1 }
+			2132 = { prestige_level = 2 }
+			2133 = { prestige_level = 3 }
+			2134 = { prestige_level = 4 }
+			2135 = { prestige_level = 5 }
+			2140 = { influence_level = 0 }
+			2141 = { influence_level = 1 }
+			2142 = { influence_level = 2 }
+			2143 = { influence_level = 3 }
+			2144 = { influence_level = 4 }
+			2145 = { influence_level = 5 }
+			2150 = { merit_level = 0 }
+			2151 = { merit_level = 1 }
+			2152 = { merit_level = 2 }
+			2153 = { merit_level = 3 }
+			2154 = { merit_level = 4 }
+			2155 = { merit_level = 5 }
+			2156 = { merit_level = 6 }
+			2157 = { merit_level = 7 }
+			2158 = { merit_level = 8 }
+			2159 = { merit_level = 9 }
+		}
+	}
+}

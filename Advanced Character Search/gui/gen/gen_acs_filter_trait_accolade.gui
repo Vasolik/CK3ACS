@@ -1,165 +1,27 @@
 ﻿types  acs_filter_trait_accolade_group_types {
-    type acs_filter_trait_accolade_group = acs_vbox_filter_group {
-        name = "acs_filter_trait_accolade"
-        
-        blockoverride "acs_vbox_filter_group_name" {
-            text = "acs_filter_trait_group_accolade"
-        }
-        
-        blockoverride "acs_vbox_filter_group_toggle" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_accolade' )]"
-            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_accolade' ) ), '(int32)1', '(int32)2' )]"
-        }
-        
-        blockoverride "acs_filter_visible" {
-            visible = "[GetVariableSystem.Exists( 'acs_filter_trait_accolade' )]"
-        }
-        
-        blockoverride "acs_filters" {
-            flowcontainer = {
-				acs_trait_item_custom_left = {
-					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-					blockoverride "acs_trait_item_action" {
-						datacontext = "[GetTrait( 'lifestyle_hastiluder_foot' )]"
-						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)765' ) ).End )]"
-					}
-					blockoverride "acs_checkbox_state" {
-						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)765' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)765' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-					}
-					blockoverride "acs_filter_name" {
-						text = "acs_filter_trait_hast_foot20xpplus"
-					}
-					blockoverride "acs_custom_image" {
-						texture = "gfx/interface/icons/traits/tournament_foot.dds"
-					}
-                }
-				acs_trait_item_custom_right = {
-					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-					blockoverride "acs_trait_item_action" {
-						datacontext = "[GetTrait( 'lifestyle_Legendary_Blademaster' )]"
-						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)769' ) ).End )]"
-					}
-					blockoverride "acs_checkbox_state" {
-						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)769' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)769' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-					}
-					blockoverride "acs_filter_name" {  
-						text = "acs_filter_trait_legendBlade"
-					}
-					blockoverride "acs_custom_image" {  
-						texture = "gfx/interface/icons/traits/blademaster_2.dds"
-					}
-				}
-            }
-            flowcontainer = {
-				acs_trait_item_custom_left = {
-					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-					blockoverride "acs_trait_item_action" {
-						datacontext = "[GetTrait( 'lifestyle_hastiluder_horse' )]"
-						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)767' ) ).End )]"
-					}
-					blockoverride "acs_checkbox_state" {
-						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)767' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)767' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-					}
-					blockoverride "acs_filter_name" {
-						text = "acs_filter_trait_hast_horse20xpplus"
-					}
-					blockoverride "acs_custom_image" {
-						texture = "gfx/interface/icons/traits/tournament.dds"
-					}
-				}
-			
-				acs_trait_item_custom_right = {
-					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-					blockoverride "acs_trait_item_action" {
-						datacontext = "[GetTrait( 'lifestyle_Prowess8' )]"
-						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)771' ) ).End )]"	
-					}
-					blockoverride "acs_checkbox_state" {
-						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)771' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)771' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-					}
-					blockoverride "acs_filter_name" {  
-						text = "acs_filter_trait_prowess8"
-					}
-					blockoverride "acs_custom_image" {
-						texture = "gfx/interface/icons/traits/education_martial_prowess_base.dds"
-					}
-				}
-            }
-            flowcontainer = {
-				acs_trait_item_custom_left = {
-					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-					blockoverride "acs_trait_item_action" {
-						datacontext = "[GetTrait( 'intrigue_over15' )]"
-						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)775' ) ).End )]"
-					}
-					blockoverride "acs_checkbox_state" {
-						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)775' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)775' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-					}
-					blockoverride "acs_filter_name" {
-						text = "acs_filter_trait_intrigue_over15"
-					}
-					blockoverride "acs_custom_image" {
-						texture = "gfx/interface/icons/scheme_types/intrigue.dds"
-					}
-				}
-			
-				acs_trait_item_custom_right = {
-					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-					blockoverride "acs_trait_item_action" {
-						datacontext = "[GetTrait( 'lifestyle_Prowess12' )]"
-						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)773' ) ).End )]"	
-					}
-					blockoverride "acs_checkbox_state" {
-						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)773' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)773' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-					}
-					blockoverride "acs_filter_name" {  
-						text = "acs_filter_trait_prowess12"
-					}
-					blockoverride "acs_custom_image" {
-						texture = "gfx/interface/icons/traits/education_martial_prowess_base.dds"
-					}
-				}
-            }
-            flowcontainer = {
-				acs_trait_item_custom_left = {
-					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-					blockoverride "acs_trait_item_action" {
-						datacontext = "[GetTrait( 'learning_over15' )]"
-						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)777' ) ).End )]"
-					}
-					blockoverride "acs_checkbox_state" {
-						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)777' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)777' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-					}
-					blockoverride "acs_filter_name" {
-						text = "acs_filter_trait_learning_over15"
-					}
-					blockoverride "acs_custom_image" {
-						texture = "gfx/interface/icons/scheme_types/learning.dds"
-					}
-				}
-			
-				acs_trait_item_custom_right = {
-					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
-					blockoverride "acs_trait_item_action" {
-						datacontext = "[GetTrait( 'accept_to_court' )]"
-						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)779' ) ).End )]"	
-					}
-					blockoverride "acs_checkbox_state" {
-						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)779' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)779' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
-					}
-					blockoverride "acs_filter_name" {  
-						text = "acs_filter_trait_accept_to_court"
-					}
-					blockoverride "acs_custom_image" {
-						texture = "gfx/interface/icons/character_interactions/guest.dds"
-					}
-				}
-            }
+	type acs_filter_trait_accolade_group = acs_vbox_filter_group {
+		name = "acs_filter_trait_accolade"
+		
+		blockoverride "acs_vbox_filter_group_name" {
+			text = "acs_filter_trait_group_accolade"
+		}
+		
+		blockoverride "acs_vbox_filter_group_toggle" {
+			onclick = "[GetVariableSystem.Toggle( 'acs_filter_trait_accolade' )]"
+			frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_trait_accolade' ) ), '(int32)1', '(int32)2' )]"
+		}
+		
+		blockoverride "acs_filter_visible" {
+			visible = "[GetVariableSystem.Exists( 'acs_filter_trait_accolade' )]"
+		}
+		
+		# Row 1
+		blockoverride "acs_filters" {
 			flowcontainer = {
+				#Left Column - Archer
 				acs_trait_item_custom_left = {
 					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
 					blockoverride "acs_trait_item_action" {
-						datacontext = "[GetTrait( 'accolade_archer' )]"
 						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)781' ) ).End )]"
 					}
 					blockoverride "acs_checkbox_state" {
@@ -169,59 +31,535 @@
 						text = "acs_filter_accolade_archer"
 					}
 					blockoverride "acs_custom_image" {
-						texture = "gfx/interface/icons/court_position_types/archer_captain_camp_officer.dds"
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_ranged_fighter_red.dds"
 					}
-				}
-			
+				}	
+				#Right Column - Fanatic
 				acs_trait_item_custom_right = {
 					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
 					blockoverride "acs_trait_item_action" {
-						datacontext = "[GetTrait( 'accolade_valiant' )]"
 						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)783' ) ).End )]"	
 					}
 					blockoverride "acs_checkbox_state" {
 						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)783' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)783' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
 					}
 					blockoverride "acs_filter_name" {  
-						text = "acs_filter_accolade_valiant"
+						text = "acs_filter_accolade_fanatic"
 					}
 					blockoverride "acs_custom_image" {
-						texture = "gfx/interface/icons/knight_badge/icons/knight_hammer.dds"
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_ethical_blue.dds"
 					}
 				}
-            }
-            flowcontainer = {
+			}
+			# Row 2
+			flowcontainer = {
+				#Left Column - Besieger
 				acs_trait_item_custom_left = {
 					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
 					blockoverride "acs_trait_item_action" {
-						datacontext = "[GetTrait( 'accolade_blademaster' )]"
-						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)767' ) ).End )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)785' ) ).End )]"
 					}
 					blockoverride "acs_checkbox_state" {
-						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)767' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)767' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)785' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)785' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_besieger"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_defensive_red.dds"
+					}
+				}
+				#Right Column - Hunstmaster
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)787' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)787' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)787' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_huntsmaster"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_ranged_fighter_green.dds"
+					}
+				}
+			}
+			# Row 3
+			flowcontainer = {
+				#Left Column - Camelier
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)789' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)789' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)789' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_camelier"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_champion_green.dds"
+					}
+				}
+				#Right Column - House Knight
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)791' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)791' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)791' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_house_knight"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_champion_blue.dds"
+					}
+				}
+			}
+			# Row 4
+			flowcontainer = {
+				#Left Column - Crossbowmen
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)793' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)793' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)793' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_crossbowmen"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_militant_green.dds"
+					}
+				}
+				#Right Column - Idealist
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)795' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)795' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)795' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_idealist"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_leadership_green.dds"
+					}
+				}
+			}
+			# Row 5
+			flowcontainer = {
+				#Left Column - Elephant Rider
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)797' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)797' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)797' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_elephant_rider"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_aggressive_green.dds"
+					}
+				}
+				#Right Column - Marauder
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)799' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)799' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)799' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_marauder"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_aggressive_red.dds"
+					}
+				}
+			}
+			# Row 6
+			flowcontainer = {
+				#Left Column - Horse Archer
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)801' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)801' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)801' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_horse_archer"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_ranged_fighter_blue.dds"
+					}
+				}
+				#Right Column - Manipulator
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)803' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)803' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)803' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_manipulator"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_amoral_purple.dds"
+					}
+				}
+			}
+			# Row 7
+			flowcontainer = {
+				#Left Column - Lancer
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)805' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)805' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)805' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_lancer"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_equestrian_blue.dds"
+					}
+				}
+				#Right Column - Master of Revels
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)807' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)807' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)807' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_master_of_revels"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_courtly_red.dds"
+					}
+				}
+			}
+			# Row 8
+			flowcontainer = {
+				#Left Column - Outrider
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)809' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)809' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)809' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_outrider"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_equestrian_red.dds"
+					}
+				}
+				#Right Column - Mentor
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)811' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)811' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)811' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_mentor"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_leadership_blue.dds"
+					}
+				}
+			}
+			# Row 9
+			flowcontainer = {
+				#Left Column - Pike Captain
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)813' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)813' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)813' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_pike_captain"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_champion_red.dds"
+					}
+				}
+				#Right Column - Politicker
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)815' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)815' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)815' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_politicker"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_courtly_blue.dds"
+					}
+				}
+			}
+			# Row 10
+			flowcontainer = {
+				#Left Column - Skirmisher
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)817' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)817' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)817' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_skirmisher"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_subtle_red.dds"
+					}
+				}
+				#Right Column - Reeve
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)819' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)819' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)819' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_reeve"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_subtle_green.dds"
+					}
+				}
+			}
+			# Row 11
+			flowcontainer = {
+				#Left Column - Vanguard
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)821' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)821' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)821' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_vanguard"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_forceful_green.dds"
+					}
+				}
+				#Right Column - Scoundrel
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)823' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)823' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)823' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_scoundrel"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_amoral_red.dds"
+					}
+				}
+			}
+			# Row 12
+			flowcontainer = {
+				#Left Column - Blademaster
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)825' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)825' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)825' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
 					}
 					blockoverride "acs_filter_name" {
 						text = "acs_filter_accolade_blademaster"
 					}
 					blockoverride "acs_custom_image" {
-						texture = "gfx/interface/icons/knight_badge/icons/knight_sword.dds"
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_ethical_green.dds"
 					}
 				}
-			
+				#Right Column - Stalwart
 				acs_trait_item_custom_right = {
 					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
 					blockoverride "acs_trait_item_action" {
-						datacontext = "[GetTrait( 'accolade_contender' )]"
-						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)785' ) ).End )]"	
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)827' ) ).End )]"	
 					}
 					blockoverride "acs_checkbox_state" {
-						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)785' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)785' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)827' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)827' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
 					}
 					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_stalwart"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_defensive_blue.dds"
+					}
+				}
+			}
+			# Row 13
+			flowcontainer = {
+				#Left Column - Charmer
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)829' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)829' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)829' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_charmer"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_courtly_purple.dds"
+					}
+				}
+				#Right Column - Tactician
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)831' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)831' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)831' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_tactician"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_militant_blue.dds"
+					}
+				}
+			}
+			# Row 14
+			flowcontainer = {
+				#Left Column - Contender
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)833' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)833' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)833' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
 						text = "acs_filter_accolade_contender"
 					}
 					blockoverride "acs_custom_image" {
-						texture = "gfx/interface/icons/knight_badge/icons/knight_palmette.dds"
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_aggressive_purple.dds"
 					}
 				}
-            }
+				#Right Column - Thug
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)835' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)835' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)835' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_thug"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_forceful_red.dds"
+					}
+				}
+			}
+			# Row 15
+			flowcontainer = {
+				#Left Column - Disciplinarian
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)837' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)837' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)837' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_disciplinarian"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_ethical_red.dds"
+					}
+				}
+				#Right Column - Valiant
+				acs_trait_item_custom_right = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)839' ) ).End )]"	
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)839' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)839' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {  
+						text = "acs_filter_accolade_valiant"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_forceful_blue.dds"
+					}
+				}
+			}
+			# Row 16
+			flowcontainer = {
+				#Left Column - Gunner
+				acs_trait_item_custom_left = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_checkbox' )]"
+					blockoverride "acs_trait_item_action" {
+						onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)841' ) ).End )]"
+					}
+					blockoverride "acs_checkbox_state" {
+						frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)841' ) ).End ) , '(int32)2' ,  Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)841' ) ).End ) , '(int32)3' , '(int32)1' ) )]"
+					}
+					blockoverride "acs_filter_name" {
+						text = "acs_filter_accolade_gunner"
+					}
+					blockoverride "acs_custom_image" {
+						texture = "gfx/interface/icons/knight_badge/icons/accolade_trait_militant_red.dds"
+					}
+				}
+			}
+		}
+	}
+}

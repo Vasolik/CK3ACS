@@ -1,0 +1,52 @@
+﻿types acs_filter_mod_traits_types {
+
+	type acs_w_filter_mod_traits = acs_vbox_filter_group {
+		visible = "[DataModelHasItems( GetGlobalList( 'acs_gvl_mod_traits' ) )]"
+
+		blockoverride "acs_vbox_filter_group_name" {
+			text = "acs_filter_mod_traits"
+		}
+
+		blockoverride "acs_vbox_filter_group_toggle" {
+			onclick = "[GetVariableSystem.Toggle( 'acs_filter_mod_traits' )]"
+			frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_mod_traits' ) ), '(int32)1', '(int32)2' )]"
+		}
+
+		blockoverride "acs_filter_visible" {
+			visible = "[GetVariableSystem.Exists( 'acs_filter_mod_traits' )]"
+		}
+
+		blockoverride "acs_filters" {
+			flowcontainer = {
+				fixedgridbox = {
+					datamodel = "[GetGlobalList( 'acs_gvl_mod_traits' )]"
+					flipdirection = yes
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = growing
+					addcolumn = 275
+					addrow = 30
+					min_width = 550
+					datamodel_wrap = 2
+					item = {
+						acs_w_filter_mod_trait = {}
+					}
+				}
+			}
+		}
+	}
+
+	type acs_w_filter_mod_trait = widget {
+		size = { 275 30 }
+
+		acs_trait_item_left = {
+			datacontext = "[GetScriptedGui( 'acs_sg_mod_trait' )]"
+			blockoverride "acs_trait_item_action" {
+				datacontext = "[Scope.Trait]"
+				onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'acs_ts_mod_trait', Scope.Trait.MakeScope ).AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
+			}
+			blockoverride "acs_checkbox_state" {
+				frame = "[Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'acs_ts_mod_trait', Scope.Trait.MakeScope ).AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)1' ) ).End ), '(int32)2', Select_int32( ScriptedGui.IsShown( GuiScope.AddScope( 'acs_ts_mod_trait', Scope.Trait.MakeScope ).AddScope( 'ctrl_value', MakeScopeValue( '(CFixedPoint)2' ) ).End ), '(int32)3', '(int32)1' ) )]"
+			}
+		}
+	}
+}

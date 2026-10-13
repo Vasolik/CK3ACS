@@ -1,0 +1,33 @@
+﻿# "Traits from mods" filter.
+# State is stored in two lists of trait scopes on global_var:acs_gv_main_filters
+# (acs_vl_has_mod_trait / acs_vl_dont_have_mod_trait), so save slots, undo and reset copy it like any other filter list.
+# Filter ids pushed into acs_vl_filter_active (see acs_st_switch_filter_ext):
+#   9000 = has at least one trait of acs_vl_has_mod_trait
+#   9001 = has none of the traits of acs_vl_dont_have_mod_trait
+
+# Scope: none. Rebuilds the list of non-vanilla traits shown in the GUI.
+acs_se_create_mod_trait_list = {
+	clear_global_variable_list = acs_gvl_mod_traits
+	every_trait = {
+		limit = {
+			NOT = { acs_st_is_vanilla_trait = yes }
+		}
+		add_to_global_variable_list = { name = acs_gvl_mod_traits target = this }
+	}
+}
+
+# Scope: any. Syncs the filter ids in acs_vl_filter_active with the two mod trait lists.
+acs_se_update_mod_trait_filter = {
+	global_var:acs_gv_main_filters = {
+		remove_list_variable = { name = acs_vl_filter_active target = 9000 }
+		remove_list_variable = { name = acs_vl_filter_active target = 9001 }
+		if = {
+			limit = { any_in_list = { variable = acs_vl_has_mod_trait always = yes count > 0 } }
+			add_to_variable_list = { name = acs_vl_filter_active target = 9000 }
+		}
+		if = {
+			limit = { any_in_list = { variable = acs_vl_dont_have_mod_trait always = yes count > 0 } }
+			add_to_variable_list = { name = acs_vl_filter_active target = 9001 }
+		}
+	}
+}

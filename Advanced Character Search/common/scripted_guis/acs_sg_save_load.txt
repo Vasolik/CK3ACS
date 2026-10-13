@@ -1,44 +1,47 @@
 ﻿acs_sg_load = {
-    effect = {
-        save_scope_as = to_load
-        if = {
-            limit = {  
-                has_variable = acs_v_is_used
-                NOT = { 
-                    acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = scope:to_load }
-                } 
-            }
-            acs_se_save_undo = yes
-
-            acs_set_copy_save_slots = { FROM = scope:to_load TO = global_var:acs_gv_main_filters }
-            acs_set_copy_from_save_slot_to_all_rf = yes
-            acs_se_auto_apply_sorting_and_filters = yes
-        } 
-    }
+	effect = {
+		save_scope_as = to_load
+		if = {
+			limit = {  
+				has_variable = acs_v_is_used
+				NOT = { 
+					acs_stt_equal_slots = { SLOT1 = global_var:acs_gv_main_filters SLOT2 = scope:to_load }
+				} 
+			}
+			acs_se_save_undo = yes
+			acs_set_copy_save_slots = { FROM = scope:to_load TO = global_var:acs_gv_main_filters }
+			acs_set_copy_from_save_slot_to_all_rf = yes
+			acs_se_auto_apply_sorting_and_filters = yes
+		} 
+	}
 }
 
 acs_sg_save = {
-    effect = {
-        save_scope_as = to_save
-        if = {
-            limit = {
-                NOT = { acs_stt_is_slot_default = {  SLOT = global_var:acs_gv_main_filters } }
-            }
-            acs_set_copy_save_slots = { FROM = global_var:acs_gv_main_filters TO = scope:to_save }
-            set_variable = acs_v_is_used
-            acs_se_set_current_slot = yes
-        }
-        else = {
-            remove_variable = acs_v_is_used
-        }
-    }
+	scope = character
+
+	effect = {
+		acs_se_open_save_name_popup = yes
+	}
 }
+
+acs_sg_delete = {
+	scope = character
+
+	saved_scopes = {
+		slot
+	}
+
+	effect = {
+		acs_se_delete_save_slot = { SLOT = scope:slot }
+	}
+}
+
 acs_select_count = {
-    saved_scopes = {
-        ctrl_value  
-    }
-    effect = {
-        set_global_variable = {  name = acs_select_count value = scope:ctrl_value }
-        acs_se_auto_apply_sorting_and_filters = yes
-    }
+	saved_scopes = {
+		ctrl_value  
+	}
+	effect = {
+		set_global_variable = {  name = acs_select_count value = scope:ctrl_value }
+		acs_se_auto_apply_sorting_and_filters = yes
+	}
 }

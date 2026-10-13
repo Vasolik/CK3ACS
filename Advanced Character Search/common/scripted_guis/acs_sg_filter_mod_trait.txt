@@ -1,0 +1,47 @@
+﻿# ctrl_value 1 : is the trait selected ("has"), ctrl_value 2 : is the trait crossed out ("doesn't have")
+acs_sg_mod_trait = {
+	saved_scopes = {
+		ctrl_value
+		acs_ts_mod_trait
+	}
+
+	is_shown = {
+		global_var:acs_gv_main_filters = {
+			trigger_if = {
+				limit = { scope:ctrl_value = 1 }
+				any_in_list = { variable = acs_vl_has_mod_trait this = scope:acs_ts_mod_trait }
+			}
+			trigger_else = {
+				any_in_list = { variable = acs_vl_dont_have_mod_trait this = scope:acs_ts_mod_trait }
+			}
+		}
+	}
+
+	# Cycles through: unchecked -> has -> doesn't have -> unchecked
+	effect = {
+		acs_se_save_undo = yes
+		global_var:acs_gv_main_filters = {
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { variable = acs_vl_has_mod_trait this = scope:acs_ts_mod_trait }
+						any_in_list = { variable = acs_vl_dont_have_mod_trait this = scope:acs_ts_mod_trait }
+					}
+				}
+				add_to_variable_list = { name = acs_vl_has_mod_trait target = scope:acs_ts_mod_trait }
+			}
+			else_if = {
+				limit = {
+					any_in_list = { variable = acs_vl_has_mod_trait this = scope:acs_ts_mod_trait }
+				}
+				remove_list_variable = { name = acs_vl_has_mod_trait target = scope:acs_ts_mod_trait }
+				add_to_variable_list = { name = acs_vl_dont_have_mod_trait target = scope:acs_ts_mod_trait }
+			}
+			else = {
+				remove_list_variable = { name = acs_vl_dont_have_mod_trait target = scope:acs_ts_mod_trait }
+			}
+		}
+		acs_se_update_mod_trait_filter = yes
+		acs_se_auto_apply_sorting_and_filters = yes
+	}
+}

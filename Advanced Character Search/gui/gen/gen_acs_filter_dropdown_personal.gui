@@ -1,445 +1,2033 @@
 ﻿types  acs_filter_dropdown_personal_group_types {
-    type acs_filter_dropdown_personal_group = acs_vbox_filter_group {
-        name = "acs_filter_dropdown_personal"
-        
-        blockoverride "acs_vbox_filter_group_name" {
-            text = "acs_game_concept_personal"
-        }
-        
-        blockoverride "acs_vbox_filter_group_toggle" {
-            onclick = "[GetVariableSystem.Toggle( 'acs_filter_dropdown_personal' )]"
-            frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_dropdown_personal' ) ), '(int32)1', '(int32)2' )]"
-        }
-        
-        blockoverride "acs_filter_visible" {
-            visible = "[GetVariableSystem.Exists( 'acs_filter_dropdown_personal' )]"
-        }
-        
-        blockoverride "acs_filters" {
-            acs_filter_item = {
-                datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
-                blockoverride "filter_name" {  
-                    text = "adult_filter"
-                }
-                blockoverride "acs_dropdown_selected_values" {
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "child_filter_option"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "adult_filter_option"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_younger_adult"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_older_adult"
-                        }
-                    }
-                }
-                blockoverride "acs_dropdown_other_values" {
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "child_filter_option"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "adult_filter_option"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_younger_adult"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_older_adult"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                }
-            }
-            acs_filter_item = {
-                datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
-                blockoverride "filter_name" {  
-                    text = "gender_filter"
-                }
-                blockoverride "acs_dropdown_selected_values" {
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)727' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)727' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "female_gender_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)727' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "male_gender_filter"
-                        }
-                    }
-                }
-                blockoverride "acs_dropdown_other_values" {
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)727' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "female_gender_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)727' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "male_gender_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)727' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                    }
-                }
-            }
-            acs_filter_item = {
-                datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
-                blockoverride "filter_name" {  
-                    text = "married_filter"
-                }
-                blockoverride "acs_dropdown_selected_values" {
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)730' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)730' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "is_married_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)730' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "not_married_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)730' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_is_betrothed_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)730' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_not_betrothed_filter"
-                        }
-                    }
-                }
-                blockoverride "acs_dropdown_other_values" {
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)730' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "is_married_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)730' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "not_married_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)730' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_is_betrothed_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)730' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_not_betrothed_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)730' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                }
-            }
-            acs_filter_item = {
-                datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
-                blockoverride "filter_name" {  
-                    text = "imprisoned_filter"
-                }
-                blockoverride "acs_dropdown_selected_values" {
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)735' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)735' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "is_imprisoned_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)735' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "not_imprisoned_filter"
-                        }
-                    }
-                }
-                blockoverride "acs_dropdown_other_values" {
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)735' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "is_imprisoned_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)735' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "not_imprisoned_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)735' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                    }
-                }
-            }
-            acs_filter_item = {
-                datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
-                blockoverride "filter_name" {  
-                    text = "hook_filter"
-                }
-                blockoverride "acs_dropdown_selected_values" {
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "has_hook_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "no_hook_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_know_secret_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_no_hook_no_secret_filter"
-                        }
-                    }
-                }
-                blockoverride "acs_dropdown_other_values" {
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "has_hook_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "no_hook_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_know_secret_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_no_hook_no_secret_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                }
-            }
-            acs_filter_item = {
-                datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
-                blockoverride "filter_name" {  
-                    text = "acs_filter_sexuality"
-                }
-                blockoverride "acs_dropdown_selected_values" {
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)743' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)743' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_heterosexual"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)743' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_homosexual"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)743' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_bisexual"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)743' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_asexual"
-                        }
-                    }
-                }
-                blockoverride "acs_dropdown_other_values" {
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)743' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_heterosexual"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)743' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_homosexual"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)743' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_bisexual"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)743' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_asexual"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)743' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                }
-            }
-        }
-    }
+	type acs_filter_dropdown_personal_group = acs_vbox_filter_group {
+		name = "acs_filter_dropdown_personal"
+		
+		blockoverride "acs_vbox_filter_group_name" {
+			text = "acs_game_concept_personal"
+		}
+		
+		blockoverride "acs_vbox_filter_group_toggle" {
+			onclick = "[GetVariableSystem.Toggle( 'acs_filter_dropdown_personal' )]"
+			frame = "[Select_int32( Not( GetVariableSystem.Exists( 'acs_filter_dropdown_personal' ) ), '(int32)1', '(int32)2' )]"
+		}
+		
+		blockoverride "acs_filter_visible" {
+			visible = "[GetVariableSystem.Exists( 'acs_filter_dropdown_personal' )]"
+		}
+		
+		blockoverride "acs_filters" {
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" {  
+					text = "adult_filter"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "child_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "adult_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_younger_adult"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_older_adult"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_infertile_adult"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "child_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "adult_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_younger_adult"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_older_adult"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_infertile_adult"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)722' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" {  
+					text = "gender_filter"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)728' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)728' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "female_gender_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)728' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "male_gender_filter"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)728' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "female_gender_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)728' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "male_gender_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)728' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" {
+					text = "acs_knights_filter"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)744' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_knights_all_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)744' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_my_knights_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)744' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_my_knights_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)744' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_other_knights_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)744' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_a_knight_filter"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_knights_all_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)744' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_my_knights_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)744' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_my_knights_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)744' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_other_knights_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)744' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_a_knight_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)744' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" {  
+					text = "married_filter"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "is_married_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_married_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_is_betrothed_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_betrothed_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_matri_married_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_matri_married_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_patri_married_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_patri_married_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_matri_betrothed_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_matri_betrothed_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_patri_betrothed_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_patri_betrothed_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_concubine_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_concubine_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)15' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_bonded_filter"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "is_married_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_married_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_is_betrothed_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_betrothed_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_matri_married_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_matri_married_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_patri_married_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_patri_married_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_matri_betrothed_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_matri_betrothed_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_patri_betrothed_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_patri_betrothed_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_concubine_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_concubine_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_bonded_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)15' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1200' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" {  
+					text = "imprisoned_filter"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)735' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)735' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "is_imprisoned_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)735' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "not_imprisoned_filter"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)735' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "is_imprisoned_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)735' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "not_imprisoned_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)735' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" {  
+					text = "hook_filter"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "has_hook_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "no_hook_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_know_secret_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_no_hook_no_secret_filter"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "has_hook_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "no_hook_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_know_secret_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_no_hook_no_secret_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)738' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" {  
+					text = "acs_filter_sexuality"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_heterosexual"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_homosexual"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_bisexual"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_asexual"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_like_men"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_dislike_men"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_like_women"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_dislike_women"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_heterosexual"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_homosexual"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_bisexual"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_asexual"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_like_men"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_dislike_men"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_like_women"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_dislike_women"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1190' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" {  
+					text = "acs_filter_parents"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_parents_alive"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_1pparents_alive"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_1parents_alive"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_mother_alive"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_father_alive"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_parents_dead"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_nm"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_father_alive_nm"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_father_dead_nm"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_nf"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_mother_alive_nf"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_mother_dead_nf"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_both_parents"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_only_one_parents"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)15' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_any_parents"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)16' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_parents"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_parents_alive"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_1pparents_alive"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_1parents_alive"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_mother_alive"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_father_alive"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_parents_dead"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_nm"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_father_alive_nm"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_father_dead_nm"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_nf"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_mother_alive_nf"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_mother_dead_nf"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_both_parents"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_only_one_parents"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_any_parents"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)15' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_parents"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)16' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)705' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)16' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" {  
+					text = "acs_filter_relationship"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_relationship"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_nemesis"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_rival"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_soulmate"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_lover"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_best_friend"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_friend"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_guardian"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_mentor"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_ward"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_student"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_blood_brother"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_crush"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_bully"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)15' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_victim"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_relationship"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_nemesis"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_rival"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_soulmate"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_lover"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_best_friend"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_friend"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_guardian"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_mentor"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_ward"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_student"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_blood_brother"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_crush"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_bully"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_has_victim"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)15' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)300' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" {  
+					text = "acs_filter_not_relationship"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_relationship"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_nemesis"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_rival"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_soulmate"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_lover"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_best_friend"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_friend"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_guardian"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_mentor"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_ward"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_student"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_blood_brother"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_crush"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_bully"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)15' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_victim"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_relationship"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_nemesis"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_rival"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_soulmate"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_lover"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_best_friend"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_friend"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_guardian"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_mentor"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_ward"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_student"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_blood_brother"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_crush"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_bully"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_filter_no_victim"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)15' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)320' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" { 
+					text = "acs_fertility_filter"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1359' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1359' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_fertility_yes"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1359' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_fertility_no"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1359' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_fertility_yes"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1359' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_fertility_no"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1359' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" { 
+					text = "acs_criminal_filter"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1367' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1367' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_criminal_for_me"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1367' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_criminal_for_liege"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1367' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_criminal_for_me"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1367' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_criminal_for_liege"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1367' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_criminal_for_me"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1367' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_criminal_for_liege"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1367' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_criminal_for_me"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1367' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_criminal_for_liege"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1367' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" { 
+					text = "acs_my_relationships_filter"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)11' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_friend"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_lover"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_rival"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_soulmate"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_nemesis"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_bully"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_victim"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_mentor"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_ward"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_none"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_friend"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_lover"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_rival"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_soulmate"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_nemesis"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_bully"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_victim"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_mentor"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_ward"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_relationship_none"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1373' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+					}
+				}
+			}
+				acs_filter_item = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+					blockoverride "filter_name" { 
+						text = "acs_consort_of_filter"
+					}
+					blockoverride "acs_dropdown_selected_values" {
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "any_filter_option"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_hegemon"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_emperor_empress"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_king_queen"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_duke_duchess"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_count_countess"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_baron_baroness"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_any_leader"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_not_leader"
+							}
+						}
+					}
+					blockoverride "acs_dropdown_other_values" {
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "any_filter_option"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_hegemon"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_emperor_empress"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_king_queen"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_duke_duchess"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_count_countess"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_baron_baroness"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_any_leader"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_consort_of_not_leader"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1385' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+					}
+				}
+				acs_filter_item = {
+					datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+					blockoverride "filter_name" { 
+						text = "acs_child_of_filter"
+					}
+					blockoverride "acs_dropdown_selected_values" {
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "any_filter_option"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_hegemon"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_emperor_empress"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_king_queen"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_duke_duchess"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_count_countess"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_baron_baroness"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_any_leader"
+							}
+						}
+						acs_dropdown_selected_value = {
+							blockoverride "visibility" {
+								visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_not_leader"
+							}
+						}
+					}
+					blockoverride "acs_dropdown_other_values" {
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "any_filter_option"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_hegemon"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_emperor_empress"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_king_queen"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_duke_duchess"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_count_countess"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_baron_baroness"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_any_leader"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+						acs_filter_dropdown_other_value = {
+							blockoverride "text_button_drop" {
+								text = "acs_child_of_not_leader"
+								onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)1415' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+							}
+						}
+					}
+				}
+		}
+	}
 }

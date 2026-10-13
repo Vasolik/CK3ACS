@@ -1,280 +1,360 @@
 ﻿types  acs_filter_main_group_types {
-    type acs_filter_main_group = acs_vbox_filter_group_no_header {
-        name = "acs_filter_main"
-        
-        blockoverride "acs_filters" {
-            acs_filter_item = {
-                datacontext = "[GetScriptedGui( 'acs_sg_filter_relation' )]"
-                blockoverride "filter_name" {  
-                    text = "relation_filter"
-                }
-                blockoverride "acs_dropdown_selected_values" {
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_close_realm_and_this"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_and_this_aw"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_and_this"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "top_realm_relation_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "realm_relation_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "vassal_relation_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "court_relation_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_close_realm"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_aw"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_independent_c"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_close_realm_c"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_awc"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_c"
-                        }
-                    }
-                }
-                blockoverride "acs_dropdown_other_values" {
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_close_realm_and_this"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_and_this_aw"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_and_this"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "top_realm_relation_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "realm_relation_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "vassal_relation_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "court_relation_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_close_realm"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_aw"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_independent_c"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_close_realm_c"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_awc"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "acs_any_neighboring_realm_c"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).End )]"
-                        }
-                    }
-                }
-            }
-            acs_filter_item = {
-                datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
-                blockoverride "filter_name" {  
-                    text = "rule_diplomatic_range"
-                }
-                blockoverride "acs_dropdown_selected_values" {
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "in_range_filter"
-                        }
-                    }
-                    acs_dropdown_selected_value = {
-                        blockoverride "visibility" {
-                            visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                        blockoverride "text_button_drop" {
-                            text = "not_in_range_filter"
-                        }
-                    }
-                }
-                blockoverride "acs_dropdown_other_values" {
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "any_filter_option"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "in_range_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                    }
-                    acs_filter_dropdown_other_value = {
-                        blockoverride "text_button_drop" {
-                            text = "not_in_range_filter"
-                            onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
-                        }
-                    }
-                }
-            }
-        }
-    }
+	type acs_filter_main_group = acs_vbox_filter_group_no_header {
+		name = "acs_filter_main"
+		
+		blockoverride "acs_filters" {
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_sg_filter_relation' )]"
+				blockoverride "filter_name" {  
+					text = "relation_filter"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_any_close_realm_and_this"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_any_neighboring_realm_and_this_aw"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_any_neighboring_realm_and_this"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "top_realm_relation_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "realm_relation_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "vassal_relation_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "court_relation_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_any_close_realm"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_any_neighboring_realm_aw"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_any_neighboring_realm"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_any_independent_c"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_any_close_realm_c"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_any_neighboring_realm_awc"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_any_neighboring_realm_c"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_not_in_my_court"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_any_close_realm_and_this"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_any_neighboring_realm_and_this_aw"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_any_neighboring_realm_and_this"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "top_realm_relation_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)4' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "realm_relation_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)5' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "vassal_relation_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)6' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "court_relation_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)7' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_any_close_realm"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)8' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_any_neighboring_realm_aw"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)9' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_any_neighboring_realm"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)10' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_any_independent_c"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)11' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_any_close_realm_c"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)12' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_any_neighboring_realm_awc"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)13' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_any_neighboring_realm_c"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)14' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_not_in_my_court"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)15' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" {  
+					text = "rule_diplomatic_range"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "in_range_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "not_in_range_filter"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "in_range_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "not_in_range_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)634' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)2' ) ).End )]"
+						}
+					}
+				}
+			}
+			acs_filter_item = {
+				datacontext = "[GetScriptedGui( 'acs_filter_simple_dropdown' )]"
+				blockoverride "filter_name" {  
+					text = "acs_join_court_filter"
+				}
+				blockoverride "acs_dropdown_selected_values" {
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)910' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)910' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_would_join_court_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)910' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_would_join_court_gold_filter"
+						}
+					}
+					acs_dropdown_selected_value = {
+						blockoverride "visibility" {
+							visible = "[ScriptedGui.IsShown( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)910' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
+						}
+						blockoverride "text_button_drop" {
+							text = "acs_would_not_join_court_filter"
+						}
+					}
+				}
+				blockoverride "acs_dropdown_other_values" {
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "any_filter_option"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)0' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)910' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_would_join_court_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)1' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)910' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_would_join_court_gold_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)2' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)910' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
+						}
+					}
+					acs_filter_dropdown_other_value = {
+						blockoverride "text_button_drop" {
+							text = "acs_would_not_join_court_filter"
+							onclick = "[ScriptedGui.Execute( GuiScope.AddScope( 'ctrl_value',  MakeScopeValue( '(CFixedPoint)3' ) ).AddScope( 'position' , MakeScopeValue( '(CFixedPoint)910' ) ).AddScope( 'total_element_count' , MakeScopeValue( '(CFixedPoint)3' ) ).End )]"
+						}
+					}
+				}
+			}
+		}
+	}
 }

@@ -1,28 +1,68 @@
 ﻿acs_sort = {
-    scope = character
+	scope = character
 
-    saved_scopes = {
-        ctrl_value  
-    }
-    effect = {
-        if = {
-            limit = { global_var:acs_sort_by = scope:ctrl_value }
-            acs_change_sort_order = yes
-        }
-        else = {
-            set_global_variable = {  name = acs_sort_by value = scope:ctrl_value }
-            remove_global_variable = acs_sort_by_ascending
-        }
-        acs_se_auto_apply_sorting_and_filters = yes
-    }
+	saved_scopes = {
+		ctrl_value  
+	}
+	effect = {
+		if = {
+			limit = { global_var:acs_sort_by = scope:ctrl_value }
+			acs_change_sort_order = yes
+		}
+		else = {
+			set_global_variable = {  name = acs_sort_by value = scope:ctrl_value }
+			remove_global_variable = acs_sort_by_ascending
+		}
+		acs_se_auto_apply_sorting_and_filters = yes
+	}
 }
 
 
 acs_change_sort_order = {
-    scope = character
+	scope = character
  
-    effect = {
-        acs_change_sort_order = yes
-        acs_se_auto_apply_sorting_and_filters = yes
-    }
+	effect = {
+		acs_change_sort_order = yes
+		acs_se_auto_apply_sorting_and_filters = yes
+	}
+}
+
+
+acs_sort_2 = {
+	scope = character
+
+	saved_scopes = {
+		ctrl_value
+	}
+	effect = {
+		if = {
+			limit = {
+				global_var:acs_sort_by_2 = scope:ctrl_value
+			}
+			acs_change_sort_order_2 = yes
+		}
+		else = {
+			set_global_variable = { name = acs_sort_by_2 value = scope:ctrl_value }
+			remove_global_variable = acs_sort_by_2_ascending
+		}
+		acs_se_auto_apply_sorting_and_filters = yes
+	}
+}
+
+acs_clear_sort_2 = {
+	scope = character
+
+	effect = {
+		acs_clear_sort_2 = yes
+		acs_se_auto_apply_sorting_and_filters = yes
+	}
+}
+
+acs_change_sort_order_2 = {
+	scope = character
+
+	effect = {
+		acs_change_sort_order_2 = yes
+		acs_se_auto_apply_sorting_and_filters = yes
+	}
 }
